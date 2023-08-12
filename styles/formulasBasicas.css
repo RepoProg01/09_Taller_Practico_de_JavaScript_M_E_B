@@ -1,0 +1,127 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* ################# nav ################# */
+.nav {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content:space-between;
+    width: 100%;
+    height: 60px;
+    background-color: rgb(255, 255, 0);
+    border-bottom: 1px solid rgb(0, 38, 255);
+    margin-bottom: 20px;
+}
+.nav h1 {
+    margin-left: 10px;
+}
+.btnMenu {
+    display: flex;
+    gap: 5px;
+    padding-right: 20px;
+    cursor: pointer;
+}
+.btnMenu p{
+    font-size: 18px;
+    font-weight: 700;
+    border: 1px solid rgb(255, 255, 0);
+    border-radius: 8px;
+    padding: 5px;
+}
+.btnMenu p:hover{
+    border: 1px solid rgb(0, 38, 255);
+    color: rgb(0, 38, 255);
+}
+.homeLink {
+    text-decoration: none;
+    color: black;
+}
+.homeLink:hover {
+    color: rgb(0, 38, 255);
+}
+
+/* ############  contentIndex  ############ */
+.contentIndex {
+    margin-top: 70px;
+}
+/* ----- titlexIndex ----- */ 
+.titlesIndex {
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 20px;
+}
+
+/* ------ listIndex ------ */
+.listIndex li {
+    padding: 5px;
+}
+.listIndex li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: grey;
+}
+.listIndex li a:hover {
+    color: rgb(0, 38, 255);
+}
+/* ############# containerFig #############  */
+
+.containerFig {
+    padding: 10px;
+} 
+.titlesFormules {
+    font-size: 18px;
+    font-weight: 700;
+}
+.textFormule {
+    color: rgb(0, 38, 255);
+    font-weight: 700;
+}
+.winStyle {
+    background-color: aliceblue;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 50px;
+    color: rgb(0, 38, 255);
+    font-weight: 700;
+    font-size: 20px;
+}
+.containerFormules {
+    background-color: rgb(218, 218, 218);
+    width: 300px;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.btnResult {
+    width: 100%;
+    height: 35px;
+    border-radius: 10px;
+    border: 1px solid rgb(160, 160, 160);
+}
+.btnResult:hover {
+    border: 1px solid rgb(0, 38, 255);
+    color: rgb(0, 38, 255);
+}
+.inputStyle {
+    text-align: center;
+    width: 60px;
+    height: 25px;
+    font-weight: 700;
+    margin-left: 10px;
+}
+/* ------ PerimeterSquare ------ */
+/* -------- AreaSquare --------- */
+
+
+

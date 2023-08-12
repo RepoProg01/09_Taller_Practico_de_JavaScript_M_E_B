@@ -1,95 +1,178 @@
-## Que es asincronismo?
+### Para corregir la descripción del commit (y otras cosas) se puede usar el comando:
 
-El asincronismo es básicamente una manera de aprovechar el tiempo y los recursos de nuestra aplicación, ejecutando tareas y procesos mientras otros son resueltos en background (como la llegada de la información de una API), para posteriormente continuar con las tareas que requerían esa información que no tenías de manera instantánea.
+> git commit --amend
 
-Un ejemplo fácil es comparando asincronismo vs sincronismo: En lenguajes síncronos al hacer un temporizador para ejecutar una función, todo el código se pausa hasta terminar el tiempo, mientras que en Javascript u otros lenguajes asíncronos, podemos estar aprovechando ese tiempo para ejecutar otros procesos hasta que ese tiempo finaliza.
+### Ejamplo poniendo area y perimetro del triangulo en codigo y funcion
 
-GLOSARIO
+```javascript
+// Perimetro triangulo
+console.group("triangulo");
+let lado1T = 6;
+let lado2T = 6;
+let baseT = 4;
+let alturaT = 5.5;
+const perimetroT = lado1T + lado2T + baseT;
+console.log(`El perimetro del triangulo es ${perimetroT} cm`);
 
-* API
-    Interfaz de programación de aplicaciones (Application Programming Interface). Es un conjunto de
-    rutinas que provee acceso a funciones de un determinado software.
+// Area del triangulo
+const areaT = (baseT * alturaT) / 2;
+console.log(`El area del triangulo es ${areaT} cm2`);
 
-* Concurrencia
-    Cuando dos o más tareas progresan simultáneamente.
+function perimetroTriangulo(lado1, lado2, base, altura){
+    return {
+        perimetro_triangulo : lado1 + lado2 + base,
+        area_triangulo : (base * altura) / 2
+    }
+};
+console.log(perimetroTriangulo(6,6,4,5.5));
+console.groupEnd("triangulo");
 
-* Paralelismo
-    Cuando dos o más tareas se ejecutan, literalmente, a la vez, en el mismo instante de tiempo.
 
-* Bloqueante
-    Una llamada u operación bloqueante no devuelve el control a nuestra aplicación hasta que se ha
-    completado. Por tanto el thread queda bloqueado en estado de espera.
+// triangulo
+//   El perimetro del triangulo es 16 cm
+//   El area del triangulo es 11 cm2
+//   { perimetro_triangulo: 16, area_triangulo: 11 }
+```
 
-* Síncrono
-    Es frecuente emplear ‘bloqueante’ y ‘síncrono’ como sinónimos, dando a entender que toda la
-    operación de entrada/salida se ejecuta de forma secuencial y, por tanto, debemos esperar a que
-    se complete para procesar el resultado.
+## Teorema de Pitagoras
+### El cuadrado de la Hipotenusa es igual a la suma de los cuadrados de los catetos
 
-* Asíncrono
-    La finalización de la operación I/O se señaliza más tarde, mediante un mecanismo específico
-    como por ejemplo un callback, una promesa o un evento, lo que hace posible que la respuesta
-    sea procesada en diferido.
+### Diferencia de Math.ceil y Math.round
 
-* Call Stack
-    La pila de llamadas, se encarga de albergar las instrucciones que deben ejecutarse. Nos indica en
-    que punto del programa estamos, por donde vamos.
+* Math.round permite obtener el número entero resultado del redondeo de un número. Si el número es menor a .5, redondeará el número entero anterior y si es mayor, al número entero posterior.
 
-* Heap
-    Región de memoria libre, normalmente de gran tamaño, dedicada al alojamiento dinámico de
-    objetos. Es compartida por todo el programa y controlada por un recolector de basura que se
-    encarga de liberar aquello que no se necesita.
+* Math.ceil permite obtener el número entero mayor de un número.
 
-* Cola o Queue
-    Cada vez que nuestro programa recibe una notificación del exterior o de otro contexto distinto al
-    de la aplicación, el mensaje se inserta en una cola de mensajes pendientes y se registra su
-    callback correspondiente.
+### .toFixed(4)
+Controla el numero de decimales que queremos mostrar
 
-* Eventloop o Loop de eventos
-    Cuando la pila de llamadas (call stack) se vacía, es decir, no hay nada más que ejecutar, se
-    procesan los mensajes de la cola. Con cada ‘tick’ del bucle de eventos, se procesa un nuevo
-    mensaje.
+### Math.PI
+3.1416............
 
-* Hoisting
-    Sugiere que las declaraciones de variables y funciones son físicamente movidas al comienzo del
-    código en tiempo de compilación.
+### Math.pow(3,2)  elevacion
+El primer valor es el numero que se quiere elevar a una potencia y el segundo valor es el exponente que se desea
 
-* DOM
-    DOM permite acceder y manipular las páginas XHTML como si fueran documentos XML. De
-    hecho, DOM se diseñó originalmente para manipular de forma sencilla los documentos XML.
+### Math.sqrt() Raiz cuadrada
 
-* XML
-    Lenguaje de marcado creado para la transferencia de información, legible tanto para seres
-    humanos como para aplicaciones informáticas, y basado en una sencillez extrema y una rígida
-    sintaxis. Así como el HTML estaba basado y era un subconjunto de SGML, la reformulación del
-    primero bajo la sintaxis de XML dio lugar al XHTML; XHTML es, por tanto, un subconjunto de
-    XML.
+### Ejemplo de una funcion para obtener la altura de un triangulo isosceles
+```javascript
+function alturaTIso(lado1, lado2, base){
+    if(lado1 === lado2 && base !== lado1 && lado2){
+        const altura = Math.sqrt( (Math.pow(lado1,2)) - (Math.pow( (base/2), 2)) );
+        return `La altura del triangulo isosceles es : ${altura.toFixed(1)}`;
+    }else{
+        console.warn("Los lados deben de ser iguales en medida y diferente a la base recuerda que es un triangulo isosceles");
+    }
+}
+console.log(alturaTIso(6,6,4));
 
-* Events
-    Comportamientos del usuario que interactúa con una página que pueden detectarse para lanzar
-    una acción, como por ejemplo que el usuario haga click en un elemento (onclick), que elija una
-    opción de un desplegable (onselect), que pase el ratón sobre un objeto (onmouseover), etc.
+// La altura del triangulo isosceles es : 5.7
+```
 
-* Compilar
-    Compilar es generar código ejecutable por una máquina, que puede ser física o abstracta como
-    la máquina virtual de Java.
+### Ejemplo de una funcion para obtener la altura de un triangulo escaleno
 
-* Transpilar
-    Transpilar es generar a partir de código en un lenguaje código en otro lenguaje. Es decir, un
-    programa produce otro programa en otro lenguaje cuyo comportamiento es el mismo que el
-    original.
-    
-## ¿En qué formas JS puede manejar la asincronía?
+```javascript
+function alturaEscaleno(side1, side2, side3){
+    const semiPerimeter = (side1 + side2 + side3) / 2;
+    const desestruc = [side1, side2, side3];
+    const [a,b,c] = desestruc.sort((a,b) => b - a);
+    const result = (2 / a) * Math.sqrt(semiPerimeter * (semiPerimeter - a) * (semiPerimeter - b) * (semiPerimeter - c));
+    const info = {a,b,c, semiPerimeter};
+    console.log(info);
+    return `La altura del triangulo escaleno es : ${result.toFixed(1)}`;
+}
+console.log(alturaEscaleno(3,3.5,5));
 
-* Callbacks:
+// {
+//     a: 5, 
+//     b: 3.5, 
+//     c: 3, 
+//     semiPerimeter: 5.75
+// }
+// La altura del triangulo escaleno es : 2.1
+```
 
-    Una función que se pasa como argumento de otra función y que será invocada según sea su necesidad.
+### Funcion para convertir el formato de una catidad de dinero usando REGEX
 
-* Promesas (ES6):
+>const miRegEx = /(?=(\d{3})+(?!\d))/g;
 
-    Función no-bloqueante y asíncrona la cual puede retornar un valor ahora, en el futuro o nunca.
+```javascript
+const conversion = (amount) => {
+    const number = amount.toFixed(2);
+    const exp = /(\d)(?=(\d{3})+(?!\d))/g;
+    const rep = '$1,';
+    return `$ ${number.toString().replace(exp,rep)}`;
+}
 
-* Async / Await (ES2017)
+const num = 123454356.7655
+conversion(num);
 
-    Permite estructurar una función asincrónica sin bloqueo de una manera similar a una función sincrónica ordinaria.
+// $ 123,454,356.76
+```
 
-Estos 3 conceptos son con los que más se trabajan dentro del asincronismo.
+En esta expresión regular se hace un positive lookahead (?=), buscando uno o varios (+) grupos de 3 dígitos ((\d{3})+), si los hay devuelve match junto con los valores agrupados en 3. Luego, se realiza un negative lookahead ((?!)) para descartar cualquier dígito que no sea agrupado por el primer grupo de captura (en este caso 1 o 2 dígitos). Puedes leer más sobre lookahead en Regex Lookahead.
+
+Usaremos el método replace del objeto String, el cual acepta una expresión regular (la cual ya tenemos) y un parámetro de tipo String con el siguiente formato:
+
+>$n ó $nn Donde n o nn son dígitos decimales positivos menores a 100, inserta la subcadena emparejada de orden n del paréntesis, proporcionado por el primer argumento del objeto RegExp.
+
+Así, nuestro parámetro será el siguiente:
+
+>$1,
+
+Donde $1 representa el primer argumento: nuestra expresión regular, y , es el símbolo de separación de miles que usaremos para este caso.
+
+Por último, debemos tomar la decisión de si utilizamos siempre este método para sustituir el método toLocaleString() o podemos combinar ambos.
+
+Supongamos que vamos a usar siempre este método para cualquier valor numérico válido:
+
+```javascript
+const numero = 123.456789;
+const numero2 = 1234.56789;
+const numero3 = 123456.789;
+const numero4 = 1234567.89;
+
+const formatoMexico = (number) => {
+  const exp = /(\d)(?=(\d{3})+(?!\d))/g;
+  const rep = '$1,';
+  return number.toString().replace(exp,rep);
+}
+
+console.log(formatoMexico(numero));  // 123.456,789  <= NO VALIDO
+console.log(formatoMexico(numero2)); // 1,234.56,789 <= NO VALIDO
+console.log(formatoMexico(numero3)); // 123,456.789
+console.log(formatoMexico(numero4)); // 1,234,567.89
+```
+Claramente tenemos un grave problema, ya que hay resultados no válidos.
+
+El problema está en que el reemplazo se realiza sin tomar en cuenta que las posiciones decimales no deberían ser parte del reemplazo.
+
+Para solucionar este problema tenemos algunas opciones, y como dije anteriormente: para gustos, los colores.
+
+Como un número en Javascript sólo puede contener un carácter . o ninguno, usaremos esto para aplicar nuestra función sólo sobre la parte entera del número.
+
+Vamos a separar la parte entera de la parte decimal, aplicamos el formato a la parte entera y luego concatenaremos nuevamente todo en un String.
+
+```javascript
+const numero = 123;
+const numero2 = 1234;
+const numero3 = 123.456789;
+const numero4 = 1234.56789;
+const numero5 = 123456.789;
+const numero6 = 1234567.89;
+
+const formatoMexico = (number) => {
+  const exp = /(\d)(?=(\d{3})+(?!\d))/g;
+  const rep = '$1,';
+  let arr = number.toString().split('.');
+  arr[0] = arr[0].replace(exp,rep);
+  return arr[1] ? arr.join('.'): arr[0];
+}
+
+console.log(formatoMexico(numero));  // 123
+console.log(formatoMexico(numero2)); // 1,234
+console.log(formatoMexico(numero3)); // 123.456789
+console.log(formatoMexico(numero4)); // 1,234.56789
+console.log(formatoMexico(numero5)); // 123,456.789
+console.log(formatoMexico(numero6)); // 1,234,567.89
+```

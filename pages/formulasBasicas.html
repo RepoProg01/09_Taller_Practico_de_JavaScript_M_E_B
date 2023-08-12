@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../styles/formulasBasicas.css">
+</head>
+<body>
+     <!-- ##################### navbar ##################### -->
+    <nav class="nav">
+        <h1>Matematicas JS</h1>
+        <div class="btnMenu">
+            <p><a class="homeLink" href="../index.html">Home</a></p>
+        </div>
+    </nav>
+
+    <!-- #################@ contentIndex ################## -->
+    <section class="contentIndex">
+        <div class="titlesIndex">
+            <p>Index</p>
+        </div>
+        <ul class="listIndex">
+            <li><a href="#cuadrado">cuadrado</a></li>
+            <li><a href="#triangule">triangulo</a></li>
+            <li><a href="#">circulo</a></li>
+            <li><a href="#">calcular altura de un triangulo isosceles</a></li>
+            <li><a href="#">calculat altura de un triangulo escaleno</a></li>
+        </ul>
+    </section>
+
+    <!-- ################## containerFig ################## -->
+    <section class="containerFig">
+
+        <section>
+            <!-- ------------- PerimeterSquare ------------- -->
+            <div id="cuadrado" class="containerFormules"> 
+                <p class="titlesFormules">Perimetro del Cuadrado :</p>
+                <p class="textFormule">Formula = Lado * 4</p>
+                <div>
+                    <label for="winSqrPerimeter">Medida lado en cm</label>
+                    <input type="number" id="winSqrPerimeter" class="inputStyle">
+                </div>
+                <p class="resultPSqr winStyle"></p>
+                <button class="btnResultPSqr btnResult">Resultado</button>
+            </div>
+
+            <!-- ---------------- AreaSquare ---------------- -->
+            <div class="containerFormules"> 
+                <p class="titlesFormules">Area del Cuadrado :</p>
+                <p class="textFormule">Formula = Lado * Lado</p>
+                <div>
+                    <label for="winSqrArea">Medida lado en cm</label>
+                    <input type="number" id="winSqrArea" class="inputStyle">
+                </div>
+                <p class="resultASqr winStyle"></p>
+                <button class="btnResultASqr btnResult">Resultado</button>
+            </div>
+        </section>
+
+        <section>
+            <!-- ------------- PerimeterTriangle ------------- -->
+            <div id="triangule" class="containerFormules"> 
+                <p class="titlesFormules">Perimetro del Triangulo :</p>
+                <p class="textFormule">Formula = Lado1 + Lado2 + Base</p>
+                <div>
+                    <label for="winTriSide1">Medida lado 1 en cm</label>
+                    <input type="number" id="winTriSide1" class="inputStyle">
+                </div>
+                <div>
+                    <label for="winTriSide2">Medida lado 2 en cm</label>
+                    <input type="number" id="winTriSide2" class="inputStyle">
+                </div>
+                <div>
+                    <label for="winTriBase">Medida d base en cm</label>
+                    <input type="number" id="winTriBase" class="inputStyle">
+                </div>
+                <p class="resultPTri winStyle"></p>
+                <button class="btnResultPTri btnResult">Resultado</button>
+            </div>
+
+            <div class="containerFormules"> 
+                <p class="titlesFormules">Perimetro del Triangulo :</p>
+                <p class="textFormule">Formula = Base * Altura / 2</p>
+                <div>
+                    <label for="winTriBaseA">Medida base en cm</label>
+                    <input type="number" id="winTriBaseA" class="inputStyle">
+                </div>
+                <div>
+                    <label for="winTriHeight">Medida altura en cm</label>
+                    <input type="number" id="winTriHeight" class="inputStyle">
+                </div>
+                <p class="resultATri winStyle"></p>
+                <button class="btnResultATri btnResult">Resultado</button>
+            </div>
+            <!-- ---------------- AreaTriangle ---------------- -->
+
+        </section>
+
+        
+    </section>
+
+    <script src="../scripts/formulasBasicas.js"></script>
+</body>
+</html>
