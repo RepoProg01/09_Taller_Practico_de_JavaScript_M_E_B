@@ -13,7 +13,7 @@ function pSquare(){
         resultPSqr.innerHTML = `Perimetro = ${result} cm`;
     }
     else{
-        resultPSqr.innerHTML = "El numero debe de ser mayor a 0";
+        resultPSqr.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
 
@@ -31,11 +31,9 @@ function aSquare(){
         resultASqr.innerHTML = `Area = ${result} cm2`;
     }
     else{
-        resultASqr.innerHTML = "El numero debe de ser mayor a 0";
+        resultASqr.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-
-
 
 // ------------------triangulo-------------------
 // ------------- PerimeterTriangle -------------
@@ -58,13 +56,14 @@ function pTriangle(){
         resultPTri.innerHTML = `Perimetro = ${result} cm`;
     }
     else{
-        resultPTri.innerHTML = "El numero debe de ser mayor a 0";
+        resultPTri.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
 
 // ------------- AreaTriangle -------------
 const winTriBaseA = document.querySelector("#winTriBaseA");
 const winTriHeight = document.querySelector("#winTriHeight");
+
 const resultATri = document.querySelector(".resultATri");
 const btnResultATri = document.querySelector(".btnResultATri");
 
@@ -79,64 +78,95 @@ function aTriangle(){
         resultATri.innerHTML = `Area = ${result} cm2`;
     }
     else{
-        resultATri.innerHTML = "El numero debe de ser mayor a 0";
+        resultATri.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
 
+// ------------- altura de triangulo isosceles -------------
 
+const winHTriSide1 = document.querySelector("#winHTriSide1");
+const winHTriSide2 = document.querySelector("#winHTriSide2");
+const winHTriBase = document.querySelector("#winHTriBase");
+const resultHTri = document.querySelector(".resultHTri");
+const btnResultHTri = document.querySelector(".btnResultHTri");
 
+btnResultHTri.addEventListener("click", hTriangle);
 
-// ----------------------------circulo-----------------------------------------
-// Perimetro cicunferencia
-console.group("circulo");
-const pi = 3.1416;
-let radio = 3;
-let diametroO = radio * 2;
+function hTriangle(){
+    if(winHTriSide1.value > 0 && winHTriSide2.value > 0 && winHTriBase.value > 0 && winHTriSide1.value === winHTriSide2.value){
+        const lado1 = Number(winHTriSide1.value);
+        const lado2 = Number(winHTriSide2.value);
+        const base = Number(winHTriBase.value);
 
-const circunferencia = diametroO * pi;
-console.log(`El perimetro de la circunferencia es : ${circunferencia}`);
-
-// Area del cicunferencia
-const areaCirculo = pi * (radio ** 2);
-console.log(`El area del circulo es : ${areaCirculo}`);
-
-function circunferenciaAP(radio){
-    const diametroI = radio ** 2;
-    const radioAlCuadrado = Math.pow(radio, 2);
-
-    return {
-        circunferencia_ : diametroI * Math.PI.toFixed(4),
-        area_circulo : Math.PI.toFixed(4) * radioAlCuadrado
+        const result = Math.sqrt(Math.pow(lado1,2) - Math.pow( (base/2), 2) );
+        resultHTri.innerHTML = `Altura = ${result.toFixed(1)} cm`;
     }
-};
-console.log(circunferenciaAP(3));
-console.groupEnd("circulo");
-
-// ----------------------------altura de triangulo isosceles-----------------------------------------
-// h = a la raiz cuadrada de (lado1 al cuadrado  - base al cuadrado / 4)
-
-console.group("isosceles");
-function alturaTIso(lado1, lado2, base){
-    if(lado1 === lado2 && base !== lado1 && lado2){
-        const altura = Math.sqrt( (Math.pow(lado1,2)) - (Math.pow( (base/2), 2)) );
-        return `La altura del triangulo isosceles es : ${altura.toFixed(1)}`;
-    }else{
-        console.warn("Los lados deben de ser iguales en medida y diferente a la base recuerda que es un triangulo isosceles");
+    else{
+        resultHTri.innerHTML = "Lados deben de ser mayores a 0 <br>lado1 y lado2 iguales";
     }
 }
-console.log(alturaTIso(6,6,4));
-console.groupEnd("isoceles");
 
-// ----------------------------altura de triangulo escaleno -----------------------------------------
-console.group("escaleno");
-function alturaEscaleno(side1, side2, side3){
-    const semiPerimeter = (side1 + side2 + side3) / 2;
-    const desestruc = [side1, side2, side3];
-    const [a,b,c] = desestruc.sort((a,b) => b - a);
-    const result = (2 / a) * Math.sqrt(semiPerimeter * (semiPerimeter - a) * (semiPerimeter - b) * (semiPerimeter - c));
-    const info = {a,b,c, semiPerimeter};
-    console.log(info);
-    return `La altura del triangulo escaleno es : ${result.toFixed(1)}`;
+// ------------- altura de triangulo escaleno -------------
+const winHTriSSide1 = document.querySelector("#winHTriSSide1");
+const winHTriSSide2 = document.querySelector("#winHTriSSide2");
+const winHTriSBase = document.querySelector("#winHTriSBase");
+const resultHTriS = document.querySelector(".resultHTriS");
+const btnResultHTriS = document.querySelector(".btnResultHTriS");
+
+btnResultHTriS.addEventListener("click", hTriangleS);
+
+function hTriangleS(){
+    if(winHTriSSide1.value > 0 && winHTriSSide2.value > 0 && winHTriSBase.value > 0){
+        const lado1 = Number(winHTriSSide1.value);
+        const lado2 = Number(winHTriSSide2.value);
+        const base = Number(winHTriSBase.value);
+
+        const semiPerimeter = (lado1 + lado2 + base) / 2;
+        const desestruc = [lado1, lado2, base];
+        const [a,b,c] = desestruc.sort((a,b) => b - a);
+        const process =  (2/a) * Math.sqrt((semiPerimeter * (semiPerimeter - a) * (semiPerimeter - b) * (semiPerimeter - c))); 
+        const result =  process;
+        resultHTriS.innerHTML = `Altura = ${result.toFixed(1)} cm`;
+    }
+    else{
+        resultHTriS.innerHTML = "Lados deben de ser mayores a 0";
+    }
 }
-console.log(alturaEscaleno(3,3.5,5));
-console.groupEnd("escaleno");
+
+// ----------------- Circunferencia -----------------
+const winCircunferencia = document.querySelector("#winCircunferencia");
+const resultCircunferencia = document.querySelector(".resultCircunferencia");
+const btnResultCircunferencia = document.querySelector(".btnResultCircunferencia");
+
+btnResultCircunferencia.addEventListener("click", circunferencia);
+
+function circunferencia(){
+    if(winCircunferencia.value > 0){
+        const radio = Number(winCircunferencia.value);
+        const PI = Math.PI.toFixed(2);
+        const result = PI * Math.pow(radio, 2);
+        resultCircunferencia.innerHTML = `Circunferencia = ${result} cm`;
+    }
+    else{
+        resultCircunferencia.innerHTML = "Radio debe ser mayor a 0";
+    }
+}
+
+// ----------------- AreaCirculo -----------------
+const winCircArea = document.querySelector("#winCircArea");
+const resultACirc = document.querySelector(".resultACirc");
+const btnResultACirc = document.querySelector(".btnResultACirc");
+
+btnResultACirc.addEventListener("click", aCirculo);
+
+function aCirculo(){
+    if(winCircArea.value > 0){
+        const radio = Number(winCircArea.value);
+        const PI = Math.PI.toFixed(2)
+        const result = (radio * 2) * PI;
+        resultACirc.innerHTML = `Area = ${result} cm2`;
+    }
+    else{
+        resultACirc.innerHTML = "Radio debe de ser mayor a 0";
+    }
+}

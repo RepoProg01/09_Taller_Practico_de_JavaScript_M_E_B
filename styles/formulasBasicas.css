@@ -71,13 +71,46 @@ body {
     color: rgb(0, 38, 255);
 }
 /* ############# containerFig #############  */
-
 .containerFig {
-    padding: 10px;
-} 
+
+}
+.containerResponsive {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    min-width: 340px;
+    padding: 20px 10px 30px 10px;
+    /* border-bottom: 1px solid blue; */
+}
+/* .dividerA {
+    background-color: rgb(87, 87, 87);
+}
+.dividerB {
+    background-color: rgb(153, 153, 153);
+} */
+.formulaImg {
+    width: 340px;
+}
+.formulaImg img {
+    width: 340px;
+}
+.perimeterArea {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.containerFormules {
+    background-color: rgb(218, 218, 218);
+    width: 300px;
+    border-radius: 10px;
+    padding: 20px;
+    /* margin-bottom: 20px; */
+}
 .titlesFormules {
     font-size: 18px;
     font-weight: 700;
+    margin-top: 0px;
 }
 .textFormule {
     color: rgb(0, 38, 255);
@@ -90,19 +123,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 300px;
+    width: 298px;
     height: 50px;
     color: rgb(0, 38, 255);
     font-weight: 700;
     font-size: 20px;
 }
-.containerFormules {
-    background-color: rgb(218, 218, 218);
-    width: 300px;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-}
+
 .btnResult {
     width: 100%;
     height: 35px;
@@ -123,5 +150,15 @@ body {
 /* ------ PerimeterSquare ------ */
 /* -------- AreaSquare --------- */
 
-
+@media screen and (max-width: 1060px) {
+    .containerResponsive {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media screen and (max-width: 720px) {
+    .perimeterArea {
+        flex-direction: column;
+    }
+}
 
