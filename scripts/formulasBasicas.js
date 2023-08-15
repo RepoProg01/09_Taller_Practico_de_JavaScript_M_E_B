@@ -1,3 +1,11 @@
+const triangulebtn = document.querySelector(".triangulebtn");
+triangulebtn.addEventListener("click", trianguleOffset);
+const triangule = document.querySelector("#triangule");
+
+function trianguleOffset(){
+    triangule.offSet();
+}
+
 // ################## containerFig ##################
 // ----------------- PerimeterSquare -----------------
 const winSqrPerimeter = document.querySelector("#winSqrPerimeter");
