@@ -10,16 +10,17 @@ const totalsRowTotal = document.querySelector(".totalsRowTotal");
 const cuponText = document.querySelector(".cupon_text");
 const btnValidar = document.querySelector(".btnValidar");
 const cuponContainerId = document.querySelector("#cupon_container-id");
-const btnMenu = document.querySelector(".btnMenu");
+const backToMenu = document.querySelector(".backToMenu");
 const secNav = document.querySelector(".secNav");
 const titleMain = document.querySelector(".titleMain");
 const content = document.querySelector(".content");
 const bodyV = document.querySelector(".body")
 let actualPrice = 0;
 
-btnMenu.addEventListener("click", menuFnc);
+backToMenu.addEventListener("click", menuFnc);
 
 function menuFnc(){
+    backToMenu.classList.add("off");
     content.classList.add("off");
     titleMain.classList.remove("off");
     icons.classList.remove("off");
@@ -49,6 +50,7 @@ products.forEach(photo => {
 });
 
 function defProduct(event){
+    backToMenu.classList.remove("off");
     titleMain.classList.add("off");
     icons.classList.add("off");
     content.classList.remove("off");

@@ -49,26 +49,52 @@ body {
 
 /* ############  contentIndex  ############ */
 .contentIndex {
-    margin-top: 70px;
+    margin-top: 61px;
 }
 /* ----- titlexIndex ----- */ 
 .titlesIndex {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 700;
-    margin-left: 20px;
+    text-align: center;
+}
+.titlesIndex p {
+    background-color: rgb(224, 224, 224);
+    padding: 10px;
+    margin: 0px;
 }
 
 /* ------ listIndex ------ */
+
+.listIndex {
+    background-color: rgb(177, 177, 177);
+    position: absolute;
+    top: 61px;
+    right: -166px;
+    margin: 0px;
+    padding: 0px;
+    padding: 20px;
+    transition: 600ms ease-in-out;
+}
+.listIndexShow {
+    right: 0px;
+    transition: 600ms ease-in-out;
+}
 .listIndex li {
     padding: 5px;
+    list-style: none;
 }
+
 .listIndex li a {
+    display: block;
     text-decoration: none;
-    font-size: 18px;
-    color: grey;
+    font-size: 20px;
+    color: rgb(255, 254, 254);
+    padding-bottom: 10px;
+    border-bottom: 1px solid grey;
 }
 .listIndex li a:hover {
     color: rgb(0, 38, 255);
+    border-bottom: 1px solid rgb(0, 38, 255);
 }
 /* ############# containerFig #############  */
 .containerFig {
@@ -140,12 +166,18 @@ body {
     border: 1px solid rgb(0, 38, 255);
     color: rgb(0, 38, 255);
 }
+.winPosition {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .inputStyle {
     text-align: center;
     width: 60px;
     height: 25px;
     font-weight: 700;
-    margin-left: 10px;
+    margin-right: 50px;
 }
 /* ------ PerimeterSquare ------ */
 /* -------- AreaSquare --------- */
