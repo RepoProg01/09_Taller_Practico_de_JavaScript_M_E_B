@@ -25,9 +25,9 @@ body {
     border-bottom: 1px solid var(--secundario);
     margin-bottom: 20px;
 }
-.nav h1 {
+.nav_logo {
+    width: 160px ;
     margin-left: 10px;
-    font-size: 20px;
 }
 .btnMenu {
     display: flex;
@@ -87,20 +87,21 @@ body {
 
 .listIndex {
     background-color: var(--terciario);
+    width: 100%;
+    height: 100vh;
     position: absolute;
     top: 61px;
-    right: -180px;
+    right: -100%;
     margin: 0px;
-    padding: 0px;
-    padding: 20px;
+    padding: 20px 0px;
     transition: 600ms ease-in-out;
 }
 .listIndexShow {
-    right: 0px;
+    right: 0%;
     transition: 600ms ease-in-out;
 }
 .listIndex li {
-    padding: 5px;
+    padding: 5px 20px;
     list-style: none;
 }
 
