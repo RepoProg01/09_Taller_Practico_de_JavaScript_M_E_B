@@ -13,7 +13,6 @@ function menu(){
 
  function selectF(event){
     listIndex.classList.remove("listIndexShow");
-
     const figura = event.target.innerText.toLowerCase();
     const cid = document.getElementById(figura);
     const topOffset = cid.offsetTop - 70;

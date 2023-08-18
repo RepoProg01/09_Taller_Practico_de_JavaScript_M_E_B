@@ -93,6 +93,7 @@ body {
     top: 61px;
     right: -100%;
     transition: 600ms ease-in-out;
+    padding: 20px 0px;
 }
 .listIndexShow {
     right: 0%;
@@ -105,7 +106,7 @@ body {
     padding: 15px 0px;
     margin: 0px 30px;
     color: var(--extra);
-    border-bottom: 1px solid var(--secundario);
+    border-bottom: 1px solid var(--extra);
 }
 .listIndex p:hover {
     color: var(--terciario);
