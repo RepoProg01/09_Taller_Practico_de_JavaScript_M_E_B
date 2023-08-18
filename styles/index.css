@@ -43,6 +43,7 @@ body {
     grid-template-columns: repeat(auto-fit, 300px);
     gap: 15px;
     justify-content: center;
+   
     cursor: pointer;
 }
 .listIndex a {
@@ -52,15 +53,15 @@ body {
     font-weight: 700;
     border-radius: 8px;
     padding: 18px 10px;
-    background-color: var(--terciario);
+    background-color: var(--secundario);
     border: 1px solid var(--terciario);
     color: var(--extra);
   
 }
 .listIndex a:hover {
-    background-color: var(--extra);
+    background-color: var(--terciario);
     border: 1px solid var(--terciario);
-    color: var(--terciario);
+    color: var(--primario);
 }
 
 /* ################# footer ################## */

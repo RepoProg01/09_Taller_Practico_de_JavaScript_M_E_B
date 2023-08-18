@@ -11,8 +11,13 @@ function menu(){
     element.addEventListener("click", selectF);
  });
 
- function selectF(){
+ function selectF(event){
     listIndex.classList.remove("listIndexShow");
+
+    const figura = event.target.innerText.toLowerCase();
+    const cid = document.getElementById(figura);
+    const topOffset = cid.offsetTop - 70;
+    window.scroll(0, topOffset);
  }
 
 
@@ -425,7 +430,7 @@ function hTriangleS(){
         const semiPerimeter = (lado1 + lado2 + base) / 2;
         const desestruc = [lado1, lado2, base];
         const [a,b,c] = desestruc.sort((a,b) => b - a);
-        const process =  (2/a) * Math.sqrt((semiPerimeter * (semiPerimeter - a) * (semiPerimeter - b) * (semiPerimeter - c))); 
+        const process =  (2/a) * Math.sqrt((semiPerimeter * (semiPerimeter - a) * (semiPerimeter - b) * (semiPerimeter - c)));
         const result =  process;
         resultHTriS.innerHTML = `Altura = ${result.toFixed(1)} cm`;
     }
