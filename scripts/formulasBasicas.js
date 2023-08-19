@@ -1,10 +1,28 @@
-const listIndex = document.querySelector(".listIndex");
+
+const body = document.querySelector(".body");
 const figuras = document.querySelector(".figuras");
+
+const listIndex = document.querySelector(".listIndex");
+const blurC = document.querySelector(".blurC");
+
 figuras.addEventListener("click", menu);
+blurC.addEventListener("click", fblur);
 
 function menu(){
     listIndex.classList.toggle("listIndexShow");
+    blurC.classList.toggle("off");
+    body.classList.toggle("noMove");
 }
+
+function fblur(){
+    listIndex.classList.remove("listIndexShow");
+    blurC.classList.add("off");
+    body.classList.remove("noMove");
+}
+
+
+
+
 
  const seleccion = document.querySelectorAll(".seleccion");
  seleccion.forEach(element => {
@@ -17,6 +35,7 @@ function menu(){
     const cid = document.getElementById(figura);
     const topOffset = cid.offsetTop - 70;
     window.scroll(0, topOffset);
+    fblur();
  }
 
 
