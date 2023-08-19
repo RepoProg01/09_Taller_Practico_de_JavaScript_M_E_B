@@ -1,0 +1,162 @@
+:root {
+    --primario: #222831;
+    --secundario: #393E46;
+    --terciario: #00ADB5;
+    --extra: #EEEEEE;
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    background-color: var(--extra);
+}
+.body::-webkit-scrollbar {
+    width: 0px;
+}
+/* ################# nav ################# */
+.nav {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content:space-between;
+    width: 100%;
+    height: 60px;
+    background-color: var(--terciario);
+    border-bottom: 1px solid var(--secundario);
+    margin-bottom: 20px;
+    z-index: 10;
+}
+.nav_logo {
+    width: 160px ;
+    margin-left: 10px;
+}
+.btnMenu {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.btnMenu p{
+    font-size: 18px;
+    font-weight: 700;
+    border: 1px solid var(--terciario);
+    border-radius: 8px;
+    padding: 5px;
+}
+.btnMenu p:hover{
+    border: 1px solid var(--extra);
+    color: var(--extra);
+}
+
+.homeLink {
+    width: 60px;
+    height: 21px;
+    font-size: 18px;
+    font-weight: 700;
+    border: 1px solid var(--terciario);
+    border-radius: 8px;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+}
+.homeLink:hover {
+    border: 1px solid var(--extra);
+    color: var(--extra);
+} 
+
+/* ################# opciones ################# */
+.opciones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 61px;
+}
+.porc {
+    width: 320px;
+    padding: 20px 10px;
+    margin-top: 20px;
+    background-color: var(--secundario);
+    border-radius: 10px;
+}
+.titlePorc {
+    margin-top: 0px;
+    color: var(--extra);
+    text-align: center;
+}
+.formula{
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--terciario);
+    text-align: center;
+}
+.porcContainer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.porcWin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+}
+.porcWin label {
+    color: var(--extra);
+    margin-bottom: 10px;
+}
+.porcWin input{
+    width: 70px;
+    height: 25px;
+    text-align: center;
+    font-size: 18px;
+}
+.winResults { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    width: 70px;
+    height: 25px;
+    padding: 2px 3px;
+    background-color: var(--terciario);
+    color: var(--extra);
+    border: 1px solid var(--primario);
+    font-size: 18px;
+}
+.msgP1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: var(--extra);
+    color: var(--primario);
+    font-size: 18px;
+    font-weight: 700;
+}
+.btnPorc {
+    width: 100%;
+    height: 45px;
+    border: 0px;
+    border: 1px solid var(--terciario);
+    border-radius: 10px;
+    color: var(--terciario);
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 15px;
+}
+.btnPorc:hover {
+    background-color: var(--terciario);
+    border: 1px solid var(--terciario);
+    color: var(--extra);
+}

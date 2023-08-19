@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porcentajes</title>
+    <link rel="stylesheet" href="../styles/porcentaje.css">
+</head>
+<body class="body">
+    <nav class="nav">
+        <img class="nav_logo" src="../assets/jslogo.svg" alt="">
+        <div class="btnMenu">
+            <a class="homeLink" href="../index.html">Home</a>
+            <p class="menu">Menu</p>
+        </div>
+    </nav>
+
+    <section class="opciones">
+
+        <div class="porc">
+            <h2 class="titlePorc">Porcentaje de una cantidad :</h2>
+            <p class="formula">Formula : % * cantidad / 100</p>
+            <div class="porcContainer">
+                <div class="porcWin">
+                    <label for="porcP1">Porcentaje %</label>
+                    <input type="number" id="porcP1">
+                </div>
+                <div class="porcWin">
+                    <label for="cantP1">Cantidad $</label>
+                    <input type="number" id="cantP1">
+                </div>
+                <div class="porcWin">
+                    <label for="">Resultado =</label>
+                    <p class="resultP1 winResults"></p>
+                </div>
+            </div>
+            <div class="msgP1"></div>
+            <button class="prc1 btnPorc">Resultado</button>
+        </div>
+
+    </section>
+
+    <script src="../scripts/porcentaje.js"></script>
+</body>
+</html>

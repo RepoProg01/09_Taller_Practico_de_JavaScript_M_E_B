@@ -1,7 +1,6 @@
 
 const body = document.querySelector(".body");
 const figuras = document.querySelector(".figuras");
-
 const listIndex = document.querySelector(".listIndex");
 const blurC = document.querySelector(".blurC");
 
@@ -19,10 +18,6 @@ function fblur(){
     blurC.classList.add("off");
     body.classList.remove("noMove");
 }
-
-
-
-
 
  const seleccion = document.querySelectorAll(".seleccion");
  seleccion.forEach(element => {
@@ -55,7 +50,7 @@ function aTriangle(){
         const height = Number(winTriHeight.value);
 
         const result = (base * height) / 2;
-        resultATri.innerHTML = `Area = ${result} cm2`;
+        resultATri.innerHTML = `Area = ${result.toFixed(2)} cm2`;
     }
     else{
         resultATri.innerHTML = "Lados deben de ser mayores a 0";
@@ -76,7 +71,7 @@ function pTriangle(){
         const base = Number(winTriBase.value);
 
         const result = lado1 + lado2 + base;
-        resultPTri.innerHTML = `Perimetro = ${result} cm`;
+        resultPTri.innerHTML = `Perimetro = ${result.toFixed(2)} cm`;
     }
     else{
         resultPTri.innerHTML = "Lados deben de ser mayores a 0";
@@ -95,7 +90,7 @@ function aSquare(){
     if(winSqrArea.value > 0){
         const lado = Number(winSqrArea.value);
         const result = lado * lado;
-        resultASqr.innerHTML = `Area = ${result} cm2`;
+        resultASqr.innerHTML = `Area = ${result.toFixed(2)} cm2`;
     }
     else{
         resultASqr.innerHTML = "Lados deben de ser mayores a 0";
@@ -112,7 +107,7 @@ function pSquare(){
     if(winSqrPerimeter.value > 0){
         const lado = Number(winSqrPerimeter.value);
         const result = lado * 4;
-        resultPSqr.innerHTML = `Perimetro = ${result} cm`;
+        resultPSqr.innerHTML = `Perimetro = ${result.toFixed(2)} cm`;
     }
     else{
         resultPSqr.innerHTML = "Lados deben de ser mayores a 0";
@@ -133,7 +128,7 @@ function aRectangulo(){
         const base = Number(winRecABase.value);
         const altura = Number(winRecAAltura.value);
         const result = base * altura;
-        resultARec.innerHTML = `Area = ${result} cm2`;
+        resultARec.innerHTML = `Area = ${result.toFixed(2)} cm2`;
     }
     else{
         resultARec.innerHTML = "Lados deben de ser mayores a 0";
@@ -152,7 +147,7 @@ function pRectangulo(){
         const base = Number(winRecPBase.value);
         const lado = Number(winRecPLado.value);
         const result = (base * 2) + (lado * 2);
-        resultPRec.innerHTML = `Perimetro = ${result} cm`;
+        resultPRec.innerHTML = `Perimetro = ${result.toFixed(2)} cm`;
     }
     else{
         resultPRec.innerHTML = "Lados deben de ser mayores a 0";
@@ -173,7 +168,7 @@ function aParalelogramo(){
         const base = Number(winParABase.value);
         const altura = Number(winParAltura.value);
         const result = base * altura;
-        resultAPar.innerHTML = `Area = ${result} cm2`;
+        resultAPar.innerHTML = `Area = ${result.toFixed(2)} cm2`;
     }
     else{
         resultAPar.innerHTML = "Lados deben de ser mayores a 0";
@@ -192,7 +187,7 @@ function pParalelogramo(){
         const base = Number(winParPBase.value);
         const lado = Number(winParPAltura.value);
         const result = 2 * (base + lado);
-        resultPPar.innerHTML = `Perimetro = ${result} cm`;
+        resultPPar.innerHTML = `Perimetro = ${result.toFixed(2)} cm`;
     }
     else{
         resultPPar.innerHTML = "Lados deben de ser mayores a 0";
@@ -215,7 +210,7 @@ function aTrapecio(){
         const basem = Number(winTrapAb.value);
         const altura = Number(winTrapAa.value);
         const result = ((baseM + basem) /2) * altura;
-        resultATrapecio.innerHTML = `Area = ${result} cm2`;
+        resultATrapecio.innerHTML = `Area = ${result.toFixed(2)} cm2`;
     }
     else{
         resultATrapecio.innerHTML = "Lados deben de ser mayores a 0";
@@ -238,7 +233,7 @@ function pTrapecio(){
         const l3 = Number(winL3PTrap.value);
         const l4 = Number(winL4PTrap.value);
         const result = l1 + l2 + l3 + l4;
-        resultPTrap.innerHTML = `Perimetro = ${result} cm`;
+        resultPTrap.innerHTML = `Perimetro = ${result.toFixed(2)} cm`;
     }
     else{
         resultPTrap.innerHTML = "Lados deben de ser mayores a 0";
@@ -258,7 +253,7 @@ function arombo(){
         const d1 = Number(winD1A.value);
         const d2 = Number(winD2A.value);
         const result = (d1 * d2) / 2;
-        resultARombo.innerHTML = `Area = ${result} cm2`;
+        resultARombo.innerHTML = `Area = ${result.toFixed(2)} cm2`;
     }
     else{
         resultARombo.innerHTML = "Lados deben de ser mayores a 0";
@@ -281,7 +276,7 @@ function pRombo(){
         const l3 = Number(winPRomL3.value);
         const l4 = Number(winPRomL4.value);
         const result = l1 + l2 + l3 + l4;
-        resultPRombo.innerHTML = `Perimetro = ${result} cm`;
+        resultPRombo.innerHTML = `Perimetro = ${result.toFixed(2)} cm`;
     }
     else{
         resultPRombo.innerHTML = "Lados deben de ser mayores a 0";
@@ -302,7 +297,7 @@ function aPentagono(){
         const perim = Number(winAPPent.value);
         const apotem = Number(winAApotPent.value);
         const result = (perim * apotem) / 2;
-        resultAPentagono.innerHTML = `Area = ${result} cm2`;
+        resultAPentagono.innerHTML = `Area = ${result.toFixed(2)} cm2`;
     }
     else{
         resultAPentagono.innerHTML = "Lados deben de ser mayores a 0";
@@ -319,7 +314,7 @@ function pPentagono(){
     if(winPPenL.value > 0) {
         const lado = Number(winPPenL.value);
         const result = 5 * lado;
-        resultPPentagono.innerHTML = `Perimetro = ${result} cm`;
+        resultPPentagono.innerHTML = `Perimetro = ${result.toFixed(2)} cm`;
     }
     else{
         resultPPentagono.innerHTML = "Lados deben de ser mayores a 0";
@@ -340,7 +335,7 @@ function aHexagono(){
         const perim = Number(winAPHex.value);
         const apotem = Number(winAApotHex.value);
         const result = (perim * apotem) / 2;
-        resultAHexagono.innerHTML = `Area = ${result} cm2`;
+        resultAHexagono.innerHTML = `Area = ${result.toFixed(2)} cm2`;
     }
     else{
         resultAHexagono.innerHTML = "Lados deben de ser mayores a 0";
@@ -357,7 +352,7 @@ function pHexagono(){
     if(winPHexL.value > 0) {
         const lado = Number(winPHexL.value);
         const result = 6 * lado;
-        resultPHex.innerHTML = `Perimetro = ${result} cm`;
+        resultPHex.innerHTML = `Perimetro = ${result.toFixed(2)} cm`;
     }
     else{
         resultPHex.innerHTML = "Lados deben de ser mayores a 0";
@@ -378,7 +373,7 @@ function aCirculo(){
         const radio = Number(winCircArea.value);
         const PI = Math.PI.toFixed(2)
         const result = Math.pow(radio, 2) * PI;
-        resultACirc.innerHTML = `Area = ${result} cm2`;
+        resultACirc.innerHTML = `Area = ${result.toFixed(2)} cm2`;
     }
     else{
         resultACirc.innerHTML = "Radio debe de ser mayor a 0";
@@ -397,7 +392,7 @@ function circunferencia(){
         const radio = Number(winCircunferencia.value);
         const PI = Math.PI.toFixed(2);
         const result = PI * (radio * 2);
-        resultCircunferencia.innerHTML = `Circunferencia = ${result} cm`;
+        resultCircunferencia.innerHTML = `Circunferencia = ${result.toFixed(2)} cm`;
     }
     else{
         resultCircunferencia.innerHTML = "Radio debe ser mayor a 0";
@@ -423,7 +418,7 @@ function hTriangle(){
         const base = Number(winHTriBase.value);
 
         const result = Math.sqrt(Math.pow(lado1,2) - Math.pow( (base/2), 2) );
-        resultHTri.innerHTML = `Altura = ${result.toFixed(1)} cm`;
+        resultHTri.innerHTML = `Altura = ${result.toFixed(2)} cm`;
     }
     else{
         resultHTri.innerHTML = "Lados deben de ser mayores a 0 <br>lado1 y lado2 iguales";
@@ -450,7 +445,7 @@ function hTriangleS(){
         const [a,b,c] = desestruc.sort((a,b) => b - a);
         const process =  (2/a) * Math.sqrt((semiPerimeter * (semiPerimeter - a) * (semiPerimeter - b) * (semiPerimeter - c)));
         const result =  process;
-        resultHTriS.innerHTML = `Altura = ${result.toFixed(1)} cm`;
+        resultHTriS.innerHTML = `Altura = ${result.toFixed(2)} cm`;
     }
     else{
         resultHTriS.innerHTML = "Lados deben de ser mayores a 0";
