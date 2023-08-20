@@ -14,29 +14,168 @@
             <p class="menu">Menu</p>
         </div>
     </nav>
-
+    <!-- #################@ contentIndex ################## -->
+    <section class="contentIndex">
+        <div class="titlesIndex">
+            <p>Porcentajes y descuentos </p>
+        </div>
+    </section>
     <section class="opciones">
 
         <div class="porc">
-            <h2 class="titlePorc">Porcentaje de una cantidad :</h2>
-            <p class="formula">Formula : % * cantidad / 100</p>
+
+            <section class="sec1 sec ">
+                <h2 class="titlePorc">Calcular porcentaje de una cantidad :</h2>
+                <p class="r3Title">Regla de tres :</p>
+                
+                <div class="r3MainContainer">
+                    <section class="r3Container">
+                        <div class="topRow">
+                            <p class="cantR3 pClass">Cantidad</p>
+                            <p class="pSClass">=</p>
+                            <p class="porcR3 pClass">100 %</p>
+                        </div>
+                        <div class="bottomRow">
+                            <p class="xR3 pClass">x</p>
+                            <p class="pSClass">=</p>
+                            <p class="porcBuscR3 pClass">% Buscado</p>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="formulaContainer">
+                    <p class="formulaTitle">Operacion :</p>
+                    <p class="formula"> % Buscado * Cantidad / 100 %</p>
+                </div>
+
+            </section>
+
+            <section class="sec2 sec ">
+                <div class="porcContainer">
+                    <div class="porcWin">
+                        <label for="cantP1">Cantidad</label>
+                        <input type="number" id="cantP1">
+                    </div>
+                    <div class="porcWin">
+                        <label for="porcP1">% Buscado</label>
+                        <input type="number" id="porcP1">
+                    </div>
+                    <div class="porcWin">
+                        <label for="">x</label>
+                        <p class="resultP1 winResults"></p>
+                    </div>
+                </div>
+                <button class="prc1 btnPorc">Resultado</button>
+                <div class="msgP1 msgWin"></div>
+            </section>
+
+        </div>
+
+        <!-- <div class="porc">
+            <h2 class="titlePorc">Calcular total conociendo un porcentaje :</h2>
+            <p class="formula">Formula : 100 * cantidad / %</p>
             <div class="porcContainer">
                 <div class="porcWin">
-                    <label for="porcP1">Porcentaje %</label>
-                    <input type="number" id="porcP1">
+                    <label for="porcP2">Porcentaje %</label>
+                    <input type="number" id="porcP2">
                 </div>
                 <div class="porcWin">
-                    <label for="cantP1">Cantidad $</label>
-                    <input type="number" id="cantP1">
+                    <label for="cantP2">Cantidad $</label>
+                    <input type="number" id="cantP2">
                 </div>
                 <div class="porcWin">
-                    <label for="">Resultado =</label>
-                    <p class="resultP1 winResults"></p>
+                    <label for="">100 %</label>
+                    <p class="resultP2 winResults"></p>
                 </div>
             </div>
-            <div class="msgP1"></div>
-            <button class="prc1 btnPorc">Resultado</button>
+            <div class="msgP2 msgWin"></div>
+            <button class="prc2 btnPorc">Resultado</button>
         </div>
+
+        <div class="porc">
+            <h2 class="titlePorc">Calcular porcentaje del total en una cantidad :</h2>
+            <p class="formula">Formula : cantidad 2 * 100 / cantidad 1</p>
+            <div class="porcContainer">
+                <div class="porcWin">
+                    <label for="cant2P3">Cantidad 1 $</label>
+                    <input type="number" id="cant2P3">
+                </div>
+                <div class="porcWin">
+                    <label for="cant1P3">Cantidad 2 $</label>
+                    <input type="number" id="cant1P3">
+                </div>
+                <div class="porcWin">
+                    <label for="">Porcentaje %</label>
+                    <p class="porcP3 winResults"></p>
+                </div>
+            </div>
+            <div class="msgP3 msgWin"></div>
+            <button class="prc3 btnPorc">Resultado</button>
+        </div>
+
+        <div class="porc">
+            <h2 class="titlePorc">Calcular un porcentaje a partir de otro porcentaje :</h2>
+            <p class="formula">Formula : %2 * Cantidad 1 / %1</p>
+
+            <div class="porcContainer">
+                <div class="porcWin">
+                    <label for="porc1P4">Porcentaje 1 %</label>
+                    <input type="number" id="porc1P4">
+                </div>
+                <p class="igual"> = </p>
+                <div class="porcWin">
+                    <label for="cant1P4">Cantidad $</label>
+                    <input type="number" id="cant1P4">
+                </div>
+            </div>
+
+            <div class="porcContainer">
+                <div class="porcWin">
+                    <label for="porc2P4">Porcentaje 2 %</label>
+                    <input type="number" id="porc2P4">
+                </div>
+                <p class="igual"> = </p>
+                <div class="porcWin">
+                    <label for="">Cantidad 2 $</label>
+                    <p class="cant2P4 winResults"></p>
+                </div>
+            </div>
+
+            <div class="msgP4 msgWin"></div>
+            <button class="prc4 btnPorc">Resultado</button>
+        </div>
+
+        <div class="porc">
+            <h2 class="titlePorc">Calcular el precio final tras aplicar un porcentaje de descuento :</h2>
+            <p class="formula">Formula : %2 * Cantidad 1 / %1</p>
+
+            <div class="porcContainer">
+                <div class="porcWin">
+                    <label for="porc1P4">Porcentaje 1 %</label>
+                    <input type="number" id="porc1P4">
+                </div>
+                <p class="igual"> = </p>
+                <div class="porcWin">
+                    <label for="cant1P4">Cantidad $</label>
+                    <input type="number" id="cant1P4">
+                </div>
+            </div>
+
+            <div class="porcContainer">
+                <div class="porcWin">
+                    <label for="porc2P4">Porcentaje 2 %</label>
+                    <input type="number" id="porc2P4">
+                </div>
+                <p class="igual"> = </p>
+                <div class="porcWin">
+                    <label for="">Cantidad 2 $</label>
+                    <p class="cant2P4 winResults"></p>
+                </div>
+            </div>
+
+            <div class="msgP4 msgWin"></div>
+            <button class="prc4 btnPorc">Resultado</button>
+        </div> -->
 
     </section>
 

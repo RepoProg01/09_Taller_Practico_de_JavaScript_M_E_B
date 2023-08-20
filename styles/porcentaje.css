@@ -69,32 +69,127 @@ body {
     border: 1px solid var(--extra);
     color: var(--extra);
 } 
-
+/* ############  contentIndex  ############ */
+.contentIndex {
+    margin-top: 61px;
+}
+/* ----- titlexIndex ----- */ 
+.titlesIndex {
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    background-color: var(--secundario);
+}
+.titlesIndex p {
+    color: var(--extra);
+    padding: 10px;
+    margin: 0px;
+}
 /* ################# opciones ################# */
 .opciones {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 61px;
+    padding: 20px 10px 30px 10px;
 }
 .porc {
-    width: 320px;
-    padding: 20px 10px;
-    margin-top: 20px;
-    background-color: var(--secundario);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    /* padding: 10px 10px; */
+    /* margin-top: 20px; */
+    /* background-color: var(--secundario); */
     border-radius: 10px;
 }
+.sec {
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    width: 320px;
+    height: 320px;
+    padding: 10px;
+}
+.sec1 {
+    justify-content:space-around;
+    align-items:flex-start;
+    background-color: var(--terciario);
+}
+.sec2 {
+    justify-content: center;
+    align-items: center;
+    background-color: var(--secundario);
+}
+
 .titlePorc {
     margin-top: 0px;
+    color: var(--primario);
+    text-align: left;
+}
+.formulaContainer {
+    margin-bottom: 20px;
+    background-color: var(--secundario);
+    border-radius: 10px;
+    padding: 10px;
+    width: 300px;
+}
+.formulaTitle {
+    margin: 0px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 700;
     color: var(--extra);
-    text-align: center;
 }
 .formula{
     font-size: 18px;
     font-weight: 700;
-    color: var(--terciario);
+    color: var(--extra);
+    text-align:left;
+    margin: 0px;
     text-align: center;
 }
+
+.r3MainContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+.r3Title {
+    margin: 0px;
+    color: var(--primario);
+    font-size: 20px;
+    font-weight: 700;
+}
+.r3Container {
+    width: 300px;
+    background-color: var(--extra);
+    padding: 10px;
+    border-radius: 10px;
+}
+.topRow,
+.bottomRow {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+.pClass {
+    display: flex;
+    justify-content: center;
+    color: var(--primario);
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0px;
+    width: 110px;
+}
+.pSClass {
+    display: flex;
+    justify-content: center;
+    color: var(--primario);
+    margin: 0px;
+}
+
 .porcContainer {
     display: flex;
     justify-content: center;
@@ -109,12 +204,14 @@ body {
 .porcWin label {
     color: var(--extra);
     margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 700;
 }
 .porcWin input{
     width: 70px;
     height: 25px;
     text-align: center;
-    font-size: 18px;
+    font-size: 16px;
 }
 .winResults { 
     display: flex;
@@ -126,37 +223,54 @@ body {
     padding: 2px 3px;
     background-color: var(--terciario);
     color: var(--extra);
-    border: 1px solid var(--primario);
+    border: 1px solid var(--terciario);
     font-size: 18px;
+    font-weight: 700;
 }
-.msgP1 {
+.msgWin {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 300px;
     height: 50px;
     border-radius: 10px;
+    border: var(--primario);
     padding: 10px;
     margin-top: 10px;
     background-color: var(--extra);
     color: var(--primario);
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
 }
 .btnPorc {
     width: 100%;
     height: 45px;
     border: 0px;
-    border: 1px solid var(--terciario);
+    border: 1px solid var(--primario);
+    background-color: var(--terciario);
+    color: var(--primario);
     border-radius: 10px;
-    color: var(--terciario);
     font-size: 20px;
     font-weight: 700;
     cursor: pointer;
     margin-top: 15px;
 }
 .btnPorc:hover {
-    background-color: var(--terciario);
     border: 1px solid var(--terciario);
+    background-color: var(--extra);
+    color: var(--primario);
+}
+.igual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: var(--extra);
+    font-size: 22px;
+    font-weight: 700;
+}
+
+@media screen and (max-width: 727px) {
+    .porc {
+        flex-direction: column;
+    }
 }
