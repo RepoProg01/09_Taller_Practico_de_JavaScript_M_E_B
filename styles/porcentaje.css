@@ -105,6 +105,7 @@ body {
 .sec {
     display: flex;
     flex-direction: column;
+    align-items: center;
     border-radius: 10px;
     width: 320px;
     height: 320px;
@@ -116,21 +117,22 @@ body {
     background-color: var(--terciario);
 }
 .sec2 {
-    justify-content: center;
+    justify-content:space-around;
     align-items: center;
     background-color: var(--secundario);
 }
 
 .titlePorc {
-    margin-top: 0px;
+    margin: 0px;
     color: var(--primario);
-    text-align: left;
+    text-align: center;
+    font-size: 2ipx
 }
 .formulaContainer {
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
     background-color: var(--secundario);
     border-radius: 10px;
-    padding: 10px;
+    padding: 20px 10px;
     width: 300px;
 }
 .formulaTitle {
@@ -157,15 +159,15 @@ body {
     gap: 5px;
 }
 .r3Title {
-    margin: 0px;
+    margin: 0px 0px 10px 0px;
     color: var(--primario);
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
 }
 .r3Container {
     width: 300px;
     background-color: var(--extra);
-    padding: 10px;
+    padding: 20px 10px;
     border-radius: 10px;
 }
 .topRow,
@@ -178,7 +180,7 @@ body {
     display: flex;
     justify-content: center;
     color: var(--primario);
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     margin: 0px;
     width: 110px;
@@ -190,6 +192,11 @@ body {
     margin: 0px;
 }
 
+.titleWin2 {
+    margin: 0px;
+    color: var(--extra);
+    font-size: 24px;
+}
 .porcContainer {
     display: flex;
     justify-content: center;
@@ -204,7 +211,7 @@ body {
 .porcWin label {
     color: var(--extra);
     margin-bottom: 10px;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
 }
 .porcWin input{
