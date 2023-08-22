@@ -45,13 +45,14 @@ body {
 .btnMenu p{
     font-size: 18px;
     font-weight: 700;
-    border: 1px solid var(--terciario);
+    border: 1px solid var(--secundario);
+    color: var(--black);
     border-radius: 8px;
     padding: 5px;
 }
 .btnMenu p:hover{
-    border: 1px solid var(--extra);
-    color: var(--extra);
+    border: 1px solid var(--primario);
+    color: var(--primario);
 }
 
 .homeLink {
@@ -59,7 +60,7 @@ body {
     height: 21px;
     font-size: 18px;
     font-weight: 700;
-    border: 1px solid var(--terciario);
+    border: 1px solid var(--secundario);
     border-radius: 8px;
     padding: 5px;
     text-align: center;
@@ -67,8 +68,8 @@ body {
     color: black;
 }
 .homeLink:hover {
-    border: 1px solid var(--extra);
-    color: var(--extra);
+    border: 1px solid var(--primario);
+    color: var(--primario);
 } 
 /* ############  contentIndex  ############ */
 .contentIndex {
@@ -115,7 +116,7 @@ body {
 .sec1 {
     justify-content:space-around;
     align-items:flex-start;
-    background-color: var(--terciario);
+    background-color: var(--primario);
 }
 .sec2 {
     justify-content:space-around;
@@ -125,7 +126,7 @@ body {
 
 .titlePorc {
     margin: 0px;
-    color: var(--primario);
+    color: var(--terciario);
     text-align: center;
     font-size: 2ipx
 }
@@ -167,7 +168,7 @@ body {
 }
 .r3Container {
     width: 300px;
-    background-color: var(--extra);
+    background-color: var(--terciario);
     padding: 20px 10px;
     border-radius: 10px;
 }
@@ -247,7 +248,7 @@ body {
     margin-top: 10px;
     background-color: var(--white);
     color: var(--black);
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
 }
 .btnPorc {
@@ -282,7 +283,7 @@ body {
     width: 100%;
     height: 60px;
     margin-top: 30px;
-    border-top: 1px solid var(--black);
+    border-top: 1px solid var(--terciario);
     background-color: var(--secundario);
 }
 @media screen and (max-width: 727px) {
