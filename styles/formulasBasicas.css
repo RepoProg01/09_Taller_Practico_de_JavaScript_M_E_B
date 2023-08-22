@@ -26,7 +26,7 @@ body {
     width: 100%;
     height: 60px;
     background-color: var(--secundario);
-    border-bottom: 1px solid var(--terciario);
+    border-bottom: 1px solid var(--black);
     z-index: 10;
 }
 .nav_logo {
@@ -220,6 +220,14 @@ body {
 .off {
     display: none;
     transition: 600ms ease-in-out;
+}
+/* ################# footer ################## */
+.footer {
+    width: 100%;
+    height: 60px;
+    margin-top: 30px;
+    border-top: 1px solid var(--black);
+    background-color: var(--secundario);
 }
 @media screen and (max-width: 1060px) {
     .containerResponsive {
