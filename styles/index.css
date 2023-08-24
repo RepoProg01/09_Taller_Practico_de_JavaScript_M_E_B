@@ -1,15 +1,16 @@
 :root {
     --black: #000000;
     --white: #ffffff;
-    --primario: #064663;
-    --secundario: #ffd800;
-    --terciario: #dadbdc;
+    --grey: #6895CB;
+    --primario: #092547;
+    --secundario: #093973;
+    --terciario: #69A2E7;
 }
 body {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    background-color: var(--primario);
+    /* background-color: var(--grey); */
 }
 /* ################# nav ################# */
 .nav {
@@ -54,13 +55,13 @@ body {
     border-radius: 8px;
     padding: 18px 10px;
     background-color: var(--secundario);
-    border: 1px solid var(--secundario);
-    color: var(--primario);
+    border: 1px solid var(--terciario);
+    color: var(--terciario);
   
 }
 .listIndex a:hover {
-    background-color: var(--primario);
-    border: 1px solid var(--secundario);
+    background-color: var(--terciario);
+    border: 1px solid var(--terciario);
     color: var(--secundario);
 }
 
