@@ -138,7 +138,7 @@ body {
 .formulaImg img {
     width: 340px;
 }
-.perimeterArea {
+.perimetroYArea {
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -239,7 +239,7 @@ body {
     }
 }
 @media screen and (max-width: 720px) {
-    .perimeterArea {
+    .perimetroYArea {
         flex-direction: column;
     }
 }
