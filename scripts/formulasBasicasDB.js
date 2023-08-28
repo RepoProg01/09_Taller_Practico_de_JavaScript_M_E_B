@@ -1,8 +1,13 @@
 const formulasArray = [];
 
 
-
-
+const intro = {
+    defImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj41gY8aOOyibvpt9dKdVgKYNxOPg0DO-gsWUiJoVar6GEFPL5NRoRQJPbz6FWkdErVvk&usqp=CAU",
+    defTitulo: "Introduccion:",
+    defArea: "El área es la medida bidimensional de una superficie. También es entendida como el espacio o región que cubre la figura geométrica. Para representar el área se utilizan unidades cuadradas, como por ejemplo, m2 o cm2.",
+    defPerimetro: "El perímetro corresponde a la longitud total de los lados de una figura, es decir, a la longitud de su contorno. Para calcularlo se requieren unidades de una sola dimensión.",
+    defClose: "No se debe olvidar que para determinar las áreas y perímetros de figuras, las fórmulas dependerán del tipo de figura y de las medidas correspondientes a cada una.</p>"
+};
 const trianguloObj = {
     id: "triangulo",
     imgFig: "../assets/triangulo.png",
@@ -178,7 +183,7 @@ const trapecioObj = {
     btnClP: "btnResultPTrap"
 };
 
-
+formulasArray.push(intro);
 formulasArray.push(trianguloObj);
 formulasArray.push(cuadradoObj);
 formulasArray.push(rectanguloObj);

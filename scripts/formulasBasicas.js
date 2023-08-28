@@ -19,18 +19,20 @@ function fblur(){
     body.classList.remove("noMove");
 }
 
- const seleccion = document.querySelectorAll(".seleccion");
- seleccion.forEach(element => {
+const seleccion = document.querySelectorAll(".seleccion");
+seleccion.forEach(element => {
     element.addEventListener("click", selectF);
- });
+});
 
- function selectF(event){
+function selectF(event){
     listIndex.classList.remove("listIndexShow");
     const figura = event.target.innerText.toLowerCase();
 
     const figSelect = formulasArray.find(obj => obj.id === figura);
     if(figSelect){
         renderFigura(figSelect);
+    }else{
+        renderIntroduccion();
     };
     fblur();
 
@@ -40,8 +42,16 @@ function fblur(){
     // const topOffset = cid.offsetTop - 70;
     // window.scroll(0, topOffset);
     // fblur();
- }
+}
 
+function borrar(){
+    divArea.innerHTML = "";
+    divPerimetro.innerHTML = "";
+    formulaImg.innerHTML = "";
+    perimetroYArea.innerHTML = "";
+    containerResponsive.innerHTML = "";
+    containerFiguras.innerHTML = "";
+};
 // =================================== containerFig ===================================
 // ================================== Render figure ==================================
 const containerFiguras = document.querySelector(".containerFiguras");
@@ -60,7 +70,32 @@ const pformulaP = document.createElement("p");
 const pResultP = document.createElement("p");
 const btnResultP = document.createElement("button");
 
+const defImg = document.createElement("img");
+const defTitulo = document.createElement("h2");
+const defArea = document.createElement("p");
+const defPerimetro = document.createElement("p");
+const defClose = document.createElement("p");
+
+function renderIntroduccion(){
+    borrar();
+    containerFiguras.appendChild(containerResponsive);
+    containerResponsive.classList.add("containerResponsive");
+
+    containerResponsive.appendChild(defTitulo);
+    containerResponsive.appendChild(defImg);
+    containerResponsive.appendChild(defArea);
+    containerResponsive.appendChild(defPerimetro);
+    containerResponsive.appendChild(defClose);
+
+    defTitulo.innerHTML = formulasArray[0].defTitulo;
+    defImg.setAttribute("src", formulasArray[0].defImg);
+    defArea.innerHTML = formulasArray[0].defArea;
+    defPerimetro.innerHTML = formulasArray[0].defPerimetro;
+    defClose.innerHTML = formulasArray[0].defClose;
+};
+
 function renderFigura(objeto){
+    borrar();
     containerFiguras.appendChild(containerResponsive);
     containerResponsive.classList.add("containerResponsive");
     containerResponsive.appendChild(formulaImg);
@@ -133,8 +168,7 @@ function renderFigura(objeto){
     btnResultP.classList.add(objeto.btnClP, "btnResult");
     btnResultP.innerHTML = "Resultado";
     divPerimetro.appendChild(btnResultP);
-   
-}
+};
 
 // #################################### triangulo ####################################
 // =================================== AreaTriangle ===================================
@@ -152,7 +186,7 @@ function aTriangle(){
     else{
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
     }
-}
+};
 // ================================ PerimeterTriangle ================================
 const winTriSide1 = document.querySelector("#winTriSide1");
 const winTriSide2 = document.querySelector("#winTriSide2");
@@ -443,7 +477,7 @@ function circunferencia(){
         pResultP.innerHTML = "Radio debe ser mayor a 0";
     }
 }
-
+renderIntroduccion();
 
 
 // ------------- altura de triangulo isosceles -------------
