@@ -127,7 +127,46 @@ body {
     margin: 0px;
 }
 /* ############# containerFig #############  */
+.containerIntro {
+    background-color: var(--terciario);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.subcontainerIntro {
+    background-color: var(--secundario);
+    display: flex;
+    flex-direction: column;
+    width: 340px;
+    padding: 0px 10px 20px 10px;
+    margin: 20px 0px 10px 0px;
+}
+.tituloIntro {
+    color: var(--terciario);
+    text-align: center;
+}
+.imgIntro {
+    width: 100%;
+    object-fit: contain;
+}
+.areaIntro,
+.perimetroIntro,
+.closeIntro {
+    background-color: var(--white);
+    margin-bottom: 0px;
+    padding: 20px;
+    color: var(--primario);
+    border-radius: 10px;
+}
+.closeIntro {
+
+}
+
+
 .containerResponsive {
+    background-color: var(--terciario);
     display: flex;
     flex-direction: row;
     gap: 10px;

@@ -70,28 +70,40 @@ const pformulaP = document.createElement("p");
 const pResultP = document.createElement("p");
 const btnResultP = document.createElement("button");
 
-const defImg = document.createElement("img");
+const defContainer = document.createElement("section");
+const defSubcontainer = document.createElement("div");
 const defTitulo = document.createElement("h2");
+const defImg = document.createElement("img");
 const defArea = document.createElement("p");
 const defPerimetro = document.createElement("p");
 const defClose = document.createElement("p");
 
+
+
 function renderIntroduccion(){
     borrar();
-    containerFiguras.appendChild(containerResponsive);
-    containerResponsive.classList.add("containerResponsive");
+    containerFiguras.appendChild(defContainer);
+    defContainer.classList.add("containerIntro");
+    defContainer.appendChild(defSubcontainer);
+    defSubcontainer.classList.add("subcontainerIntro");
 
-    containerResponsive.appendChild(defTitulo);
-    containerResponsive.appendChild(defImg);
-    containerResponsive.appendChild(defArea);
-    containerResponsive.appendChild(defPerimetro);
-    containerResponsive.appendChild(defClose);
+    defSubcontainer.appendChild(defTitulo);
+    defTitulo.classList.add("tituloIntro");
+    defSubcontainer.appendChild(defImg);
+    defImg.classList.add("imgIntro");
+    defSubcontainer.appendChild(defArea);
+    defArea.classList.add("areaIntro");
+    defSubcontainer.appendChild(defPerimetro);
+    defPerimetro.classList.add("perimetroIntro");
+    defSubcontainer.appendChild(defClose);
+    defClose.classList.add("closeIntro");
 
     defTitulo.innerHTML = formulasArray[0].defTitulo;
     defImg.setAttribute("src", formulasArray[0].defImg);
     defArea.innerHTML = formulasArray[0].defArea;
     defPerimetro.innerHTML = formulasArray[0].defPerimetro;
     defClose.innerHTML = formulasArray[0].defClose;
+    document.documentElement.scrollTop = 0;
 };
 
 function renderFigura(objeto){
@@ -168,6 +180,7 @@ function renderFigura(objeto){
     btnResultP.classList.add(objeto.btnClP, "btnResult");
     btnResultP.innerHTML = "Resultado";
     divPerimetro.appendChild(btnResultP);
+    document.documentElement.scrollTop = 0;
 };
 
 // #################################### triangulo ####################################

@@ -10,7 +10,7 @@ body {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    /* background-color: var(--grey); */
+    background-color: var(--terciario);
 }
 /* ################# nav ################# */
 .nav {
@@ -61,7 +61,7 @@ body {
 }
 .listIndex a:hover {
     background-color: var(--terciario);
-    border: 1px solid var(--terciario);
+    border: 1px solid var(--primario);
     color: var(--secundario);
 }
 

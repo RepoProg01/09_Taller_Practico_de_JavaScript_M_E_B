@@ -3,7 +3,7 @@ const formulasArray = [];
 
 const intro = {
     defImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj41gY8aOOyibvpt9dKdVgKYNxOPg0DO-gsWUiJoVar6GEFPL5NRoRQJPbz6FWkdErVvk&usqp=CAU",
-    defTitulo: "Introduccion:",
+    defTitulo: "Introduccion :",
     defArea: "El área es la medida bidimensional de una superficie. También es entendida como el espacio o región que cubre la figura geométrica. Para representar el área se utilizan unidades cuadradas, como por ejemplo, m2 o cm2.",
     defPerimetro: "El perímetro corresponde a la longitud total de los lados de una figura, es decir, a la longitud de su contorno. Para calcularlo se requieren unidades de una sola dimensión.",
     defClose: "No se debe olvidar que para determinar las áreas y perímetros de figuras, las fórmulas dependerán del tipo de figura y de las medidas correspondientes a cada una.</p>"
@@ -148,6 +148,10 @@ const trapecioObj = {
     formulaArea: "Formula = ((B + b) * h) / 2",
     inputArea: [
         {
+            inputLabel: "Medida de B en cm",
+            inputId: "winTrapAB"
+        },
+        {
             inputLabel: "Medida de b en cm",
             inputId: "winTrapAb"
         },
@@ -182,6 +186,134 @@ const trapecioObj = {
     resultClP: "resultPTrap",
     btnClP: "btnResultPTrap"
 };
+const romboObj = {
+    id: "rombo",
+    imgFig: "../assets/rombo.png",
+
+    titleArea: "Area del Rombo :",
+    formulaArea: "Formula = D x d / 2",
+    inputArea: [
+        {
+            inputLabel: "Medida D en cm",
+            inputId: "winD1A"
+        },
+        {
+            inputLabel: "Medida d en cm",
+            inputId: "winD2A"
+        },
+    ],
+    resultClA: "resultARombo",
+    btnClA: "btnResultARombo",
+
+    titlePerimetro: "Perimetro del Rombo :",
+    formulaPerimetro: "Formula = L1 + L2 + L3 + L4",
+    inputPerimetro: [
+        {
+            inputLabel: "Medida L1 en cm",
+            inputId: "winPRomL1"
+        },
+        {
+            inputLabel: "Medida L2 en cm",
+            inputId: "winPRomL2"
+        },
+        {
+            inputLabel: "Medida L3 en cm",
+            inputId: "winPRomL3"
+        },
+        {
+            inputLabel: "Medida L4 en cm",
+            inputId: "winPRomL4"
+        }
+    ],
+    resultClP: "resultPRombo",
+    btnClP: "btnResultPRombo"
+};
+const pentagonoObj = {
+    id: "pentagono",
+    imgFig: "../assets/pentagono.png",
+
+    titleArea: "Area del pentagono :",
+    formulaArea: "Formula = perimetro x apotema / 2",
+    inputArea: [
+        {
+            inputLabel: "Medida perimetro cm",
+            inputId: "winAPPent"
+        },
+        {
+            inputLabel: "Medida apotema cm",
+            inputId: "winAApotPent"
+        }
+    ],
+    resultClA: "resultAPentagono",
+    btnClA: "btnResultAPentagono",
+
+    titlePerimetro: "Perimetro del Pentagono :",
+    formulaPerimetro: "Formula = 5 x L",
+    inputPerimetro: [
+        {
+            inputLabel: "Medida lado en cm",
+            inputId: "winPPenL"
+        }
+    ],
+    resultClP: "resultPPentagono",
+    btnClP: "btnResultPPentagono"
+};
+const hexagonoObj = {
+    id: "hexagono",
+    imgFig: "../assets/hexagono.png",
+
+    titleArea: "Area del Hexagono :",
+    formulaArea: "Formula = (perimetro x apotema) / 2",
+    inputArea: [
+        {
+            inputLabel: "Medida perimetro en cm",
+            inputId: "winAPHex"
+        },
+        {
+            inputLabel: "Medida apotema en cm",
+            inputId: "winAApotHex"
+        }
+    ],
+    resultClA: "resultAHexagono",
+    btnClA: "btnResultAHex",
+
+    titlePerimetro: "Perimetro del Hexagono :",
+    formulaPerimetro: "Formula = 6 * Lado",
+    inputPerimetro: [
+        {
+            inputLabel: "Medida lado en cm",
+            inputId: "winPHexL"
+        }
+    ],
+    resultClP: "resultPHex",
+    btnClP: "btnResultPHex"
+};
+const circuloObj = {
+    id: "circulo",
+    imgFig: "../assets/circulo.png",
+
+    titleArea: "Area del Circulo :",
+    formulaArea: "Formula = pi x r2",
+    inputArea: [
+        {
+            inputLabel: "Medida radio en cm",
+            inputId: "winCircArea"
+        }
+    ],
+    resultClA: "resultACirc",
+    btnClA: "btnResultACirc",
+
+    titlePerimetro: "Circunferncia :",
+    formulaPerimetro: "Formula = pi * diametro",
+    inputPerimetro: [
+        {
+            inputLabel: "Medida radio en cm",
+            inputId: "winCircunferencia"
+        }
+    ],
+    resultClP: "resultCircunferencia",
+    btnClP: "btnResultCircunferencia"
+};
 
 formulasArray.push(intro);
 formulasArray.push(trianguloObj);
@@ -189,4 +321,8 @@ formulasArray.push(cuadradoObj);
 formulasArray.push(rectanguloObj);
 formulasArray.push(paralelogramoObj);
 formulasArray.push(trapecioObj);
+formulasArray.push(romboObj);
+formulasArray.push(pentagonoObj);
+formulasArray.push(hexagonoObj);
+formulasArray.push(circuloObj);
 
