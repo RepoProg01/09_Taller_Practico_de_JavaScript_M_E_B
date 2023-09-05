@@ -2,7 +2,7 @@ const formulasArray = [];
 
 
 const intro = {
-    defImg: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj41gY8aOOyibvpt9dKdVgKYNxOPg0DO-gsWUiJoVar6GEFPL5NRoRQJPbz6FWkdErVvk&usqp=CAU",
+    defImg: "../assets/areasYformulasFoto.png",
     defTitulo: "Introduccion :",
     defArea: "El área es la medida bidimensional de una superficie. También es entendida como el espacio o región que cubre la figura geométrica. Para representar el área se utilizan unidades cuadradas, como por ejemplo, m2 o cm2.",
     defPerimetro: "El perímetro corresponde a la longitud total de los lados de una figura, es decir, a la longitud de su contorno. Para calcularlo se requieren unidades de una sola dimensión.",
@@ -26,6 +26,7 @@ const trianguloObj = {
     ],
     resultClA: "resultATri",
     btnClA: "btnResultATri",
+    funcionArea: "aTriangle",
 
     titlePerimetro: "Perimetro del Triangulo",
     formulaPerimetro: "Formula = Lado1 + Lado2 + Base",
@@ -44,7 +45,8 @@ const trianguloObj = {
         },
     ],
     resultClP: "resultPTri",
-    btnClP: "btnResultPTri"
+    btnClP: "btnResultPTri",
+    funcionPerimetro: "pTriangle"
 };
 const cuadradoObj = {
     id: "cuadrado",

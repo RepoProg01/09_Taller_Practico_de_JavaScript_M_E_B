@@ -131,17 +131,18 @@ body {
     background-color: var(--terciario);
     display: flex;
     flex-direction: column;
-    width: 100%;
+    min-width: 340px;
     align-items: center;
     justify-content: center;
+    padding: 10px 10px 30px 10px;
 }
 .subcontainerIntro {
     background-color: var(--secundario);
     display: flex;
     flex-direction: column;
     width: 340px;
-    padding: 0px 10px 20px 10px;
-    margin: 20px 0px 10px 0px;
+    /* padding: 0px 10px 20px 10px; */
+    /* margin: 20px 0px 10px 0px; */
 }
 .tituloIntro {
     color: var(--terciario);
@@ -151,14 +152,18 @@ body {
     width: 100%;
     object-fit: contain;
 }
+
 .areaIntro,
 .perimetroIntro,
 .closeIntro {
     background-color: var(--white);
-    margin-bottom: 0px;
+    margin: 0px 10px 10px 10px ;
     padding: 20px;
     color: var(--primario);
     border-radius: 10px;
+}
+.areaIntro {
+    margin-top: 10px;
 }
 .closeIntro {
 
@@ -172,7 +177,7 @@ body {
     gap: 10px;
     justify-content: center;
     min-width: 340px;
-    padding: 20px 10px 30px 10px;
+    padding: 10px 10px 30px 10px;
 }
 .formulaImg {
     width: 340px;
