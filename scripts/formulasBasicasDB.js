@@ -1,6 +1,5 @@
 const formulasArray = [];
 
-
 const intro = {
     defImg: "../assets/areasYformulasFoto.png",
     defTitulo: "Introduccion :",
@@ -46,7 +45,7 @@ const trianguloObj = {
     ],
     resultClP: "resultPTri",
     btnClP: "btnResultPTri",
-    funcionPerimetro: "pTriangle"
+    funcionPerimetro: "pTriangle",
 };
 const cuadradoObj = {
     id: "cuadrado",
@@ -62,6 +61,7 @@ const cuadradoObj = {
     ],
     resultClA: "resultASqr",
     btnClA: "btnResultASqr",
+    funcionArea: "aSquare",
 
     titlePerimetro: "Perimetro del Cuadrado :",
     formulaPerimetro: "Formula = 4 * Lado",
@@ -72,7 +72,8 @@ const cuadradoObj = {
         }
     ],
     resultClP: "resultPSqr",
-    btnClP: "btnResultPSqr"
+    btnClP: "btnResultPSqr",
+    funcionPerimetro: "pSquare",
 };
 const rectanguloObj = {
     id: "rectangulo",
@@ -92,6 +93,7 @@ const rectanguloObj = {
     ],
     resultClA: "resultARec",
     btnClA: "btnResultARec",
+    funcionArea: "aRectangulo",
 
     titlePerimetro: "Perimetro del Rectangulo :",
     formulaPerimetro: "Formula = (2 * Base) + (2 * Lado)",
@@ -106,7 +108,8 @@ const rectanguloObj = {
         }
     ],
     resultClP: "resultPRec",
-    btnClP: "btnResultPRec"
+    btnClP: "btnResultPRec",
+    funcionPerimetro: "pRectangulo",
 };
 const paralelogramoObj = {
     id: "paralelogramo",
@@ -126,6 +129,7 @@ const paralelogramoObj = {
     ],
     resultClA: "resultAPar",
     btnClA: "btnResultAPar",
+    funcionArea: "aParalelogramo",
 
     titlePerimetro: "Perimetro del Paralelogramo :",
     formulaPerimetro: "Formula = 2 x (b + L)",
@@ -140,7 +144,8 @@ const paralelogramoObj = {
         }
     ],
     resultClP: "resultPPar",
-    btnClP: "btnResultPPar"
+    btnClP: "btnResultPPar",
+    funcionPerimetro: "pParalelogramo",
 };
 const trapecioObj = {
     id: "trapecio",
@@ -164,6 +169,7 @@ const trapecioObj = {
     ],
     resultClA: "resultATrapecio",
     btnClA: "btnResultATrapecio",
+    funcionArea: "aTrapecio",
 
     titlePerimetro: "Perimetro del Trapecio :",
     formulaPerimetro: "Formula = B + b + L1 + L2",
@@ -186,7 +192,8 @@ const trapecioObj = {
         }
     ],
     resultClP: "resultPTrap",
-    btnClP: "btnResultPTrap"
+    btnClP: "btnResultPTrap",
+    funcionPerimetro: "pTrapecio",
 };
 const romboObj = {
     id: "rombo",
@@ -206,6 +213,7 @@ const romboObj = {
     ],
     resultClA: "resultARombo",
     btnClA: "btnResultARombo",
+    funcionArea: "aRombo",
 
     titlePerimetro: "Perimetro del Rombo :",
     formulaPerimetro: "Formula = L1 + L2 + L3 + L4",
@@ -228,7 +236,8 @@ const romboObj = {
         }
     ],
     resultClP: "resultPRombo",
-    btnClP: "btnResultPRombo"
+    btnClP: "btnResultPRombo",
+    funcionPerimetro: "pRombo",
 };
 const pentagonoObj = {
     id: "pentagono",
@@ -248,6 +257,7 @@ const pentagonoObj = {
     ],
     resultClA: "resultAPentagono",
     btnClA: "btnResultAPentagono",
+    funcionArea: "aPentagono",
 
     titlePerimetro: "Perimetro del Pentagono :",
     formulaPerimetro: "Formula = 5 x L",
@@ -258,7 +268,8 @@ const pentagonoObj = {
         }
     ],
     resultClP: "resultPPentagono",
-    btnClP: "btnResultPPentagono"
+    btnClP: "btnResultPPentagono",
+    funcionPerimetro: "pPentagono",
 };
 const hexagonoObj = {
     id: "hexagono",
@@ -278,6 +289,7 @@ const hexagonoObj = {
     ],
     resultClA: "resultAHexagono",
     btnClA: "btnResultAHex",
+    funcionArea: "aHexagono",
 
     titlePerimetro: "Perimetro del Hexagono :",
     formulaPerimetro: "Formula = 6 * Lado",
@@ -288,7 +300,8 @@ const hexagonoObj = {
         }
     ],
     resultClP: "resultPHex",
-    btnClP: "btnResultPHex"
+    btnClP: "btnResultPHex",
+    funcionPerimetro: "pHexagono",
 };
 const circuloObj = {
     id: "circulo",
@@ -304,6 +317,7 @@ const circuloObj = {
     ],
     resultClA: "resultACirc",
     btnClA: "btnResultACirc",
+    funcionArea: "aCirculo",
 
     titlePerimetro: "Circunferncia :",
     formulaPerimetro: "Formula = pi * diametro",
@@ -314,7 +328,8 @@ const circuloObj = {
         }
     ],
     resultClP: "resultCircunferencia",
-    btnClP: "btnResultCircunferencia"
+    btnClP: "btnResultCircunferencia",
+    funcionPerimetro: "circunferencia",
 };
 
 formulasArray.push(intro);

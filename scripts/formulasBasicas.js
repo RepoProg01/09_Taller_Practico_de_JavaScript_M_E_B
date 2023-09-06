@@ -47,9 +47,15 @@ function selectF(event){
 function borrar(){
     divArea.innerHTML = "";
     divPerimetro.innerHTML = "";
-    formulaImg.innerHTML = "";
-    perimetroYArea.innerHTML = "";
-    containerResponsive.innerHTML = "";
+
+    pResultA.innerHTML = "";
+    pResultP.innerHTML = "";
+
+    pResultA.classList.remove(pResultAReg);
+    btnResultA.classList.remove(btnResultAReg);
+    pResultP.classList.remove(pResultPReg);
+    btnResultP.classList.remove(btnResultPReg);
+
     containerFiguras.innerHTML = "";
 };
 // =================================== containerFig ===================================
@@ -62,13 +68,21 @@ const perimetroYArea = document.createElement("div");
 const divArea =document.createElement("div");
 const pTitleA = document.createElement("p");
 const pformulaA = document.createElement("p");
+
+let pResultAReg = null;
 const pResultA = document.createElement("p");
+let btnResultAReg = null;
 const btnResultA = document.createElement("button");
+
 const divPerimetro =document.createElement("div");
 const pTitleP = document.createElement("p");
 const pformulaP = document.createElement("p");
+
+let pResultPReg = null;
 const pResultP = document.createElement("p");
+let btnResultPReg = null;
 const btnResultP = document.createElement("button");
+
 const defContainer = document.createElement("section");
 const defSubcontainer = document.createElement("div");
 const defTitulo = document.createElement("h2");
@@ -109,7 +123,6 @@ function renderFigura(objeto){
     containerResponsive.classList.add("containerResponsive");
     containerResponsive.appendChild(formulaImg);
     formulaImg.classList.add("formulaImg");
-    // formulaImg.setAttribute("id", "triangulo");
     formulaImg.appendChild(imgFigura);
     containerResponsive.appendChild(perimetroYArea);
     perimetroYArea.classList.add("perimetroYArea");
@@ -140,17 +153,20 @@ function renderFigura(objeto){
         divWin.appendChild(inputAreaWindow);
         divArea.appendChild(divWin);
     })
-    pResultA.classList.add(objeto.resultClA, "winStyle");
+    pResultAReg = objeto.resultClA
+    pResultA.classList.add("winStyle", pResultAReg);
     divArea.appendChild(pResultA);
-    btnResultA.classList.add(objeto.btnClA, "btnResult");
+    btnResultAReg = objeto.btnClA;
+    btnResultA.classList.add("btnResult", btnResultAReg);
     btnResultA.innerHTML = "Resultado";
     divArea.appendChild(btnResultA);
 
-    // btnResultA.addEventListener("click", objeto.funcionArea);
+    const fncActive = eval(objeto.funcionArea);
+    console.log(fncActive);
+    btnResultA.addEventListener("click", fncActive);
+    //btnResultA.addEventListener("click", aTriangle);
 
-   
     //=================================== Perimetro ===================================
-
     perimetroYArea.appendChild(divPerimetro);
     divPerimetro.classList.add("containerFormules");
     divPerimetro.appendChild(pTitleP);
@@ -175,12 +191,16 @@ function renderFigura(objeto){
         divWinP.appendChild(inputPerimetroWindow);
         divPerimetro.appendChild(divWinP);
     });
-    pResultP.classList.add(objeto.resultClP, "winStyle");
+    pResultPReg = objeto.resultClP;
+    pResultP.classList.add("winStyle", pResultPReg);
     divPerimetro.appendChild(pResultP);
-    btnResultP.classList.add(objeto.btnClP, "btnResult");
+    btnResultPReg = objeto.btnClP;
+    btnResultP.classList.add("btnResult", btnResultPReg);
     btnResultP.innerHTML = "Resultado";
     divPerimetro.appendChild(btnResultP);
-    // btnResultP.addEventListener("click", objeto.funcionPerimetro);
+
+    btnResultP.addEventListener("click", (eval(objeto.funcionPerimetro)));
+
     document.documentElement.scrollTop = 0;
 };
 
@@ -189,7 +209,6 @@ function renderFigura(objeto){
 function aTriangle(){
     const winTriBaseA = document.querySelector("#winTriBaseA");
     const winTriHeight = document.querySelector("#winTriHeight");
-
     if(winTriBaseA.value > 0 && winTriHeight.value > 0){
         const base = Number(winTriBaseA.value);
         const height = Number(winTriHeight.value);
@@ -358,7 +377,7 @@ function pTrapecio(){
 
 // #################################### rombo ####################################
 // ----------------- AreaRombo -----------------
-function arombo(){
+function aRombo(){
     const winD1A = document.querySelector("#winD1A");
     const winD2A = document.querySelector("#winD2A");
     btnResultA.addEventListener("click", arombo);
