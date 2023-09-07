@@ -47,17 +47,15 @@ function selectF(event){
 function borrar(){
     divArea.innerHTML = "";
     divPerimetro.innerHTML = "";
-
     pResultA.innerHTML = "";
     pResultP.innerHTML = "";
-
     pResultA.classList.remove(pResultAReg);
     btnResultA.classList.remove(btnResultAReg);
     pResultP.classList.remove(pResultPReg);
     btnResultP.classList.remove(btnResultPReg);
-
     containerFiguras.innerHTML = "";
 };
+
 // =================================== containerFig ===================================
 // ================================== Render figure ==================================
 const containerFiguras = document.querySelector(".containerFiguras");
@@ -68,21 +66,17 @@ const perimetroYArea = document.createElement("div");
 const divArea =document.createElement("div");
 const pTitleA = document.createElement("p");
 const pformulaA = document.createElement("p");
-
-let pResultAReg = null;
+let pResultAReg;
 const pResultA = document.createElement("p");
-let btnResultAReg = null;
+let btnResultAReg;
 const btnResultA = document.createElement("button");
-
 const divPerimetro =document.createElement("div");
 const pTitleP = document.createElement("p");
 const pformulaP = document.createElement("p");
-
-let pResultPReg = null;
+let pResultPReg;
 const pResultP = document.createElement("p");
-let btnResultPReg = null;
+let btnResultPReg;
 const btnResultP = document.createElement("button");
-
 const defContainer = document.createElement("section");
 const defSubcontainer = document.createElement("div");
 const defTitulo = document.createElement("h2");
@@ -117,6 +111,8 @@ function renderIntroduccion(){
     document.documentElement.scrollTop = 0;
 };
 
+let rutaFA;
+let rutaFP;
 function renderFigura(objeto){
     borrar();
     containerFiguras.appendChild(containerResponsive);
@@ -161,10 +157,10 @@ function renderFigura(objeto){
     btnResultA.innerHTML = "Resultado";
     divArea.appendChild(btnResultA);
 
-    const fncActive = eval(objeto.funcionArea);
-    console.log(fncActive);
-    btnResultA.addEventListener("click", fncActive);
-    //btnResultA.addEventListener("click", aTriangle);
+    
+    btnResultA.removeEventListener("click", rutaFA);
+    rutaFA = (eval(objeto.funcionArea));
+    btnResultA.addEventListener("click", rutaFA);
 
     //=================================== Perimetro ===================================
     perimetroYArea.appendChild(divPerimetro);
@@ -199,7 +195,9 @@ function renderFigura(objeto){
     btnResultP.innerHTML = "Resultado";
     divPerimetro.appendChild(btnResultP);
 
-    btnResultP.addEventListener("click", (eval(objeto.funcionPerimetro)));
+    btnResultP.removeEventListener("click", rutaFP);
+    rutaFP = (eval(objeto.funcionPerimetro));
+    btnResultP.addEventListener("click", rutaFP);
 
     document.documentElement.scrollTop = 0;
 };
@@ -241,8 +239,6 @@ function pTriangle(){
 // =================================== AreaSquare ===================================
 function aSquare(){
     const winSqrArea = document.querySelector("#winSqrArea");
-    btnResultA.addEventListener("click", aSquare);
-
     if(winSqrArea.value > 0){
         const lado = Number(winSqrArea.value);
         const result = lado * lado;
@@ -255,8 +251,6 @@ function aSquare(){
 // =================================== PerimeterSquare ===================================
 function pSquare(){
     const winSqrPerimeter = document.querySelector("#winSqrPerimeter");
-    btnResultP.addEventListener("click", pSquare);
-
     if(winSqrPerimeter.value > 0){
         const lado = Number(winSqrPerimeter.value);
         const result = lado * 4;
@@ -272,8 +266,6 @@ function pSquare(){
 function aRectangulo(){
     const winRecABase = document.querySelector("#winRecABase");
     const winRecAAltura = document.querySelector("#winRecAAltura");
-    btnResultA.addEventListener("click", aRectangulo);
-
     if(winRecABase.value > 0 && winRecAAltura.value > 0){
         const base = Number(winRecABase.value);
         const altura = Number(winRecAAltura.value);
@@ -288,8 +280,6 @@ function aRectangulo(){
 function pRectangulo(){
     const winRecPBase = document.querySelector("#winRecPBase");
     const winRecPLado = document.querySelector("#winRecPLado");
-    btnResultP.addEventListener("click", pRectangulo);
-
     if(winRecPBase.value > 0 && winRecPLado.value > 0) {
         const base = Number(winRecPBase.value);
         const lado = Number(winRecPLado.value);
@@ -306,8 +296,6 @@ function pRectangulo(){
 function aParalelogramo(){
     const winParABase = document.querySelector("#winParABase");
     const winParAltura = document.querySelector("#winParAltura");
-    btnResultA.addEventListener("click", aParalelogramo);
-
     if(winParABase.value > 0 && winParAltura.value > 0){
         const base = Number(winParABase.value);
         const altura = Number(winParAltura.value);
@@ -322,8 +310,6 @@ function aParalelogramo(){
 function pParalelogramo(){
     const winParPBase = document.querySelector("#winParPBase");
     const winParPAltura = document.querySelector("#winParPAltura");
-    btnResultP.addEventListener("click", pParalelogramo);
-
     if(winParPBase.value > 0 && winParPAltura.value > 0) {
         const base = Number(winParPBase.value);
         const lado = Number(winParPAltura.value);
@@ -341,8 +327,6 @@ function aTrapecio(){
     const winTrapAB = document.querySelector("#winTrapAB");
     const winTrapAb = document.querySelector("#winTrapAb");
     const winTrapAa = document.querySelector("#winTrapAa");
-    btnResultA.addEventListener("click", aTrapecio);
-
     if(winTrapAB.value > 0 && winTrapAb.value > 0 && winTrapAa.value > 0){
         const baseM = Number(winTrapAB.value);
         const basem = Number(winTrapAb.value);
@@ -360,8 +344,6 @@ function pTrapecio(){
     const winL2PTrap = document.querySelector("#winL2PTrap");
     const winL3PTrap = document.querySelector("#winL3PTrap");
     const winL4PTrap = document.querySelector("#winL4PTrap");
-    btnResultP.addEventListener("click", pTrapecio);
-
     if(winL1PTrap.value > 0 && winL2PTrap.value > 0 && winL3PTrap.value > 0 && winL4PTrap.value > 0) {
         const l1 = Number(winL1PTrap.value);
         const l2 = Number(winL2PTrap.value);
@@ -380,8 +362,6 @@ function pTrapecio(){
 function aRombo(){
     const winD1A = document.querySelector("#winD1A");
     const winD2A = document.querySelector("#winD2A");
-    btnResultA.addEventListener("click", arombo);
-
     if(winD1A.value > 0 && winD2A.value > 0){
         const d1 = Number(winD1A.value);
         const d2 = Number(winD2A.value);
@@ -398,8 +378,6 @@ function pRombo(){
     const winPRomL2 = document.querySelector("#winPRomL2");
     const winPRomL3 = document.querySelector("#winPRomL3");
     const winPRomL4 = document.querySelector("#winPRomL4");
-    btnResultP.addEventListener("click", pRombo);
-
     if(winPRomL1.value > 0 && winPRomL2.value > 0 && winPRomL3.value > 0 && winPRomL4.value > 0) {
         const l1 = Number(winPRomL1.value);
         const l2 = Number(winPRomL2.value);
@@ -418,8 +396,6 @@ function pRombo(){
 function aPentagono(){
     const winAPPent = document.querySelector("#winAPPent");
     const winAApotPent = document.querySelector("#winAApotPent");
-    btnResultA.addEventListener("click", aPentagono);
-
     if(winAPPent.value > 0 && winAApotPent.value > 0){
         const perim = Number(winAPPent.value);
         const apotem = Number(winAApotPent.value);
@@ -433,8 +409,6 @@ function aPentagono(){
 // ----------------- PerimeterPentagono -----------------
 function pPentagono(){
     const winPPenL = document.querySelector("#winPPenL");
-    btnResultP.addEventListener("click", pPentagono);
-
     if(winPPenL.value > 0) {
         const lado = Number(winPPenL.value);
         const result = 5 * lado;
@@ -450,8 +424,6 @@ function pPentagono(){
 function aHexagono(){
     const winAPHex = document.querySelector("#winAPHex");
     const winAApotHex = document.querySelector("#winAApotHex");
-    btnResultA.addEventListener("click", aHexagono);
-
     if(winAPHex.value > 0 && winAApotHex.value > 0){
         const perim = Number(winAPHex.value);
         const apotem = Number(winAApotHex.value);
@@ -465,8 +437,6 @@ function aHexagono(){
 // ----------------- PerimeterHexagono -----------------
 function pHexagono(){
     const winPHexL = document.querySelector("#winPHexL");
-    btnResultP.addEventListener("click", pHexagono);
-
     if(winPHexL.value > 0) {
         const lado = Number(winPHexL.value);
         const result = 6 * lado;
@@ -480,8 +450,6 @@ function pHexagono(){
 // ----------------- AreaCirculo -----------------
 function aCirculo(){
     const winCircArea = document.querySelector("#winCircArea");
-    btnResultA.addEventListener("click", aCirculo);
-
     if(winCircArea.value > 0){
         const radio = Number(winCircArea.value);
         const PI = Math.PI.toFixed(2)
@@ -495,8 +463,6 @@ function aCirculo(){
 // ----------------- Circunferencia -----------------
 function circunferencia(){
     const winCircunferencia = document.querySelector("#winCircunferencia");
-    btnResultP.addEventListener("click", circunferencia);
-
     if(winCircunferencia.value > 0){
         const radio = Number(winCircunferencia.value);
         const PI = Math.PI.toFixed(2);
