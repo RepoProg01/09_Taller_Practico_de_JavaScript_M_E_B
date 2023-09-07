@@ -52,12 +52,12 @@ body {
     font-size: 18px;
     font-weight: 700;
     border: 1px solid var(--secundario);
-    color: var(--red);
+    color: var(--terciario);
     border-radius: 8px;
     padding: 5px;
 }
 .btnMenu p:hover{
-    /* border: 1px solid var(--terciario); */
+    border: 1px solid var(--terciario);
     color: var(--terciario);
 }
 
@@ -71,10 +71,10 @@ body {
     padding: 5px;
     text-align: center;
     text-decoration: none;
-    color: var(--red);
+    color: var(--terciario);
 }
 .homeLink:hover {
-    /* border: 1px solid var(--terciario); */
+    border: 1px solid var(--terciario);
     color: var(--terciario);
 } 
 
