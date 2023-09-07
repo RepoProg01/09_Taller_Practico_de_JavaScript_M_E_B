@@ -1,7 +1,7 @@
 const formulasArray = [];
 
 const intro = {
-    defImg: "../assets/areasYformulasFoto.png",
+    defImg: "../assets/introduccion.png",
     defTitulo: "Introduccion :",
     defArea: "El área es la medida bidimensional de una superficie. También es entendida como el espacio o región que cubre la figura geométrica. Para representar el área se utilizan unidades cuadradas, como por ejemplo, m2 o cm2.",
     defPerimetro: "El perímetro corresponde a la longitud total de los lados de una figura, es decir, a la longitud de su contorno. Para calcularlo se requieren unidades de una sola dimensión.",
@@ -9,7 +9,7 @@ const intro = {
 };
 const trianguloObj = {
     id: "triangulo",
-    imgFig: "../assets/triangulo.png",
+    imgFig: "../assets/triangulo_equilatero.png",
 
     titleArea: "Area del Triangulo",
     formulaArea: "Formula = Base * Altura / 2",
