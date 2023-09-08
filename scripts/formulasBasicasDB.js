@@ -336,18 +336,22 @@ const elipseObj = {
     imgFig: "../assets/elipse.png",
 
     titleArea: "Area del Elipse :",
-    formulaArea: "Formula = pi x r2",
+    formulaArea: "Formula = pi x a x b",
     inputArea: [
         {
-            inputLabel: "Medida radio",
-            inputId: "winElipArea"
+            inputLabel: "Medida Semieje H",
+            inputId: "winElipSemiEjeH"
+        },
+        {
+            inputLabel: "Medida Semieje V",
+            inputId: "winElipSemiEjeV"
         }
     ],
     resultClA: "resultAElip",
     btnClA: "btnResultAElip",
     funcionArea: "aElipse",
 
-    titlePerimetro: "Elipse :",
+    titlePerimetro: "Longitud Elipse :",
     formulaPerimetro: "Formula = pi * diametro",
     inputPerimetro: [
         {
@@ -370,4 +374,5 @@ formulasArray.push(romboObj);
 formulasArray.push(pentagonoObj);
 formulasArray.push(hexagonoObj);
 formulasArray.push(circuloObj);
+formulasArray.push(elipseObj);
 

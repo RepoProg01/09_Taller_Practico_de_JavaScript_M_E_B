@@ -47,7 +47,8 @@ function selectF(event){
 }
 
 function borrar(){
-    medida = null;
+    medidaA = null;
+    medidaP = null;
     inputRadioAC.checked = false;
     inputRadioAM.checked = false;
     inputRadioPC.checked = false;
@@ -119,7 +120,6 @@ function medSeleccion() {
         medidaP = "m";
     };
 };
-
 function renderIntroduccion(){
     borrar();
     containerFiguras.appendChild(defContainer);
@@ -145,7 +145,6 @@ function renderIntroduccion(){
     defClose.innerHTML = formulasArray[0].defClose;
     document.documentElement.scrollTop = 0;
 };
-
 function renderFigura(objeto){
     borrar();
     containerFiguras.appendChild(containerResponsive);
@@ -260,7 +259,6 @@ function renderFigura(objeto){
     btnResultP.addEventListener("click", rutaFP);
     document.documentElement.scrollTop = 0;
 };
-
 // #################################### triangulo ####################################
 // =================================== AreaTriangulo ===================================
 function aTriangle(){
@@ -274,7 +272,7 @@ function aTriangle(){
             const result = (base * height) / 2;
             pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
         }else{
-            pResultA.innerHTML = "Seleccionar centimetros o metros";
+            pResultA.innerHTML = "Elegir centimetros o metros";
         }
     }else{
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
@@ -294,13 +292,12 @@ function pTriangle(){
             const result = lado1 + lado2 + base;
             pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} ${medidaP}`;
         }else{
-            pResultP.innerHTML = "Seleccionar centimetros o metros";
+            pResultP.innerHTML = "Elegir centimetros o metros";
         }
     }else{
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-
 // #################################### cuadrado ####################################
 // =================================== AreaSquare ===================================
 function aSquare(){
@@ -312,7 +309,7 @@ function aSquare(){
             const result = lado * lado;
             pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
         }else{
-            pResultA.innerHTML = "Seleccionar centimetros o metros";
+            pResultA.innerHTML = "Elegir centimetros o metros";
         }
     }else{
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
@@ -328,13 +325,12 @@ function pSquare(){
             const result = lado * 4;
             pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} ${medidaP}`;
         }else{
-            pResultP.innerHTML = "Seleccionar centimetros o metros";
+            pResultP.innerHTML = "Elegir centimetros o metros";
         }
     }else{
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-
 // #################################### Rectangulo ####################################
 // ----------------- AreaRectangulo -----------------
 function aRectangulo(){ 
@@ -348,7 +344,7 @@ function aRectangulo(){
             const result = base * altura;
             pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
         }else{
-            pResultA.innerHTML = "Seleccionar centimetros o metros";
+            pResultA.innerHTML = "Elegir centimetros o metros";
         }
     }else{
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
@@ -366,13 +362,12 @@ function pRectangulo(){
             const result = (base * 2) + (lado * 2);
             pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} ${medidaP}`;
         }else{
-            pResultP.innerHTML = "Seleccionar centimetros o metros";
+            pResultP.innerHTML = "Elegir centimetros o metros";
         }
     }else{
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-
 // #################################### Paralelogramo ####################################
 // ----------------- AreaParalelogramo -----------------
 function aParalelogramo(){
@@ -386,7 +381,7 @@ function aParalelogramo(){
             const result = base * altura;
             pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
         }else{
-            pResultA.innerHTML = "Seleccionar centimetros o metros";
+            pResultA.innerHTML = "Elegir centimetros o metros";
         }
     }else{
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
@@ -404,13 +399,12 @@ function pParalelogramo(){
             const result = 2 * (base + lado);
             pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} ${medidaP}`;
         }else{
-            pResultP.innerHTML = "Seleccionar centimetros o metros";
+            pResultP.innerHTML = "Elegir centimetros o metros";
         }
     }else{
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-
 // #################################### Trapecio ####################################
 // ----------------- AreaTrapecio -----------------
 function aTrapecio(){
@@ -426,7 +420,7 @@ function aTrapecio(){
             const result = ((baseM + basem) /2) * altura;
             pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
         }else{
-            pResultA.innerHTML = "Seleccionar centimetros o metros";
+            pResultA.innerHTML = "Elegir centimetros o metros";
         }
     }else{
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
@@ -448,13 +442,12 @@ function pTrapecio(){
             const result = l1 + l2 + l3 + l4;
             pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} ${medidaP}`;
         }else{
-            pResultP.innerHTML = "Seleccionar centimetros o metros";
+            pResultP.innerHTML = "Elegir centimetros o metros";
         }
     }else{
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-
 // #################################### rombo ####################################
 // ----------------- AreaRombo -----------------
 function aRombo(){
@@ -468,7 +461,7 @@ function aRombo(){
             const result = (d1 * d2) / 2;
             pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
         }else{
-            pResultA.innerHTML = "Seleccionar centimetros o metros";
+            pResultA.innerHTML = "Elegir centimetros o metros";
         }
     }else{
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
@@ -490,13 +483,12 @@ function pRombo(){
             const result = l1 + l2 + l3 + l4;
             pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} ${medidaP}`;
         }else{
-            pResultP.innerHTML = "Seleccionar centimetros o metros";
+            pResultP.innerHTML = "Elegir centimetros o metros";
         }
     }else{
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-
 // #################################### Pentagono ####################################
 // ----------------- AreaPentagono -----------------
 function aPentagono(){
@@ -510,7 +502,7 @@ function aPentagono(){
             const result = (perim * apotem) / 2;
             pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
         }else{
-            pResultA.innerHTML = "Seleccionar centimetros o metros";
+            pResultA.innerHTML = "Elegir centimetros o metros";
         }
     }else{
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
@@ -526,13 +518,12 @@ function pPentagono(){
             const result = 5 * lado;
             pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} ${medidaP}`;
         }else{
-            pResultP.innerHTML = "Seleccionar centimetros o metros";
+            pResultP.innerHTML = "Elegir centimetros o metros";
         }
     }else{
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-
 // #################################### Hexagono ####################################
 // ----------------- AreaHexagono -----------------
 function aHexagono(){
@@ -546,7 +537,7 @@ function aHexagono(){
             const result = (perim * apotem) / 2;
             pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
         }else{
-            pResultA.innerHTML = "Seleccionar centimetros o metros";
+            pResultA.innerHTML = "Elegir centimetros o metros";
         }
     }else{
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
@@ -562,7 +553,7 @@ function pHexagono(){
             const result = 6 * lado;
             pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} ${medidaP}`;
         }else{
-            pResultP.innerHTML = "Seleccionar centimetros o metros";
+            pResultP.innerHTML = "Elegir centimetros o metros";
         }
     }else{
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
@@ -580,7 +571,7 @@ function aCirculo(){
             const result = Math.pow(radio, 2) * PI;
             pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
         }else{
-            pResultA.innerHTML = "Seleccionar centimetros o metros";
+            pResultA.innerHTML = "Elegir centimetros o metros";
         }
     }else{
         pResultA.innerHTML = "Radio debe de ser mayor a 0";
@@ -597,7 +588,7 @@ function circunferencia(){
             const result = PI * (radio * 2);
             pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} ${medidaP}`;
         }else{
-            pResultP.innerHTML = "Seleccionar centimetros o metros";
+            pResultP.innerHTML = "Elegir centimetros o metros";
         }
     }else{
         pResultP.innerHTML = "Radio debe ser mayor a 0";
