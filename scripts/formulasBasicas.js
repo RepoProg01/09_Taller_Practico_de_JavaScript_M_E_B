@@ -8,6 +8,8 @@ figuras.addEventListener("click", menu);
 blurC.addEventListener("click", fblur);
 
 function menu(){
+
+    listIndex.scrollTop = 0;
     listIndex.classList.toggle("listIndexShow");
     blurC.classList.toggle("off");
     body.classList.toggle("noMove");
@@ -45,6 +47,11 @@ function selectF(event){
 }
 
 function borrar(){
+    medida = null;
+    inputRadioAC.checked = false;
+    inputRadioAM.checked = false;
+    inputRadioPC.checked = false;
+    inputRadioPM.checked = false;
     divArea.innerHTML = "";
     divPerimetro.innerHTML = "";
     pResultA.innerHTML = "";
@@ -66,16 +73,22 @@ const perimetroYArea = document.createElement("div");
 const divArea =document.createElement("div");
 const pTitleA = document.createElement("p");
 const pformulaA = document.createElement("p");
-let pResultAReg;
+const divRadioA = document.createElement("div");
+const divRadioP = document.createElement("div");
+const inputRadioAC = document.createElement("input");
+const inputRadioAM = document.createElement("input");
+const inputLabelAC = document.createElement("label");
+const inputLabelAM = document.createElement("label");
+const inputRadioPC = document.createElement("input");
+const inputRadioPM = document.createElement("input");
+const inputLabelPC = document.createElement("label");
+const inputLabelPM = document.createElement("label");
 const pResultA = document.createElement("p");
-let btnResultAReg;
 const btnResultA = document.createElement("button");
 const divPerimetro =document.createElement("div");
 const pTitleP = document.createElement("p");
 const pformulaP = document.createElement("p");
-let pResultPReg;
 const pResultP = document.createElement("p");
-let btnResultPReg;
 const btnResultP = document.createElement("button");
 const defContainer = document.createElement("section");
 const defSubcontainer = document.createElement("div");
@@ -84,6 +97,28 @@ const defImg = document.createElement("img");
 const defArea = document.createElement("p");
 const defPerimetro = document.createElement("p");
 const defClose = document.createElement("p");
+
+let medidaA;
+let medidaP;
+let btnResultAReg;
+let btnResultPReg;
+let pResultAReg;
+let pResultPReg;
+let rutaFA;
+let rutaFP;
+
+function medSeleccion() {
+    if(inputRadioAC.checked) {
+        medidaA = "cm2";
+    }else if(inputRadioAM.checked) {
+        medidaA = "m2";
+    };
+    if(inputRadioPC.checked) {
+        medidaP = "cm";
+    }else if(inputRadioPM.checked) {
+        medidaP = "m";
+    };
+};
 
 function renderIntroduccion(){
     borrar();
@@ -111,8 +146,6 @@ function renderIntroduccion(){
     document.documentElement.scrollTop = 0;
 };
 
-let rutaFA;
-let rutaFP;
 function renderFigura(objeto){
     borrar();
     containerFiguras.appendChild(containerResponsive);
@@ -134,6 +167,20 @@ function renderFigura(objeto){
     pformulaA.classList.add("textFormule");
     pformulaA.innerHTML = objeto.formulaArea;
     divArea.appendChild(pformulaA);
+
+    divRadioA.classList.add("divRadioA");
+    inputRadioAC.setAttribute("type", "radio");
+    inputRadioAC.setAttribute("name", "radA");
+    inputRadioAC.setAttribute("id", "radAC");
+    inputLabelAC.setAttribute("for", "radAC");
+    inputLabelAC.innerHTML = "centimetros";
+    inputRadioAM.setAttribute("type", "radio");
+    inputRadioAM.setAttribute("name", "radA");
+    inputRadioAM.setAttribute("id", "radAM");
+    inputLabelAM.setAttribute("for", "radAM");
+    inputLabelAM.innerHTML = "metros";
+    divRadioA.append(inputRadioAC, inputLabelAC, inputRadioAM, inputLabelAM);
+    divArea.appendChild(divRadioA);
 
     objeto.inputArea.forEach(winInput => {
         const divWin = document.createElement("div");
@@ -157,7 +204,6 @@ function renderFigura(objeto){
     btnResultA.innerHTML = "Resultado";
     divArea.appendChild(btnResultA);
 
-    
     btnResultA.removeEventListener("click", rutaFA);
     rutaFA = (eval(objeto.funcionArea));
     btnResultA.addEventListener("click", rutaFA);
@@ -172,6 +218,20 @@ function renderFigura(objeto){
     pTitleP.innerHTML = objeto.titlePerimetro;
     pformulaP.classList.add("textFormule");
     pformulaP.innerHTML = objeto.formulaPerimetro;
+
+    divRadioP.classList.add("divRadioP");
+    inputRadioPC.setAttribute("type", "radio");
+    inputRadioPC.setAttribute("name", "radP");
+    inputRadioPC.setAttribute("id", "radPC");
+    inputLabelPC.setAttribute("for", "radPC");
+    inputLabelPC.innerHTML = "centimetros";
+    inputRadioPM.setAttribute("type", "radio");
+    inputRadioPM.setAttribute("name", "radP");
+    inputRadioPM.setAttribute("id", "radPM");
+    inputLabelPM.setAttribute("for", "radPM");
+    inputLabelPM.innerHTML = "metros";
+    divRadioP.append(inputRadioPC, inputLabelPC, inputRadioPM, inputLabelPM);
+    divPerimetro.appendChild(divRadioP);
 
     objeto.inputPerimetro.forEach(winInput => {
         const divWinP = document.createElement("div");
@@ -198,7 +258,6 @@ function renderFigura(objeto){
     btnResultP.removeEventListener("click", rutaFP);
     rutaFP = (eval(objeto.funcionPerimetro));
     btnResultP.addEventListener("click", rutaFP);
-
     document.documentElement.scrollTop = 0;
 };
 
@@ -207,13 +266,17 @@ function renderFigura(objeto){
 function aTriangle(){
     const winTriBaseA = document.querySelector("#winTriBaseA");
     const winTriHeight = document.querySelector("#winTriHeight");
+    medSeleccion();
     if(winTriBaseA.value > 0 && winTriHeight.value > 0){
-        const base = Number(winTriBaseA.value);
-        const height = Number(winTriHeight.value);
-        const result = (base * height) / 2;
-        pResultA.innerHTML = `Area = ${result.toFixed(2)} cm2`;
-    }
-    else{
+        if(inputRadioAC.checked || inputRadioAM.checked){
+            const base = Number(winTriBaseA.value);
+            const height = Number(winTriHeight.value);
+            const result = (base * height) / 2;
+            pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
+        }else{
+            pResultA.innerHTML = "Seleccionar centimetros o metros";
+        }
+    }else{
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
     }
 };
@@ -222,15 +285,18 @@ function pTriangle(){
     const winTriSide1 = document.querySelector("#winTriSide1");
     const winTriSide2 = document.querySelector("#winTriSide2");
     const winTriBase = document.querySelector("#winTriBase");
-
+    medSeleccion();
     if(winTriSide1.value > 0 && winTriSide2.value > 0 && winTriBase.value > 0 ){
-        const lado1 = Number(winTriSide1.value);
-        const lado2 = Number(winTriSide2.value);
-        const base = Number(winTriBase.value);
-        const result = lado1 + lado2 + base;
-        pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} cm`;
-    }
-    else{
+        if(inputRadioPC.checked || inputRadioPM.checked){
+            const lado1 = Number(winTriSide1.value);
+            const lado2 = Number(winTriSide2.value);
+            const base = Number(winTriBase.value);
+            const result = lado1 + lado2 + base;
+            pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} ${medidaP}`;
+        }else{
+            pResultP.innerHTML = "Seleccionar centimetros o metros";
+        }
+    }else{
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
@@ -239,40 +305,52 @@ function pTriangle(){
 // =================================== AreaSquare ===================================
 function aSquare(){
     const winSqrArea = document.querySelector("#winSqrArea");
+    medSeleccion();
     if(winSqrArea.value > 0){
-        const lado = Number(winSqrArea.value);
-        const result = lado * lado;
-        pResultA.innerHTML = `Area = ${result.toFixed(2)} cm2`;
-    }
-    else{
+        if(inputRadioAC.checked || inputRadioAM.checked){
+            const lado = Number(winSqrArea.value);
+            const result = lado * lado;
+            pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
+        }else{
+            pResultA.innerHTML = "Seleccionar centimetros o metros";
+        }
+    }else{
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
 // =================================== PerimeterSquare ===================================
 function pSquare(){
     const winSqrPerimeter = document.querySelector("#winSqrPerimeter");
+    medSeleccion();
     if(winSqrPerimeter.value > 0){
-        const lado = Number(winSqrPerimeter.value);
-        const result = lado * 4;
-        pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} cm`;
-    }
-    else{
+        if(inputRadioPC.checked || inputRadioPM.checked){
+            const lado = Number(winSqrPerimeter.value);
+            const result = lado * 4;
+            pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} ${medidaP}`;
+        }else{
+            pResultP.innerHTML = "Seleccionar centimetros o metros";
+        }
+    }else{
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
 
 // #################################### Rectangulo ####################################
 // ----------------- AreaRectangulo -----------------
-function aRectangulo(){
+function aRectangulo(){ 
     const winRecABase = document.querySelector("#winRecABase");
     const winRecAAltura = document.querySelector("#winRecAAltura");
+    medSeleccion();
     if(winRecABase.value > 0 && winRecAAltura.value > 0){
-        const base = Number(winRecABase.value);
-        const altura = Number(winRecAAltura.value);
-        const result = base * altura;
-        pResultA.innerHTML = `Area = ${result.toFixed(2)} cm2`;
-    }
-    else{
+        if(inputRadioAC.checked || inputRadioAM.checked){
+            const base = Number(winRecABase.value);
+            const altura = Number(winRecAAltura.value);
+            const result = base * altura;
+            pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
+        }else{
+            pResultA.innerHTML = "Seleccionar centimetros o metros";
+        }
+    }else{
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
@@ -280,13 +358,17 @@ function aRectangulo(){
 function pRectangulo(){
     const winRecPBase = document.querySelector("#winRecPBase");
     const winRecPLado = document.querySelector("#winRecPLado");
+    medSeleccion();
     if(winRecPBase.value > 0 && winRecPLado.value > 0) {
-        const base = Number(winRecPBase.value);
-        const lado = Number(winRecPLado.value);
-        const result = (base * 2) + (lado * 2);
-        pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} cm`;
-    }
-    else{
+        if(inputRadioPC.checked || inputRadioPM.checked){
+            const base = Number(winRecPBase.value);
+            const lado = Number(winRecPLado.value);
+            const result = (base * 2) + (lado * 2);
+            pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} ${medidaP}`;
+        }else{
+            pResultP.innerHTML = "Seleccionar centimetros o metros";
+        }
+    }else{
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
@@ -296,13 +378,17 @@ function pRectangulo(){
 function aParalelogramo(){
     const winParABase = document.querySelector("#winParABase");
     const winParAltura = document.querySelector("#winParAltura");
+    medSeleccion();
     if(winParABase.value > 0 && winParAltura.value > 0){
-        const base = Number(winParABase.value);
-        const altura = Number(winParAltura.value);
-        const result = base * altura;
-        pResultA.innerHTML = `Area = ${result.toFixed(2)} cm2`;
-    }
-    else{
+        if(inputRadioAC.checked || inputRadioAM.checked){
+            const base = Number(winParABase.value);
+            const altura = Number(winParAltura.value);
+            const result = base * altura;
+            pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
+        }else{
+            pResultA.innerHTML = "Seleccionar centimetros o metros";
+        }
+    }else{
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
@@ -310,13 +396,17 @@ function aParalelogramo(){
 function pParalelogramo(){
     const winParPBase = document.querySelector("#winParPBase");
     const winParPAltura = document.querySelector("#winParPAltura");
+    medSeleccion();
     if(winParPBase.value > 0 && winParPAltura.value > 0) {
-        const base = Number(winParPBase.value);
-        const lado = Number(winParPAltura.value);
-        const result = 2 * (base + lado);
-        pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} cm`;
-    }
-    else{
+        if(inputRadioPC.checked || inputRadioPM.checked){
+            const base = Number(winParPBase.value);
+            const lado = Number(winParPAltura.value);
+            const result = 2 * (base + lado);
+            pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} ${medidaP}`;
+        }else{
+            pResultP.innerHTML = "Seleccionar centimetros o metros";
+        }
+    }else{
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
@@ -327,14 +417,18 @@ function aTrapecio(){
     const winTrapAB = document.querySelector("#winTrapAB");
     const winTrapAb = document.querySelector("#winTrapAb");
     const winTrapAa = document.querySelector("#winTrapAa");
+    medSeleccion();
     if(winTrapAB.value > 0 && winTrapAb.value > 0 && winTrapAa.value > 0){
-        const baseM = Number(winTrapAB.value);
-        const basem = Number(winTrapAb.value);
-        const altura = Number(winTrapAa.value);
-        const result = ((baseM + basem) /2) * altura;
-        pResultA.innerHTML = `Area = ${result.toFixed(2)} cm2`;
-    }
-    else{
+        if(inputRadioAC.checked || inputRadioAM.checked){
+            const baseM = Number(winTrapAB.value);
+            const basem = Number(winTrapAb.value);
+            const altura = Number(winTrapAa.value);
+            const result = ((baseM + basem) /2) * altura;
+            pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
+        }else{
+            pResultA.innerHTML = "Seleccionar centimetros o metros";
+        }
+    }else{
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
@@ -344,15 +438,19 @@ function pTrapecio(){
     const winL2PTrap = document.querySelector("#winL2PTrap");
     const winL3PTrap = document.querySelector("#winL3PTrap");
     const winL4PTrap = document.querySelector("#winL4PTrap");
+    medSeleccion();
     if(winL1PTrap.value > 0 && winL2PTrap.value > 0 && winL3PTrap.value > 0 && winL4PTrap.value > 0) {
-        const l1 = Number(winL1PTrap.value);
-        const l2 = Number(winL2PTrap.value);
-        const l3 = Number(winL3PTrap.value);
-        const l4 = Number(winL4PTrap.value);
-        const result = l1 + l2 + l3 + l4;
-        pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} cm`;
-    }
-    else{
+        if(inputRadioPC.checked || inputRadioPM.checked){
+            const l1 = Number(winL1PTrap.value);
+            const l2 = Number(winL2PTrap.value);
+            const l3 = Number(winL3PTrap.value);
+            const l4 = Number(winL4PTrap.value);
+            const result = l1 + l2 + l3 + l4;
+            pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} ${medidaP}`;
+        }else{
+            pResultP.innerHTML = "Seleccionar centimetros o metros";
+        }
+    }else{
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
@@ -362,13 +460,17 @@ function pTrapecio(){
 function aRombo(){
     const winD1A = document.querySelector("#winD1A");
     const winD2A = document.querySelector("#winD2A");
+    medSeleccion();
     if(winD1A.value > 0 && winD2A.value > 0){
-        const d1 = Number(winD1A.value);
-        const d2 = Number(winD2A.value);
-        const result = (d1 * d2) / 2;
-        pResultA.innerHTML = `Area = ${result.toFixed(2)} cm2`;
-    }
-    else{
+        if(inputRadioAC.checked || inputRadioAM.checked){
+            const d1 = Number(winD1A.value);
+            const d2 = Number(winD2A.value);
+            const result = (d1 * d2) / 2;
+            pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
+        }else{
+            pResultA.innerHTML = "Seleccionar centimetros o metros";
+        }
+    }else{
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
@@ -378,15 +480,19 @@ function pRombo(){
     const winPRomL2 = document.querySelector("#winPRomL2");
     const winPRomL3 = document.querySelector("#winPRomL3");
     const winPRomL4 = document.querySelector("#winPRomL4");
+    medSeleccion();
     if(winPRomL1.value > 0 && winPRomL2.value > 0 && winPRomL3.value > 0 && winPRomL4.value > 0) {
-        const l1 = Number(winPRomL1.value);
-        const l2 = Number(winPRomL2.value);
-        const l3 = Number(winPRomL3.value);
-        const l4 = Number(winPRomL4.value);
-        const result = l1 + l2 + l3 + l4;
-        pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} cm`;
-    }
-    else{
+        if(inputRadioPC.checked || inputRadioPM.checked){
+            const l1 = Number(winPRomL1.value);
+            const l2 = Number(winPRomL2.value);
+            const l3 = Number(winPRomL3.value);
+            const l4 = Number(winPRomL4.value);
+            const result = l1 + l2 + l3 + l4;
+            pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} ${medidaP}`;
+        }else{
+            pResultP.innerHTML = "Seleccionar centimetros o metros";
+        }
+    }else{
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
@@ -396,25 +502,33 @@ function pRombo(){
 function aPentagono(){
     const winAPPent = document.querySelector("#winAPPent");
     const winAApotPent = document.querySelector("#winAApotPent");
+    medSeleccion();
     if(winAPPent.value > 0 && winAApotPent.value > 0){
-        const perim = Number(winAPPent.value);
-        const apotem = Number(winAApotPent.value);
-        const result = (perim * apotem) / 2;
-        pResultA.innerHTML = `Area = ${result.toFixed(2)} cm2`;
-    }
-    else{
+        if(inputRadioAC.checked || inputRadioAM.checked){
+            const perim = Number(winAPPent.value);
+            const apotem = Number(winAApotPent.value);
+            const result = (perim * apotem) / 2;
+            pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
+        }else{
+            pResultA.innerHTML = "Seleccionar centimetros o metros";
+        }
+    }else{
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
 // ----------------- PerimeterPentagono -----------------
 function pPentagono(){
     const winPPenL = document.querySelector("#winPPenL");
+    medSeleccion();
     if(winPPenL.value > 0) {
-        const lado = Number(winPPenL.value);
-        const result = 5 * lado;
-        pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} cm`;
-    }
-    else{
+        if(inputRadioPC.checked || inputRadioPM.checked){
+            const lado = Number(winPPenL.value);
+            const result = 5 * lado;
+            pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} ${medidaP}`;
+        }else{
+            pResultP.innerHTML = "Seleccionar centimetros o metros";
+        }
+    }else{
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
@@ -424,25 +538,33 @@ function pPentagono(){
 function aHexagono(){
     const winAPHex = document.querySelector("#winAPHex");
     const winAApotHex = document.querySelector("#winAApotHex");
+    medSeleccion();
     if(winAPHex.value > 0 && winAApotHex.value > 0){
-        const perim = Number(winAPHex.value);
-        const apotem = Number(winAApotHex.value);
-        const result = (perim * apotem) / 2;
-        pResultA.innerHTML = `Area = ${result.toFixed(2)} cm2`;
-    }
-    else{
+        if(inputRadioAC.checked || inputRadioAM.checked){
+            const perim = Number(winAPHex.value);
+            const apotem = Number(winAApotHex.value);
+            const result = (perim * apotem) / 2;
+            pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
+        }else{
+            pResultA.innerHTML = "Seleccionar centimetros o metros";
+        }
+    }else{
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
 // ----------------- PerimeterHexagono -----------------
 function pHexagono(){
     const winPHexL = document.querySelector("#winPHexL");
+    medSeleccion();
     if(winPHexL.value > 0) {
-        const lado = Number(winPHexL.value);
-        const result = 6 * lado;
-        pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} cm`;
-    }
-    else{
+        if(inputRadioPC.checked || inputRadioPM.checked){
+            const lado = Number(winPHexL.value);
+            const result = 6 * lado;
+            pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} ${medidaP}`;
+        }else{
+            pResultP.innerHTML = "Seleccionar centimetros o metros";
+        }
+    }else{
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
@@ -450,26 +572,34 @@ function pHexagono(){
 // ----------------- AreaCirculo -----------------
 function aCirculo(){
     const winCircArea = document.querySelector("#winCircArea");
+    medSeleccion();
     if(winCircArea.value > 0){
-        const radio = Number(winCircArea.value);
-        const PI = Math.PI.toFixed(2)
-        const result = Math.pow(radio, 2) * PI;
-        pResultA.innerHTML = `Area = ${result.toFixed(2)} cm2`;
-    }
-    else{
+        if(inputRadioAC.checked || inputRadioAM.checked){
+            const radio = Number(winCircArea.value);
+            const PI = Math.PI.toFixed(2)
+            const result = Math.pow(radio, 2) * PI;
+            pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
+        }else{
+            pResultA.innerHTML = "Seleccionar centimetros o metros";
+        }
+    }else{
         pResultA.innerHTML = "Radio debe de ser mayor a 0";
     }
 }
 // ----------------- Circunferencia -----------------
 function circunferencia(){
     const winCircunferencia = document.querySelector("#winCircunferencia");
+    medSeleccion();
     if(winCircunferencia.value > 0){
-        const radio = Number(winCircunferencia.value);
-        const PI = Math.PI.toFixed(2);
-        const result = PI * (radio * 2);
-        pResultP.innerHTML = `Circunferencia = ${result.toFixed(2)} cm`;
-    }
-    else{
+        if(inputRadioPC.checked || inputRadioPM.checked){
+            const radio = Number(winCircunferencia.value);
+            const PI = Math.PI.toFixed(2);
+            const result = PI * (radio * 2);
+            pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} ${medidaP}`;
+        }else{
+            pResultP.innerHTML = "Seleccionar centimetros o metros";
+        }
+    }else{
         pResultP.innerHTML = "Radio debe ser mayor a 0";
     }
 }

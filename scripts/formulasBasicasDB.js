@@ -2,7 +2,7 @@ const formulasArray = [];
 
 const intro = {
     defImg: "../assets/introduccion.png",
-    defTitulo: "Introduccion :",
+    defTitulo: "Introduccion",
     defArea: "El área es la medida bidimensional de una superficie. También es entendida como el espacio o región que cubre la figura geométrica. Para representar el área se utilizan unidades cuadradas, como por ejemplo, m2 o cm2.",
     defPerimetro: "El perímetro corresponde a la longitud total de los lados de una figura, es decir, a la longitud de su contorno. Para calcularlo se requieren unidades de una sola dimensión.",
     defClose: "No se debe olvidar que para determinar las áreas y perímetros de figuras, las fórmulas dependerán del tipo de figura y de las medidas correspondientes a cada una.</p>"
@@ -15,11 +15,11 @@ const trianguloObj = {
     formulaArea: "Formula = Base * Altura / 2",
     inputArea: [
         {
-            inputLabel: "Medida base en cm",
+            inputLabel: "Medida base",
             inputId: "winTriBaseA"
         },
         {
-            inputLabel: "Medida altura en cm",
+            inputLabel: "Medida altura",
             inputId: "winTriHeight"
         },
     ],
@@ -31,15 +31,15 @@ const trianguloObj = {
     formulaPerimetro: "Formula = Lado1 + Lado2 + Base",
     inputPerimetro: [
         {
-            inputLabel: "Medida lado 1 en cm",
+            inputLabel: "Medida lado 1",
             inputId: "winTriSide1"
         },
         {
-            inputLabel: "Medida lado 2 en cm",
+            inputLabel: "Medida lado 2",
             inputId: "winTriSide2"
         },
         {
-            inputLabel: "Medida d base en cm",
+            inputLabel: "Medida d base",
             inputId: "winTriBase"
         },
     ],
@@ -55,7 +55,7 @@ const cuadradoObj = {
     formulaArea: "Formula = Lado * Lado",
     inputArea: [
         {
-            inputLabel: "Medida lado en cm",
+            inputLabel: "Medida lado",
             inputId: "winSqrArea"
         },
     ],
@@ -67,7 +67,7 @@ const cuadradoObj = {
     formulaPerimetro: "Formula = 4 * Lado",
     inputPerimetro: [
         {
-            inputLabel: "Medida lado en cm",
+            inputLabel: "Medida lado",
             inputId: "winSqrPerimeter"
         }
     ],
@@ -83,11 +83,11 @@ const rectanguloObj = {
     formulaArea: "Formula = Base * Altura",
     inputArea: [
         {
-            inputLabel: "Medida base en cm",
+            inputLabel: "Medida base",
             inputId: "winRecABase"
         },
         {
-            inputLabel: "Medida altura en cm",
+            inputLabel: "Medida altura",
             inputId: "winRecAAltura"
         }
     ],
@@ -99,11 +99,11 @@ const rectanguloObj = {
     formulaPerimetro: "Formula = (2 * Base) + (2 * Lado)",
     inputPerimetro: [
         {
-            inputLabel: "Medida base en cm",
+            inputLabel: "Medida base",
             inputId: "winRecPBase"
         },
         {
-            inputLabel: "Medida lado en cm",
+            inputLabel: "Medida lado",
             inputId: "winRecPLado"
         }
     ],
@@ -119,11 +119,11 @@ const paralelogramoObj = {
     formulaArea: "Formula = base * altura",
     inputArea: [
         {
-            inputLabel: "Medida de base en cm",
+            inputLabel: "Medida de base",
             inputId: "winParABase"
         },
         {
-            inputLabel: "Medida de altura en cm",
+            inputLabel: "Medida de altura",
             inputId: "winParAltura"
         }
     ],
@@ -135,11 +135,11 @@ const paralelogramoObj = {
     formulaPerimetro: "Formula = 2 x (b + L)",
     inputPerimetro: [
         {
-            inputLabel: "Medida de base en cm",
+            inputLabel: "Medida de base",
             inputId: "winParPBase"
         },
         {
-            inputLabel: "Medida de lado en cm",
+            inputLabel: "Medida de lado",
             inputId: "winParPAltura"
         }
     ],
@@ -155,15 +155,15 @@ const trapecioObj = {
     formulaArea: "Formula = ((B + b) * h) / 2",
     inputArea: [
         {
-            inputLabel: "Medida de B en cm",
+            inputLabel: "Medida de B",
             inputId: "winTrapAB"
         },
         {
-            inputLabel: "Medida de b en cm",
+            inputLabel: "Medida de b",
             inputId: "winTrapAb"
         },
         {
-            inputLabel: "Medida de h en cm",
+            inputLabel: "Medida de h",
             inputId: "winTrapAa"
         }
     ],
@@ -175,19 +175,19 @@ const trapecioObj = {
     formulaPerimetro: "Formula = B + b + L1 + L2",
     inputPerimetro: [
         {
-            inputLabel: "Medida B en cm",
+            inputLabel: "Medida B",
             inputId: "winL1PTrap"
         },
         {
-            inputLabel: "Medida b en cm",
+            inputLabel: "Medida b",
             inputId: "winL2PTrap"
         },
         {
-            inputLabel: "Medida L1 en cm",
+            inputLabel: "Medida L1",
             inputId: "winL3PTrap"
         },
         {
-            inputLabel: "Medida L2 en cm",
+            inputLabel: "Medida L2",
             inputId: "winL4PTrap"
         }
     ],
@@ -203,11 +203,11 @@ const romboObj = {
     formulaArea: "Formula = D x d / 2",
     inputArea: [
         {
-            inputLabel: "Medida D en cm",
+            inputLabel: "Medida D",
             inputId: "winD1A"
         },
         {
-            inputLabel: "Medida d en cm",
+            inputLabel: "Medida d",
             inputId: "winD2A"
         },
     ],
@@ -219,19 +219,19 @@ const romboObj = {
     formulaPerimetro: "Formula = L1 + L2 + L3 + L4",
     inputPerimetro: [
         {
-            inputLabel: "Medida L1 en cm",
+            inputLabel: "Medida L1",
             inputId: "winPRomL1"
         },
         {
-            inputLabel: "Medida L2 en cm",
+            inputLabel: "Medida L2",
             inputId: "winPRomL2"
         },
         {
-            inputLabel: "Medida L3 en cm",
+            inputLabel: "Medida L3",
             inputId: "winPRomL3"
         },
         {
-            inputLabel: "Medida L4 en cm",
+            inputLabel: "Medida L4",
             inputId: "winPRomL4"
         }
     ],
@@ -247,11 +247,11 @@ const pentagonoObj = {
     formulaArea: "Formula = perimetro x apotema / 2",
     inputArea: [
         {
-            inputLabel: "Medida perimetro cm",
+            inputLabel: "Medida perimetro",
             inputId: "winAPPent"
         },
         {
-            inputLabel: "Medida apotema cm",
+            inputLabel: "Medida apotema",
             inputId: "winAApotPent"
         }
     ],
@@ -263,7 +263,7 @@ const pentagonoObj = {
     formulaPerimetro: "Formula = 5 x L",
     inputPerimetro: [
         {
-            inputLabel: "Medida lado en cm",
+            inputLabel: "Medida lado",
             inputId: "winPPenL"
         }
     ],
@@ -279,11 +279,11 @@ const hexagonoObj = {
     formulaArea: "Formula = (perimetro x apotema) / 2",
     inputArea: [
         {
-            inputLabel: "Medida perimetro en cm",
+            inputLabel: "Medida perimetro",
             inputId: "winAPHex"
         },
         {
-            inputLabel: "Medida apotema en cm",
+            inputLabel: "Medida apotema",
             inputId: "winAApotHex"
         }
     ],
@@ -295,7 +295,7 @@ const hexagonoObj = {
     formulaPerimetro: "Formula = 6 * Lado",
     inputPerimetro: [
         {
-            inputLabel: "Medida lado en cm",
+            inputLabel: "Medida lado",
             inputId: "winPHexL"
         }
     ],
@@ -311,7 +311,7 @@ const circuloObj = {
     formulaArea: "Formula = pi x r2",
     inputArea: [
         {
-            inputLabel: "Medida radio en cm",
+            inputLabel: "Medida radio",
             inputId: "winCircArea"
         }
     ],
@@ -323,13 +323,41 @@ const circuloObj = {
     formulaPerimetro: "Formula = pi * diametro",
     inputPerimetro: [
         {
-            inputLabel: "Medida radio en cm",
+            inputLabel: "Medida radio",
             inputId: "winCircunferencia"
         }
     ],
     resultClP: "resultCircunferencia",
     btnClP: "btnResultCircunferencia",
     funcionPerimetro: "circunferencia",
+};
+const elipseObj = {
+    id: "elipse",
+    imgFig: "../assets/elipse.png",
+
+    titleArea: "Area del Elipse :",
+    formulaArea: "Formula = pi x r2",
+    inputArea: [
+        {
+            inputLabel: "Medida radio",
+            inputId: "winElipArea"
+        }
+    ],
+    resultClA: "resultAElip",
+    btnClA: "btnResultAElip",
+    funcionArea: "aElipse",
+
+    titlePerimetro: "Elipse :",
+    formulaPerimetro: "Formula = pi * diametro",
+    inputPerimetro: [
+        {
+            inputLabel: "Medida radio",
+            inputId: "winElipse"
+        }
+    ],
+    resultClP: "resultElipse",
+    btnClP: "btnResultElipse",
+    funcionPerimetro: "elipse",
 };
 
 formulasArray.push(intro);
