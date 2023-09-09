@@ -45,7 +45,6 @@ body {
 }
 .btnMenu {
     display: flex;
-    /* gap: 3px; */
     align-items: center;
     padding-right: 10px;
     cursor: pointer;
@@ -86,15 +85,12 @@ body {
     padding-top: 61px;
 }
 
-
 /* ------ listIndex ------ */
-
 .listIndex {
     position: fixed;
     background-color: var(--primario);
     width: 100%; 
     height: 100%;
-
     overflow-y: scroll;
     top: -100%;
     right: 0px;
@@ -151,20 +147,36 @@ body {
 .containerIntro {
     background-color: var(--terciario);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     min-width: 340px;
     align-items: center;
     justify-content: center;
-    padding: 10px 10px 30px 10px;
+    padding: 50px 10px;
+    gap: 10px;
 }
-.subcontainerIntro {
+
+.sectionDtop {
     background-color: var(--secundario);
+    border-radius: 10px;
+}
+
+.sectionDtop,
+.sectionDmiddle,
+.sectionDbottom {
     display: flex;
     flex-direction: column;
     width: 340px;
-    /* padding: 0px 10px 20px 10px; */
-    /* margin: 20px 0px 10px 0px; */
+    height: 383px;
 }
+
+.sectionDmiddle p,
+.sectionDbottom p {
+    background-color: var(--secundario);
+    color: var(--lightGrey);
+    margin: 0px;
+    height: 343px;
+}
+
 .tituloIntro {
     color: var(--terciario);
     text-align: center;
@@ -174,21 +186,15 @@ body {
     object-fit: contain;
 }
 
-.areaIntro,
-.perimetroIntro,
-.closeIntro {
+.defAreaPerimetro,
+.defGuia {
     background-color: var(--white);
-    margin: 0px 10px 10px 10px ;
-    padding: 20px;
+    /* margin: 0px 10px 10px 10px ; */
+    padding: 40px;
     color: var(--primario);
     border-radius: 10px;
 }
-.areaIntro {
-    margin-top: 10px;
-}
-.closeIntro {
 
-}
 .containerResponsive {
     background-color: var(--terciario);
     display: flex;
@@ -197,7 +203,7 @@ body {
     justify-content: center;
     align-items: center;
     min-width: 340px;
-    padding: 50px 10px 50px 10px;
+    padding: 50px 10px;
 }
 .formulaImg {
     width: 340px;
@@ -331,10 +337,15 @@ body {
         align-items: center;
         padding: 20px 10px;
     }
+    .containerIntro {
+        flex-direction: column;
+        padding: 20px 10px; 
+    }
     .perimetroYArea {
         flex-direction: column;
         align-items: center;
     }
+
 }
 /* @media screen and (max-width: 720px) {
     .perimetroYArea {
@@ -345,6 +356,5 @@ body {
 @media screen and (min-width: 425px) {
     .listIndex {
         width: 300px; 
-        /* height: 100vh; */
     }
 }
