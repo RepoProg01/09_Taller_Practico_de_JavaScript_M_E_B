@@ -55,6 +55,8 @@ function borrar(){
     inputRadioPM.checked = false;
     divArea.innerHTML = "";
     divPerimetro.innerHTML = "";
+    sectionAmiddle.innerHTML = "";
+    sectionPmiddle.innerHTML = "";
     pResultA.innerHTML = "";
     pResultP.innerHTML = "";
     pResultA.classList.remove(pResultAReg);
@@ -74,6 +76,9 @@ const perimetroYArea = document.createElement("div");
 const divArea =document.createElement("div");
 const pTitleA = document.createElement("p");
 const pformulaA = document.createElement("p");
+const sectionAtop = document.createElement("section");
+const sectionAmiddle = document.createElement("section");
+const sectionAbottom = document.createElement("section");
 const divRadioA = document.createElement("div");
 const divRadioP = document.createElement("div");
 const inputRadioAC = document.createElement("input");
@@ -87,6 +92,9 @@ const inputLabelPM = document.createElement("label");
 const pResultA = document.createElement("p");
 const btnResultA = document.createElement("button");
 const divPerimetro =document.createElement("div");
+const sectionPtop = document.createElement("section");
+const sectionPmiddle = document.createElement("section");
+const sectionPbottom = document.createElement("section");
 const pTitleP = document.createElement("p");
 const pformulaP = document.createElement("p");
 const pResultP = document.createElement("p");
@@ -126,7 +134,6 @@ function renderIntroduccion(){
     defContainer.classList.add("containerIntro");
     defContainer.appendChild(defSubcontainer);
     defSubcontainer.classList.add("subcontainerIntro");
-
     defSubcontainer.appendChild(defTitulo);
     defTitulo.classList.add("tituloIntro");
     defSubcontainer.appendChild(defImg);
@@ -137,7 +144,6 @@ function renderIntroduccion(){
     defPerimetro.classList.add("perimetroIntro");
     defSubcontainer.appendChild(defClose);
     defClose.classList.add("closeIntro");
-
     defTitulo.innerHTML = formulasArray[0].defTitulo;
     defImg.setAttribute("src", formulasArray[0].defImg);
     defArea.innerHTML = formulasArray[0].defArea;
@@ -152,21 +158,17 @@ function renderFigura(objeto){
     containerResponsive.appendChild(formulaImg);
     formulaImg.classList.add("formulaImg");
     formulaImg.appendChild(imgFigura);
+    imgFigura.setAttribute("src", objeto.imgFig);
     containerResponsive.appendChild(perimetroYArea);
     perimetroYArea.classList.add("perimetroYArea");
     perimetroYArea.appendChild(divArea);
     divArea.classList.add("containerFormules")
-    divArea.appendChild(pTitleA);
-    divArea.appendChild(pformulaA);
-
-    imgFigura.setAttribute("src", objeto.imgFig);
     pTitleA.classList.add("titlesFormules");
     pTitleA.innerHTML = objeto.titleArea;
-    divArea.appendChild(pTitleA);
     pformulaA.classList.add("textFormule");
     pformulaA.innerHTML = objeto.formulaArea;
-    divArea.appendChild(pformulaA);
-
+    sectionAtop.classList.add("sectionAtop");
+    sectionAtop.append(pTitleA, pformulaA);
     divRadioA.classList.add("divRadioA");
     inputRadioAC.setAttribute("type", "radio");
     inputRadioAC.setAttribute("name", "radA");
@@ -179,7 +181,8 @@ function renderFigura(objeto){
     inputLabelAM.setAttribute("for", "radAM");
     inputLabelAM.innerHTML = "metros";
     divRadioA.append(inputRadioAC, inputLabelAC, inputRadioAM, inputLabelAM);
-    divArea.appendChild(divRadioA);
+    sectionAmiddle.classList.add("sectionAmiddle");
+    sectionAmiddle.appendChild(divRadioA);
 
     objeto.inputArea.forEach(winInput => {
         const divWin = document.createElement("div");
@@ -193,16 +196,16 @@ function renderFigura(objeto){
         inputAreaWindow.setAttribute("id", winInput.inputId);
         inputAreaWindow.classList.add("inputStyle");
         divWin.appendChild(inputAreaWindow);
-        divArea.appendChild(divWin);
+        sectionAmiddle.appendChild(divWin);
     })
     pResultAReg = objeto.resultClA
     pResultA.classList.add("winStyle", pResultAReg);
-    divArea.appendChild(pResultA);
     btnResultAReg = objeto.btnClA;
     btnResultA.classList.add("btnResult", btnResultAReg);
     btnResultA.innerHTML = "Resultado";
-    divArea.appendChild(btnResultA);
-
+    sectionAbottom.classList.add("sectionAbottom");
+    sectionAbottom.append(pResultA, btnResultA);
+    divArea.append(sectionAtop, sectionAmiddle, sectionAbottom);
     btnResultA.removeEventListener("click", rutaFA);
     rutaFA = (eval(objeto.funcionArea));
     btnResultA.addEventListener("click", rutaFA);
@@ -210,14 +213,12 @@ function renderFigura(objeto){
     //=================================== Perimetro ===================================
     perimetroYArea.appendChild(divPerimetro);
     divPerimetro.classList.add("containerFormules");
-    divPerimetro.appendChild(pTitleP);
-    divPerimetro.appendChild(pformulaP);
-
     pTitleP.classList.add("titlesFormules");
     pTitleP.innerHTML = objeto.titlePerimetro;
     pformulaP.classList.add("textFormule");
     pformulaP.innerHTML = objeto.formulaPerimetro;
-
+    sectionPtop.classList.add("sectionPtop");
+    sectionPtop.append(pTitleP, pformulaP);
     divRadioP.classList.add("divRadioP");
     inputRadioPC.setAttribute("type", "radio");
     inputRadioPC.setAttribute("name", "radP");
@@ -230,7 +231,8 @@ function renderFigura(objeto){
     inputLabelPM.setAttribute("for", "radPM");
     inputLabelPM.innerHTML = "metros";
     divRadioP.append(inputRadioPC, inputLabelPC, inputRadioPM, inputLabelPM);
-    divPerimetro.appendChild(divRadioP);
+    sectionPmiddle.classList.add("sectionPmiddle");
+    sectionPmiddle.appendChild(divRadioP);
 
     objeto.inputPerimetro.forEach(winInput => {
         const divWinP = document.createElement("div");
@@ -244,16 +246,16 @@ function renderFigura(objeto){
         inputPerimetroWindow.setAttribute("id", winInput.inputId);
         inputPerimetroWindow.classList.add("inputStyle");
         divWinP.appendChild(inputPerimetroWindow);
-        divPerimetro.appendChild(divWinP);
+        sectionPmiddle.appendChild(divWinP);
     });
     pResultPReg = objeto.resultClP;
     pResultP.classList.add("winStyle", pResultPReg);
-    divPerimetro.appendChild(pResultP);
     btnResultPReg = objeto.btnClP;
     btnResultP.classList.add("btnResult", btnResultPReg);
     btnResultP.innerHTML = "Resultado";
-    divPerimetro.appendChild(btnResultP);
-
+    sectionPbottom.classList.add("sectionPbottom");
+    sectionPbottom.append(pResultP, btnResultP);
+    divPerimetro.append(sectionPtop, sectionPmiddle, sectionPbottom);
     btnResultP.removeEventListener("click", rutaFP);
     rutaFP = (eval(objeto.funcionPerimetro));
     btnResultP.addEventListener("click", rutaFP);
