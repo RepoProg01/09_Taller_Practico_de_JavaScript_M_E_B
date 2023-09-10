@@ -101,7 +101,7 @@ body {
 .listIndexShow {
     right: 0px;
     top: 61px;
-    height: 84%;
+    height: 100%;
     transition: 600ms ease-in-out;
 }
 .sel {
