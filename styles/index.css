@@ -59,8 +59,8 @@ body {
 .listIndex {
     width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    justify-content: center;
     gap: 15px;
     /* margin-top: 20px; */
 
@@ -71,7 +71,7 @@ body {
     cursor: pointer; */
 }
 .listIndex a {
-    width: 340px;
+    width: 318px;
     text-align: center;
     text-decoration: none;
     font-size: 20px;
@@ -100,13 +100,14 @@ body {
 }
 /* ############  mediaqueries  ############ */
 
-/* @media screen and (max-width: 1060px){
+@media screen and (max-width: 1060px){
     .listIndex {
-        width: 360px;
-    }
-    .contentIndex {
-        display: flex;
         flex-direction: column;
         align-items: center;
     }
-} */
+    /* .contentIndex {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    } */
+}
