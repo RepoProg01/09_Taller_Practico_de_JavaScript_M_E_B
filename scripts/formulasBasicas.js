@@ -149,29 +149,29 @@ function renderIntroduccion(){
     defTitulo.innerHTML = formulasArray[0].defTitulo;
     defImg.classList.add("imgIntro");
     defImg.setAttribute("src", formulasArray[0].defImg);
-    sectionDtop.classList.add("sectionDtop");
+    sectionDtop.classList.add("sectionDtop", "secD");
     sectionDtop.append(defTitulo, defImg);
 
-    defAreaTitulo.classList.add("defAreaTitulo");
+    defAreaTitulo.classList.add("defAreaTitulo", "defT");
     defAreaTitulo.innerHTML = formulasArray[0].defAreaTitulo;
-    defArea.classList.add("defArea");
+    defArea.classList.add("defArea", "defC");
     defArea.innerHTML = formulasArray[0].defArea;
-    defPerimetroTitulo.classList.add("defPerimetroTitulo");
+    defPerimetroTitulo.classList.add("defPerimetroTitulo", "defT");
     defPerimetroTitulo.innerHTML = formulasArray[0].defPerimetroTitulo;
-    defPerimetro.classList.add("defPerimetro");
+    defPerimetro.classList.add("defPerimetro", "defC");
     defPerimetro.innerHTML = formulasArray[0].defPerimetro;
-    sectionDmiddle.classList.add("sectionDmiddle");
+    sectionDmiddle.classList.add("sectionDmiddle", "secD");
     sectionDmiddle.append(defAreaTitulo, defArea, defPerimetroTitulo, defPerimetro);
 
-    defNotaTitulo.classList.add("defNotaTitulo");
+    defNotaTitulo.classList.add("defNotaTitulo", "defT");
     defNotaTitulo.innerHTML = formulasArray[0].defNotaTitulo;
-    defNota.classList.add("defNota");
+    defNota.classList.add("defNota", "defC");
     defNota.innerHTML = formulasArray[0].defNota;
-    defGuiaTitulo.classList.add("defGuiaTitulo");
+    defGuiaTitulo.classList.add("defGuiaTitulo", "defT");
     defGuiaTitulo.innerHTML = formulasArray[0].defGuiaTitulo;
-    defGuia.classList.add("defGuia");
+    defGuia.classList.add("defGuia", "defC");
     defGuia.innerHTML = formulasArray[0].defGuia;
-    sectionDbottom.classList.add("sectionDbottom");
+    sectionDbottom.classList.add("sectionDbottom", "secD");
     sectionDbottom.append(defNotaTitulo, defNota, defGuiaTitulo, defGuia);
 
     defContainer.append(sectionDtop, sectionDmiddle, sectionDbottom);

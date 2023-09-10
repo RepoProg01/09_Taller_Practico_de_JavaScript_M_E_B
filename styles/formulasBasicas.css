@@ -16,6 +16,7 @@ body {
     background-color: var(--terciario);
     position: relative;
     /* padding-bottom: 60px; */
+    min-width: 360px;
     min-height: 100vh;
 }
 .listIndex::-webkit-scrollbar,
@@ -155,9 +156,7 @@ body {
     gap: 10px;
 }
 
-.sectionDtop,
-.sectionDmiddle,
-.sectionDbottom {
+.secD {
     background-color: var(--secundario);
     border-radius: 10px;
     display: flex;
@@ -185,27 +184,20 @@ body {
     object-fit: contain;
 }
 
-.defAreaTitulo,
-.defPerimetroTitulo,
-.defNotaTitulo,
-.defGuiaTitulo {
+.defT {
     margin: 0px;
     font-size: 20px;
     color: var(--naranja);
 }
 
-.defNota,
-.defGuia,
-.defArea,
-.defPerimetro {
-    background-color: var(--lightGrey);
+.defC {
+    background-color: var(--terciario);
     border-radius: 10px;
     padding: 10px;
     color: var(--black);
 }
 span {
     color: var(--naranja);
-    font-weight: 700;
 }
 .containerResponsive {
     background-color: var(--terciario);
