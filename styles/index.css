@@ -118,7 +118,6 @@ body {
     }
     .listIcons a {
         display: flex;
-        /* text-align: center; */
         width: 278px;
         height: 47px;
         gap: 10px;
