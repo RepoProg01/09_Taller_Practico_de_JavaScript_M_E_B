@@ -60,9 +60,7 @@ body {
 }
 
 /* ------ containerMainIcons ------ */
-.containerMainIcons {
 
-}
 .mainIcons{
     height: 100%;
     display: flex;
@@ -95,7 +93,10 @@ body {
     border: 1px solid var(--white);
     color: var(--white);
 }
-
+.imgAP {
+    width: 100px;
+    padding: 10px 29px;
+}
 /* ################# footer ################## */
 .footer {
     position: absolute;
@@ -116,8 +117,17 @@ body {
         align-items: center;
     }
     .listIcons a {
-        text-align: center;
-        width: 298px;
-        height: 28px;
+        display: flex;
+        /* text-align: center; */
+        width: 278px;
+        height: 47px;
+        gap: 10px;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 30px;
+    }
+    .imgAP {
+        width: 50px;
+        padding: 0;
     }
 }
