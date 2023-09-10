@@ -171,12 +171,10 @@ function renderIntroduccion(){
     defGuiaTitulo.innerHTML = formulasArray[0].defGuiaTitulo;
     defGuia.classList.add("defGuia");
     defGuia.innerHTML = formulasArray[0].defGuia;
-
     sectionDbottom.classList.add("sectionDbottom");
     sectionDbottom.append(defNotaTitulo, defNota, defGuiaTitulo, defGuia);
 
     defContainer.append(sectionDtop, sectionDmiddle, sectionDbottom);
-
     document.documentElement.scrollTop = 0;
 };
 function renderFigura(objeto){

@@ -218,7 +218,11 @@ span {
     padding: 30px 10px;
 }
 .formulaImg {
+    background-color: var(--secundario);
+    border-radius: 10px;
+    overflow: hidden;
     width: 340px;
+    height: 383px;
 }
 .formulaImg img {
     width: 340px;
