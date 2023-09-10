@@ -3,8 +3,15 @@ const formulasArray = [];
 const intro = {
     defImg: "../assets/introduccion.png",
     defTitulo: "Introduccion",
-    defAreaPerimetro: "El área es la medida bidimensional de una superficie. También es entendida como el espacio o región que cubre la figura geométrica. Para representar el área se utilizan unidades cuadradas, como por ejemplo, m2 o cm2. <br><br>El perímetro corresponde a la longitud total de los lados de una figura, es decir, a la longitud de su contorno. Para calcularlo se requieren unidades de una sola dimensión.",
-    defGuia: "No se debe olvidar que para determinar las áreas y perímetros de figuras, las fórmulas dependerán del tipo de figura y de las medidas correspondientes a cada una. <br><br>Usando el boton de Figuras, puedes seleccionar las diferentes figuras geometricas basicas y ver sus formulas para area y perimetro, asi como tambien obtener el resultado de tus propias areas y perimetros. <br><br>Con el boton Menu regrezaras al menu principal "
+    defAreaTitulo: "Que es el Area ?",
+    defArea: "El área es la medida bidimensional de una superficie. También es entendida como el espacio o región que cubre la figura geométrica. Para representar el área se utilizan unidades cuadradas, como por ejemplo, m2 o cm2.",
+    defPerimetroTitulo: "Que es el Perimetro ?",
+    defPerimetro: "El perímetro corresponde a la longitud total de los lados de una figura, es decir, a la longitud de su contorno. Para calcularlo se requieren unidades de una sola dimensión.",
+    
+    defNotaTitulo: "Nota :",
+    defNota: "No se debe olvidar que para determinar las áreas y perímetros de figuras, las fórmulas dependerán del tipo de figura y de las medidas correspondientes a cada una",
+    defGuiaTitulo: "Forma de uso :",
+    defGuia: "Con el boton de <span>Figuras</span>, seleccionas figuras geometricas basicas, mostrara formulas y calculadoras para areas y perimetros.<br>Con el boton <span>Menu</span> regrezaras al menu principal."
 };
 const trianguloObj = {
     id: "triangulo",

@@ -101,7 +101,6 @@ const pResultP = document.createElement("p");
 const btnResultP = document.createElement("button");
 
 const defContainer = document.createElement("section");
-// const defSubcontainer = document.createElement("div");
 
 const sectionDtop = document.createElement("div");
 const sectionDmiddle = document.createElement("div");
@@ -109,7 +108,15 @@ const sectionDbottom = document.createElement("div");
 
 const defTitulo = document.createElement("h2");
 const defImg = document.createElement("img");
-const defAreaPerimetro = document.createElement("p");
+
+const defAreaTitulo = document.createElement("p");
+const defArea = document.createElement("p");
+const defPerimetroTitulo = document.createElement("p");
+const defPerimetro = document.createElement("p");
+
+const defNotaTitulo = document.createElement("p");
+const defNota = document.createElement("p");
+const defGuiaTitulo = document.createElement("p");
 const defGuia = document.createElement("p");
 
 let medidaA;
@@ -137,30 +144,36 @@ function renderIntroduccion(){
     borrar();
     containerFiguras.appendChild(defContainer);
     defContainer.classList.add("containerIntro");
-    // defContainer.appendChild(defSubcontainer);
-
-    // defSubcontainer.classList.add("subcontainerIntro");
 
     defTitulo.classList.add("tituloIntro");
     defTitulo.innerHTML = formulasArray[0].defTitulo;
-
     defImg.classList.add("imgIntro");
     defImg.setAttribute("src", formulasArray[0].defImg);
-
     sectionDtop.classList.add("sectionDtop");
     sectionDtop.append(defTitulo, defImg);
 
-    defAreaPerimetro.classList.add("defAreaPerimetro");
-    defAreaPerimetro.innerHTML = formulasArray[0].defAreaPerimetro;
-
+    defAreaTitulo.classList.add("defAreaTitulo");
+    defAreaTitulo.innerHTML = formulasArray[0].defAreaTitulo;
+    defArea.classList.add("defArea");
+    defArea.innerHTML = formulasArray[0].defArea;
+    defPerimetroTitulo.classList.add("defPerimetroTitulo");
+    defPerimetroTitulo.innerHTML = formulasArray[0].defPerimetroTitulo;
+    defPerimetro.classList.add("defPerimetro");
+    defPerimetro.innerHTML = formulasArray[0].defPerimetro;
     sectionDmiddle.classList.add("sectionDmiddle");
-    sectionDmiddle.append(defAreaPerimetro);
+    sectionDmiddle.append(defAreaTitulo, defArea, defPerimetroTitulo, defPerimetro);
 
+    defNotaTitulo.classList.add("defNotaTitulo");
+    defNotaTitulo.innerHTML = formulasArray[0].defNotaTitulo;
+    defNota.classList.add("defNota");
+    defNota.innerHTML = formulasArray[0].defNota;
+    defGuiaTitulo.classList.add("defGuiaTitulo");
+    defGuiaTitulo.innerHTML = formulasArray[0].defGuiaTitulo;
     defGuia.classList.add("defGuia");
     defGuia.innerHTML = formulasArray[0].defGuia;
 
     sectionDbottom.classList.add("sectionDbottom");
-    sectionDbottom.append(defGuia);
+    sectionDbottom.append(defNotaTitulo, defNota, defGuiaTitulo, defGuia);
 
     defContainer.append(sectionDtop, sectionDmiddle, sectionDbottom);
 

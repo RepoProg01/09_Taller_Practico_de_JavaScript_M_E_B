@@ -106,21 +106,22 @@ body {
 }
 .sel {
     padding: 0px;
-    margin: 10px 30px;
-    border-bottom: 6px solid var(--red);
+    margin: 10px 30px 0px 30px;
+    border-bottom: 1px solid var(--red);
 }
 .seleccion {
     cursor: pointer;
     font-size: 18px;
     font-weight: 700;
-    padding: 15px 0px;
+    /* padding: 15px 0px; */
+    padding: 10px 0px;
     margin: 0px 30px;
     color: var(--terciario);
-    border-bottom: 1px solid var(--terciario);
+    /* border-bottom: 1px solid var(--terciario); */
 }
 .seleccion:hover {
     color: var(--lightGrey);
-    border-bottom: 1px solid var(--lightGrey);
+    /* border-bottom: 1px solid var(--lightGrey); */
 }
 /* ############# contentIndex #############  */
 /* ----- titlexIndex ----- */ 
@@ -137,11 +138,11 @@ body {
 }
 .selMod {
     color: var(--naranja);
-    border-bottom: 1px solid var(--naranja);
+    /* border-bottom: 1px solid var(--naranja); */
 }
 .selMod:hover {
     color: var(--white);
-    border-bottom: 1px solid var(--white);
+    /* border-bottom: 1px solid var(--white); */
 }
 /* ############# containerFig #############  */
 .containerIntro {
@@ -154,30 +155,29 @@ body {
     gap: 10px;
 }
 
-.sectionDtop {
-    background-color: var(--secundario);
-    border-radius: 10px;
-}
-
 .sectionDtop,
 .sectionDmiddle,
 .sectionDbottom {
+    background-color: var(--secundario);
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
+}
+
+.sectionDtop {
     width: 340px;
     height: 383px;
 }
 
-.sectionDmiddle p,
-.sectionDbottom p {
-    background-color: var(--secundario);
-    color: var(--lightGrey);
-    margin: 0px;
-    height: 303px;
+.sectionDmiddle,
+.sectionDbottom {
+    width: 300px;
+    height: 343px;
+    padding: 20px;
 }
 
 .tituloIntro {
-    color: var(--terciario);
+    color: var(--naranja);
     text-align: center;
 }
 .imgIntro {
@@ -185,15 +185,28 @@ body {
     object-fit: contain;
 }
 
-.defAreaPerimetro,
-.defGuia {
-    background-color: var(--white);
-    /* margin: 0px 10px 10px 10px ; */
-    padding: 40px;
-    color: var(--primario);
-    border-radius: 10px;
+.defAreaTitulo,
+.defPerimetroTitulo,
+.defNotaTitulo,
+.defGuiaTitulo {
+    margin: 0px;
+    font-size: 20px;
+    color: var(--naranja);
 }
 
+.defNota,
+.defGuia,
+.defArea,
+.defPerimetro {
+    background-color: var(--lightGrey);
+    border-radius: 10px;
+    padding: 10px;
+    color: var(--black);
+}
+span {
+    color: var(--naranja);
+    font-weight: 700;
+}
 .containerResponsive {
     background-color: var(--terciario);
     display: flex;
@@ -224,7 +237,6 @@ body {
     height: 343px;
     border-radius: 10px;
     padding: 20px;
-    /* margin-bottom: 20px; */
 }
 
 .sectionAtop,
