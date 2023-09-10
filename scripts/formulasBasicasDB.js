@@ -4,9 +4,9 @@ const intro = {
     defImg: "../assets/introduccion.png",
     defTitulo: "Introduccion",
     defAreaTitulo: "Que es el Area ?",
-    defArea: "El área es la medida bidimensional de una superficie. También es entendida como el espacio o región que cubre la figura geométrica. Para representar el área se utilizan unidades cuadradas, como por ejemplo, m2 o cm2.",
+    defArea: "Area es la medida bidimensional de una superficie. Es entendida como el espacio o región que cubre la figura geométrica. Para representar el área se utilizan unidades cuadradas, ejemplo, m2 o cm2.",
     defPerimetroTitulo: "Que es el Perimetro ?",
-    defPerimetro: "El perímetro corresponde a la longitud total de los lados de una figura, es decir, a la longitud de su contorno. Para calcularlo se requieren unidades de una sola dimensión.",
+    defPerimetro: "Perímetro corresponde a la longitud total de los lados de una figura, a la longitud de su contorno. Para calcularlo se requieren unidades de una sola dimensión.",
     
     defNotaTitulo: "Nota :",
     defNota: "No se debe olvidar que para determinar las áreas y perímetros de figuras, las fórmulas dependerán del tipo de figura y de las medidas correspondientes a cada una",

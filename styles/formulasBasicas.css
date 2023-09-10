@@ -113,11 +113,11 @@ body {
     padding: 10px 0px;
     margin: 0px 30px;
     color: var(--terciario);
-    /* border-bottom: 1px solid var(--terciario); */
+    border-bottom: 1px solid var(--secundario);
 }
 .seleccion:hover {
     color: var(--lightGrey);
-    /* border-bottom: 1px solid var(--lightGrey); */
+    border-bottom: 1px solid var(--lightGrey);
 }
 .sel {
     padding: 0px;
