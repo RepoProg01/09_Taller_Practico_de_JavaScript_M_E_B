@@ -5,6 +5,7 @@
     --black: #000000;
     --white: #ffffff;
     --grey: #6895CB;
+    --blue: #105dbb;
     --lightGrey: #e6e6e6;
     --naranja: #ffc003;
     --red: #bb3232;
@@ -78,6 +79,12 @@ body {
 
 }
 .listIcons a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+
     width: 158px;
     height: 158px;
     padding: 20px;
@@ -85,17 +92,26 @@ body {
     text-decoration: none;
     font-size: 20px;
     font-weight: 700;
-    background-color: var(--secundario);
+    background: linear-gradient(var(--secundario), 40%, var(--blue), var(--secundario));
+    /* background-color: var(--secundario); */
     color: var(--naranja);
     border: 1px solid var(--naranja);
 }
 .listIcons a:hover {
-    border: 1px solid var(--white);
-    color: var(--white);
+    border: 1px solid var(--lightGrey);
+    color: var(--lightGrey);
+    .imgAP {
+        background: linear-gradient(var(--blue), 40%, var(--terciario), var(--blue));
+        border: 1px solid var(--lightGrey); 
+    }
 }
 .imgAP {
     width: 100px;
     padding: 10px 29px;
+    border: 1px solid var(--naranja);
+    border-radius: 10px;
+    background: linear-gradient(var(--primario), 40%, var(--blue), var(--primario));
+
 }
 /* ################# footer ################## */
 .footer {
@@ -117,16 +133,22 @@ body {
         align-items: center;
     }
     .listIcons a {
-        display: flex;
+        flex-direction: row;
         width: 278px;
         height: 47px;
         gap: 10px;
-        justify-content: space-between;
-        align-items: center;
         padding: 5px 30px;
     }
     .imgAP {
         width: 50px;
         padding: 0;
+        border: 0;
+        background: transparent;
+    }
+    .listIcons a:hover {
+        .imgAP {
+            background: transparent;
+            border: 0px; 
+        }
     }
 }
