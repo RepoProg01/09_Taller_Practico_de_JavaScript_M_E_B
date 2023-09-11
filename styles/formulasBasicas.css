@@ -201,7 +201,8 @@ body {
     color: var(--black);
 }
 span {
-    color: var(--naranja);
+    color: var(--blue);
+    font-weight: 700;
 }
 .containerResponsive {
     background-color: var(--terciario);
