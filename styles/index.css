@@ -2,13 +2,23 @@
     --primario: #092547;
     --secundario: #093973;
     --terciario: #69A2E7;
+
     --black: #000000;
     --white: #ffffff;
+
     --grey: #6895CB;
     --blue: #105dbb;
     --lightGrey: #e6e6e6;
     --naranja: #ffc003;
     --red: #bb3232;
+
+    --background_radial_1: radial-gradient(circle at 50% 9%, var(--blue) 15%, var(--primario) 70%, var(--secundario) 1000%);
+    --background_radial_2: radial-gradient(circle at 46.98% 67.12%, var(--blue) 0, var(--secundario) 50%, var(--primario) 100%);
+    
+    --background_linear_1: linear-gradient(var(--blue), 40%, var(--secundario), var(--blue));
+    --background_linear_2: linear-gradient(var(--primario), 40%, var(--secundario), var(--primario));
+    --background_linear_3: linear-gradient(var(--blue), 40%, var(--terciario), var(--blue));
+    --background_linear_4: linear-gradient(var(--primario), 40%, var(--blue), var(--primario));
 }
 body {
     margin: 0px;
@@ -92,8 +102,7 @@ body {
     text-decoration: none;
     font-size: 20px;
     font-weight: 700;
-    background: linear-gradient(var(--primario), 40%, var(--secundario), var(--primario));
-    /* background-color: var(--secundario); */
+    background: var(--background_linear_2);
     color: var(--naranja);
     border: 1px solid var(--naranja);
 }
@@ -101,7 +110,7 @@ body {
     border: 1px solid var(--lightGrey);
     color: var(--lightGrey);
     .imgAP {
-        background: linear-gradient(var(--blue), 40%, var(--terciario), var(--blue));
+        background: var(--background_linear_3);
         border: 1px solid var(--lightGrey); 
     }
 }
@@ -110,7 +119,7 @@ body {
     padding: 10px 29px;
     border: 1px solid var(--naranja);
     border-radius: 10px;
-    background: linear-gradient(var(--primario), 40%, var(--blue), var(--primario));
+    background: var(--background_linear_4);
 
 }
 /* ################# footer ################## */

@@ -69,7 +69,7 @@ const cuadradoObj = {
     btnClA: "btnResultASqr",
     funcionArea: "aSquare",
 
-    titlePerimetro: "Perimetro del Cuadrado :",
+    titlePerimetro: "Perimetro del Cuadrado",
     formulaPerimetro: "Formula = 4 * Lado",
     inputPerimetro: [
         {
@@ -85,7 +85,7 @@ const rectanguloObj = {
     id: "rectangulo",
     imgFig: "../assets/rectangulo.png",
 
-    titleArea: "Area del Rectangulo :",
+    titleArea: "Area del Rectangulo",
     formulaArea: "Formula = Base * Altura",
     inputArea: [
         {
@@ -101,7 +101,7 @@ const rectanguloObj = {
     btnClA: "btnResultARec",
     funcionArea: "aRectangulo",
 
-    titlePerimetro: "Perimetro del Rectangulo :",
+    titlePerimetro: "Perimetro del Rectangulo",
     formulaPerimetro: "Formula = (2 * Base) + (2 * Lado)",
     inputPerimetro: [
         {
@@ -121,7 +121,7 @@ const paralelogramoObj = {
     id: "paralelogramo",
     imgFig: "../assets/paralelogramo.png",
 
-    titleArea: "Area del Paralelogramo :",
+    titleArea: "Area del Paralelogramo",
     formulaArea: "Formula = base * altura",
     inputArea: [
         {
@@ -137,7 +137,7 @@ const paralelogramoObj = {
     btnClA: "btnResultAPar",
     funcionArea: "aParalelogramo",
 
-    titlePerimetro: "Perimetro del Paralelogramo :",
+    titlePerimetro: "Perimetro del Paralelogramo",
     formulaPerimetro: "Formula = 2 x (b + L)",
     inputPerimetro: [
         {
@@ -157,7 +157,7 @@ const trapecioObj = {
     id: "trapecio",
     imgFig: "../assets/trapecio.png",
 
-    titleArea: "Area del Trapecio :",
+    titleArea: "Area del Trapecio",
     formulaArea: "Formula = ((B + b) * h) / 2",
     inputArea: [
         {
@@ -177,7 +177,7 @@ const trapecioObj = {
     btnClA: "btnResultATrapecio",
     funcionArea: "aTrapecio",
 
-    titlePerimetro: "Perimetro del Trapecio :",
+    titlePerimetro: "Perimetro del Trapecio",
     formulaPerimetro: "Formula = B + b + L1 + L2",
     inputPerimetro: [
         {
@@ -205,7 +205,7 @@ const romboObj = {
     id: "rombo",
     imgFig: "../assets/rombo.png",
 
-    titleArea: "Area del Rombo :",
+    titleArea: "Area del Rombo",
     formulaArea: "Formula = D x d / 2",
     inputArea: [
         {
@@ -221,7 +221,7 @@ const romboObj = {
     btnClA: "btnResultARombo",
     funcionArea: "aRombo",
 
-    titlePerimetro: "Perimetro del Rombo :",
+    titlePerimetro: "Perimetro del Rombo",
     formulaPerimetro: "Formula = L1 + L2 + L3 + L4",
     inputPerimetro: [
         {
@@ -249,7 +249,7 @@ const pentagonoObj = {
     id: "pentagono",
     imgFig: "../assets/pentagono.png",
 
-    titleArea: "Area del pentagono :",
+    titleArea: "Area del pentagono",
     formulaArea: "Formula = perimetro x apotema / 2",
     inputArea: [
         {
@@ -265,7 +265,7 @@ const pentagonoObj = {
     btnClA: "btnResultAPentagono",
     funcionArea: "aPentagono",
 
-    titlePerimetro: "Perimetro del Pentagono :",
+    titlePerimetro: "Perimetro del Pentagono",
     formulaPerimetro: "Formula = 5 x L",
     inputPerimetro: [
         {
@@ -281,7 +281,7 @@ const hexagonoObj = {
     id: "hexagono",
     imgFig: "../assets/hexagono.png",
 
-    titleArea: "Area del Hexagono :",
+    titleArea: "Area del Hexagono",
     formulaArea: "Formula = (perimetro x apotema) / 2",
     inputArea: [
         {
@@ -297,7 +297,7 @@ const hexagonoObj = {
     btnClA: "btnResultAHex",
     funcionArea: "aHexagono",
 
-    titlePerimetro: "Perimetro del Hexagono :",
+    titlePerimetro: "Perimetro del Hexagono",
     formulaPerimetro: "Formula = 6 * Lado",
     inputPerimetro: [
         {
@@ -313,7 +313,7 @@ const circuloObj = {
     id: "circulo",
     imgFig: "../assets/circulo.png",
 
-    titleArea: "Area del Circulo :",
+    titleArea: "Area del Circulo",
     formulaArea: "Formula = pi x r2",
     inputArea: [
         {
@@ -325,7 +325,7 @@ const circuloObj = {
     btnClA: "btnResultACirc",
     funcionArea: "aCirculo",
 
-    titlePerimetro: "Circunferncia :",
+    titlePerimetro: "Circunferncia",
     formulaPerimetro: "Formula = pi * diametro",
     inputPerimetro: [
         {
@@ -341,7 +341,7 @@ const elipseObj = {
     id: "elipse",
     imgFig: "../assets/elipse.png",
 
-    titleArea: "Area del Elipse :",
+    titleArea: "Area del Elipse",
     formulaArea: "Formula = pi x a x b",
     inputArea: [
         {
@@ -357,7 +357,7 @@ const elipseObj = {
     btnClA: "btnResultAElip",
     funcionArea: "aElipse",
 
-    titlePerimetro: "Longitud Elipse :",
+    titlePerimetro: "Longitud Elipse",
     formulaPerimetro: "Formula = pi * diametro",
     inputPerimetro: [
         {
