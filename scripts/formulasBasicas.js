@@ -92,6 +92,7 @@ const defGuia = document.createElement("p");
 const containerResponsive = document.createElement("section");
 // ---------------------------------- formulaImg ----------------------------------
 const formulaImg = document.createElement("div");
+const titleFig = document.createElement("h2");
 const imgFigura = document.createElement("img");
 // ------------------------------ perimetroYAreaDiv -------------------------------
 const perimetroYAreaDiv = document.createElement("div");
@@ -200,6 +201,11 @@ function renderFigura(objeto){
 
     containerResponsive.appendChild(formulaImg);
     formulaImg.classList.add("formulaImg");
+    
+    formulaImg.appendChild(titleFig);
+    titleFig.classList.add("titleFig");
+    titleFig.innerHTML = objeto.titleFig;
+
     formulaImg.appendChild(imgFigura);
     imgFigura.setAttribute("src", objeto.imgFig);
 

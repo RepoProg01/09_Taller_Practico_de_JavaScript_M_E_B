@@ -15,7 +15,8 @@ const intro = {
 };
 const trianguloObj = {
     id: "triangulo",
-    imgFig: "../assets/triangulo_equilatero.png",
+    titleFig: "Triangulo",
+    imgFig: "../assets/triangulo_equilatero_img.svg",
 
     titleArea: "Area del Triangulo",
     formulaArea: "Formula = Base * Altura / 2",
