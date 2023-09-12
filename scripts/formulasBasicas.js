@@ -4,18 +4,17 @@ const figuras = document.querySelector(".figuras");
 const listIndex = document.querySelector(".listIndex");
 const blurC = document.querySelector(".blurC");
 
-figuras.addEventListener("click", menu);
-blurC.addEventListener("click", fblur);
+figuras.addEventListener("click", figurasFnc);
+blurC.addEventListener("click", blurFnc);
 
-function menu(){
-
+function figurasFnc(){
     listIndex.scrollTop = 0;
     listIndex.classList.toggle("listIndexShow");
     blurC.classList.toggle("off");
     body.classList.toggle("noMove");
 }
 
-function fblur(){
+function blurFnc(){
     listIndex.classList.remove("listIndexShow");
     blurC.classList.add("off");
     body.classList.remove("noMove");
@@ -23,10 +22,10 @@ function fblur(){
 
 const seleccion = document.querySelectorAll(".seleccion");
 seleccion.forEach(element => {
-    element.addEventListener("click", selectF);
+    element.addEventListener("click", selecFnc);
 });
 
-function selectF(event){
+function selecFnc(event){
     listIndex.classList.remove("listIndexShow");
     const figura = event.target.innerText.toLowerCase();
 
@@ -36,14 +35,14 @@ function selectF(event){
     }else{
         renderIntroduccion();
     };
-    fblur();
+    blurFnc();
 
     // listIndex.classList.remove("listIndexShow");
     // const figura = event.target.innerText.toLowerCase();
     // const cid = document.getElementById(figura);
     // const topOffset = cid.offsetTop - 70;
     // window.scroll(0, topOffset);
-    // fblur();
+    // blurFnc();
 }
 
 function borrar(){
@@ -66,59 +65,74 @@ function borrar(){
     containerFiguras.innerHTML = "";
 };
 
-// =================================== containerFig ===================================
-// ================================== Render figure ==================================
+// ================================= Constantes ===================================
+// =========================== Constantes Container fig ===========================
 const containerFiguras = document.querySelector(".containerFiguras");
-const containerResponsive = document.createElement("section");
-const formulaImg = document.createElement("div");
-const imgFigura = document.createElement("img");
-const perimetroYArea = document.createElement("div");
-const divArea =document.createElement("div");
-const pTitleA = document.createElement("p");
-const pformulaA = document.createElement("p");
-const sectionAtop = document.createElement("section");
-const sectionAmiddle = document.createElement("section");
-const sectionAbottom = document.createElement("section");
-const divRadioA = document.createElement("div");
-const divRadioP = document.createElement("div");
-const inputRadioAC = document.createElement("input");
-const inputRadioAM = document.createElement("input");
-const inputLabelAC = document.createElement("label");
-const inputLabelAM = document.createElement("label");
-const inputRadioPC = document.createElement("input");
-const inputRadioPM = document.createElement("input");
-const inputLabelPC = document.createElement("label");
-const inputLabelPM = document.createElement("label");
-const pResultA = document.createElement("p");
-const btnResultA = document.createElement("button");
-const divPerimetro =document.createElement("div");
-const sectionPtop = document.createElement("section");
-const sectionPmiddle = document.createElement("section");
-const sectionPbottom = document.createElement("section");
-const pTitleP = document.createElement("p");
-const pformulaP = document.createElement("p");
-const pResultP = document.createElement("p");
-const btnResultP = document.createElement("button");
 
-const defContainer = document.createElement("section");
-
+// -------------------------------- containerIntro --------------------------------
+const containerIntro = document.createElement("section");
+// ---------------------------------- sectionDtop ---------------------------------
 const sectionDtop = document.createElement("div");
-const sectionDmiddle = document.createElement("div");
-const sectionDbottom = document.createElement("div");
-
 const defTitulo = document.createElement("h2");
 const defImg = document.createElement("img");
-
+// --------------------------------- sectionDmiddle -------------------------------
+const sectionDmiddle = document.createElement("div");
 const defAreaTitulo = document.createElement("p");
 const defArea = document.createElement("p");
 const defPerimetroTitulo = document.createElement("p");
 const defPerimetro = document.createElement("p");
-
+// --------------------------------- sectionDbottom -------------------------------
+const sectionDbottom = document.createElement("div");
 const defNotaTitulo = document.createElement("p");
 const defNota = document.createElement("p");
 const defGuiaTitulo = document.createElement("p");
 const defGuia = document.createElement("p");
 
+// ------------------------------ containerResponsive -----------------------------
+const containerResponsive = document.createElement("section");
+// ---------------------------------- formulaImg ----------------------------------
+const formulaImg = document.createElement("div");
+const imgFigura = document.createElement("img");
+// ------------------------------ perimetroYAreaDiv -------------------------------
+const perimetroYAreaDiv = document.createElement("div");
+
+// ----------------------------------- divArea ------------------------------------
+const divArea = document.createElement("div");
+// --------------------------------- sectionAtop ----------------------------------
+const sectionAtop = document.createElement("section");
+const pTitleA = document.createElement("p");
+const pformulaA = document.createElement("p");
+// -------------------------------- sectionAmiddle --------------------------------
+const sectionAmiddle = document.createElement("section");
+const divRadioA = document.createElement("div");
+const inputRadioAC = document.createElement("input");
+const inputRadioAM = document.createElement("input");
+const inputLabelAC = document.createElement("label");
+const inputLabelAM = document.createElement("label");
+// -------------------------------- sectionAbottom --------------------------------
+const sectionAbottom = document.createElement("section");
+const pResultA = document.createElement("p");
+const btnResultA = document.createElement("button");
+
+// --------------------------------- divPerimetro ----------------------------------
+const divPerimetro =document.createElement("div");
+// --------------------------------- sectionPtop -----------------------------------
+const sectionPtop = document.createElement("section");
+const pTitleP = document.createElement("p");
+const pformulaP = document.createElement("p");
+// -------------------------------- sectionPmiddle ---------------------------------
+const sectionPmiddle = document.createElement("section");
+const divRadioP = document.createElement("div");
+const inputRadioPC = document.createElement("input");
+const inputRadioPM = document.createElement("input");
+const inputLabelPC = document.createElement("label");
+const inputLabelPM = document.createElement("label");
+// -------------------------------- sectionPbottom --------------------------------
+const sectionPbottom = document.createElement("section");
+const pResultP = document.createElement("p");
+const btnResultP = document.createElement("button");
+
+// =================================== variables ==================================
 let medidaA;
 let medidaP;
 let btnResultAReg;
@@ -142,8 +156,9 @@ function medSeleccion() {
 };
 function renderIntroduccion(){
     borrar();
-    containerFiguras.appendChild(defContainer);
-    defContainer.classList.add("containerIntro");
+    containerFiguras.appendChild(containerIntro);
+
+    containerIntro.classList.add("containerIntro");
 
     defTitulo.classList.add("tituloIntro");
     defTitulo.innerHTML = formulasArray[0].defTitulo;
@@ -174,27 +189,32 @@ function renderIntroduccion(){
     sectionDbottom.classList.add("sectionDbottom", "secD");
     sectionDbottom.append(defNotaTitulo, defNota, defGuiaTitulo, defGuia);
 
-    defContainer.append(sectionDtop, sectionDmiddle, sectionDbottom);
+    containerIntro.append(sectionDtop, sectionDmiddle, sectionDbottom);
     document.documentElement.scrollTop = 0;
 };
 function renderFigura(objeto){
     borrar();
     containerFiguras.appendChild(containerResponsive);
+
     containerResponsive.classList.add("containerResponsive");
+
     containerResponsive.appendChild(formulaImg);
     formulaImg.classList.add("formulaImg");
     formulaImg.appendChild(imgFigura);
     imgFigura.setAttribute("src", objeto.imgFig);
-    containerResponsive.appendChild(perimetroYArea);
-    perimetroYArea.classList.add("perimetroYArea");
-    perimetroYArea.appendChild(divArea);
-    divArea.classList.add("containerFormules")
+
+    containerResponsive.appendChild(perimetroYAreaDiv);
+    perimetroYAreaDiv.classList.add("perimetroYArea");
+    perimetroYAreaDiv.appendChild(divArea);
+    divArea.classList.add("containerFormules");
+
     pTitleA.classList.add("titlesFormules");
     pTitleA.innerHTML = objeto.titleArea;
     pformulaA.classList.add("textFormule");
     pformulaA.innerHTML = objeto.formulaArea;
     sectionAtop.classList.add("sectionAtop");
     sectionAtop.append(pTitleA, pformulaA);
+
     divRadioA.classList.add("divRadioA");
     inputRadioAC.setAttribute("type", "radio");
     inputRadioAC.setAttribute("name", "radA");
@@ -213,6 +233,7 @@ function renderFigura(objeto){
     objeto.inputArea.forEach(winInput => {
         const divWin = document.createElement("div");
         divWin.classList.add("winPosition");
+
         const labelArea = document.createElement("label");
         labelArea.setAttribute("for", winInput.inputId);
         labelArea.innerHTML = winInput.inputLabel;
@@ -223,7 +244,8 @@ function renderFigura(objeto){
         inputAreaWindow.classList.add("inputStyle");
         divWin.appendChild(inputAreaWindow);
         sectionAmiddle.appendChild(divWin);
-    })
+    });
+
     pResultAReg = objeto.resultClA
     pResultA.classList.add("winStyle", pResultAReg);
     btnResultAReg = objeto.btnClA;
@@ -237,14 +259,17 @@ function renderFigura(objeto){
     btnResultA.addEventListener("click", rutaFA);
 
     //=================================== Perimetro ===================================
-    perimetroYArea.appendChild(divPerimetro);
+    perimetroYAreaDiv.appendChild(divPerimetro);
+
     divPerimetro.classList.add("containerFormules");
+
     pTitleP.classList.add("titlesFormules");
     pTitleP.innerHTML = objeto.titlePerimetro;
     pformulaP.classList.add("textFormule");
     pformulaP.innerHTML = objeto.formulaPerimetro;
     sectionPtop.classList.add("sectionPtop");
     sectionPtop.append(pTitleP, pformulaP);
+
     divRadioP.classList.add("divRadioP");
     inputRadioPC.setAttribute("type", "radio");
     inputRadioPC.setAttribute("name", "radP");
@@ -274,6 +299,7 @@ function renderFigura(objeto){
         divWinP.appendChild(inputPerimetroWindow);
         sectionPmiddle.appendChild(divWinP);
     });
+
     pResultPReg = objeto.resultClP;
     pResultP.classList.add("winStyle", pResultPReg);
     btnResultPReg = objeto.btnClP;
@@ -287,8 +313,8 @@ function renderFigura(objeto){
     btnResultP.addEventListener("click", rutaFP);
     document.documentElement.scrollTop = 0;
 };
-// #################################### triangulo ####################################
-// =================================== AreaTriangulo ===================================
+// ################################### triangulo ####################################
+// ================================= AreaTriangulo ==================================
 function aTriangle(){
     const winTriBaseA = document.querySelector("#winTriBaseA");
     const winTriHeight = document.querySelector("#winTriHeight");
@@ -306,7 +332,7 @@ function aTriangle(){
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
     }
 };
-// ================================ PerimeterTriangle ================================
+// =============================== PerimeterTriangle ================================
 function pTriangle(){
     const winTriSide1 = document.querySelector("#winTriSide1");
     const winTriSide2 = document.querySelector("#winTriSide2");
@@ -326,6 +352,8 @@ function pTriangle(){
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
+
+
 // #################################### cuadrado ####################################
 // =================================== AreaSquare ===================================
 function aSquare(){
@@ -343,7 +371,7 @@ function aSquare(){
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-// =================================== PerimeterSquare ===================================
+// ================================= PerimeterSquare ================================
 function pSquare(){
     const winSqrPerimeter = document.querySelector("#winSqrPerimeter");
     medSeleccion();
@@ -359,8 +387,10 @@ function pSquare(){
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-// #################################### Rectangulo ####################################
-// ----------------- AreaRectangulo -----------------
+
+
+// ################################## Rectangulo ####################################
+// ================================ AreaRectangulo ==================================
 function aRectangulo(){ 
     const winRecABase = document.querySelector("#winRecABase");
     const winRecAAltura = document.querySelector("#winRecAAltura");
@@ -378,7 +408,7 @@ function aRectangulo(){
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-// ----------------- PerimeterRectangulo -----------------
+// ============================== PerimeterRectangulo ===============================
 function pRectangulo(){
     const winRecPBase = document.querySelector("#winRecPBase");
     const winRecPLado = document.querySelector("#winRecPLado");
@@ -396,8 +426,10 @@ function pRectangulo(){
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-// #################################### Paralelogramo ####################################
-// ----------------- AreaParalelogramo -----------------
+
+
+// ################################# Paralelogramo ##################################
+// =============================== AreaParalelogramo ================================
 function aParalelogramo(){
     const winParABase = document.querySelector("#winParABase");
     const winParAltura = document.querySelector("#winParAltura");
@@ -415,7 +447,7 @@ function aParalelogramo(){
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-// ----------------- PerimeterParalelogramo -----------------
+// ============================= PerimeterParalelogramo =============================
 function pParalelogramo(){
     const winParPBase = document.querySelector("#winParPBase");
     const winParPAltura = document.querySelector("#winParPAltura");
@@ -433,8 +465,10 @@ function pParalelogramo(){
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
+
+
 // #################################### Trapecio ####################################
-// ----------------- AreaTrapecio -----------------
+// ================================== AreaTrapecio ==================================
 function aTrapecio(){
     const winTrapAB = document.querySelector("#winTrapAB");
     const winTrapAb = document.querySelector("#winTrapAb");
@@ -454,7 +488,7 @@ function aTrapecio(){
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-// ----------------- PerimeterTrapecio -----------------
+// ================================ PerimeterTrapecio ===============================
 function pTrapecio(){
     const winL1PTrap = document.querySelector("#winL1PTrap");
     const winL2PTrap = document.querySelector("#winL2PTrap");
@@ -476,8 +510,10 @@ function pTrapecio(){
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-// #################################### rombo ####################################
-// ----------------- AreaRombo -----------------
+
+
+// ##################################### rombo ######################################
+// ==================================== AreaRombo ===================================
 function aRombo(){
     const winD1A = document.querySelector("#winD1A");
     const winD2A = document.querySelector("#winD2A");
@@ -495,7 +531,7 @@ function aRombo(){
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-// ----------------- PerimeterRombo -----------------
+// ================================== PerimeterRombo ================================
 function pRombo(){
     const winPRomL1 = document.querySelector("#winPRomL1");
     const winPRomL2 = document.querySelector("#winPRomL2");
@@ -517,8 +553,10 @@ function pRombo(){
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-// #################################### Pentagono ####################################
-// ----------------- AreaPentagono -----------------
+
+
+// ################################### Pentagono ####################################
+// ================================= AreaPentagono ==================================
 function aPentagono(){
     const winAPPent = document.querySelector("#winAPPent");
     const winAApotPent = document.querySelector("#winAApotPent");
@@ -536,7 +574,7 @@ function aPentagono(){
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-// ----------------- PerimeterPentagono -----------------
+// ================================ PerimeterPentagono ==============================
 function pPentagono(){
     const winPPenL = document.querySelector("#winPPenL");
     medSeleccion();
@@ -552,8 +590,10 @@ function pPentagono(){
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
+
+
 // #################################### Hexagono ####################################
-// ----------------- AreaHexagono -----------------
+// ================================== AreaHexagono ==================================
 function aHexagono(){
     const winAPHex = document.querySelector("#winAPHex");
     const winAApotHex = document.querySelector("#winAApotHex");
@@ -571,7 +611,7 @@ function aHexagono(){
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-// ----------------- PerimeterHexagono -----------------
+// ================================ PerimeterHexagono ===============================
 function pHexagono(){
     const winPHexL = document.querySelector("#winPHexL");
     medSeleccion();
@@ -587,8 +627,10 @@ function pHexagono(){
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-// #################################### Circunferencia ####################################
-// ----------------- AreaCirculo -----------------
+
+
+// ################################# Circunferencia #################################
+// =================================== AreaCirculo ==================================
 function aCirculo(){
     const winCircArea = document.querySelector("#winCircArea");
     medSeleccion();
@@ -605,7 +647,7 @@ function aCirculo(){
         pResultA.innerHTML = "Radio debe de ser mayor a 0";
     }
 }
-// ----------------- Circunferencia -----------------
+// ================================= Circunferencia =================================
 function circunferencia(){
     const winCircunferencia = document.querySelector("#winCircunferencia");
     medSeleccion();
@@ -622,6 +664,8 @@ function circunferencia(){
         pResultP.innerHTML = "Radio debe ser mayor a 0";
     }
 }
+
+
 renderIntroduccion();
 
 

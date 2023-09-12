@@ -11,15 +11,23 @@
     <div class="blurC off"></div>
      <!-- ##################### navbar ##################### -->
     <nav class="nav">
-        <img class="nav_logo" src="../assets/jslogo.svg" alt="">
+        <img class="nav_logo" src="../assets/jslogo2.svg" alt="">
         <div class="btnMenu">
             <a class="homeLink" href="../index.html">Home</a>
             <p class="figuras">Figuras</p>
         </div>
     </nav>
     <section class="listIndex">
-        <p class="seleccion" >Triangulo isosceles</p>
-        <p class="seleccion" >Triangulo Escaleno</p>
+        <p class="seleccion selMod" >Introduccion</p>
+        <h2 class="sel" ></h2>
+        <p class="seleccion" >Triangulo_Isosceles</p>
+        <p class="seleccion" >Triangulo_Escaleno</p>
+        <h2 class="sel" ></h2>
+        <p class="seleccion selMod" >Contactanos</p>
+        <p class="seleccion selMod" >Sobre Nosotros</p>
+        <p class="seleccion selMod" >Social Media</p>
+        <p class="seleccion selMod" >Creditos</p>
+        <h2 class="sel" ></h2>
     </section>
 
     <!-- #################@ contentIndex ################## -->
@@ -30,70 +38,7 @@
     </section>
 
     <!-- ################## containerFig ################## -->
-   
-    <section class="containerFig">
-        <!-- --------------------------------------------------------------------------------------------------------- -->
-        <!-- ------------- Triangulo Isosceles ------------- -->
-        <section class="containerResponsive"> 
-            <!-- ------------- Altura ------------- -->
-            <div class="formulaImg" id="trianguloIsosceles">
-                <img src="../assets/trianguloIsosceles.png" alt="">
-            </div>
-
-            <div class="perimeterArea">
-                <div  class="containerFormules"> 
-                    <!-- ------------- heightTriangleIsosceles ------------- -->
-                    <p class="titlesFormules">Altura Triangulo Isosceles :</p>
-                    <p class="textFormule"> a = raiz2 ( L1(2) - ( (B / 2)(2) ) )</p>
-                    <div class="winPosition">
-                        <label for="winHTriSide1">Medida lado 1 en cm</label>
-                        <input type="number" id="winHTriSide1" class="inputStyle">
-                    </div>
-                    <div class="winPosition">
-                        <label for="winHTriSide2">Medida lado 2 en cm</label>
-                        <input type="number" id="winHTriSide2" class="inputStyle">
-                    </div>
-                    <div class="winPosition">
-                        <label for="winHTriBase">Medida d base en cm</label>
-                        <input type="number" id="winHTriBase" class="inputStyle">
-                    </div>
-                    <p class="resultHTri winStyle"></p>
-                    <button class="btnResultHTri btnResult">Resultado</button>
-                </div>
-    
-            
-            </div>
-        </section>
-
-        <!-- ------------- Triangulo Escaleno ------------- -->
-        <section class="containerResponsive">
-                <!-- ---------------- Triangulo Escaleno ---------------- -->
-                <div class="formulaImg" id="trianguloEscaleno">
-                    <img src="../assets/trianguloEscaleno.png" alt="">
-                </div>
-
-                    <div  class="containerFormules"> 
-                    <!-- ------------- heightTriangleEquilatero ------------- -->
-                    <p class="titlesFormules">Atura Triangulo Escaleno :</p>
-                    <p class="textFormule">h = a/2 raiz ( S(S−a)(S−b)(S−c) )​
-                        </p>
-                    <div class="winPosition">
-                        <label for="winHTriSSide1">Medida lado 1 en cm</label>
-                        <input type="number" id="winHTriSSide1" class="inputStyle">
-                    </div>
-                    <div class="winPosition">
-                        <label for="winHTriSSide2">Medida lado 2 en cm</label>
-                        <input type="number" id="winHTriSSide2" class="inputStyle">
-                    </div>
-                    <div class="winPosition">
-                        <label for="winHTriSBase">Medida d base en cm</label>
-                        <input type="number" id="winHTriSBase" class="inputStyle">
-                    </div>
-                    <p class="resultHTriS winStyle"></p>
-                    <button class="btnResultHTriS btnResult">Resultado</button>
-                </div>
-
-        </section>
+    <section class="containerFiguras">
 
     </section>
 
@@ -102,6 +47,7 @@
         <p></p>
     </footer>
 
+    <script src="../scripts/alturasDB.js"></script>
     <script src="../scripts/alturas.js"></script>
 </body>
 </html>

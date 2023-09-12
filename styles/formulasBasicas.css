@@ -84,7 +84,6 @@ body {
     border-radius: 8px;
     margin: 0px;
     cursor: pointer;
-
 }
 .figuras:hover{
     color: var(--white);
@@ -152,6 +151,7 @@ body {
 }
 
 /* ############# containerFig #############  */
+/* ############# containerIntro #############  */
 .containerIntro {
     background-color: var(--terciario);
     display: flex;
@@ -209,6 +209,8 @@ span {
     border-radius: 3px;
     font-weight: 700;
 }
+
+/* ############# containerResponsive #############  */
 .containerResponsive {
     background-color: var(--terciario);
     display: flex;
@@ -345,7 +347,6 @@ span {
     bottom:0px;
     width: 100%;
     height: 60px;
-    /* border-top: 1px solid var(--verde); */
     background-color: var(--secundario);
 }
 @media screen and (max-width: 1060px) {
