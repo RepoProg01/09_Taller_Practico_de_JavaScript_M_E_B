@@ -56,7 +56,8 @@ const trianguloObj = {
 };
 const cuadradoObj = {
     id: "cuadrado",
-    imgFig: "../assets/cuadrado.png",
+    titleFig: "Cuadrado",
+    imgFig: "../assets/cuadrado_img.svg",
 
     titleArea: "Area del Cuadrado",
     formulaArea: "Formula = Lado * Lado",
@@ -84,7 +85,8 @@ const cuadradoObj = {
 };
 const rectanguloObj = {
     id: "rectangulo",
-    imgFig: "../assets/rectangulo.png",
+    titleFig: "Rectangulo",
+    imgFig: "../assets/rectangulo_img.svg",
 
     titleArea: "Area del Rectangulo",
     formulaArea: "Formula = Base * Altura",
@@ -120,7 +122,8 @@ const rectanguloObj = {
 };
 const paralelogramoObj = {
     id: "paralelogramo",
-    imgFig: "../assets/paralelogramo.png",
+    titleFig: "Paralelogramo",
+    imgFig: "../assets/paralelogramo_img.svg",
 
     titleArea: "Area del Paralelogramo",
     formulaArea: "Formula = base * altura",
@@ -156,7 +159,8 @@ const paralelogramoObj = {
 };
 const trapecioObj = {
     id: "trapecio",
-    imgFig: "../assets/trapecio.png",
+    titleFig: "Trapecio",
+    imgFig: "../assets/trapecio_img.svg",
 
     titleArea: "Area del Trapecio",
     formulaArea: "Formula = ((B + b) * h) / 2",
@@ -204,7 +208,8 @@ const trapecioObj = {
 };
 const romboObj = {
     id: "rombo",
-    imgFig: "../assets/rombo.png",
+    titleFig: "Rombo",
+    imgFig: "../assets/rombo_img.svg",
 
     titleArea: "Area del Rombo",
     formulaArea: "Formula = D x d / 2",
@@ -248,7 +253,8 @@ const romboObj = {
 };
 const pentagonoObj = {
     id: "pentagono",
-    imgFig: "../assets/pentagono.png",
+    titleFig: "Pentagono",
+    imgFig: "../assets/pentagono_img.svg",
 
     titleArea: "Area del pentagono",
     formulaArea: "Formula = perimetro x apotema / 2",
@@ -280,7 +286,8 @@ const pentagonoObj = {
 };
 const hexagonoObj = {
     id: "hexagono",
-    imgFig: "../assets/hexagono.png",
+    titleFig: "Hexagono",
+    imgFig: "../assets/hexagono_img.svg",
 
     titleArea: "Area del Hexagono",
     formulaArea: "Formula = (perimetro x apotema) / 2",
@@ -312,7 +319,8 @@ const hexagonoObj = {
 };
 const circuloObj = {
     id: "circulo",
-    imgFig: "../assets/circulo.png",
+    titleFig: "Circulo",
+    imgFig: "../assets/circulo_img.svg",
 
     titleArea: "Area del Circulo",
     formulaArea: "Formula = pi x r2",
