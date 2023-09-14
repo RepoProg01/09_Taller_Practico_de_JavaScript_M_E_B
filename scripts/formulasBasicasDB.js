@@ -11,7 +11,7 @@ const intro = {
     defNotaTitulo: "Nota :",
     defNota: "No se debe olvidar que para determinar las áreas y perímetros de figuras, las fórmulas dependerán del tipo de figura y de las medidas correspondientes a cada una",
     defGuiaTitulo: "Forma de uso :",
-    defGuia: "Con el boton de <span>Figuras</span>, seleccionas figuras geometricas basicas, mostrara formulas y calculadoras para areas y perimetros.<br>Con el boton <span>Menu</span> regrezaras al menu principal."
+    defGuia: "Con el boton de <span>Figuras</span> seleccionas figuras geometricas basicas, mostrara formulas y calculadoras para areas y perimetros.<br>Con el boton <span>Menu</span> regrezaras al menu principal."
 };
 const trianguloObj = {
     id: "triangulo",
