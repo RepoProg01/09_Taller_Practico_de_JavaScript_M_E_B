@@ -205,9 +205,9 @@ body {
 span {
     color: var(--naranja);
     background-color: var(--secundario);
-    padding: 3px 5px;
+    padding: 3px 3px;
     border-radius: 3px;
-    font-weight: 700;
+    /* font-weight: 700; */
 }
 
 /* ############# containerResponsive #############  */
@@ -219,7 +219,7 @@ span {
     justify-content: center;
     align-items: center;
     min-width: 340px;
-    padding: 30px 10px;
+    padding: 10px 5px;
 }
 .formulaImg {
     background-image: var(--background_radial_2);
