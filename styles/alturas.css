@@ -219,6 +219,17 @@ span {
 .formulaImg {
     width: 340px;
 }
+.formulaImg {
+    background-image: var(--background_radial_2);
+    border-radius: 10px;
+    /* overflow: hidden; */
+    width: 340px;
+    height: 383px;
+}
+.titleFig {
+    color: var(--naranja);
+    text-align: center;
+}
 .formulaImg img {
     width: 340px;
 }
