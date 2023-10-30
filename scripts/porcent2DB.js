@@ -1,7 +1,7 @@
 const AlturasArray = [];
 
 const introAlturas = {
-    defImg: "../assets/altura_img.svg",
+    defImg: "../assets/porcentaje_img.svg",
     defTitulo: "Introduccion",
 
     defAlturaTitulo: "Que es porcentaje ?",
@@ -11,8 +11,8 @@ const introAlturas = {
 
     defNotaTitulo: "Nota:",
     defNota: "Se pueden usar diferentes variaciones de la regla de tres para obtener diferentes datos de porcentajes como: cantidad de un porcentaje, porcentaje de una cantidad, simple directa, simple inversa, compuesta directa etc ",
-    defGuiaTitulo: "Forma",
-    defGuia: "Con el boton de <span>Figuras</span> Con el boton <span>Menu</span> regrezaras al menu principal."
+    defGuiaTitulo: "Forma de uso :",
+    defGuia: "Con el boton de <span>Figuras</span> seleccionas diferentes variantes de la regla de tres y mostrara calculadoras.<br>Con el boton <span>Menu</span> regrezaras al menu principal."
 };
 const trianguloIsoscelesObj = {
     id: "triangulo_isosceles",

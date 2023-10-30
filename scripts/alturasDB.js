@@ -11,8 +11,8 @@ const introAlturas = {
 
     defNotaTitulo: "Nota:",
     defNota: "Se pueden usar diferentes formulas para obtener un resultado como: el teorem de pitagotas, la formula de heron, formula del area.",
-    defGuiaTitulo: "Forma",
-    defGuia: "Con el boton de <span>Figuras</span> Con el boton <span>Menu</span> regrezaras al menu principal."
+    defGuiaTitulo: "Forma de uso :",
+    defGuia: "Con el boton de <span>Figuras</span> seleccionas figuras geometricas diferentes, mostrara formulas y calculadoras para encontrar su altura.<br>Con el boton <span>Menu</span> regrezaras al menu principal."
 };
 const trianguloIsoscelesObj = {
     id: "triangulo_isosceles",
