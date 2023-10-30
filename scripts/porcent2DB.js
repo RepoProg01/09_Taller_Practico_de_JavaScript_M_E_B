@@ -4,13 +4,13 @@ const introAlturas = {
     defImg: "../assets/altura_img.svg",
     defTitulo: "Introduccion",
 
-    defAlturaTitulo: "Que es la Altura ?",
-    defAltura: "La altura de un objeto o figura geométrica es una longitud o una distancia de una dimensión geométrica, usualmente vertical o en la dirección de la gravedad. Este término también se utiliza para designar la coordenada vertical de la parte más elevada de un objeto a su base.",
-    defAltura2Titulo: "Que es la Base ?",
-    defAltura2: "Base a un lado o cara elegido ( en algunos casos arbitrariamente) para realizar el cálculo de área o volumen.",
+    defAlturaTitulo: "Que es porcentaje ?",
+    defAltura: "El porcentaje es la forma de expresar un número como una fracción que tiene como denominador el número 100, conocido también, como tanto por ciento. ",
+    defAltura2Titulo: "Regla de tres",
+    defAltura2: "La regla de tres es una forma de resolver problemas de proporcionalidad entre tres valores conocidos y una incógnita. En ella se establece una relación de linealidad, proporcionalidad, entre los valores involucrados.",
 
     defNotaTitulo: "Nota:",
-    defNota: "Se pueden usar diferentes formulas para obtener un resultado como: el teorem de pitagotas, la formula de heron, formula del area.",
+    defNota: "Se pueden usar diferentes variaciones de la regla de tres para obtener diferentes datos de porcentajes como: cantidad de un porcentaje, porcentaje de una cantidad, simple directa, simple inversa, compuesta directa etc ",
     defGuiaTitulo: "Forma",
     defGuia: "Con el boton de <span>Figuras</span> Con el boton <span>Menu</span> regrezaras al menu principal."
 };

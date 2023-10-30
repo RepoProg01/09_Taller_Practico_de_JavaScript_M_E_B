@@ -146,14 +146,9 @@ let rutaFH2;
 
 function medSeleccion() {
     if(inputRadioHC.checked) {
-        medidaH = "cm2";
-    }else if(inputRadioAM.checked) {
-        medidaH = "m2";
-    };
-    if(inputRadioH2C.checked) {
-        medidaH2 = "cm";
-    }else if(inputRadioPM.checked) {
-        medidaH2 = "m";
+        medidaH = "cm";
+    }else if(inputRadioHM.checked) {
+        medidaH = "m";
     };
 };
 
@@ -170,11 +165,11 @@ function renderIntroduccion(){
     sectionDtop.classList.add("sectionDtop", "secD");
     sectionDtop.append(defTitulo, defImg);
 
-    defAlturaTitulo.classList.add("defAreaTitulo", "defT");
+    defAlturaTitulo.classList.add("defAlturaTitulo", "defT");
     defAlturaTitulo.innerHTML = AlturasArray[0].defAlturaTitulo;
-    defAltura.classList.add("defArea", "defC");
+    defAltura.classList.add("defAltura", "defC");
     defAltura.innerHTML = AlturasArray[0].defAltura;
-    defAltura2Titulo.classList.add("defPerimetroTitulo", "defT");
+    defAltura2Titulo.classList.add("defBaseHTitulo", "defT");
     defAltura2Titulo.innerHTML = AlturasArray[0].defAltura2Titulo;
     defAltura2.classList.add("defPerimetro", "defC");
     defAltura2.innerHTML = AlturasArray[0].defAltura2;
@@ -254,7 +249,7 @@ function renderFigura(objeto){
         sectionHmiddle.appendChild(divWin);
     });
 
-    pResultHReg = objeto.resultClA
+    pResultHReg = objeto.resultClH
     pResultH.classList.add("winStyle", pResultHReg);
     btnResultHReg = objeto.btnClH;
     btnResultH.classList.add("btnResult", btnResultHReg);
@@ -265,109 +260,54 @@ function renderFigura(objeto){
     btnResultH.removeEventListener("click", rutaFH);
     rutaFH = (eval(objeto.funcionAltura));
     btnResultH.addEventListener("click", rutaFH);
-
-    //=================================== Perimetro ===================================
-    // containerAltura.appendChild(divPerimetro);
-
-    // divPerimetro.classList.add("containerFormules");
-
-    // pTitleP.classList.add("titlesFormules");
-    // pTitleP.innerHTML = objeto.titlePerimetro;
-    // pformulaP.classList.add("textFormule");
-    // pformulaP.innerHTML = objeto.formulaPerimetro;
-    // sectionPtop.classList.add("sectionPtop");
-    // sectionPtop.append(pTitleP, pformulaP);
-
-    // divRadioP.classList.add("divRadioP");
-    // inputRadioPC.setAttribute("type", "radio");
-    // inputRadioPC.setAttribute("name", "radP");
-    // inputRadioPC.setAttribute("id", "radPC");
-    // inputLabelPC.setAttribute("for", "radPC");
-    // inputLabelPC.innerHTML = "centimetros";
-    // inputRadioPM.setAttribute("type", "radio");
-    // inputRadioPM.setAttribute("name", "radP");
-    // inputRadioPM.setAttribute("id", "radPM");
-    // inputLabelPM.setAttribute("for", "radPM");
-    // inputLabelPM.innerHTML = "metros";
-    // divRadioP.append(inputRadioPC, inputLabelPC, inputRadioPM, inputLabelPM);
-    // sectionPmiddle.classList.add("sectionPmiddle");
-    // sectionPmiddle.appendChild(divRadioP);
-
-    // objeto.inputPerimetro.forEach(winInput => {
-    //     const divWinP = document.createElement("div");
-    //     divWinP.classList.add("winPosition");
-    //     const labelPerimetro = document.createElement("label");
-    //     labelPerimetro.setAttribute("for", winInput.inputId);
-    //     labelPerimetro.innerHTML = winInput.inputLabel;
-    //     divWinP.appendChild(labelPerimetro);
-    //     const inputPerimetroWindow = document.createElement("input");
-    //     inputPerimetroWindow.setAttribute("type", "number");
-    //     inputPerimetroWindow.setAttribute("id", winInput.inputId);
-    //     inputPerimetroWindow.classList.add("inputStyle");
-    //     divWinP.appendChild(inputPerimetroWindow);
-    //     sectionPmiddle.appendChild(divWinP);
-    // });
-
-    // pResultPReg = objeto.resultClP;
-    // pResultP.classList.add("winStyle", pResultPReg);
-    // btnResultPReg = objeto.btnClP;
-    // btnResultP.classList.add("btnResult", btnResultPReg);
-    // btnResultP.innerHTML = "Resultado";
-    // sectionPbottom.classList.add("sectionPbottom");
-    // sectionPbottom.append(pResultP, btnResultP);
-    // divPerimetro.append(sectionPtop, sectionPmiddle, sectionPbottom);
-    // btnResultP.removeEventListener("click", rutaFP);
-    // rutaFP = (eval(objeto.funcionPerimetro));
-    // btnResultP.addEventListener("click", rutaFP);
     document.documentElement.scrollTop = 0;
 };
 
 
 // ------------------------ Alturas --------------------------
+// ------------- altura de triangulo isosceles -------------
+
 function hTriangleIso(){
-    const winHTriSide1 = document.querySelector("#winHTriSide1");
-    const winHTriSide2 = document.querySelector("#winHTriSide2");
-    const winHTriBase = document.querySelector("#winHTriBase");
+    const winHTriIsoSide1 = document.querySelector("#winHTriIsoSide1");
+    const winHTriIsoSide2 = document.querySelector("#winHTriIsoSide2");
+    const winHTriIsoBase = document.querySelector("#winHTriIsoBase");
     medSeleccion();
-    if(winHTriSide1.value > 0 && winHTriSide2.value > 0 && winHTriBase.value > 0 && winHTriSide1.value === winHTriSide2.value){
+    if(winHTriIsoSide1.value > 0 && winHTriIsoSide2.value > 0 && winHTriIsoBase.value > 0 && winHTriIsoSide1.value === winHTriIsoSide2.value){
         if(inputRadioHC.checked || inputRadioHM.checked){
-            const lado1 = Number(winHTriSide1.value);
-            const lado2 = Number(winHTriSide2.value);
-            const base = Number(winHTriBase.value);
+            const lado1 = Number(winHTriIsoSide1.value);
+            const lado2 = Number(winHTriIsoSide2.value);
+            const base = Number(winHTriIsoBase.value);
             const result = Math.sqrt(Math.pow(lado1,2) - Math.pow( (base/2), 2) );
-            pResultH.innerHTML = `Altura = ${result.toFixed(2)} cm`;
+            pResultH.innerHTML = `Altura = ${result.toFixed(2)} ${medidaH}`;
         }else{
             pResultH.innerHTML = "Elegir centimetros o metros";
         }
     }else{
-        pResultH.innerHTML = "Lados deben de ser mayores a 0 <br>lado1 y lado2 iguales";
+        pResultH.innerHTML = "Lados deben de ser mayores a 0 y L1 y L2 iguales";
     }
 }
 // ------------- altura de triangulo escaleno -------------
 function hTriEsc(){
-    const winHTriSSide1 = document.querySelector("#winHTriSSide1");
-    const winHTriSSide2 = document.querySelector("#winHTriSSide2");
-    const winHTriSBase = document.querySelector("#winHTriSBase");
+    const winHTriEscSide1 = document.querySelector("#winHTriEscSide1");
+    const winHTriEscSide2 = document.querySelector("#winHTriEscSide2");
+    const winHTriEscBase = document.querySelector("#winHTriEscBase");
     medSeleccion();
-    if(winHTriSSide1.value > 0 && winHTriSSide2.value > 0 && winHTriSBase.value > 0){
+    if(winHTriEscSide1.value > 0 && winHTriEscSide2.value > 0 && winHTriEscBase.value > 0){
         if(inputRadioHC.checked || inputRadioHM.checked){
-            const lado1 = Number(winHTriSSide1.value);
-            const lado2 = Number(winHTriSSide2.value);
-            const base = Number(winHTriSBase.value);
+            const lado1 = Number(winHTriEscSide1.value);
+            const lado2 = Number(winHTriEscSide2.value);
+            const base = Number(winHTriEscBase.value);
             const semiPerimeter = (lado1 + lado2 + base) / 2;
-            const desestruc = [lado1, lado2, base];
-            const [a,b,c] = desestruc.sort((a,b) => b - a);
-            const process =  (2/a) * Math.sqrt((semiPerimeter * (semiPerimeter - a) * (semiPerimeter - b) * (semiPerimeter - c)));
+            // const desestruc = [lado1, lado2, base];
+            // const [a,b,c] = desestruc.sort((a,b) => b - a);
+            const process =  (2 / base) * Math.sqrt((semiPerimeter * (semiPerimeter - lado1) * (semiPerimeter - lado2) * (semiPerimeter - base)));
             const result =  process;
-            pResultH.innerHTML = `Altura = ${result.toFixed(2)} cm`;
+            pResultH.innerHTML = `Altura = ${result.toFixed(2)} ${medidaH}`;
         }else{
             pResultH.innerHTML = "Elegir centimetros o metros";
         }
     }else{
-        pResultH.innerHTML = "Lados deben de ser mayores a 0 <br>lado1 y lado2 iguales";
+        pResultH.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-
-
-
 renderIntroduccion();

@@ -239,21 +239,42 @@ span {
     gap: 10px;
 }
 .containerFormules {
-    background-color: var(--secundario);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--background_radial_2);
     width: 300px;
+    height: 343px;
     border-radius: 10px;
     padding: 20px;
-    /* margin-bottom: 20px; */
 }
+
+.sectionHtop {
+    text-align: center;
+}
+
 .titlesFormules {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
     margin-top: 0px;
-    color: var(--terciario);
-}
-.textFormule {
     color: var(--white);
+}
+
+.textFormule {
+    color: var(--naranja);
     font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.divRadioH {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.divRadioH label {
+    color: var(--white);
+    padding-right: 30px;
 }
 .winStyle {
     background-color: var(--white);
@@ -262,8 +283,9 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 298px;
-    height: 50px;
+    padding: 10px;
+    width: 278px;
+    height: 30px;
     color: var(--black);
     font-weight: 700;
     font-size: 18px;
@@ -273,16 +295,17 @@ span {
     width: 100%;
     height: 40px;
     border-radius: 10px;
-    border: 1px solid var(--terciario);
-    background-color: var(--secundario);
-    color: var(--terciario);
+    border: 1px solid var(--naranja);
+    background: var(--background_linear_1);
+    color: var(--naranja);
     font-size: 18px;
     font-weight: 700;
 }
 .btnResult:hover {
+    cursor: pointer;
     background-color: var(--terciario);
-    border: 1px solid var(--terciario);
-    color: var(--secundario);
+    border: 1px solid var(--white);
+    color: var(--white);
 }
 .winPosition {
     width: 100%;
@@ -291,7 +314,7 @@ span {
     align-items: center;
 }
 .winPosition label {
-    color: var(--terciario);
+    color: var(--white);
 }
 .inputStyle {
     background-color: var(--white);
