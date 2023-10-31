@@ -7,12 +7,12 @@ const introAlturas = {
     defAlturaTitulo: "Que es la Altura ?",
     defAltura: "La altura de un objeto o figura geométrica es una longitud o una distancia de una dimensión geométrica, usualmente vertical o en la dirección de la gravedad. Este término también se utiliza para designar la coordenada vertical de la parte más elevada de un objeto a su base.",
     defAltura2Titulo: "Que es la Base ?",
-    defAltura2: "Base a un lado o cara elegido ( en algunos casos arbitrariamente) para realizar el cálculo de área o volumen.",
+    defAltura2: "Base es un lado o cara elegido ( en algunos casos arbitrariamente) para realizar el cálculo de área o volumen.",
 
     defNotaTitulo: "Nota:",
-    defNota: "Se pueden usar diferentes formulas para obtener un resultado como: el teorem de pitagotas, la formula de heron, formula del area.",
+    defNota: "Se pueden usar diferentes formulas para obtener un resultado como: el teorema de pitagotas, la formula de heron, formula del area. etc",
     defGuiaTitulo: "Forma de uso :",
-    defGuia: "Con el boton de <span>Figuras</span> seleccionas figuras geometricas diferentes, mostrara formulas y calculadoras para encontrar su altura.<br>Con el boton <span>Menu</span> regrezaras al menu principal."
+    defGuia: "Con el boton de <span>Figuras</span> seleccionas figuras geometricas, mostrara formulas y calculadoras para encontrar su altura.<br>Con el boton <span>Menu</span> regrezaras al menu principal."
 };
 const trianguloIsoscelesObj = {
     id: "triangulo_isosceles",
@@ -20,7 +20,7 @@ const trianguloIsoscelesObj = {
     imgFig: "../assets/triangulo_isosceles_altura.png",
 
     titleAltura: "Altura Triangulo Isosceles",
-    formulaAltura: " a = raiz2 ( L1(2) - ( (B / 2)(2) ) )",
+    formulaAltura: " h = raiz2 ( L1(2) - ( (B / 2)(2) ) )",
     inputAltura: [
         {
             inputLabel: "Medida lado 1",

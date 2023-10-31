@@ -1,13 +1,13 @@
 
 const body = document.querySelector(".body");
-const figuras = document.querySelector(".figuras");
+const nCaso = document.querySelector(".nCaso");
 const listIndex = document.querySelector(".listIndex");
 const blurC = document.querySelector(".blurC");
 
-figuras.addEventListener("click", figurasFnc);
+nCaso.addEventListener("click", casoFnc);
 blurC.addEventListener("click", blurFnc);
 
-function figurasFnc(){
+function casoFnc(){
     listIndex.scrollTop = 0;
     listIndex.classList.toggle("listIndexShow");
     blurC.classList.toggle("off");
@@ -28,10 +28,10 @@ seleccion.forEach(element => {
 function selecFnc(event){
     listIndex.classList.remove("listIndexShow");
     const figura = event.target.innerText.toLowerCase();
-
-    const figSelect = AlturasArray.find(obj => obj.id === figura);
+    const figSelect = introPorcentajeArray.find(obj => obj.id === figura);
     if(figSelect){
         renderFigura(figSelect);
+       
     }else{
         renderIntroduccion();
     };
@@ -46,22 +46,22 @@ function selecFnc(event){
 }
 
 function borrar(){
-    medidaH = null;
-    medidaH2 = null;
-    inputRadioHC.checked = false;
-    inputRadioHM.checked = false;
-    inputRadioH2C.checked = false;
-    inputRadioH2M.checked = false;
-    divAltura.innerHTML = "";
-    divAltura2.innerHTML = "";
-    sectionHmiddle.innerHTML = "";
-    sectionH2middle.innerHTML = "";
-    pResultH.innerHTML = "";
-    pResultH2.innerHTML = "";
-    pResultH.classList.remove(pResultHReg);
-    btnResultH.classList.remove(btnResultHReg);
-    pResultH2.classList.remove(pResultH2Reg);
-    btnResultH2.classList.remove(btnResultH2Reg);
+    medidaPC = null;
+    medidaPC2 = null;
+    inputRadioPCC.checked = false;
+    inputRadioPCM.checked = false;
+    inputRadioPC2C.checked = false;
+    inputRadioPC2M.checked = false;
+    divPorcentaje.innerHTML = "";
+    divPorcentaje2.innerHTML = "";
+    sectionPCmiddle.innerHTML = "";
+    sectionPC2middle.innerHTML = "";
+    pResultPC.innerHTML = "";
+    pResultPC2.innerHTML = "";
+    pResultPC.classList.remove(pResultPCReg);
+    btnResultPC.classList.remove(btnResultPCReg);
+    pResultPC2.classList.remove(pResultPC2Reg);
+    btnResultPC2.classList.remove(btnResultPC2Reg);
     containerFiguras.innerHTML = "";
 };
 
@@ -77,10 +77,10 @@ const defTitulo = document.createElement("h2");
 const defImg = document.createElement("img");
 // --------------------------------- sectionDmiddle -------------------------------
 const sectionDmiddle = document.createElement("div");
-const defAlturaTitulo = document.createElement("p");
-const defAltura = document.createElement("p");
-const defAltura2Titulo = document.createElement("p");
-const defAltura2 = document.createElement("p");
+const defPorcentajeTitulo = document.createElement("p");
+const defPorcentaje = document.createElement("p");
+const defPorcentaje2Titulo = document.createElement("p");
+const defPorcentaje2 = document.createElement("p");
 // --------------------------------- sectionDbottom -------------------------------
 const sectionDbottom = document.createElement("div");
 const defNotaTitulo = document.createElement("p");
@@ -91,64 +91,64 @@ const defGuia = document.createElement("p");
 
 // ------------------------------ containerResponsive -----------------------------
 const containerResponsive = document.createElement("section");
-// ---------------------------------- formulaImg ----------------------------------
-const formulaImg = document.createElement("div");
+// ---------------------------------- simpleDirectaImg ----------------------------------
+const simpleDirectaImg = document.createElement("div");
 const titleFig = document.createElement("h2");
-const imgFigura = document.createElement("img");
+const imgSD = document.createElement("img");
 // ------------------------------ containerAltura -------------------------------
-const containerAltura = document.createElement("div");
+const containerPorcentaje = document.createElement("div");
 
-// ----------------------------------- divAltura ------------------------------------
-const divAltura = document.createElement("div");
-// --------------------------------- sectionHtop ----------------------------------
-const sectionHtop = document.createElement("section");
-const pTitleH = document.createElement("p");
-const pformulaH = document.createElement("p");
-// -------------------------------- sectionHmiddle --------------------------------
-const sectionHmiddle = document.createElement("section");
-const divRadioH = document.createElement("div");
-const inputRadioHC = document.createElement("input");
-const inputRadioHM = document.createElement("input");
-const inputLabelHC = document.createElement("label");
-const inputLabelHM = document.createElement("label");
+// ----------------------------------- divPorcentaje ------------------------------------
+const divPorcentaje = document.createElement("div");
+// --------------------------------- sectionPCtop ----------------------------------
+const sectionPCtop = document.createElement("section");
+const pTitlePC = document.createElement("p");
+const pformulaPC = document.createElement("p");
+// -------------------------------- sectionPCmiddle --------------------------------
+const sectionPCmiddle = document.createElement("section");
+const divRadioPC = document.createElement("div");
+const inputRadioPCC = document.createElement("input");
+const inputRadioPCM = document.createElement("input");
+const inputLabelPCC = document.createElement("label");
+const inputLabelPCM = document.createElement("label");
 // -------------------------------- sectionHbottom --------------------------------
-const sectionHbottom = document.createElement("section");
-const pResultH = document.createElement("p");
-const btnResultH = document.createElement("button");
+const sectionPCbottom = document.createElement("section");
+const pResultPC = document.createElement("p");
+const btnResultPC = document.createElement("button");
 
 // --------------------------------- divAltura2 ----------------------------------
-const divAltura2 =document.createElement("div");
+const divPorcentaje2 =document.createElement("div");
 // --------------------------------- sectionPtop -----------------------------------
-const sectionH2top = document.createElement("section");
-const pTitleH2 = document.createElement("p");
-const pformulaH2 = document.createElement("p");
+const sectionPC2top = document.createElement("section");
+const pTitlePC2 = document.createElement("p");
+const pformulaPC2 = document.createElement("p");
 // -------------------------------- sectionPmiddle ---------------------------------
-const sectionH2middle = document.createElement("section");
-const divRadioH2 = document.createElement("div");
-const inputRadioH2C = document.createElement("input");
-const inputRadioH2M = document.createElement("input");
-const inputLabelH2C = document.createElement("label");
-const inputLabelH2M = document.createElement("label");
+const sectionPC2middle = document.createElement("section");
+const divRadioPC2 = document.createElement("div");
+const inputRadioPC2C = document.createElement("input");
+const inputRadioPC2M = document.createElement("input");
+const inputLabelPC2C = document.createElement("label");
+const inputLabelPC2M = document.createElement("label");
 // -------------------------------- sectionPbottom --------------------------------
-const sectionH2bottom = document.createElement("section");
-const pResultH2 = document.createElement("p");
-const btnResultH2 = document.createElement("button");
+const sectionPC2bottom = document.createElement("section");
+const pResultPC2 = document.createElement("p");
+const btnResultPC2 = document.createElement("button");
 
 // =================================== variables ==================================
-let medidaH;
-let medidaH2;
-let btnResultHReg;
-let btnResultH2Reg;
-let pResultHReg;
-let pResultH2Reg;
-let rutaFH;
-let rutaFH2;
+let medidaPC;
+let medidaPC2;
+let btnResultPCReg;
+let btnResultPC2Reg;
+let pResultPCReg;
+let pResultPC2Reg;
+let rutaFPC;
+let rutaFPC2;
 
 function medSeleccion() {
-    if(inputRadioHC.checked) {
-        medidaH = "cm";
-    }else if(inputRadioHM.checked) {
-        medidaH = "m";
+    if(inputRadioPCC.checked) {
+        medidaPC = "cm";
+    }else if(inputRadioPCM.checked) {
+        medidaPC = "m";
     };
 };
 
@@ -159,31 +159,31 @@ function renderIntroduccion(){
     containerIntro.classList.add("containerIntro");
 
     defTitulo.classList.add("tituloIntro");
-    defTitulo.innerHTML = AlturasArray[0].defTitulo;
+    defTitulo.innerHTML = introPorcentajeArray[0].defTitulo;
     defImg.classList.add("imgIntro");
-    defImg.setAttribute("src", AlturasArray[0].defImg);
+    defImg.setAttribute("src", introPorcentajeArray[0].defImg);
     sectionDtop.classList.add("sectionDtop", "secD");
     sectionDtop.append(defTitulo, defImg);
 
-    defAlturaTitulo.classList.add("defAlturaTitulo", "defT");
-    defAlturaTitulo.innerHTML = AlturasArray[0].defAlturaTitulo;
-    defAltura.classList.add("defAltura", "defC");
-    defAltura.innerHTML = AlturasArray[0].defAltura;
-    defAltura2Titulo.classList.add("defBaseHTitulo", "defT");
-    defAltura2Titulo.innerHTML = AlturasArray[0].defAltura2Titulo;
-    defAltura2.classList.add("defPerimetro", "defC");
-    defAltura2.innerHTML = AlturasArray[0].defAltura2;
+    defPorcentajeTitulo.classList.add("defPorcentajeTitulo", "defT");
+    defPorcentajeTitulo.innerHTML = introPorcentajeArray[0].defPorcentajeTitulo;
+    defPorcentaje.classList.add("defPorcentaje", "defC");
+    defPorcentaje.innerHTML = introPorcentajeArray[0].defPorcentaje;
+    defPorcentaje2Titulo.classList.add("defPorcentaje2Titulo", "defT");
+    defPorcentaje2Titulo.innerHTML = introPorcentajeArray[0].defPorcentaje2Titulo;
+    defPorcentaje2.classList.add("defPorcentaje2", "defC");
+    defPorcentaje2.innerHTML = introPorcentajeArray[0].defPorcentaje2;
     sectionDmiddle.classList.add("sectionDmiddle", "secD");
-    sectionDmiddle.append(defAlturaTitulo, defAltura, defAltura2Titulo, defAltura2);
+    sectionDmiddle.append(defPorcentajeTitulo, defPorcentaje, defPorcentaje2Titulo, defPorcentaje2);
 
     defNotaTitulo.classList.add("defNotaTitulo", "defT");
-    defNotaTitulo.innerHTML = AlturasArray[0].defNotaTitulo;
+    defNotaTitulo.innerHTML = introPorcentajeArray[0].defNotaTitulo;
     defNota.classList.add("defNota", "defC");
-    defNota.innerHTML = AlturasArray[0].defNota;
+    defNota.innerHTML = introPorcentajeArray[0].defNota;
     defGuiaTitulo.classList.add("defGuiaTitulo", "defT");
-    defGuiaTitulo.innerHTML = AlturasArray[0].defGuiaTitulo;
+    defGuiaTitulo.innerHTML = introPorcentajeArray[0].defGuiaTitulo;
     defGuia.classList.add("defGuia", "defC");
-    defGuia.innerHTML = AlturasArray[0].defGuia;
+    defGuia.innerHTML = introPorcentajeArray[0].defGuia;
     sectionDbottom.classList.add("sectionDbottom", "secD");
     sectionDbottom.append(defNotaTitulo, defNota, defGuiaTitulo, defGuia);
 
@@ -196,44 +196,44 @@ function renderFigura(objeto){
 
     containerResponsive.classList.add("containerResponsive");
 
-    containerResponsive.appendChild(formulaImg);
-    formulaImg.classList.add("formulaImg");
+    containerResponsive.appendChild(simpleDirectaImg);
+    simpleDirectaImg.classList.add("simpleDirectaImg");
 
-    formulaImg.appendChild(titleFig);
+    simpleDirectaImg.appendChild(titleFig);
     titleFig.classList.add("titleFig");
     titleFig.innerHTML = objeto.titleFig;
 
-    formulaImg.appendChild(imgFigura);
-    imgFigura.setAttribute("src", objeto.imgFig);
+    simpleDirectaImg.appendChild(imgSD);
+    imgSD.setAttribute("src", objeto.imgFig);
 
-    containerResponsive.appendChild(containerAltura);
-    containerAltura.classList.add("containerAltura");
-    containerAltura.appendChild(divAltura);
-    divAltura.classList.add("containerFormules");
+    containerResponsive.appendChild(containerPorcentaje);
+    containerPorcentaje.classList.add("containerPorcentaje");
+    containerPorcentaje.appendChild(divPorcentaje);
+    divPorcentaje.classList.add("containerFormules");
 
-    pTitleH.classList.add("titlesFormules");
-    pTitleH.innerHTML = objeto.titleAltura;
-    pformulaH.classList.add("textFormule");
-    pformulaH.innerHTML = objeto.formulaAltura;
-    sectionHtop.classList.add("sectionHtop");
-    sectionHtop.append(pTitleH, pformulaH);
+    pTitlePC.classList.add("titlesFormules");
+    pTitlePC.innerHTML = objeto.titlePorcentaje;
+    pformulaPC.classList.add("textFormule");
+    pformulaPC.innerHTML = objeto.formulaPorcentaje;
+    sectionPCtop.classList.add("sectionPCtop");
+    sectionPCtop.append(pTitlePC, pformulaPC);
 
-    divRadioH.classList.add("divRadioH");
-    inputRadioHC.setAttribute("type", "radio");
-    inputRadioHC.setAttribute("name", "radH");
-    inputRadioHC.setAttribute("id", "radHC");
-    inputLabelHC.setAttribute("for", "radHC");
-    inputLabelHC.innerHTML = "centimetros";
-    inputRadioHM.setAttribute("type", "radio");
-    inputRadioHM.setAttribute("name", "radH");
-    inputRadioHM.setAttribute("id", "radHM");
-    inputLabelHM.setAttribute("for", "radHM");
-    inputLabelHM.innerHTML = "metros";
-    divRadioH.append(inputRadioHC, inputLabelHC, inputRadioHM, inputLabelHM);
-    sectionHmiddle.classList.add("sectionHmiddle");
-    sectionHmiddle.appendChild(divRadioH);
+    // divRadioPC.classList.add("divRadioPC");
+    // inputRadioPCC.setAttribute("type", "radio");
+    // inputRadioPCC.setAttribute("name", "radPC");
+    // inputRadioPCC.setAttribute("id", "radPCC");
+    // inputLabelPCC.setAttribute("for", "radPCC");
+    // inputLabelPCC.innerHTML = "centimetros";
+    // inputRadioPCM.setAttribute("type", "radio");
+    // inputRadioPCM.setAttribute("name", "radPC");
+    // inputRadioPCM.setAttribute("id", "radPCM");
+    // inputLabelPCM.setAttribute("for", "radPCM");
+    // inputLabelPCM.innerHTML = "metros";
+    // divRadioPC.append(inputRadioPCC, inputLabelPCC, inputRadioPCM, inputLabelPCM);
+    sectionPCmiddle.classList.add("sectionPCmiddle");
+    // sectionPCmiddle.appendChild(divRadioPC);
 
-    objeto.inputAltura.forEach(winInput => {
+    objeto.inputPorcentaje.forEach(winInput => {
         const divWin = document.createElement("div");
         divWin.classList.add("winPosition");
 
@@ -246,68 +246,89 @@ function renderFigura(objeto){
         inputHeightWindow.setAttribute("id", winInput.inputId);
         inputHeightWindow.classList.add("inputStyle");
         divWin.appendChild(inputHeightWindow);
-        sectionHmiddle.appendChild(divWin);
+        sectionPCmiddle.appendChild(divWin);
     });
 
-    pResultHReg = objeto.resultClH
-    pResultH.classList.add("winStyle", pResultHReg);
-    btnResultHReg = objeto.btnClH;
-    btnResultH.classList.add("btnResult", btnResultHReg);
-    btnResultH.innerHTML = "Resultado";
-    sectionHbottom.classList.add("sectionHbottom");
-    sectionHbottom.append(pResultH, btnResultH);
-    divAltura.append(sectionHtop, sectionHmiddle, sectionHbottom);
-    btnResultH.removeEventListener("click", rutaFH);
-    rutaFH = (eval(objeto.funcionAltura));
-    btnResultH.addEventListener("click", rutaFH);
+    pResultPCReg = objeto.resultClPC
+    pResultPC.classList.add("winStyle", pResultPCReg);
+    btnResultPCReg = objeto.btnClPC;
+    btnResultPC.classList.add("btnResult", btnResultPCReg);
+    btnResultPC.innerHTML = "Resultado";
+    sectionPCbottom.classList.add("sectionPCbottom");
+    sectionPCbottom.append(pResultPC, btnResultPC);
+    divPorcentaje.append(sectionPCtop, sectionPCmiddle, sectionPCbottom);
+    btnResultPC.removeEventListener("click", rutaFPC);
+    rutaFPC = (eval(objeto.funcionPorcentaje));
+    btnResultPC.addEventListener("click", rutaFPC);
     document.documentElement.scrollTop = 0;
 };
 
 
-// ------------------------ Alturas --------------------------
-// ------------- altura de triangulo isosceles -------------
+// ------------------------ Porcentajes --------------------------
+// ------------- regla de tres simple directa y simple inversa -------------
 
-function hTriangleIso(){
-    const winHTriIsoSide1 = document.querySelector("#winHTriIsoSide1");
-    const winHTriIsoSide2 = document.querySelector("#winHTriIsoSide2");
-    const winHTriIsoBase = document.querySelector("#winHTriIsoBase");
-    medSeleccion();
-    if(winHTriIsoSide1.value > 0 && winHTriIsoSide2.value > 0 && winHTriIsoBase.value > 0 && winHTriIsoSide1.value === winHTriIsoSide2.value){
-        if(inputRadioHC.checked || inputRadioHM.checked){
-            const lado1 = Number(winHTriIsoSide1.value);
-            const lado2 = Number(winHTriIsoSide2.value);
-            const base = Number(winHTriIsoBase.value);
-            const result = Math.sqrt(Math.pow(lado1,2) - Math.pow( (base/2), 2) );
-            pResultH.innerHTML = `Altura = ${result.toFixed(2)} ${medidaH}`;
-        }else{
-            pResultH.innerHTML = "Elegir centimetros o metros";
-        }
-    }else{
-        pResultH.innerHTML = "Lados deben de ser mayores a 0 y L1 y L2 iguales";
+function pcSD(){
+    const winSDvalorA = document.querySelector("#winSDvalorA");
+    const winSDvalorB = document.querySelector("#winSDvalorB");
+    const winSDvalorC = document.querySelector("#winSDvalorC");
+    const winSDvalorD = document.querySelector("#winSDvalorD");
+    // medSeleccion();
+    if(winSDvalorA.value > 0 && winSDvalorB.value > 0 && winSDvalorC.value > 0 && (winSDvalorD.value == "" )){
+        const result = Number((winSDvalorB.value * winSDvalorC.value) / winSDvalorA.value);
+        winSDvalorD.value = result;
+        pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
+    }
+    else if(winSDvalorA.value > 0 && winSDvalorB.value > 0 && winSDvalorD.value > 0 && (winSDvalorC.value == "" )){
+        const result = Number((winSDvalorA.value * winSDvalorD.value) / winSDvalorB.value);
+        winSDvalorC.value = result;
+        pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
+    }
+    else if(winSDvalorA.value > 0 && winSDvalorC.value > 0 && winSDvalorD.value > 0 && (winSDvalorB.value == "" )){
+        const result = Number((winSDvalorD.value * winSDvalorA.value) / winSDvalorC.value);
+        winSDvalorB.value = result;
+        pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
+    }
+    else if(winSDvalorB.value > 0 && winSDvalorC.value > 0 && winSDvalorD.value > 0 && (winSDvalorA.value == "" )){
+        const result = Number((winSDvalorC.value * winSDvalorB.value) / winSDvalorD.value);
+        winSDvalorA.value = result;
+        pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
+    }
+    else{
+        pResultPC.innerHTML = "Se requiren los 3 valores conocidos";
+    
     }
 }
-// ------------- altura de triangulo escaleno -------------
-function hTriEsc(){
-    const winHTriEscSide1 = document.querySelector("#winHTriEscSide1");
-    const winHTriEscSide2 = document.querySelector("#winHTriEscSide2");
-    const winHTriEscBase = document.querySelector("#winHTriEscBase");
-    medSeleccion();
-    if(winHTriEscSide1.value > 0 && winHTriEscSide2.value > 0 && winHTriEscBase.value > 0){
-        if(inputRadioHC.checked || inputRadioHM.checked){
-            const lado1 = Number(winHTriEscSide1.value);
-            const lado2 = Number(winHTriEscSide2.value);
-            const base = Number(winHTriEscBase.value);
-            const semiPerimeter = (lado1 + lado2 + base) / 2;
-            // const desestruc = [lado1, lado2, base];
-            // const [a,b,c] = desestruc.sort((a,b) => b - a);
-            const process =  (2 / base) * Math.sqrt((semiPerimeter * (semiPerimeter - lado1) * (semiPerimeter - lado2) * (semiPerimeter - base)));
-            const result =  process;
-            pResultH.innerHTML = `Altura = ${result.toFixed(2)} ${medidaH}`;
-        }else{
-            pResultH.innerHTML = "Elegir centimetros o metros";
-        }
-    }else{
-        pResultH.innerHTML = "Lados deben de ser mayores a 0";
+function pcSI(){
+    const winSIvalorA = document.querySelector("#winSIvalorA");
+    const winSIvalorB = document.querySelector("#winSIvalorB");
+    const winSIvalorC = document.querySelector("#winSIvalorC");
+    const winSIvalorD = document.querySelector("#winSIvalorD");
+    // medSeleccion();
+    if(winSIvalorA.value > 0 && winSIvalorB.value > 0 && winSIvalorC.value > 0 && (winSIvalorD.value == "" )){
+        const result = Number((winSIvalorB.value * winSIvalorA.value) / winSIvalorC.value);
+        winSIvalorD.value = result;
+        pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
+    }
+    else if(winSIvalorA.value > 0 && winSIvalorB.value > 0 && winSIvalorD.value > 0 && (winSIvalorC.value == "" )){
+        const result = Number((winSIvalorA.value * winSIvalorB.value) / winSIvalorD.value);
+        winSIvalorC.value = result;
+        pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
+    }
+    else if(winSIvalorA.value > 0 && winSIvalorC.value > 0 && winSIvalorD.value > 0 && (winSIvalorB.value == "" )){
+        const result = Number((winSIvalorD.value * winSIvalorC.value) / winSIvalorA.value);
+        winSIvalorB.value = result;
+        pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
+    }
+    else if(winSIvalorB.value > 0 && winSIvalorD.value > 0 && winSIvalorC.value > 0 && (winSIvalorA.value == "" )){
+        const result = Number((winSIvalorC.value * winSIvalorD.value) / winSIvalorB.value);
+        winSIvalorA.value = result;
+        pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
+    }
+    else{
+        pResultPC.innerHTML = "Se requiren los 3 valores conocidos";
+    
     }
 }
+// ---------- regla de tres compuesta directa y compuesta inversa -----------
+
 renderIntroduccion();

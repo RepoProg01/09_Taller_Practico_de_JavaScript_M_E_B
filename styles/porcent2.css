@@ -75,7 +75,7 @@ body {
     color: var(--white);
 } 
 
-.figuras{
+.nCaso{
     font-size: 18px;
     font-weight: 700;
     color: var(--naranja);
@@ -83,7 +83,7 @@ body {
     margin: 0px;
     cursor: pointer;
 }
-.figuras:hover{
+.nCaso:hover{
     color: var(--white);
 }
 
@@ -216,10 +216,10 @@ span {
     min-width: 340px;
     padding: 20px 10px 30px 10px;
 }
-.formulaImg {
+.simpleDirectaImg {
     width: 340px;
 }
-.formulaImg {
+.simpleDirectaImg {
     background-image: var(--background_radial_2);
     border-radius: 10px;
     /* overflow: hidden; */
@@ -230,7 +230,7 @@ span {
     color: var(--naranja);
     text-align: center;
 }
-.formulaImg img {
+.simpleDirectaImg img {
     width: 340px;
 }
 .perimeterArea {
@@ -249,8 +249,14 @@ span {
     padding: 20px;
 }
 
-.sectionHtop {
+.sectionPCtop {
     text-align: center;
+}
+.sectionPCmiddle {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    max-width: 100%;
 }
 
 .titlesFormules {
@@ -266,13 +272,13 @@ span {
     margin-bottom: 8px;
 }
 
-.divRadioH {
+.divRadioPC {
     display: flex;
     gap: 10px;
     align-items: center;
     margin-bottom: 8px;
 }
-.divRadioH label {
+.divRadioPC label {
     color: var(--white);
     padding-right: 30px;
 }
@@ -308,9 +314,9 @@ span {
     color: var(--white);
 }
 .winPosition {
-    width: 100%;
     display: flex;
-    justify-content: space-between;
+    gap: 5px;
+    justify-content:center;
     align-items: center;
 }
 .winPosition label {
@@ -322,7 +328,7 @@ span {
     width: 60px;
     height: 25px;
     font-weight: 700;
-    margin-right: 50px;
+    /* margin-right: 50px; */
 }
 /* ------ PerimeterSquare ------ */
 /* -------- AreaSquare --------- */
