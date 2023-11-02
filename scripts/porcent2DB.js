@@ -5,7 +5,7 @@ const introPorcentaje = {
     defTitulo: "Introduccion",
 
     defPorcentajeTitulo: "Que es porcentaje ?",
-    defPorcentaje: "El porcentaje es la forma de expresar un número como una fracción que tiene como denominador el número 100, conocido también, como tanto por ciento. ",
+    defPorcentaje: "Es la forma de expresar un número como una fracción que tiene como denominador el número 100, conocido también, como tanto por ciento. ",
     defPorcentaje2Titulo: "Regla de tres",
     defPorcentaje2: "La regla de tres es una forma de resolver problemas de proporcionalidad entre tres valores conocidos y una incógnita. En ella se establece una relación de linealidad, proporcionalidad, entre los valores involucrados.",
 
@@ -74,9 +74,9 @@ const RD3SimpleInversaObj = {
     funcionPorcentaje: "pcSI",
 };
 const RD3CompuestaDirectaObj = {
-    id: "ejemplo_compuesta_directa",
+    id: "ejemplo_compuesta_mixta",
     titleFig: "Compuesta directa",
-    imgFig: "../assets/SimpleInversa.png",
+    imgFig: "../assets/CompuestaMixta.png",
 
     titlePorcentaje: "Regla de tres Simple inversa",
     formulaPorcentaje: "Inserta los 3 datos conocidos",
