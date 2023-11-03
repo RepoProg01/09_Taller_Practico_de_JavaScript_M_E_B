@@ -5,7 +5,7 @@ const introPorcentaje = {
     defTitulo: "Introduccion",
 
     defPorcentajeTitulo: "Que es porcentaje ?",
-    defPorcentaje: "Es la forma de expresar un número como una fracción que tiene como denominador el número 100, conocido también, como tanto por ciento. ",
+    defPorcentaje: "Es la forma de expresar un número como una fracción tiene como denominador el número 100, conocido, como tanto por ciento. ",
     defPorcentaje2Titulo: "Regla de tres",
     defPorcentaje2: "La regla de tres es una forma de resolver problemas de proporcionalidad entre tres valores conocidos y una incógnita. En ella se establece una relación de linealidad, proporcionalidad, entre los valores involucrados.",
 
