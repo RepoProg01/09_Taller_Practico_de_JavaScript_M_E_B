@@ -74,11 +74,69 @@ const RD3SimpleInversaObj = {
     funcionPorcentaje: "pcSI",
 };
 const RD3CompuestaDirectaObj = {
-    id: "ejemplo_compuesta_mixta",
+    id: "ejemplo_compuesta_directa",
     titleFig: "Compuesta directa",
+    imgFig: "../assets/CompuestaDirecta.png",
+
+    titlePorcentaje: "Regla de tres Compuesta Directa",
+    formulaPorcentaje: "Inserta los 3 datos conocidos",
+    inputPorcentaje: [
+        {
+            inputLabel: "A",
+            inputId: "winSIvalorA"
+        },
+        {
+            inputLabel: "B",
+            inputId: "winSIvalorB"
+        },
+        {
+            inputLabel: "C",
+            inputId: "winSIvalorC"
+        },
+        {
+            inputLabel: "D",
+            inputId: "winSIvalorD"
+        }
+    ],
+    resultClPC: "resultPCSI",
+    btnClPC: "btnResultPCSI",
+    funcionPorcentaje: "pcSI",
+};
+const RD3CompuestaInversaObj = {
+    id: "ejemplo_compuesta_inversa",
+    titleFig: "Compuesta Inversa",
+    imgFig: "../assets/CompuestaInversa.png",
+
+    titlePorcentaje: "Regla de tres Compuesta Inversa",
+    formulaPorcentaje: "Inserta los 3 datos conocidos",
+    inputPorcentaje: [
+        {
+            inputLabel: "A",
+            inputId: "winSIvalorA"
+        },
+        {
+            inputLabel: "B",
+            inputId: "winSIvalorB"
+        },
+        {
+            inputLabel: "C",
+            inputId: "winSIvalorC"
+        },
+        {
+            inputLabel: "D",
+            inputId: "winSIvalorD"
+        }
+    ],
+    resultClPC: "resultPCSI",
+    btnClPC: "btnResultPCSI",
+    funcionPorcentaje: "pcSI",
+};
+const RD3CompuestaMixtaObj = {
+    id: "ejemplo_compuesta_mixta",
+    titleFig: "Compuesta Mixta",
     imgFig: "../assets/CompuestaMixta.png",
 
-    titlePorcentaje: "Regla de tres Simple inversa",
+    titlePorcentaje: "Regla de tres Compuesta Mixta",
     formulaPorcentaje: "Inserta los 3 datos conocidos",
     inputPorcentaje: [
         {
@@ -107,6 +165,8 @@ introPorcentajeArray.push(introPorcentaje);
 introPorcentajeArray.push(RD3SimpleDirectaObj);
 introPorcentajeArray.push(RD3SimpleInversaObj);
 introPorcentajeArray.push(RD3CompuestaDirectaObj);
+introPorcentajeArray.push(RD3CompuestaInversaObj);
+introPorcentajeArray.push(RD3CompuestaMixtaObj);
 
 
 
