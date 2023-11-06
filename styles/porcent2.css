@@ -216,10 +216,11 @@ span {
     min-width: 340px;
     padding: 20px 10px 30px 10px;
 }
-.simpleDirectaImg {
+/* .simpleDirectaImg {
     width: 340px;
-}
-.simpleDirectaImg {
+} */
+.simpleDirectaImg,
+.containerImage2 {
     background-image: var(--background_radial_2);
     border-radius: 10px;
     /* overflow: hidden; */

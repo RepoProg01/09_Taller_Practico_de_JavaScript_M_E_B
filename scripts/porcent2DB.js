@@ -14,154 +14,74 @@ const introPorcentaje = {
     defGuiaTitulo: "Forma de uso :",
     defGuia: "Con el boton de <span>Mas..</span> mostrara calculadoras y ejemplos de diferentes casos de la regla de tres,<br>Con el boton <span>Menu</span> regrezaras al menu principal."
 };
+const RD3CalculadoraObj = {
+    definicion: "on",
+    id: "calculadora",
+    titleFig: "Calculadora Simple",
+    imgFig: "../assets/CompuestaMixta.png",
 
-const RD3SimpleDirectaObj = {
-    id: "ejemplo_simple_directa",
-    titleFig: "Simple directa",
-    imgFig: "../assets/SimpleDirecta.png",
-
-    titlePorcentaje: "Regla de tres Simple directa",
+    titlePorcentaje: "Calculadora Simple",
     formulaPorcentaje: "Inserta los 3 datos conocidos",
     inputPorcentaje: [
         {
             inputLabel: "A",
-            inputId: "winSDvalorA"
+            inputId: "winSIvalorA"
         },
         {
             inputLabel: "B",
-            inputId: "winSDvalorB"
+            inputId: "winSIvalorB"
         },
         {
             inputLabel: "C",
-            inputId: "winSDvalorC"
+            inputId: "winSIvalorC"
         },
         {
             inputLabel: "D",
-            inputId: "winSDvalorD"
+            inputId: "winSIvalorD"
         }
     ],
-    resultClPC: "resultPCSD",
-    btnClPC: "btnResultPCSD",
-    funcionPorcentaje: "pcSD",
+    resultClPC: "resultPCSI",
+    btnClPC: "btnResultPCSI",
+    funcionPorcentaje: "pcSI",
+};
+const RD3SimpleDirectaObj = {
+    definicion: "off",
+    id: "ejemplo_simple_directa",
+    titleFig: "Simple directa",
+    imgFig: "../assets/simple_directa_top.png",
+    imgFig2: "../assets/simple_directa_bottom.png"
 };
 const RD3SimpleInversaObj = {
+    definicion: "off",
     id: "ejemplo_simple_inversa",
     titleFig: "Simple inversa",
     imgFig: "../assets/SimpleInversa.png",
-
-    titlePorcentaje: "Regla de tres Simple inversa",
-    formulaPorcentaje: "Inserta los 3 datos conocidos",
-    inputPorcentaje: [
-        {
-            inputLabel: "A",
-            inputId: "winSIvalorA"
-        },
-        {
-            inputLabel: "B",
-            inputId: "winSIvalorB"
-        },
-        {
-            inputLabel: "C",
-            inputId: "winSIvalorC"
-        },
-        {
-            inputLabel: "D",
-            inputId: "winSIvalorD"
-        }
-    ],
-    resultClPC: "resultPCSI",
-    btnClPC: "btnResultPCSI",
-    funcionPorcentaje: "pcSI",
+    imgFig2: "../assets/simple_directa_bottom.png"
 };
 const RD3CompuestaDirectaObj = {
+    definicion: "off",
     id: "ejemplo_compuesta_directa",
     titleFig: "Compuesta directa",
     imgFig: "../assets/CompuestaDirecta.png",
-
-    titlePorcentaje: "Regla de tres Compuesta Directa",
-    formulaPorcentaje: "Inserta los 3 datos conocidos",
-    inputPorcentaje: [
-        {
-            inputLabel: "A",
-            inputId: "winSIvalorA"
-        },
-        {
-            inputLabel: "B",
-            inputId: "winSIvalorB"
-        },
-        {
-            inputLabel: "C",
-            inputId: "winSIvalorC"
-        },
-        {
-            inputLabel: "D",
-            inputId: "winSIvalorD"
-        }
-    ],
-    resultClPC: "resultPCSI",
-    btnClPC: "btnResultPCSI",
-    funcionPorcentaje: "pcSI",
+    imgFig2: "../assets/simple_directa_bottom.png"
 };
 const RD3CompuestaInversaObj = {
+    definicion: "off",
     id: "ejemplo_compuesta_inversa",
     titleFig: "Compuesta Inversa",
     imgFig: "../assets/CompuestaInversa.png",
-
-    titlePorcentaje: "Regla de tres Compuesta Inversa",
-    formulaPorcentaje: "Inserta los 3 datos conocidos",
-    inputPorcentaje: [
-        {
-            inputLabel: "A",
-            inputId: "winSIvalorA"
-        },
-        {
-            inputLabel: "B",
-            inputId: "winSIvalorB"
-        },
-        {
-            inputLabel: "C",
-            inputId: "winSIvalorC"
-        },
-        {
-            inputLabel: "D",
-            inputId: "winSIvalorD"
-        }
-    ],
-    resultClPC: "resultPCSI",
-    btnClPC: "btnResultPCSI",
-    funcionPorcentaje: "pcSI",
+    imgFig2: "../assets/simple_directa_bottom.png"
 };
 const RD3CompuestaMixtaObj = {
+    definicion: "off",
     id: "ejemplo_compuesta_mixta",
     titleFig: "Compuesta Mixta",
     imgFig: "../assets/CompuestaMixta.png",
-
-    titlePorcentaje: "Regla de tres Compuesta Mixta",
-    formulaPorcentaje: "Inserta los 3 datos conocidos",
-    inputPorcentaje: [
-        {
-            inputLabel: "A",
-            inputId: "winSIvalorA"
-        },
-        {
-            inputLabel: "B",
-            inputId: "winSIvalorB"
-        },
-        {
-            inputLabel: "C",
-            inputId: "winSIvalorC"
-        },
-        {
-            inputLabel: "D",
-            inputId: "winSIvalorD"
-        }
-    ],
-    resultClPC: "resultPCSI",
-    btnClPC: "btnResultPCSI",
-    funcionPorcentaje: "pcSI",
+    imgFig2: "../assets/simple_directa_bottom.png"
 };
 
 introPorcentajeArray.push(introPorcentaje);
+introPorcentajeArray.push(RD3CalculadoraObj);
 introPorcentajeArray.push(RD3SimpleDirectaObj);
 introPorcentajeArray.push(RD3SimpleInversaObj);
 introPorcentajeArray.push(RD3CompuestaDirectaObj);

@@ -28,7 +28,9 @@ seleccion.forEach(element => {
 function selecFnc(event){
     listIndex.classList.remove("listIndexShow");
     const figura = event.target.innerText.toLowerCase();
+    
     const figSelect = introPorcentajeArray.find(obj => obj.id === figura);
+    console.log(figSelect);
     if(figSelect){
         renderFigura(figSelect);
        
@@ -134,6 +136,9 @@ const sectionPC2bottom = document.createElement("section");
 const pResultPC2 = document.createElement("p");
 const btnResultPC2 = document.createElement("button");
 
+
+const definicion = null;
+
 // =================================== variables ==================================
 let medidaPC;
 let medidaPC2;
@@ -209,57 +214,58 @@ function renderFigura(objeto){
     containerResponsive.appendChild(containerPorcentaje);
     containerPorcentaje.classList.add("containerPorcentaje");
     containerPorcentaje.appendChild(divPorcentaje);
-    divPorcentaje.classList.add("containerFormules");
+    // divPorcentaje.classList.add("containerFormules");
 
-    pTitlePC.classList.add("titlesFormules");
-    pTitlePC.innerHTML = objeto.titlePorcentaje;
-    pformulaPC.classList.add("textFormule");
-    pformulaPC.innerHTML = objeto.formulaPorcentaje;
-    sectionPCtop.classList.add("sectionPCtop");
-    sectionPCtop.append(pTitlePC, pformulaPC);
+    if(objeto.definicion == "on"){
+        divPorcentaje.classList.remove("containerImage2");
+        divPorcentaje.classList.add("containerFormules");
+        pTitlePC.classList.add("titlesFormules");
+        pTitlePC.innerHTML = objeto.titlePorcentaje;
+        pformulaPC.classList.add("textFormule");
+        pformulaPC.innerHTML = objeto.formulaPorcentaje;
+        sectionPCtop.classList.add("sectionPCtop");
+        sectionPCtop.append(pTitlePC, pformulaPC);
+    
+        sectionPCmiddle.classList.add("sectionPCmiddle");
+    
+        objeto.inputPorcentaje.forEach(winInput => {
+            const divWin = document.createElement("div");
+            divWin.classList.add("winPosition");
+    
+            const labelArea = document.createElement("label");
+            labelArea.setAttribute("for", winInput.inputId);
+            labelArea.innerHTML = winInput.inputLabel;
+            divWin.appendChild(labelArea);
+            const inputHeightWindow = document.createElement("input");
+            inputHeightWindow.setAttribute("type", "number");
+            inputHeightWindow.setAttribute("id", winInput.inputId);
+            inputHeightWindow.classList.add("inputStyle");
+            divWin.appendChild(inputHeightWindow);
+            sectionPCmiddle.appendChild(divWin);
+        });
+    
+        pResultPCReg = objeto.resultClPC
+        pResultPC.classList.add("winStyle", pResultPCReg);
+        btnResultPCReg = objeto.btnClPC;
+        btnResultPC.classList.add("btnResult", btnResultPCReg);
+        btnResultPC.innerHTML = "Resultado";
+        sectionPCbottom.classList.add("sectionPCbottom");
+        sectionPCbottom.append(pResultPC, btnResultPC);
+        divPorcentaje.append(sectionPCtop, sectionPCmiddle, sectionPCbottom);
+        btnResultPC.removeEventListener("click", rutaFPC);
+        rutaFPC = (eval(objeto.funcionPorcentaje));
+        btnResultPC.addEventListener("click", rutaFPC);
+    }
+    else if(objeto.definicion == "off"){
+        divPorcentaje.classList.remove("containerFormules");
+        divPorcentaje.classList.add("containerImage2");
+        const imgDefinicion = document.createElement("img");
+        imgDefinicion.classList.add("imagenDefinicion");
+        imgDefinicion.setAttribute("src", objeto.imgFig2);
+        divPorcentaje.append(imgDefinicion);
+        
+    }
 
-    // divRadioPC.classList.add("divRadioPC");
-    // inputRadioPCC.setAttribute("type", "radio");
-    // inputRadioPCC.setAttribute("name", "radPC");
-    // inputRadioPCC.setAttribute("id", "radPCC");
-    // inputLabelPCC.setAttribute("for", "radPCC");
-    // inputLabelPCC.innerHTML = "centimetros";
-    // inputRadioPCM.setAttribute("type", "radio");
-    // inputRadioPCM.setAttribute("name", "radPC");
-    // inputRadioPCM.setAttribute("id", "radPCM");
-    // inputLabelPCM.setAttribute("for", "radPCM");
-    // inputLabelPCM.innerHTML = "metros";
-    // divRadioPC.append(inputRadioPCC, inputLabelPCC, inputRadioPCM, inputLabelPCM);
-    sectionPCmiddle.classList.add("sectionPCmiddle");
-    // sectionPCmiddle.appendChild(divRadioPC);
-
-    objeto.inputPorcentaje.forEach(winInput => {
-        const divWin = document.createElement("div");
-        divWin.classList.add("winPosition");
-
-        const labelArea = document.createElement("label");
-        labelArea.setAttribute("for", winInput.inputId);
-        labelArea.innerHTML = winInput.inputLabel;
-        divWin.appendChild(labelArea);
-        const inputHeightWindow = document.createElement("input");
-        inputHeightWindow.setAttribute("type", "number");
-        inputHeightWindow.setAttribute("id", winInput.inputId);
-        inputHeightWindow.classList.add("inputStyle");
-        divWin.appendChild(inputHeightWindow);
-        sectionPCmiddle.appendChild(divWin);
-    });
-
-    pResultPCReg = objeto.resultClPC
-    pResultPC.classList.add("winStyle", pResultPCReg);
-    btnResultPCReg = objeto.btnClPC;
-    btnResultPC.classList.add("btnResult", btnResultPCReg);
-    btnResultPC.innerHTML = "Resultado";
-    sectionPCbottom.classList.add("sectionPCbottom");
-    sectionPCbottom.append(pResultPC, btnResultPC);
-    divPorcentaje.append(sectionPCtop, sectionPCmiddle, sectionPCbottom);
-    btnResultPC.removeEventListener("click", rutaFPC);
-    rutaFPC = (eval(objeto.funcionPorcentaje));
-    btnResultPC.addEventListener("click", rutaFPC);
     document.documentElement.scrollTop = 0;
 };
 
