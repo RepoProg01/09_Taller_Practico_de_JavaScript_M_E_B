@@ -216,11 +216,14 @@ function renderFigura(objeto){
     containerPorcentaje.appendChild(divPorcentaje);
     // divPorcentaje.classList.add("containerFormules");
 
+    pTitlePC.classList.add("titlesFormules");
+    pTitlePC.innerHTML = objeto.titlePorcentaje;
+
     if(objeto.definicion == "on"){
         divPorcentaje.classList.remove("containerImage2");
         divPorcentaje.classList.add("containerFormules");
-        pTitlePC.classList.add("titlesFormules");
-        pTitlePC.innerHTML = objeto.titlePorcentaje;
+        // pTitlePC.classList.add("titlesFormules");
+        // pTitlePC.innerHTML = objeto.titlePorcentaje;
         pformulaPC.classList.add("textFormule");
         pformulaPC.innerHTML = objeto.formulaPorcentaje;
         sectionPCtop.classList.add("sectionPCtop");
@@ -262,7 +265,7 @@ function renderFigura(objeto){
         const imgDefinicion = document.createElement("img");
         imgDefinicion.classList.add("imagenDefinicion");
         imgDefinicion.setAttribute("src", objeto.imgFig2);
-        divPorcentaje.append(imgDefinicion);
+        divPorcentaje.append(pTitlePC, imgDefinicion);
         
     }
 

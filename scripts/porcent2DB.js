@@ -49,35 +49,40 @@ const RD3SimpleDirectaObj = {
     id: "ejemplo_simple_directa",
     titleFig: "Simple directa",
     imgFig: "../assets/simple_directa_top.png",
-    imgFig2: "../assets/simple_directa_bottom.png"
+    imgFig2: "../assets/simple_directa_bottom.png",
+    titlePorcentaje: "Procedimiento"
 };
 const RD3SimpleInversaObj = {
     definicion: "off",
     id: "ejemplo_simple_inversa",
     titleFig: "Simple inversa",
-    imgFig: "../assets/SimpleInversa.png",
-    imgFig2: "../assets/simple_directa_bottom.png"
+    imgFig: "../assets/simple_inversa_top.png",
+    imgFig2: "../assets/simple_inversa_bottom.png",
+    titlePorcentaje: "Procedimiento"
 };
 const RD3CompuestaDirectaObj = {
     definicion: "off",
     id: "ejemplo_compuesta_directa",
     titleFig: "Compuesta directa",
-    imgFig: "../assets/CompuestaDirecta.png",
-    imgFig2: "../assets/simple_directa_bottom.png"
+    imgFig: "../assets/compuesta_directa_top.png",
+    imgFig2: "../assets/compuesta_directa_bottom.png",
+    titlePorcentaje: "Procedimiento"
 };
 const RD3CompuestaInversaObj = {
     definicion: "off",
     id: "ejemplo_compuesta_inversa",
-    titleFig: "Compuesta Inversa",
-    imgFig: "../assets/CompuestaInversa.png",
-    imgFig2: "../assets/simple_directa_bottom.png"
+    titleFig: "Compuesta inversa",
+    imgFig: "../assets/compuesta_inversa_top.png",
+    imgFig2: "../assets/compuesta_inversa_bottom.png",
+    titlePorcentaje: "Procedimiento"
 };
 const RD3CompuestaMixtaObj = {
     definicion: "off",
     id: "ejemplo_compuesta_mixta",
-    titleFig: "Compuesta Mixta",
-    imgFig: "../assets/CompuestaMixta.png",
-    imgFig2: "../assets/simple_directa_bottom.png"
+    titleFig: "Compuesta mixta",
+    imgFig: "../assets/compuesta_mixta_top.png",
+    imgFig2: "../assets/compuesta_mixta_bottom.png",
+    titlePorcentaje: "Procedimiento"
 };
 
 introPorcentajeArray.push(introPorcentaje);
