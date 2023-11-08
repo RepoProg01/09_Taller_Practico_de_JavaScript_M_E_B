@@ -261,6 +261,7 @@ span {
 }
 
 .textFormule {
+    font-size: 21px;
     color: var(--naranja);
     font-weight: 700;
     margin-bottom: 8px;

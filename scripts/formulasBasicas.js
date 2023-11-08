@@ -217,7 +217,7 @@ function renderFigura(objeto){
     pTitleA.classList.add("titlesFormules");
     pTitleA.innerHTML = objeto.titleArea;
     pformulaA.classList.add("textFormule");
-    pformulaA.innerHTML = objeto.formulaArea;
+    pformulaA.innerHTML = "Calculadora";
     sectionAtop.classList.add("sectionAtop");
     sectionAtop.append(pTitleA, pformulaA);
 
@@ -272,7 +272,7 @@ function renderFigura(objeto){
     pTitleP.classList.add("titlesFormules");
     pTitleP.innerHTML = objeto.titlePerimetro;
     pformulaP.classList.add("textFormule");
-    pformulaP.innerHTML = objeto.formulaPerimetro;
+    pformulaP.innerHTML = "Calculadora";
     sectionPtop.classList.add("sectionPtop");
     sectionPtop.append(pTitleP, pformulaP);
 

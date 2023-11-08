@@ -20,7 +20,6 @@ const trianguloIsoscelesObj = {
     imgFig: "../assets/triangulo_isosceles_altura.png",
 
     titleAltura: "Altura Triangulo Isosceles",
-    formulaAltura: " h = raiz2 ( L1(2) - ( (B / 2)(2) ) )",
     inputAltura: [
         {
             inputLabel: "Medida lado 1",
@@ -45,7 +44,6 @@ const trianguloEscalenoObj = {
     imgFig: "../assets/triangulo_escaleno_altura.png",
 
     titleAltura: "Atura Triangulo Escaleno",
-    formulaAltura: "h = (a/2)  ( raiz (S(S−a)(S−b)(S−c) ) ​",
     inputAltura: [
         {
             inputLabel: "Medida lado 1",

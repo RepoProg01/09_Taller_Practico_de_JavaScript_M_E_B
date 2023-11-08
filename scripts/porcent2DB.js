@@ -18,31 +18,31 @@ const RD3CalculadoraObj = {
     definicion: "on",
     id: "calculadora",
     titleFig: "Calculadora Simple",
-    imgFig: "../assets/CompuestaMixta.png",
+    imgFig: "../assets/compuesta_mixta_top.png",
 
     titlePorcentaje: "Calculadora Simple",
     formulaPorcentaje: "Inserta los 3 datos conocidos",
     inputPorcentaje: [
         {
             inputLabel: "A",
-            inputId: "winSIvalorA"
+            inputId: "winSDIvalorA"
         },
         {
             inputLabel: "B",
-            inputId: "winSIvalorB"
+            inputId: "winSDIvalorB"
         },
         {
             inputLabel: "C",
-            inputId: "winSIvalorC"
+            inputId: "winSDIvalorC"
         },
         {
             inputLabel: "D",
-            inputId: "winSIvalorD"
+            inputId: "winSDIvalorD"
         }
     ],
-    resultClPC: "resultPCSI",
-    btnClPC: "btnResultPCSI",
-    funcionPorcentaje: "pcSI",
+    resultClPC: "resultPCSDI",
+    btnClPC: "btnResultPCSDI",
+    funcionPorcentaje: "pcSDI",
 };
 const RD3SimpleDirectaObj = {
     definicion: "off",

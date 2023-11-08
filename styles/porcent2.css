@@ -253,6 +253,10 @@ span {
 .sectionPCtop {
     text-align: center;
 }
+.sectionPCmiddleTop {
+    display: flex;
+    justify-content: center;
+}
 .sectionPCmiddle {
     display: grid;
     gap: 5px;
@@ -271,6 +275,7 @@ span {
 }
 
 .textFormule {
+    font-size: 20px;
     color: var(--naranja);
     font-weight: 700;
     margin-bottom: 8px;

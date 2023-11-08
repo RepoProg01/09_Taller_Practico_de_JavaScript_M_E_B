@@ -214,7 +214,7 @@ function renderFigura(objeto){
     pTitleH.classList.add("titlesFormules");
     pTitleH.innerHTML = objeto.titleAltura;
     pformulaH.classList.add("textFormule");
-    pformulaH.innerHTML = objeto.formulaAltura;
+    pformulaH.innerHTML = "Calculadora";
     sectionHtop.classList.add("sectionHtop");
     sectionHtop.append(pTitleH, pformulaH);
 

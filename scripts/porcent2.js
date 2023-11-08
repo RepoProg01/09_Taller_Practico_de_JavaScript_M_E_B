@@ -30,7 +30,6 @@ function selecFnc(event){
     const figura = event.target.innerText.toLowerCase();
     
     const figSelect = introPorcentajeArray.find(obj => obj.id === figura);
-    console.log(figSelect);
     if(figSelect){
         renderFigura(figSelect);
        
@@ -50,8 +49,8 @@ function selecFnc(event){
 function borrar(){
     medidaPC = null;
     medidaPC2 = null;
-    inputRadioPCC.checked = false;
-    inputRadioPCM.checked = false;
+    inputRadioPCD.checked = false;
+    inputRadioPCI.checked = false;
     inputRadioPC2C.checked = false;
     inputRadioPC2M.checked = false;
     divPorcentaje.innerHTML = "";
@@ -107,12 +106,13 @@ const sectionPCtop = document.createElement("section");
 const pTitlePC = document.createElement("p");
 const pformulaPC = document.createElement("p");
 // -------------------------------- sectionPCmiddle --------------------------------
+const sectionPCmiddleTop = document.createElement("section");
 const sectionPCmiddle = document.createElement("section");
 const divRadioPC = document.createElement("div");
-const inputRadioPCC = document.createElement("input");
-const inputRadioPCM = document.createElement("input");
-const inputLabelPCC = document.createElement("label");
-const inputLabelPCM = document.createElement("label");
+const inputRadioPCD = document.createElement("input");
+const inputRadioPCI = document.createElement("input");
+const inputLabelPCD = document.createElement("label");
+const inputLabelPCI = document.createElement("label");
 // -------------------------------- sectionHbottom --------------------------------
 const sectionPCbottom = document.createElement("section");
 const pResultPC = document.createElement("p");
@@ -214,7 +214,6 @@ function renderFigura(objeto){
     containerResponsive.appendChild(containerPorcentaje);
     containerPorcentaje.classList.add("containerPorcentaje");
     containerPorcentaje.appendChild(divPorcentaje);
-    // divPorcentaje.classList.add("containerFormules");
 
     pTitlePC.classList.add("titlesFormules");
     pTitlePC.innerHTML = objeto.titlePorcentaje;
@@ -222,15 +221,29 @@ function renderFigura(objeto){
     if(objeto.definicion == "on"){
         divPorcentaje.classList.remove("containerImage2");
         divPorcentaje.classList.add("containerFormules");
-        // pTitlePC.classList.add("titlesFormules");
-        // pTitlePC.innerHTML = objeto.titlePorcentaje;
         pformulaPC.classList.add("textFormule");
         pformulaPC.innerHTML = objeto.formulaPorcentaje;
         sectionPCtop.classList.add("sectionPCtop");
         sectionPCtop.append(pTitlePC, pformulaPC);
     
-        sectionPCmiddle.classList.add("sectionPCmiddle");
+        sectionPCmiddleTop.classList.add("sectionPCmiddleTop");
     
+        divRadioPC.classList.add("divRadioPC");
+        inputRadioPCD.setAttribute("type", "radio");
+        inputRadioPCD.setAttribute("name", "radPCDI");
+        inputRadioPCD.setAttribute("id", "radPCD");
+        inputLabelPCD.setAttribute("for", "radPCD");
+        inputLabelPCD.innerHTML = "directa";
+        inputRadioPCI.setAttribute("type", "radio");
+        inputRadioPCI.setAttribute("name", "radPCDI");
+        inputRadioPCI.setAttribute("id", "radPCI");
+        inputLabelPCI.setAttribute("for", "radPCI");
+        inputLabelPCI.innerHTML = "inversa";
+        divRadioPC.append(inputRadioPCD, inputLabelPCD,  inputRadioPCI, inputLabelPCI);
+        sectionPCmiddleTop.appendChild(divRadioPC);
+
+        sectionPCmiddle.classList.add("sectionPCmiddle");
+
         objeto.inputPorcentaje.forEach(winInput => {
             const divWin = document.createElement("div");
             divWin.classList.add("winPosition");
@@ -254,7 +267,7 @@ function renderFigura(objeto){
         btnResultPC.innerHTML = "Resultado";
         sectionPCbottom.classList.add("sectionPCbottom");
         sectionPCbottom.append(pResultPC, btnResultPC);
-        divPorcentaje.append(sectionPCtop, sectionPCmiddle, sectionPCbottom);
+        divPorcentaje.append(sectionPCtop, sectionPCmiddleTop, sectionPCmiddle, sectionPCbottom);
         btnResultPC.removeEventListener("click", rutaFPC);
         rutaFPC = (eval(objeto.funcionPorcentaje));
         btnResultPC.addEventListener("click", rutaFPC);
@@ -265,10 +278,8 @@ function renderFigura(objeto){
         const imgDefinicion = document.createElement("img");
         imgDefinicion.classList.add("imagenDefinicion");
         imgDefinicion.setAttribute("src", objeto.imgFig2);
-        divPorcentaje.append(pTitlePC, imgDefinicion);
-        
+        divPorcentaje.append(pTitlePC,  imgDefinicion);
     }
-
     document.documentElement.scrollTop = 0;
 };
 
@@ -276,68 +287,72 @@ function renderFigura(objeto){
 // ------------------------ Porcentajes --------------------------
 // ------------- regla de tres simple directa y simple inversa -------------
 
-function pcSD(){
-    const winSDvalorA = document.querySelector("#winSDvalorA");
-    const winSDvalorB = document.querySelector("#winSDvalorB");
-    const winSDvalorC = document.querySelector("#winSDvalorC");
-    const winSDvalorD = document.querySelector("#winSDvalorD");
+function pcSDI(){
+    const winSDIvalorA = document.querySelector("#winSDIvalorA");
+    const winSDIvalorB = document.querySelector("#winSDIvalorB");
+    const winSDIvalorC = document.querySelector("#winSDIvalorC");
+    const winSDIvalorD = document.querySelector("#winSDIvalorD");
     // medSeleccion();
-    if(winSDvalorA.value > 0 && winSDvalorB.value > 0 && winSDvalorC.value > 0 && (winSDvalorD.value == "" )){
-        const result = Number((winSDvalorB.value * winSDvalorC.value) / winSDvalorA.value);
-        winSDvalorD.value = result;
-        pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
-    }
-    else if(winSDvalorA.value > 0 && winSDvalorB.value > 0 && winSDvalorD.value > 0 && (winSDvalorC.value == "" )){
-        const result = Number((winSDvalorA.value * winSDvalorD.value) / winSDvalorB.value);
-        winSDvalorC.value = result;
-        pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
-    }
-    else if(winSDvalorA.value > 0 && winSDvalorC.value > 0 && winSDvalorD.value > 0 && (winSDvalorB.value == "" )){
-        const result = Number((winSDvalorD.value * winSDvalorA.value) / winSDvalorC.value);
-        winSDvalorB.value = result;
-        pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
-    }
-    else if(winSDvalorB.value > 0 && winSDvalorC.value > 0 && winSDvalorD.value > 0 && (winSDvalorA.value == "" )){
-        const result = Number((winSDvalorC.value * winSDvalorB.value) / winSDvalorD.value);
-        winSDvalorA.value = result;
-        pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
-    }
-    else{
-        pResultPC.innerHTML = "Se requiren los 3 valores conocidos";
-    
+    if(inputRadioPCD.checked || inputRadioPCI.checked){
+        if(winSDIvalorA.value > 0 && winSDIvalorB.value > 0 && winSDIvalorC.value > 0 && (winSDIvalorD.value == "" )){
+            const result = Number((winSDIvalorB.value * winSDIvalorC.value) / winSDIvalorA.value);
+            winSDIvalorD.value = result;
+            pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
+        }
+        else if(winSDIvalorA.value > 0 && winSDIvalorB.value > 0 && winSDIvalorD.value > 0 && (winSDIvalorC.value == "" )){
+            const result = Number((winSDIvalorA.value * winSDIvalorD.value) / winSDIvalorB.value);
+            winSDIvalorC.value = result;
+            pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
+        }
+        else if(winSDIvalorA.value > 0 && winSDIvalorC.value > 0 && winSDIvalorD.value > 0 && (winSDIvalorB.value == "" )){
+            const result = Number((winSDIvalorD.value * winSDIvalorA.value) / winSDIvalorC.value);
+            winSDIvalorB.value = result;
+            pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
+        }
+        else if(winSDIvalorB.value > 0 && winSDIvalorC.value > 0 && winSDIvalorD.value > 0 && (winSDIvalorA.value == "" )){
+            const result = Number((winSDIvalorC.value * winSDIvalorB.value) / winSDIvalorD.value);
+            winSDIvalorA.value = result;
+            pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
+        }
+        else{
+            pResultPC.innerHTML = "Se requiren los 3 valores conocidos";
+        
+        }
+    }else{
+        pResultPC.innerHTML = "Elegir directa o inversa";
     }
 }
-function pcSI(){
-    const winSIvalorA = document.querySelector("#winSIvalorA");
-    const winSIvalorB = document.querySelector("#winSIvalorB");
-    const winSIvalorC = document.querySelector("#winSIvalorC");
-    const winSIvalorD = document.querySelector("#winSIvalorD");
-    // medSeleccion();
-    if(winSIvalorA.value > 0 && winSIvalorB.value > 0 && winSIvalorC.value > 0 && (winSIvalorD.value == "" )){
-        const result = Number((winSIvalorB.value * winSIvalorA.value) / winSIvalorC.value);
-        winSIvalorD.value = result;
-        pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
-    }
-    else if(winSIvalorA.value > 0 && winSIvalorB.value > 0 && winSIvalorD.value > 0 && (winSIvalorC.value == "" )){
-        const result = Number((winSIvalorA.value * winSIvalorB.value) / winSIvalorD.value);
-        winSIvalorC.value = result;
-        pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
-    }
-    else if(winSIvalorA.value > 0 && winSIvalorC.value > 0 && winSIvalorD.value > 0 && (winSIvalorB.value == "" )){
-        const result = Number((winSIvalorD.value * winSIvalorC.value) / winSIvalorA.value);
-        winSIvalorB.value = result;
-        pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
-    }
-    else if(winSIvalorB.value > 0 && winSIvalorD.value > 0 && winSIvalorC.value > 0 && (winSIvalorA.value == "" )){
-        const result = Number((winSIvalorC.value * winSIvalorD.value) / winSIvalorB.value);
-        winSIvalorA.value = result;
-        pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
-    }
-    else{
-        pResultPC.innerHTML = "Se requiren los 3 valores conocidos";
+// function pcSI(){
+//     const winSIvalorA = document.querySelector("#winSIvalorA");
+//     const winSIvalorB = document.querySelector("#winSIvalorB");
+//     const winSIvalorC = document.querySelector("#winSIvalorC");
+//     const winSIvalorD = document.querySelector("#winSIvalorD");
+//     // medSeleccion();
+//     if(winSIvalorA.value > 0 && winSIvalorB.value > 0 && winSIvalorC.value > 0 && (winSIvalorD.value == "" )){
+//         const result = Number((winSIvalorB.value * winSIvalorA.value) / winSIvalorC.value);
+//         winSIvalorD.value = result;
+//         pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
+//     }
+//     else if(winSIvalorA.value > 0 && winSIvalorB.value > 0 && winSIvalorD.value > 0 && (winSIvalorC.value == "" )){
+//         const result = Number((winSIvalorA.value * winSIvalorB.value) / winSIvalorD.value);
+//         winSIvalorC.value = result;
+//         pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
+//     }
+//     else if(winSIvalorA.value > 0 && winSIvalorC.value > 0 && winSIvalorD.value > 0 && (winSIvalorB.value == "" )){
+//         const result = Number((winSIvalorD.value * winSIvalorC.value) / winSIvalorA.value);
+//         winSIvalorB.value = result;
+//         pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
+//     }
+//     else if(winSIvalorB.value > 0 && winSIvalorD.value > 0 && winSIvalorC.value > 0 && (winSIvalorA.value == "" )){
+//         const result = Number((winSIvalorC.value * winSIvalorD.value) / winSIvalorB.value);
+//         winSIvalorA.value = result;
+//         pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
+//     }
+//     else{
+//         pResultPC.innerHTML = "Se requiren los 3 valores conocidos";
     
-    }
-}
+//     }
+// }
 // ---------- regla de tres compuesta directa y compuesta inversa -----------
 
 renderIntroduccion();

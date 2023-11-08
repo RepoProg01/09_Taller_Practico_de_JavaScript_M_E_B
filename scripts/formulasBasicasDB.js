@@ -19,7 +19,6 @@ const trianguloObj = {
     imgFig: "../assets/triangulo_equilatero.png",
 
     titleArea: "Area del Triangulo",
-    formulaArea: "Formula = Base * Altura / 2",
     inputArea: [
         {
             inputLabel: "Medida base",
@@ -35,7 +34,6 @@ const trianguloObj = {
     funcionArea: "aTriangle",
 
     titlePerimetro: "Perimetro del Triangulo",
-    formulaPerimetro: "Formula = Lado1 + Lado2 + Base",
     inputPerimetro: [
         {
             inputLabel: "Medida lado 1",
@@ -60,7 +58,6 @@ const cuadradoObj = {
     imgFig: "../assets/cuadrado.png",
 
     titleArea: "Area del Cuadrado",
-    formulaArea: "Formula = Lado * Lado",
     inputArea: [
         {
             inputLabel: "Medida lado",
@@ -72,7 +69,6 @@ const cuadradoObj = {
     funcionArea: "aSquare",
 
     titlePerimetro: "Perimetro del Cuadrado",
-    formulaPerimetro: "Formula = 4 * Lado",
     inputPerimetro: [
         {
             inputLabel: "Medida lado",
@@ -89,7 +85,6 @@ const rectanguloObj = {
     imgFig: "../assets/rectangulo.png",
 
     titleArea: "Area del Rectangulo",
-    formulaArea: "Formula = Base * Altura",
     inputArea: [
         {
             inputLabel: "Medida base",
@@ -105,7 +100,6 @@ const rectanguloObj = {
     funcionArea: "aRectangulo",
 
     titlePerimetro: "Perimetro del Rectangulo",
-    formulaPerimetro: "Formula = (2 * Base) + (2 * Lado)",
     inputPerimetro: [
         {
             inputLabel: "Medida base",
@@ -126,7 +120,6 @@ const paralelogramoObj = {
     imgFig: "../assets/paralelogramo.png",
 
     titleArea: "Area del Paralelogramo",
-    formulaArea: "Formula = base * altura",
     inputArea: [
         {
             inputLabel: "Medida de base",
@@ -142,7 +135,6 @@ const paralelogramoObj = {
     funcionArea: "aParalelogramo",
 
     titlePerimetro: "Perimetro del Paralelogramo",
-    formulaPerimetro: "Formula = 2 x (b + L)",
     inputPerimetro: [
         {
             inputLabel: "Medida de base",
@@ -163,7 +155,6 @@ const trapecioObj = {
     imgFig: "../assets/trapecio.png",
 
     titleArea: "Area del Trapecio",
-    formulaArea: "Formula = ((B + b) * h) / 2",
     inputArea: [
         {
             inputLabel: "Medida de B",
@@ -183,7 +174,6 @@ const trapecioObj = {
     funcionArea: "aTrapecio",
 
     titlePerimetro: "Perimetro del Trapecio",
-    formulaPerimetro: "Formula = B + b + L1 + L2",
     inputPerimetro: [
         {
             inputLabel: "Medida B",
@@ -212,7 +202,6 @@ const romboObj = {
     imgFig: "../assets/rombo.png",
 
     titleArea: "Area del Rombo",
-    formulaArea: "Formula = D x d / 2",
     inputArea: [
         {
             inputLabel: "Medida D",
@@ -228,7 +217,6 @@ const romboObj = {
     funcionArea: "aRombo",
 
     titlePerimetro: "Perimetro del Rombo",
-    formulaPerimetro: "Formula = L1 + L2 + L3 + L4",
     inputPerimetro: [
         {
             inputLabel: "Medida L1",
@@ -257,7 +245,6 @@ const pentagonoObj = {
     imgFig: "../assets/pentagono.png",
 
     titleArea: "Area del pentagono",
-    formulaArea: "Formula = perimetro x apotema / 2",
     inputArea: [
         {
             inputLabel: "Medida perimetro",
@@ -273,7 +260,6 @@ const pentagonoObj = {
     funcionArea: "aPentagono",
 
     titlePerimetro: "Perimetro del Pentagono",
-    formulaPerimetro: "Formula = 5 x L",
     inputPerimetro: [
         {
             inputLabel: "Medida lado",
@@ -290,7 +276,6 @@ const hexagonoObj = {
     imgFig: "../assets/hexagono.png",
 
     titleArea: "Area del Hexagono",
-    formulaArea: "Formula = (perimetro x apotema) / 2",
     inputArea: [
         {
             inputLabel: "Medida perimetro",
@@ -306,7 +291,6 @@ const hexagonoObj = {
     funcionArea: "aHexagono",
 
     titlePerimetro: "Perimetro del Hexagono",
-    formulaPerimetro: "Formula = 6 * Lado",
     inputPerimetro: [
         {
             inputLabel: "Medida lado",
@@ -323,7 +307,6 @@ const circuloObj = {
     imgFig: "../assets/circulo.png",
 
     titleArea: "Area del Circulo",
-    formulaArea: "Formula = pi x r2",
     inputArea: [
         {
             inputLabel: "Medida radio",
@@ -335,7 +318,6 @@ const circuloObj = {
     funcionArea: "aCirculo",
 
     titlePerimetro: "Circunferncia",
-    formulaPerimetro: "Formula = pi * diametro",
     inputPerimetro: [
         {
             inputLabel: "Medida radio",
