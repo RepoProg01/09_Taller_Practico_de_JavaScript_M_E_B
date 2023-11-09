@@ -16,9 +16,9 @@ const introPorcentaje = {
 };
 const RD3CalculadoraObj = {
     definicion: "on",
-    id: "calculadora",
-    titleFig: "Calculadora Simple",
-    imgFig: "../assets/compuesta_mixta_top.png",
+    id: "calculadora_simple",
+    titleFig: "Instrucciones",
+    imgFig: "../assets/calculadora_simple.png",
 
     titlePorcentaje: "Calculadora Simple",
     formulaPorcentaje: "Inserta los 3 datos conocidos",
