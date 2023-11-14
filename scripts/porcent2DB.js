@@ -14,14 +14,86 @@ const introPorcentaje = {
     defGuiaTitulo: "Forma de uso :",
     defGuia: "Con el boton de <span>Mas..</span> mostrara calculadoras y ejemplos de diferentes casos de la regla de tres,<br>Con el boton <span>Menu</span> regrezaras al menu principal."
 };
-const RD3CalculadoraObj = {
+const RD3SDICalculadoraObj = {
     definicion: "on",
+    radiosC: "off",
     id: "calculadora_simple",
     titleFig: "Instrucciones",
     imgFig: "../assets/calculadora_simple.png",
+    secMid: "sectionPCmiddleS",
 
     titlePorcentaje: "Calculadora Simple",
     formulaPorcentaje: "Inserta los 3 datos conocidos",
+    inputPorcentaje: [
+        {
+            inputLabel: "A",
+            inputId: "winSDIvalorA"
+        },
+        {
+            inputLabel: "B",
+            inputId: "winSDIvalorB"
+        },
+        {
+            inputLabel: "C",
+            inputId: "winSDIvalorC"
+        },
+        {
+            inputLabel: "D",
+            inputId: "winSDIvalorD"
+        }
+    ],
+    resultClPC: "resultPCSDI",
+    btnClPC: "btnResultPCSDI",
+    funcionPorcentaje: "pcSDI",
+};
+const RD3CDIMCalculadoraObj = {
+    definicion: "on",
+    radiosC: "on",
+    id: "calculadora_compuesta",
+    titleFig: "Instrucciones",
+    imgFig: "../assets/calculadora_simple.png",
+    secMid: "sectionPCmiddleC",
+
+    titlePorcentaje: "Calculadora Compuesta",
+    formulaPorcentaje: "Inserta los 5 datos conocidos",
+    inputPorcentaje: [
+        {
+            inputLabel: "A",
+            inputId: "winCDIMvalorA"
+        },
+        {
+            inputLabel: "B",
+            inputId: "winCDIMvalorB"
+        },
+        {
+            inputLabel: "C",
+            inputId: "winCDIMvalorC"
+        },
+        {
+            inputLabel: "W",
+            inputId: "winCDIMvalorW"
+        },
+        {
+            inputLabel: "Y",
+            inputId: "winCDIMvalorY"
+        },
+        {
+            inputLabel: "Z",
+            inputId: "winCDIMvalorZ"
+        }
+    ],
+    resultClPC: "resultPCCDIM",
+    btnClPC: "btnResultPCCDIM",
+    funcionPorcentaje: "pcCDIM",
+};
+const RD3SDescCalculadoraObj = {
+    definicion: "on",
+    id: "calculadora_descuento",
+    titleFig: "Instrucciones",
+    imgFig: "../assets/calculadora_simple.png",
+
+    titlePorcentaje: "Calculadora Descuento",
+    formulaPorcentaje: "Inserta los 5 datos conocidos",
     inputPorcentaje: [
         {
             inputLabel: "A",
@@ -86,7 +158,9 @@ const RD3CompuestaMixtaObj = {
 };
 
 introPorcentajeArray.push(introPorcentaje);
-introPorcentajeArray.push(RD3CalculadoraObj);
+introPorcentajeArray.push(RD3SDICalculadoraObj);
+introPorcentajeArray.push(RD3CDIMCalculadoraObj);
+introPorcentajeArray.push(RD3SDescCalculadoraObj);
 introPorcentajeArray.push(RD3SimpleDirectaObj);
 introPorcentajeArray.push(RD3SimpleInversaObj);
 introPorcentajeArray.push(RD3CompuestaDirectaObj);

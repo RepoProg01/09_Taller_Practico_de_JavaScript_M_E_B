@@ -96,7 +96,6 @@ body {
 .listIndex {
     position: fixed;
     background: var(--background_linear_2);
-    /* background-color: var(--primario); */
     width: 100%; 
     height: 100%;
     overflow-y: scroll;
@@ -216,9 +215,7 @@ span {
     min-width: 340px;
     padding: 20px 10px 30px 10px;
 }
-/* .simpleDirectaImg {
-    width: 340px;
-} */
+
 .simpleDirectaImg,
 .containerImage2 {
     background-image: var(--background_radial_2);
@@ -253,14 +250,26 @@ span {
 .sectionPCtop {
     text-align: center;
 }
+.sectionPCmiddleTopC {
+    display: flex;
+    justify-content: center;
+}
 .sectionPCmiddleTop {
     display: flex;
     justify-content: center;
 }
-.sectionPCmiddle {
+
+.sectionPCmiddleS {
     display: grid;
     gap: 5px;
     grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    max-width: 100%;
+}
+.sectionPCmiddleC {
+    display: grid;
+    row-gap: 5px;
+    grid-template-rows: 34px 34px;
+    grid-template-columns: 100px 100px 100px;
     max-width: 100%;
 }
 
@@ -291,6 +300,24 @@ span {
     color: var(--white);
     padding-right: 30px;
 }
+.colSty {
+    display: flex;
+    justify-content: center;
+    width: 68px;
+    gap: 3px;
+    margin: 0px 10px 10px 22px;
+}
+
+.rowSty{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.rowSty label{
+    color: var(--white);
+    margin-bottom: 3px;
+}
+
 .winStyle {
     background-color: var(--white);
     border: 1px solid black;
@@ -331,6 +358,7 @@ span {
 .winPosition label {
     color: var(--white);
 }
+
 .inputStyle {
     background-color: var(--white);
     text-align: center;
@@ -338,6 +366,9 @@ span {
     height: 25px;
     font-weight: 700;
     /* margin-right: 50px; */
+}
+.resultColor {
+    background-color: var(--naranja);
 }
 /* ------ PerimeterSquare ------ */
 /* -------- AreaSquare --------- */
