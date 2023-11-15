@@ -109,6 +109,7 @@ const pformulaPC = document.createElement("p");
 const sectionPCmiddleTop = document.createElement("section");
 const sectionPCmiddle = document.createElement("section");
 
+const divRadioPC = document.createElement("div");
 const inputRadioPCD = document.createElement("input");
 const inputRadioPCI = document.createElement("input");
 const inputLabelPCD = document.createElement("label");
@@ -118,40 +119,6 @@ const divRadioPCCL = document.createElement("div");
 const divRadioPCCC = document.createElement("div");
 const divRadioPCCR = document.createElement("div");
 
-const divRadioPC = document.createElement("div");
-
-const divRadioPCCLX = document.createElement("div");
-const divRadioPCCLD = document.createElement("div");
-const divRadioPCCLI = document.createElement("div");
-
-const divRadioPCCCX = document.createElement("div");
-const divRadioPCCCD = document.createElement("div");
-const divRadioPCCCI = document.createElement("div");
-
-const divRadioPCCRX = document.createElement("div");
-const divRadioPCCRD = document.createElement("div");
-const divRadioPCCRI = document.createElement("div");
-
-const inputRadioPCLX = document.createElement("input");
-const inputRadioPCLD = document.createElement("input");
-const inputRadioPCLI = document.createElement("input");
-const inputLabelPCLX = document.createElement("label");
-const inputLabelPCLD = document.createElement("label");
-const inputLabelPCLI = document.createElement("label");
-
-const inputRadioPCCX = document.createElement("input");
-const inputRadioPCCD = document.createElement("input");
-const inputRadioPCCI = document.createElement("input");
-const inputLabelPCCX = document.createElement("label");
-const inputLabelPCCD = document.createElement("label");
-const inputLabelPCCI = document.createElement("label");
-
-const inputRadioPCRX = document.createElement("input");
-const inputRadioPCRD = document.createElement("input");
-const inputRadioPCRI = document.createElement("input");
-const inputLabelPCRX = document.createElement("label");
-const inputLabelPCRD = document.createElement("label");
-const inputLabelPCRI = document.createElement("label");
 // -------------------------------- sectionHbottom --------------------------------
 const sectionPCbottom = document.createElement("section");
 const pResultPC = document.createElement("p");
@@ -179,8 +146,6 @@ const btnResultPC2 = document.createElement("button");
 const definicion = null;
 
 // =================================== variables ==================================
-let medidaPC;
-let medidaPC2;
 let btnResultPCReg;
 let btnResultPC2Reg;
 let pResultPCReg;
@@ -258,8 +223,10 @@ function renderFigura(objeto){
         sectionPCtop.classList.add("sectionPCtop");
         sectionPCtop.append(pTitlePC, pformulaPC);
     
+        sectionPCmiddleTop.innerHTML = "";
+        sectionPCmiddleTop.classList.add("sectionPCmiddleTop");
+
         if(objeto.radiosC == "off"){
-            sectionPCmiddleTop.classList.add("sectionPCmiddleTop");
             divRadioPC.classList.add("divRadioPC");
             inputRadioPCD.setAttribute("type", "radio");
             inputRadioPCD.setAttribute("name", "radPCDI");
@@ -274,95 +241,50 @@ function renderFigura(objeto){
             divRadioPC.append(inputRadioPCD, inputLabelPCD,  inputRadioPCI, inputLabelPCI);
             sectionPCmiddleTop.appendChild(divRadioPC);
         }else if(objeto.radiosC == "on"){
-            sectionPCmiddleTop.classList.add("sectionPCmiddleTopC");
+            objeto.lista.forEach(datos =>{
+                // radio y label X incognita
+                const divRadioX = document.createElement("div");
+                divRadioX.classList.add(datos.radX, "rowSty");
+                const inputRadioX = document.createElement("input");
+                inputRadioX.setAttribute("type", "radio");
+                inputRadioX.setAttribute("name", datos.family);
+                inputRadioX.setAttribute("id", datos.idForX);
+                const inputLabelX = document.createElement("label");
+                inputLabelX.setAttribute("for", datos.idForX);
+                inputLabelX.innerHTML = datos.textoX;
+                divRadioX.append(inputLabelX, inputRadioX);
 
-            divRadioPCCL.classList.add("divRadioPCCL", "colSty");
+                // radio y label Directa
+                const divRadioD = document.createElement("div");
+                divRadioD.classList.add(datos.radD, "rowSty");
+                const inputRadioD = document.createElement("input");
+                inputRadioD.setAttribute("type", "radio");
+                inputRadioD.setAttribute("name", datos.family);
+                inputRadioD.setAttribute("id", datos.idForD);
+                const inputLabelD = document.createElement("label");
+                inputLabelD.setAttribute("for", datos.idForD);
+                inputLabelD.innerHTML = datos.textoD;
+                divRadioD.append(inputLabelD, inputRadioD);
 
-            divRadioPCCLX.classList.add("divRadioPCCLX", "rowSty");
-            inputRadioPCLX.setAttribute("type", "radio");
-            inputRadioPCLX.setAttribute("name", "radPCCL");
-            inputRadioPCLX.setAttribute("id", "radPCLX");
-            inputLabelPCLX.setAttribute("for", "radPCLX");
-            inputLabelPCLX.innerHTML = "X";
-            divRadioPCCLX.append(inputLabelPCLX, inputRadioPCLX);
+                // radio y label Inversa
+                const divRadioI = document.createElement("div");
+                divRadioI.classList.add(datos.radI, "rowSty");
+                const inputRadioI = document.createElement("input");
+                inputRadioI.setAttribute("type", "radio");
+                inputRadioI.setAttribute("name", datos.family);
+                inputRadioI.setAttribute("id", datos.idForI);
+                const inputLabelI = document.createElement("label");
+                inputLabelI.setAttribute("for", datos.idForI);
+                inputLabelI.innerHTML = datos.textoI;
+                divRadioI.append(inputLabelI, inputRadioI);
 
-            divRadioPCCLD.classList.add("divRadioPCCLD", "rowSty");
-            inputRadioPCLD.setAttribute("type", "radio");
-            inputRadioPCLD.setAttribute("name", "radPCCL");
-            inputRadioPCLD.setAttribute("id", "radPCLD");
-            inputLabelPCLD.setAttribute("for", "radPCLD");
-            inputLabelPCLD.innerHTML = "D";
-            divRadioPCCLD.append(inputLabelPCLD, inputRadioPCLD);
-
-            divRadioPCCLI.classList.add("divRadioPCCLI", "rowSty");
-            inputRadioPCLI.setAttribute("type", "radio");
-            inputRadioPCLI.setAttribute("name", "radPCCL");
-            inputRadioPCLI.setAttribute("id", "radPCLI");
-            inputLabelPCLI.setAttribute("for", "radPCLI");
-            inputLabelPCLI.innerHTML = "I";
-            divRadioPCCLI.append(inputLabelPCLI, inputRadioPCLI);
-
-            divRadioPCCL.append(divRadioPCCLX, divRadioPCCLD, divRadioPCCLI);
-
-            divRadioPCCC.classList.add("divRadioPCCC", "colSty");
-
-            divRadioPCCCX.classList.add("divRadioPCCCX", "rowSty");
-            inputRadioPCCX.setAttribute("type", "radio");
-            inputRadioPCCX.setAttribute("name", "radPCCC");
-            inputRadioPCCX.setAttribute("id", "radPCCX");
-            inputLabelPCCX.setAttribute("for", "radPCCX");
-            inputLabelPCCX.innerHTML = "X";
-            divRadioPCCCX.append(inputLabelPCCX, inputRadioPCCX);
-
-            divRadioPCCCD.classList.add("divRadioPCCCD", "rowSty");
-            inputRadioPCCD.setAttribute("type", "radio");
-            inputRadioPCCD.setAttribute("name", "radPCCC");
-            inputRadioPCCD.setAttribute("id", "radPCCD");
-            inputLabelPCCD.setAttribute("for", "radPCCD");
-            inputLabelPCCD.innerHTML = "D";
-            divRadioPCCCD.append(inputLabelPCCD, inputRadioPCCD);
-
-            divRadioPCCCI.classList.add("divRadioPCCCI", "rowSty");
-            inputRadioPCCI.setAttribute("type", "radio");
-            inputRadioPCCI.setAttribute("name", "radPCCC");
-            inputRadioPCCI.setAttribute("id", "radPCCI");
-            inputLabelPCCI.setAttribute("for", "radPCCI");
-            inputLabelPCCI.innerHTML = "I";
-            divRadioPCCCI.append(inputLabelPCCI, inputRadioPCCI);
-
-            divRadioPCCC.append(divRadioPCCCX, divRadioPCCCD, divRadioPCCCI);
-
-            divRadioPCCR.classList.add("divRadioPCCR", "colSty");
-
-            divRadioPCCRX.classList.add("divRadioPCCRX", "rowSty");
-            inputRadioPCRX.setAttribute("type", "radio");
-            inputRadioPCRX.setAttribute("name", "radPCCR");
-            inputRadioPCRX.setAttribute("id", "radPCRX");
-            inputLabelPCRX.setAttribute("for", "radPCRX");
-            inputLabelPCRX.innerHTML = "X";
-            divRadioPCCRX.append(inputLabelPCRX, inputRadioPCRX);
-
-            divRadioPCCRD.classList.add("divRadioPCCRD", "rowSty");
-            inputRadioPCRD.setAttribute("type", "radio");
-            inputRadioPCRD.setAttribute("name", "radPCCR");
-            inputRadioPCRD.setAttribute("id", "radPCRD");
-            inputLabelPCRD.setAttribute("for", "radPCRD");
-            inputLabelPCRD.innerHTML = "D";
-            divRadioPCCRD.append(inputLabelPCRD, inputRadioPCRD);
-
-            divRadioPCCRI.classList.add("divRadioPCCRI", "rowSty");
-            inputRadioPCRI.setAttribute("type", "radio");
-            inputRadioPCRI.setAttribute("name", "radPCCR");
-            inputRadioPCRI.setAttribute("id", "radPCRI");
-            inputLabelPCRI.setAttribute("for", "radPCRI");
-            inputLabelPCRI.innerHTML = "I";
-            divRadioPCCRI.append(inputLabelPCRI, inputRadioPCRI);
-
-            divRadioPCCR.append(divRadioPCCRX, divRadioPCCRD, divRadioPCCRI);
-
-            sectionPCmiddleTop.append(divRadioPCCL, divRadioPCCC, divRadioPCCR);
+                // Agregar a la seccion media
+                const divCont = document.createElement("div");
+                divCont.classList.add(datos.posDiv, "colSty");
+                divCont.append(divRadioX, divRadioD, divRadioI);
+                sectionPCmiddleTop.append(divCont);
+            });
         };
-
         sectionPCmiddle.classList.remove(classTemp);
         classTemp = objeto.secMid;
         sectionPCmiddle.classList.toggle(objeto.secMid);
@@ -476,71 +398,90 @@ function pcSDI(){
 }
 
 function pcCDIM(){
+    const XL = document.querySelector("#radPCLX");
+    const DL = document.querySelector("#radPCLD");
+    const IL = document.querySelector("#radPCLI");
+    const XC = document.querySelector("#radPCCX");
+    const DC = document.querySelector("#radPCCD");
+    const IC = document.querySelector("#radPCCI");
+    const XR = document.querySelector("#radPCRX");
+    const DR = document.querySelector("#radPCRD");
+    const IR = document.querySelector("#radPCRI");
     
-    const winSDIvalorA = document.querySelector("#winSDIvalorA");
-    const winSDIvalorB = document.querySelector("#winSDIvalorB");
-    const winSDIvalorC = document.querySelector("#winSDIvalorC");
-    const winSDIvalorW = document.querySelector("#winSDIvalorW");
-    const winSDIvalorY = document.querySelector("#winSDIvalorY");
-    const winSDIvalorZ = document.querySelector("#winSDIvalorZ");
-    winSDIvalorA.classList.remove("resultColor");
-    winSDIvalorB.classList.remove("resultColor");
-    winSDIvalorC.classList.remove("resultColor");
-    winSDIvalorW.classList.remove("resultColor");
-    winSDIvalorY.classList.remove("resultColor");
-    winSDIvalorZ.classList.remove("resultColor");
+    const winCDIMvalorA = document.querySelector("#winCDIMvalorA");
+    const winCDIMvalorB = document.querySelector("#winCDIMvalorB");
+    const winCDIMvalorC = document.querySelector("#winCDIMvalorC");
+    const winCDIMvalorW = document.querySelector("#winCDIMvalorW");
+    const winCDIMvalorY = document.querySelector("#winCDIMvalorY");
+    const winCDIMvalorZ = document.querySelector("#winCDIMvalorZ");
+    winCDIMvalorA.classList.remove("resultColor");
+    winCDIMvalorB.classList.remove("resultColor");
+    winCDIMvalorC.classList.remove("resultColor");
+    winCDIMvalorW.classList.remove("resultColor");
+    winCDIMvalorY.classList.remove("resultColor");
+    winCDIMvalorZ.classList.remove("resultColor");
 
-    if(inputRadioPCD.checked || inputRadioPCI.checked || inputRadioPCI.checked){
-        let result = null;
-        if(winSDIvalorA.value > 0 && winSDIvalorB.value > 0 && winSDIvalorC.value > 0 && winSDIvalorD.value > 0){
-            pResultPC.innerHTML = "Se requiren solo 3 valores";
+    if((XL.checked || DL.checked || IL.checked) && (XC.checked || DC.checked || IC.checked) && (XR.checked || DR.checked || IR.checked)){
+        if((XL.checked && XC.checked && XR.checked) || (XL.checked && XC.checked) || (XL.checked && XR.checked) || (XC.checked && XR.checked)){
+            console.log("Solo puede haber una incognita X");
         }else{
-            if(winSDIvalorA.value > 0 && winSDIvalorB.value > 0 && winSDIvalorC.value > 0 && (winSDIvalorD.value == "" )){
-                if(inputRadioPCD.checked){
-                    result = Number((winSDIvalorB.value * winSDIvalorC.value) / winSDIvalorA.value);
-                }else if(inputRadioPCI.checked){
-                    result = Number((winSDIvalorA.value * winSDIvalorB.value) / winSDIvalorC.value);
-                };
-                winSDIvalorD.classList.add("resultColor");
-                winSDIvalorD.value = result;
-                pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
-            }
-            else if(winSDIvalorA.value > 0 && winSDIvalorB.value > 0 && winSDIvalorD.value > 0 && (winSDIvalorC.value == "" )){
-                if(inputRadioPCD.checked){
-                    result = Number((winSDIvalorA.value * winSDIvalorD.value) / winSDIvalorB.value);
-                }else if(inputRadioPCI.checked){
-                    result = Number((winSDIvalorA.value * winSDIvalorB.value) / winSDIvalorD.value);
-                };
-                winSDIvalorC.classList.add("resultColor");
-                winSDIvalorC.value = result;
-                pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
-            }
-            else if(winSDIvalorA.value > 0 && winSDIvalorC.value > 0 && winSDIvalorD.value > 0 && (winSDIvalorB.value == "" )){
-                if(inputRadioPCD.checked){
-                    result = Number((winSDIvalorD.value * winSDIvalorA.value) / winSDIvalorC.value);
-                }else if(inputRadioPCI.checked){
-                    result = Number((winSDIvalorD.value * winSDIvalorC.value) / winSDIvalorA.value);
-                };
-                winSDIvalorB.classList.add("resultColor");
-                winSDIvalorB.value = result;
-                pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
-            }
-            else if(winSDIvalorB.value > 0 && winSDIvalorC.value > 0 && winSDIvalorD.value > 0 && (winSDIvalorA.value == "" )){
-                if(inputRadioPCD.checked){
-                    result = Number((winSDIvalorC.value * winSDIvalorB.value) / winSDIvalorD.value);
-                }else if(inputRadioPCI.checked){
-                    result = Number((winSDIvalorC.value * winSDIvalorD.value) / winSDIvalorB.value);
-                };
-                winSDIvalorA.classList.add("resultColor");
-                winSDIvalorA.value = result;
-                pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
-            }
-            else{
-                pResultPC.innerHTML = "Se requiren los 3 valores conocidos";
-            }
+            console.log("dentro");
         }
     }else{
-        pResultPC.innerHTML = "Elegir directa o inversa";
+        console.log("una incognita X y dos D directas o I indirectas o mixtas deben de ser seleccionadas");
     }
-}
+
+    // if(inputRadioPCD.checked || inputRadioPCI.checked || inputRadioPCI.checked && inputRadioPCD.checked || inputRadioPCI.checked || inputRadioPCI.checked && inputRadioPCD.checked || inputRadioPCI.checked || inputRadioPCI.checked){
+    //     let result = null;
+    //     if(winSDIvalorA.value > 0 && winSDIvalorB.value > 0 && winSDIvalorC.value > 0 && winSDIvalorD.value > 0){
+    //         pResultPC.innerHTML = "Se requiren solo 3 valores";
+    //     }else{
+    //         if(winSDIvalorA.value > 0 && winSDIvalorB.value > 0 && winSDIvalorC.value > 0 && (winSDIvalorD.value == "" )){
+    //             if(inputRadioPCD.checked){
+    //                 result = Number((winSDIvalorB.value * winSDIvalorC.value) / winSDIvalorA.value);
+    //             }else if(inputRadioPCI.checked){
+    //                 result = Number((winSDIvalorA.value * winSDIvalorB.value) / winSDIvalorC.value);
+    //             };
+    //             winSDIvalorD.classList.add("resultColor");
+    //             winSDIvalorD.value = result;
+    //             pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
+    //         }
+    //         else if(winSDIvalorA.value > 0 && winSDIvalorB.value > 0 && winSDIvalorD.value > 0 && (winSDIvalorC.value == "" )){
+    //             if(inputRadioPCD.checked){
+    //                 result = Number((winSDIvalorA.value * winSDIvalorD.value) / winSDIvalorB.value);
+    //             }else if(inputRadioPCI.checked){
+    //                 result = Number((winSDIvalorA.value * winSDIvalorB.value) / winSDIvalorD.value);
+    //             };
+    //             winSDIvalorC.classList.add("resultColor");
+    //             winSDIvalorC.value = result;
+    //             pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
+    //         }
+    //         else if(winSDIvalorA.value > 0 && winSDIvalorC.value > 0 && winSDIvalorD.value > 0 && (winSDIvalorB.value == "" )){
+    //             if(inputRadioPCD.checked){
+    //                 result = Number((winSDIvalorD.value * winSDIvalorA.value) / winSDIvalorC.value);
+    //             }else if(inputRadioPCI.checked){
+    //                 result = Number((winSDIvalorD.value * winSDIvalorC.value) / winSDIvalorA.value);
+    //             };
+    //             winSDIvalorB.classList.add("resultColor");
+    //             winSDIvalorB.value = result;
+    //             pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
+    //         }
+    //         else if(winSDIvalorB.value > 0 && winSDIvalorC.value > 0 && winSDIvalorD.value > 0 && (winSDIvalorA.value == "" )){
+    //             if(inputRadioPCD.checked){
+    //                 result = Number((winSDIvalorC.value * winSDIvalorB.value) / winSDIvalorD.value);
+    //             }else if(inputRadioPCI.checked){
+    //                 result = Number((winSDIvalorC.value * winSDIvalorD.value) / winSDIvalorB.value);
+    //             };
+    //             winSDIvalorA.classList.add("resultColor");
+    //             winSDIvalorA.value = result;
+    //             pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
+    //         }
+    //         else{
+    //             pResultPC.innerHTML = "Se requiren los 3 valores conocidos";
+    //         }
+    //     }
+    // }else{
+    //     pResultPC.innerHTML = "Elegir directa o inversa";
+    // }
+};
 renderIntroduccion();

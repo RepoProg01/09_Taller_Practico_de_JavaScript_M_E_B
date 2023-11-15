@@ -56,6 +56,47 @@ const RD3CDIMCalculadoraObj = {
 
     titlePorcentaje: "Calculadora Compuesta",
     formulaPorcentaje: "Inserta los 5 datos conocidos",
+    lista: [
+        {
+            family: "radPCCL",
+            radX: "divRadioPCCLX",
+            radD: "divRadioPCCLD",
+            radI: "divRadioPCCLI",
+            idForX: "radPCLX",
+            idForD: "radPCLD",
+            idForI: "radPCLI",
+            textoX: "X",
+            textoD: "D",
+            textoI: "I",
+            posDiv: "divRadioPCCL",
+        },
+        {
+            family: "radPCCC",
+            radX: "divRadioPCCCX",
+            radD: "divRadioPCCCD",
+            radI: "divRadioPCCCI",
+            idForX: "radPCCX",
+            idForD: "radPCCD",
+            idForI: "radPCCI",
+            textoX: "X",
+            textoD: "D",
+            textoI: "I",
+            posDiv: "divRadioPCCC",
+        },
+        {
+            family: "radPCCR",
+            radX: "divRadioPCCRX",
+            radD: "divRadioPCCRD",
+            radI: "divRadioPCCRI",
+            idForX: "radPCRX",
+            idForD: "radPCRD",
+            idForI: "radPCRI",
+            textoX: "X",
+            textoD: "D",
+            textoI: "I",
+            posDiv: "divRadioPCCR",
+        }
+    ],
     inputPorcentaje: [
         {
             inputLabel: "A",

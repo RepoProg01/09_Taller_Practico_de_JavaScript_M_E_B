@@ -250,10 +250,10 @@ span {
 .sectionPCtop {
     text-align: center;
 }
-.sectionPCmiddleTopC {
+/* .sectionPCmiddleTopC {
     display: flex;
     justify-content: center;
-}
+} */
 .sectionPCmiddleTop {
     display: flex;
     justify-content: center;
