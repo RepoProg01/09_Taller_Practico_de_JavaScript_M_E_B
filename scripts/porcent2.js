@@ -398,6 +398,10 @@ function pcSDI(){
 }
 
 function pcCDIM(){
+    let magnitud1 = null;
+    let magnitud2 = null;
+    let resultR3C = null;
+
     const XL = document.querySelector("#radPCLX");
     const DL = document.querySelector("#radPCLD");
     const IL = document.querySelector("#radPCLI");
@@ -415,6 +419,10 @@ function pcCDIM(){
     const winCDIMvalorY = document.querySelector("#winCDIMvalorY");
     const winCDIMvalorZ = document.querySelector("#winCDIMvalorZ");
 
+    XL.checked = false;
+    XC.checked = false;
+    XR.checked = false;
+
     winCDIMvalorA.classList.remove("resultColor");
     winCDIMvalorB.classList.remove("resultColor");
     winCDIMvalorC.classList.remove("resultColor");
@@ -422,20 +430,50 @@ function pcCDIM(){
     winCDIMvalorY.classList.remove("resultColor");
     winCDIMvalorZ.classList.remove("resultColor");
 
-    if((winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0) || (winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorZ.value > 0) || (winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0) || (winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0) || (winCDIMvalorA.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0) || (winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0)){
+    if(winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0){
+     
+        XL.checked = true;
+        DL.disabled = true;
+        IL.disabled = true;
+        XC.disabled = true;
+        XR.disabled = true;
         if((XL.checked || DL.checked || IL.checked) && (XC.checked || DC.checked || IC.checked) && (XR.checked || DR.checked || IR.checked)){
-            if((XL.checked && DC.checked && DR.checked) || (XL.checked && IC.checked && IR.checked) || (XL.checked && DC.checked && IR.checked) || (XL.checked && IC.checked && DR.checked) || (DL.checked && XC.checked && DR.checked) || (IL.checked && XC.checked && IR.checked) || (DL.checked && XC.checked && IR.checked) || (IL.checked && XC.checked && DR.checked) || (DL.checked && DC.checked && XR.checked) || (IL.checked && IC.checked && XR.checked) || (DL.checked && IC.checked && XR.checked) || (IL.checked && DC.checked && XR.checked)){
-                pResultPC.innerHTML = "dentro";
+            if((XL.checked && DC.checked && DR.checked) || (XL.checked && IC.checked && IR.checked) || (XL.checked && DC.checked && IR.checked) || (XL.checked && IC.checked && DR.checked)){
+            
+                magnitud1 = winCDIMvalorB.value * winCDIMvalorC.value;
+                magnitud2 = winCDIMvalorY.value * winCDIMvalorZ.value;
+                resultR3C = winCDIMvalorA.value * magnitud2 / magnitud1;
+                pResultPC.innerHTML = resultR3C.toFixed(2);
             }else{
                 pResultPC.innerHTML = "Solo 1 incognita con 2 Inversas o Directas o 1 directa y 1 inversa";
             }
         }else{
-            pResultPC.innerHTML = "Elegir una incognita ( X ) y su relacion directa ( D ) o indirecta ( I )";
+            pResultPC.innerHTML = "Elegir su relacion directa (D) o inversa (I) respecto a (X)";
         };
 
+    }else if(winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorZ.value > 0){
+        console.log("segunda opcion");
+    // }else if(winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0){
+
+    // }else if(winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0){
+
+    // }else if(winCDIMvalorA.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0){
+
+    // }else if(winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0)){
+        
+        // if((XL.checked || DL.checked || IL.checked) && (XC.checked || DC.checked || IC.checked) && (XR.checked || DR.checked || IR.checked)){
+        //     if((XL.checked && DC.checked && DR.checked) || (XL.checked && IC.checked && IR.checked) || (XL.checked && DC.checked && IR.checked) || (XL.checked && IC.checked && DR.checked) || (DL.checked && XC.checked && DR.checked) || (IL.checked && XC.checked && IR.checked) || (DL.checked && XC.checked && IR.checked) || (IL.checked && XC.checked && DR.checked) || (DL.checked && DC.checked && XR.checked) || (IL.checked && IC.checked && XR.checked) || (DL.checked && IC.checked && XR.checked) || (IL.checked && DC.checked && XR.checked)){
+        //         pResultPC.innerHTML = "dentro";
+        //     }else{
+        //         pResultPC.innerHTML = "Solo 1 incognita con 2 Inversas o Directas o 1 directa y 1 inversa";
+        //     }
+        // }else{
+        //     pResultPC.innerHTML = "Elegir la incognita ( X ) y su relacion directa ( D ) o indirecta ( I )";
+        // };
+
     }else{
-        pResultPC.innerHTML = "Introduce solo los 5 valores conocidos";
-    }
+        pResultPC.innerHTML = "Introduce los 5 valores conocidos y deja vacia la incognita";
+    };
     // if(inputRadioPCD.checked || inputRadioPCI.checked || inputRadioPCI.checked && inputRadioPCD.checked || inputRadioPCI.checked || inputRadioPCI.checked && inputRadioPCD.checked || inputRadioPCI.checked || inputRadioPCI.checked){
     //     let result = null;
     //     if(winSDIvalorA.value > 0 && winSDIvalorB.value > 0 && winSDIvalorC.value > 0 && winSDIvalorD.value > 0){
