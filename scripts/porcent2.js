@@ -414,6 +414,7 @@ function pcCDIM(){
     const winCDIMvalorW = document.querySelector("#winCDIMvalorW");
     const winCDIMvalorY = document.querySelector("#winCDIMvalorY");
     const winCDIMvalorZ = document.querySelector("#winCDIMvalorZ");
+
     winCDIMvalorA.classList.remove("resultColor");
     winCDIMvalorB.classList.remove("resultColor");
     winCDIMvalorC.classList.remove("resultColor");
@@ -421,16 +422,20 @@ function pcCDIM(){
     winCDIMvalorY.classList.remove("resultColor");
     winCDIMvalorZ.classList.remove("resultColor");
 
-    if((XL.checked || DL.checked || IL.checked) && (XC.checked || DC.checked || IC.checked) && (XR.checked || DR.checked || IR.checked)){
-        if((XL.checked && XC.checked && XR.checked) || (XL.checked && XC.checked) || (XL.checked && XR.checked) || (XC.checked && XR.checked)){
-            console.log("Solo puede haber una incognita X");
+    if((winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0) || (winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorZ.value > 0) || (winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0) || (winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0) || (winCDIMvalorA.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0) || (winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0)){
+        if((XL.checked || DL.checked || IL.checked) && (XC.checked || DC.checked || IC.checked) && (XR.checked || DR.checked || IR.checked)){
+            if((XL.checked && DC.checked && DR.checked) || (XL.checked && IC.checked && IR.checked) || (XL.checked && DC.checked && IR.checked) || (XL.checked && IC.checked && DR.checked) || (DL.checked && XC.checked && DR.checked) || (IL.checked && XC.checked && IR.checked) || (DL.checked && XC.checked && IR.checked) || (IL.checked && XC.checked && DR.checked) || (DL.checked && DC.checked && XR.checked) || (IL.checked && IC.checked && XR.checked) || (DL.checked && IC.checked && XR.checked) || (IL.checked && DC.checked && XR.checked)){
+                pResultPC.innerHTML = "dentro";
+            }else{
+                pResultPC.innerHTML = "Solo 1 incognita con 2 Inversas o Directas o 1 directa y 1 inversa";
+            }
         }else{
-            console.log("dentro");
-        }
-    }else{
-        console.log("una incognita X y dos D directas o I indirectas o mixtas deben de ser seleccionadas");
-    }
+            pResultPC.innerHTML = "Elegir una incognita ( X ) y su relacion directa ( D ) o indirecta ( I )";
+        };
 
+    }else{
+        pResultPC.innerHTML = "Introduce solo los 5 valores conocidos";
+    }
     // if(inputRadioPCD.checked || inputRadioPCI.checked || inputRadioPCI.checked && inputRadioPCD.checked || inputRadioPCI.checked || inputRadioPCI.checked && inputRadioPCD.checked || inputRadioPCI.checked || inputRadioPCI.checked){
     //     let result = null;
     //     if(winSDIvalorA.value > 0 && winSDIvalorB.value > 0 && winSDIvalorC.value > 0 && winSDIvalorD.value > 0){
