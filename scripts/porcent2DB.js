@@ -125,6 +125,7 @@ const RD3CDIMCalculadoraObj = {
     ],
     resultClPC: "resultPCCDIM",
     btnClPC: "btnResultPCCDIM",
+    btn2ClPC: "btnClearPCCDIM",
     funcionPorcentaje: "pcCDIM",
 };
 const RD3SDescCalculadoraObj = {

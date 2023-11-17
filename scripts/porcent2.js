@@ -46,6 +46,44 @@ function selecFnc(event){
     // blurFnc();
 }
 
+function clearWindows(){
+    XL.checked = false;
+    DL.checked = false;
+    IL.checked = false;
+    XC.checked = false;
+    DC.checked = false;
+    IC.checked = false;
+    XR.checked = false;
+    DR.checked = false;
+    IR.checked = false;
+
+    XL.disabled = false;
+    DL.disabled = false;
+    IL.disabled = false;
+    XC.disabled = false;
+    DC.disabled = false;
+    IC.disabled = false;
+    XR.disabled = false;
+    DR.disabled = false;
+    IR.disabled = false;
+
+    winCDIMvalorA.value = "";
+    winCDIMvalorB.value = "";
+    winCDIMvalorC.value = "";
+    winCDIMvalorW.value = "";
+    winCDIMvalorY.value = "";
+    winCDIMvalorZ.value = "";
+
+    winCDIMvalorA.classList.remove("resultColor");
+    winCDIMvalorB.classList.remove("resultColor");
+    winCDIMvalorC.classList.remove("resultColor");
+    winCDIMvalorW.classList.remove("resultColor");
+    winCDIMvalorY.classList.remove("resultColor");
+    winCDIMvalorZ.classList.remove("resultColor");
+
+    pResultPC.innerHTML = "";
+}
+
 function borrar(){
     medidaPC = null;
     medidaPC2 = null;
@@ -62,7 +100,7 @@ function borrar(){
     pResultPC.classList.remove(pResultPCReg);
     btnResultPC.classList.remove(btnResultPCReg);
     pResultPC2.classList.remove(pResultPC2Reg);
-    btnResultPC2.classList.remove(btnResultPC2Reg);
+    btnClearPC.classList.remove(btnClearPCReg);
     containerFiguras.innerHTML = "";
 };
 
@@ -140,14 +178,34 @@ const inputLabelPC2M = document.createElement("label");
 // -------------------------------- sectionPbottom --------------------------------
 const sectionPC2bottom = document.createElement("section");
 const pResultPC2 = document.createElement("p");
-const btnResultPC2 = document.createElement("button");
-
+const btnClearPC = document.createElement("button");
 
 const definicion = null;
 
+let magnitud1 = null;
+let magnitud2 = null;
+let resultR3C = null;
+
+let XL = null;
+let DL = null;
+let IL = null;
+let XC = null;
+let DC = null;
+let IC = null;
+let XR = null;
+let DR = null;
+let IR = null;
+
+let winCDIMvalorA = null;
+let winCDIMvalorB = null;
+let winCDIMvalorC = null;
+let winCDIMvalorW = null;
+let winCDIMvalorY = null;
+let winCDIMvalorZ = null;
+
 // =================================== variables ==================================
 let btnResultPCReg;
-let btnResultPC2Reg;
+let btnClearPCReg;
 let pResultPCReg;
 let pResultPC2Reg;
 let rutaFPC;
@@ -307,12 +365,21 @@ function renderFigura(objeto){
     
         pResultPCReg = objeto.resultClPC
         pResultPC.classList.add("winStyle", pResultPCReg);
+
         btnResultPCReg = objeto.btnClPC;
         btnResultPC.classList.add("btnResult", btnResultPCReg);
         btnResultPC.innerHTML = "Resultado";
+
+        btnClearPCReg = objeto.btn2ClPC;
+        btnClearPC.classList.add("btnClear", btnClearPCReg);
+        btnClearPC.innerHTML = "Borrar";
+
         sectionPCbottom.classList.add("sectionPCbottom");
-        sectionPCbottom.append(pResultPC, btnResultPC);
+        sectionPCbottom.append(pResultPC, btnClearPC, btnResultPC);
         divPorcentaje.append(sectionPCtop, sectionPCmiddleTop, sectionPCmiddle, sectionPCbottom);
+
+        btnClearPC.addEventListener("click", clearWindows);
+
         btnResultPC.removeEventListener("click", rutaFPC);
         rutaFPC = (eval(objeto.funcionPorcentaje));
         btnResultPC.addEventListener("click", rutaFPC);
@@ -398,26 +465,22 @@ function pcSDI(){
 }
 
 function pcCDIM(){
-    let magnitud1 = null;
-    let magnitud2 = null;
-    let resultR3C = null;
-
-    const XL = document.querySelector("#radPCLX");
-    const DL = document.querySelector("#radPCLD");
-    const IL = document.querySelector("#radPCLI");
-    const XC = document.querySelector("#radPCCX");
-    const DC = document.querySelector("#radPCCD");
-    const IC = document.querySelector("#radPCCI");
-    const XR = document.querySelector("#radPCRX");
-    const DR = document.querySelector("#radPCRD");
-    const IR = document.querySelector("#radPCRI");
+    XL = document.querySelector("#radPCLX");
+    DL = document.querySelector("#radPCLD");
+    IL = document.querySelector("#radPCLI");
+    XC = document.querySelector("#radPCCX");
+    DC = document.querySelector("#radPCCD");
+    IC = document.querySelector("#radPCCI");
+    XR = document.querySelector("#radPCRX");
+    DR = document.querySelector("#radPCRD");
+    IR = document.querySelector("#radPCRI");
     
-    const winCDIMvalorA = document.querySelector("#winCDIMvalorA");
-    const winCDIMvalorB = document.querySelector("#winCDIMvalorB");
-    const winCDIMvalorC = document.querySelector("#winCDIMvalorC");
-    const winCDIMvalorW = document.querySelector("#winCDIMvalorW");
-    const winCDIMvalorY = document.querySelector("#winCDIMvalorY");
-    const winCDIMvalorZ = document.querySelector("#winCDIMvalorZ");
+    winCDIMvalorA = document.querySelector("#winCDIMvalorA");
+    winCDIMvalorB = document.querySelector("#winCDIMvalorB");
+    winCDIMvalorC = document.querySelector("#winCDIMvalorC");
+    winCDIMvalorW = document.querySelector("#winCDIMvalorW");
+    winCDIMvalorY = document.querySelector("#winCDIMvalorY");
+    winCDIMvalorZ = document.querySelector("#winCDIMvalorZ");
 
     XL.checked = false;
     XC.checked = false;
@@ -431,19 +494,31 @@ function pcCDIM(){
     winCDIMvalorZ.classList.remove("resultColor");
 
     if(winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0){
-     
         XL.checked = true;
         DL.disabled = true;
         IL.disabled = true;
         XC.disabled = true;
         XR.disabled = true;
+
         if((XL.checked || DL.checked || IL.checked) && (XC.checked || DC.checked || IC.checked) && (XR.checked || DR.checked || IR.checked)){
             if((XL.checked && DC.checked && DR.checked) || (XL.checked && IC.checked && IR.checked) || (XL.checked && DC.checked && IR.checked) || (XL.checked && IC.checked && DR.checked)){
-            
-                magnitud1 = winCDIMvalorB.value * winCDIMvalorC.value;
-                magnitud2 = winCDIMvalorY.value * winCDIMvalorZ.value;
+                if(DC.checked && DR.checked){
+                    magnitud1 = winCDIMvalorB.value * winCDIMvalorC.value;
+                    magnitud2 = winCDIMvalorY.value * winCDIMvalorZ.value;
+                }else if(IC.checked && IR.checked){
+                    magnitud1 = winCDIMvalorY.value * winCDIMvalorZ.value;
+                    magnitud2 = winCDIMvalorB.value * winCDIMvalorC.value;
+                }else if(DC.checked && IR.checked){
+                    magnitud1 = winCDIMvalorB.value * winCDIMvalorZ.value;
+                    magnitud2 = winCDIMvalorY.value * winCDIMvalorC.value;
+                }else if(IC.checked && DR.checked){
+                    magnitud1 = winCDIMvalorY.value * winCDIMvalorC.value;
+                    magnitud2 = winCDIMvalorB.value * winCDIMvalorZ.value;
+                };
                 resultR3C = winCDIMvalorA.value * magnitud2 / magnitud1;
-                pResultPC.innerHTML = resultR3C.toFixed(2);
+                pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
+                winCDIMvalorW.value = resultR3C.toFixed(2);
+                winCDIMvalorW.classList.add("resultColor");
             }else{
                 pResultPC.innerHTML = "Solo 1 incognita con 2 Inversas o Directas o 1 directa y 1 inversa";
             }
@@ -461,15 +536,6 @@ function pcCDIM(){
 
     // }else if(winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0)){
         
-        // if((XL.checked || DL.checked || IL.checked) && (XC.checked || DC.checked || IC.checked) && (XR.checked || DR.checked || IR.checked)){
-        //     if((XL.checked && DC.checked && DR.checked) || (XL.checked && IC.checked && IR.checked) || (XL.checked && DC.checked && IR.checked) || (XL.checked && IC.checked && DR.checked) || (DL.checked && XC.checked && DR.checked) || (IL.checked && XC.checked && IR.checked) || (DL.checked && XC.checked && IR.checked) || (IL.checked && XC.checked && DR.checked) || (DL.checked && DC.checked && XR.checked) || (IL.checked && IC.checked && XR.checked) || (DL.checked && IC.checked && XR.checked) || (IL.checked && DC.checked && XR.checked)){
-        //         pResultPC.innerHTML = "dentro";
-        //     }else{
-        //         pResultPC.innerHTML = "Solo 1 incognita con 2 Inversas o Directas o 1 directa y 1 inversa";
-        //     }
-        // }else{
-        //     pResultPC.innerHTML = "Elegir la incognita ( X ) y su relacion directa ( D ) o indirecta ( I )";
-        // };
 
     }else{
         pResultPC.innerHTML = "Introduce los 5 valores conocidos y deja vacia la incognita";

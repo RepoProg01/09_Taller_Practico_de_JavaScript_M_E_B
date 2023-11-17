@@ -333,8 +333,9 @@ span {
     font-size: 18px;
 }
 
+.btnClear,
 .btnResult {
-    width: 100%;
+    width: 145px;
     height: 40px;
     border-radius: 10px;
     border: 1px solid var(--naranja);
@@ -343,6 +344,10 @@ span {
     font-size: 18px;
     font-weight: 700;
 }
+.btnClear{
+    margin-right: 10px;
+}
+.btnClear:hover,
 .btnResult:hover {
     cursor: pointer;
     background-color: var(--terciario);
