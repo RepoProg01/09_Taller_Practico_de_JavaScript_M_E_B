@@ -102,15 +102,13 @@ function clearCDIM(){
 }
 
 function borrar(){
-    divPorcentaje.innerHTML = "";
     sectionPCmiddle.innerHTML = "";
     pResultPC.innerHTML = "";
-
     pResultPC.classList.remove(pResultPCReg);
     btnResultPC.classList.remove(btnResultPCReg);
     btnClearPC.classList.remove(btnClearPCReg);
-
     containerFiguras.innerHTML = "";
+    divPorcentaje.innerHTML = "";
 };
 
 // ================================= Constantes ===================================
