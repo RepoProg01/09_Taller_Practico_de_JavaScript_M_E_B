@@ -46,7 +46,24 @@ function selecFnc(event){
     // blurFnc();
 }
 
-function clearWindows(){
+function clearSDI(){
+    SD.checked = false;
+    SI.checked = false;
+    
+    winSDIvalorA.value = "";
+    winSDIvalorB.value = "";
+    winSDIvalorC.value = "";
+    winSDIvalorD.value = "";
+
+    winSDIvalorA.classList.remove("resultColor");
+    winSDIvalorB.classList.remove("resultColor");
+    winSDIvalorC.classList.remove("resultColor");
+    winSDIvalorD.classList.remove("resultColor");
+
+    pResultPC.innerHTML = "";
+}
+
+function clearCDIM(){
     XL.checked = false;
     DL.checked = false;
     IL.checked = false;
@@ -85,22 +102,14 @@ function clearWindows(){
 }
 
 function borrar(){
-    medidaPC = null;
-    medidaPC2 = null;
-    inputRadioPCD.checked = false;
-    inputRadioPCI.checked = false;
-    inputRadioPC2C.checked = false;
-    inputRadioPC2M.checked = false;
     divPorcentaje.innerHTML = "";
-    divPorcentaje2.innerHTML = "";
     sectionPCmiddle.innerHTML = "";
-    sectionPC2middle.innerHTML = "";
     pResultPC.innerHTML = "";
-    pResultPC2.innerHTML = "";
+
     pResultPC.classList.remove(pResultPCReg);
     btnResultPC.classList.remove(btnResultPCReg);
-    pResultPC2.classList.remove(pResultPC2Reg);
     btnClearPC.classList.remove(btnClearPCReg);
+
     containerFiguras.innerHTML = "";
 };
 
@@ -126,8 +135,6 @@ const defNotaTitulo = document.createElement("p");
 const defNota = document.createElement("p");
 const defGuiaTitulo = document.createElement("p");
 const defGuia = document.createElement("p");
-
-
 // ------------------------------ containerResponsive -----------------------------
 const containerResponsive = document.createElement("section");
 // ---------------------------------- simpleDirectaImg ----------------------------------
@@ -136,7 +143,6 @@ const titleFig = document.createElement("h2");
 const imgSD = document.createElement("img");
 // ------------------------------ containerAltura -------------------------------
 const containerPorcentaje = document.createElement("div");
-
 // ----------------------------------- divPorcentaje ------------------------------------
 const divPorcentaje = document.createElement("div");
 // --------------------------------- sectionPCtop ----------------------------------
@@ -162,26 +168,21 @@ const sectionPCbottom = document.createElement("section");
 const pResultPC = document.createElement("p");
 const btnResultPC = document.createElement("button");
 
-// --------------------------------- divAltura2 ----------------------------------
-const divPorcentaje2 =document.createElement("div");
 // --------------------------------- sectionPtop -----------------------------------
 const sectionPC2top = document.createElement("section");
 const pTitlePC2 = document.createElement("p");
 const pformulaPC2 = document.createElement("p");
 // -------------------------------- sectionPmiddle ---------------------------------
-const sectionPC2middle = document.createElement("section");
 const divRadioPC2 = document.createElement("div");
-const inputRadioPC2C = document.createElement("input");
-const inputRadioPC2M = document.createElement("input");
 const inputLabelPC2C = document.createElement("label");
 const inputLabelPC2M = document.createElement("label");
 // -------------------------------- sectionPbottom --------------------------------
 const sectionPC2bottom = document.createElement("section");
-const pResultPC2 = document.createElement("p");
 const btnClearPC = document.createElement("button");
 
 const definicion = null;
 
+let loadVar = null;
 let magnitud1 = null;
 let magnitud2 = null;
 let resultR3C = null;
@@ -207,10 +208,17 @@ let winCDIMvalorZ = null;
 let btnResultPCReg;
 let btnClearPCReg;
 let pResultPCReg;
-let pResultPC2Reg;
 let rutaFPC;
-let rutaFPC2;
+let rutaFClear;
 let classTemp;
+
+let SD = null;
+let SI = null;
+
+let winSDIvalorA = null;
+let winSDIvalorB = null;
+let winSDIvalorC = null;
+let winSDIvalorD = null;
 
 function renderIntroduccion(){
     borrar();
@@ -298,6 +306,7 @@ function renderFigura(objeto){
             inputLabelPCI.innerHTML = "inversa";
             divRadioPC.append(inputRadioPCD, inputLabelPCD,  inputRadioPCI, inputLabelPCI);
             sectionPCmiddleTop.appendChild(divRadioPC);
+            loadVar = "SDI";
         }else if(objeto.radiosC == "on"){
             objeto.lista.forEach(datos =>{
                 // radio y label X incognita
@@ -342,6 +351,7 @@ function renderFigura(objeto){
                 divCont.append(divRadioX, divRadioD, divRadioI);
                 sectionPCmiddleTop.append(divCont);
             });
+            loadVar = "CDIM";
         };
         sectionPCmiddle.classList.remove(classTemp);
         classTemp = objeto.secMid;
@@ -378,7 +388,9 @@ function renderFigura(objeto){
         sectionPCbottom.append(pResultPC, btnClearPC, btnResultPC);
         divPorcentaje.append(sectionPCtop, sectionPCmiddleTop, sectionPCmiddle, sectionPCbottom);
 
-        btnClearPC.addEventListener("click", clearWindows);
+        btnClearPC.removeEventListener("click", rutaFClear);
+        rutaFClear = (eval(objeto.clearWindow));
+        btnClearPC.addEventListener("click", rutaFClear);
 
         btnResultPC.removeEventListener("click", rutaFPC);
         rutaFPC = (eval(objeto.funcionPorcentaje));
@@ -393,22 +405,66 @@ function renderFigura(objeto){
         divPorcentaje.append(pTitlePC,  imgDefinicion);
     }
     document.documentElement.scrollTop = 0;
+    if(loadVar == "SDI"){
+        SD = document.querySelector("#radPCD");
+        SI = document.querySelector("#radPCI");
+        
+        winSDIvalorA = document.querySelector("#winSDIvalorA");
+        winSDIvalorB = document.querySelector("#winSDIvalorB");
+        winSDIvalorC = document.querySelector("#winSDIvalorC");
+        winSDIvalorD = document.querySelector("#winSDIvalorD");
+        
+        winSDIvalorA.classList.remove("resultColor");
+        winSDIvalorB.classList.remove("resultColor");
+        winSDIvalorC.classList.remove("resultColor");
+        winSDIvalorD.classList.remove("resultColor");
+    }else if(loadVar == "CDIM"){
+        XL = document.querySelector("#radPCLX");
+        DL = document.querySelector("#radPCLD");
+        IL = document.querySelector("#radPCLI");
+        XC = document.querySelector("#radPCCX");
+        DC = document.querySelector("#radPCCD");
+        IC = document.querySelector("#radPCCI");
+        XR = document.querySelector("#radPCRX");
+        DR = document.querySelector("#radPCRD");
+        IR = document.querySelector("#radPCRI");
+        
+        winCDIMvalorA = document.querySelector("#winCDIMvalorA");
+        winCDIMvalorB = document.querySelector("#winCDIMvalorB");
+        winCDIMvalorC = document.querySelector("#winCDIMvalorC");
+        winCDIMvalorW = document.querySelector("#winCDIMvalorW");
+        winCDIMvalorY = document.querySelector("#winCDIMvalorY");
+        winCDIMvalorZ = document.querySelector("#winCDIMvalorZ");
+    
+        XL.checked = false;
+        XC.checked = false;
+        XR.checked = false;
+    
+        winCDIMvalorA.classList.remove("resultColor");
+        winCDIMvalorB.classList.remove("resultColor");
+        winCDIMvalorC.classList.remove("resultColor");
+        winCDIMvalorW.classList.remove("resultColor");
+        winCDIMvalorY.classList.remove("resultColor");
+        winCDIMvalorZ.classList.remove("resultColor");
+    }
 };
-
 
 // ------------------------ Porcentajes --------------------------
 // ------------- regla de tres simple directa y simple inversa -------------
 
 function pcSDI(){
+    // SD = document.querySelector("#radPCD");
+    // SI = document.querySelector("#radPCI");
     
-    const winSDIvalorA = document.querySelector("#winSDIvalorA");
-    const winSDIvalorB = document.querySelector("#winSDIvalorB");
-    const winSDIvalorC = document.querySelector("#winSDIvalorC");
-    const winSDIvalorD = document.querySelector("#winSDIvalorD");
-    winSDIvalorA.classList.remove("resultColor");
-    winSDIvalorB.classList.remove("resultColor");
-    winSDIvalorC.classList.remove("resultColor");
-    winSDIvalorD.classList.remove("resultColor");
+    // winSDIvalorA = document.querySelector("#winSDIvalorA");
+    // winSDIvalorB = document.querySelector("#winSDIvalorB");
+    // winSDIvalorC = document.querySelector("#winSDIvalorC");
+    // winSDIvalorD = document.querySelector("#winSDIvalorD");
+    
+    // winSDIvalorA.classList.remove("resultColor");
+    // winSDIvalorB.classList.remove("resultColor");
+    // winSDIvalorC.classList.remove("resultColor");
+    // winSDIvalorD.classList.remove("resultColor");
 
     if(inputRadioPCD.checked || inputRadioPCI.checked){
         let result = null;
@@ -465,33 +521,33 @@ function pcSDI(){
 }
 
 function pcCDIM(){
-    XL = document.querySelector("#radPCLX");
-    DL = document.querySelector("#radPCLD");
-    IL = document.querySelector("#radPCLI");
-    XC = document.querySelector("#radPCCX");
-    DC = document.querySelector("#radPCCD");
-    IC = document.querySelector("#radPCCI");
-    XR = document.querySelector("#radPCRX");
-    DR = document.querySelector("#radPCRD");
-    IR = document.querySelector("#radPCRI");
+    // XL = document.querySelector("#radPCLX");
+    // DL = document.querySelector("#radPCLD");
+    // IL = document.querySelector("#radPCLI");
+    // XC = document.querySelector("#radPCCX");
+    // DC = document.querySelector("#radPCCD");
+    // IC = document.querySelector("#radPCCI");
+    // XR = document.querySelector("#radPCRX");
+    // DR = document.querySelector("#radPCRD");
+    // IR = document.querySelector("#radPCRI");
     
-    winCDIMvalorA = document.querySelector("#winCDIMvalorA");
-    winCDIMvalorB = document.querySelector("#winCDIMvalorB");
-    winCDIMvalorC = document.querySelector("#winCDIMvalorC");
-    winCDIMvalorW = document.querySelector("#winCDIMvalorW");
-    winCDIMvalorY = document.querySelector("#winCDIMvalorY");
-    winCDIMvalorZ = document.querySelector("#winCDIMvalorZ");
+    // winCDIMvalorA = document.querySelector("#winCDIMvalorA");
+    // winCDIMvalorB = document.querySelector("#winCDIMvalorB");
+    // winCDIMvalorC = document.querySelector("#winCDIMvalorC");
+    // winCDIMvalorW = document.querySelector("#winCDIMvalorW");
+    // winCDIMvalorY = document.querySelector("#winCDIMvalorY");
+    // winCDIMvalorZ = document.querySelector("#winCDIMvalorZ");
 
-    XL.checked = false;
-    XC.checked = false;
-    XR.checked = false;
+    // XL.checked = false;
+    // XC.checked = false;
+    // XR.checked = false;
 
-    winCDIMvalorA.classList.remove("resultColor");
-    winCDIMvalorB.classList.remove("resultColor");
-    winCDIMvalorC.classList.remove("resultColor");
-    winCDIMvalorW.classList.remove("resultColor");
-    winCDIMvalorY.classList.remove("resultColor");
-    winCDIMvalorZ.classList.remove("resultColor");
+    // winCDIMvalorA.classList.remove("resultColor");
+    // winCDIMvalorB.classList.remove("resultColor");
+    // winCDIMvalorC.classList.remove("resultColor");
+    // winCDIMvalorW.classList.remove("resultColor");
+    // winCDIMvalorY.classList.remove("resultColor");
+    // winCDIMvalorZ.classList.remove("resultColor");
 
     if(winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0){
         XL.checked = true;

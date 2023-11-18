@@ -44,7 +44,9 @@ const RD3SDICalculadoraObj = {
     ],
     resultClPC: "resultPCSDI",
     btnClPC: "btnResultPCSDI",
+    btn2ClPC: "btnClearPCSDI",
     funcionPorcentaje: "pcSDI",
+    clearWindow: "clearSDI"
 };
 const RD3CDIMCalculadoraObj = {
     definicion: "on",
@@ -127,6 +129,7 @@ const RD3CDIMCalculadoraObj = {
     btnClPC: "btnResultPCCDIM",
     btn2ClPC: "btnClearPCCDIM",
     funcionPorcentaje: "pcCDIM",
+    clearWindow: "clearCDIM"
 };
 const RD3SDescCalculadoraObj = {
     definicion: "on",
