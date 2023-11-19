@@ -133,33 +133,29 @@ const RD3CDIMCalculadoraObj = {
 };
 const RD3SDescCalculadoraObj = {
     definicion: "on",
+    //radiosC: "off",
     id: "calculadora_descuento",
     titleFig: "Instrucciones",
     imgFig: "../assets/calculadora_simple.png",
+    secMid: "sectionPCmiddleS",
 
     titlePorcentaje: "Calculadora Descuento",
-    formulaPorcentaje: "Inserta los 5 datos conocidos",
+    formulaPorcentaje: "Inserta el precio y el descuento",
     inputPorcentaje: [
         {
-            inputLabel: "A",
-            inputId: "winSDIvalorA"
+            inputLabel: "Precio",
+            inputId: "winPrecio"
         },
         {
-            inputLabel: "B",
-            inputId: "winSDIvalorB"
-        },
-        {
-            inputLabel: "C",
-            inputId: "winSDIvalorC"
-        },
-        {
-            inputLabel: "D",
-            inputId: "winSDIvalorD"
+            inputLabel: "Descuento",
+            inputId: "winDescuento"
         }
     ],
     resultClPC: "resultPCSDI",
     btnClPC: "btnResultPCSDI",
+    btn2ClPC: "btnClearPCSDI",
     funcionPorcentaje: "pcSDI",
+    clearWindow: "clearSDI"
 };
 const RD3SimpleDirectaObj = {
     definicion: "off",
