@@ -102,6 +102,7 @@ function clearCDIM(){
 }
 
 function borrar(){
+    loadVar = "";
     sectionPCmiddle.innerHTML = "";
     pResultPC.innerHTML = "";
     pResultPC.classList.remove(pResultPCReg);
@@ -519,34 +520,6 @@ function pcSDI(){
 }
 
 function pcCDIM(){
-    // XL = document.querySelector("#radPCLX");
-    // DL = document.querySelector("#radPCLD");
-    // IL = document.querySelector("#radPCLI");
-    // XC = document.querySelector("#radPCCX");
-    // DC = document.querySelector("#radPCCD");
-    // IC = document.querySelector("#radPCCI");
-    // XR = document.querySelector("#radPCRX");
-    // DR = document.querySelector("#radPCRD");
-    // IR = document.querySelector("#radPCRI");
-    
-    // winCDIMvalorA = document.querySelector("#winCDIMvalorA");
-    // winCDIMvalorB = document.querySelector("#winCDIMvalorB");
-    // winCDIMvalorC = document.querySelector("#winCDIMvalorC");
-    // winCDIMvalorW = document.querySelector("#winCDIMvalorW");
-    // winCDIMvalorY = document.querySelector("#winCDIMvalorY");
-    // winCDIMvalorZ = document.querySelector("#winCDIMvalorZ");
-
-    // XL.checked = false;
-    // XC.checked = false;
-    // XR.checked = false;
-
-    // winCDIMvalorA.classList.remove("resultColor");
-    // winCDIMvalorB.classList.remove("resultColor");
-    // winCDIMvalorC.classList.remove("resultColor");
-    // winCDIMvalorW.classList.remove("resultColor");
-    // winCDIMvalorY.classList.remove("resultColor");
-    // winCDIMvalorZ.classList.remove("resultColor");
-
     if(winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0){
         XL.checked = true;
         DL.disabled = true;
@@ -592,7 +565,7 @@ function pcCDIM(){
         
 
     }else{
-        pResultPC.innerHTML = "Introduce los 5 valores conocidos y deja vacia la incognita";
+        pResultPC.innerHTML = "Introduce 5 valores conocidos y deja vacia la incognita";
     };
     // if(inputRadioPCD.checked || inputRadioPCI.checked || inputRadioPCI.checked && inputRadioPCD.checked || inputRadioPCI.checked || inputRadioPCI.checked && inputRadioPCD.checked || inputRadioPCI.checked || inputRadioPCI.checked){
     //     let result = null;

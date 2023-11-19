@@ -53,7 +53,7 @@ const RD3CDIMCalculadoraObj = {
     radiosC: "on",
     id: "calculadora_compuesta",
     titleFig: "Instrucciones",
-    imgFig: "../assets/calculadora_simple.png",
+    imgFig: "../assets/calculadora_compuesta.png",
     secMid: "sectionPCmiddleC",
 
     titlePorcentaje: "Calculadora Compuesta",
