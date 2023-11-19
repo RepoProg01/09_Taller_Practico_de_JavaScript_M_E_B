@@ -84,6 +84,13 @@ function clearCDIM(){
     DR.disabled = false;
     IR.disabled = false;
 
+    winCDIMvalorA.disabled = false;
+    winCDIMvalorB.disabled = false;
+    winCDIMvalorC.disabled = false;
+    winCDIMvalorW.disabled = false;
+    winCDIMvalorY.disabled = false;
+    winCDIMvalorZ.disabled = false;
+
     winCDIMvalorA.value = "";
     winCDIMvalorB.value = "";
     winCDIMvalorC.value = "";
@@ -166,7 +173,6 @@ const divRadioPCCR = document.createElement("div");
 const sectionPCbottom = document.createElement("section");
 const pResultPC = document.createElement("p");
 const btnResultPC = document.createElement("button");
-
 // --------------------------------- sectionPtop -----------------------------------
 const sectionPC2top = document.createElement("section");
 const pTitlePC2 = document.createElement("p");
@@ -377,6 +383,7 @@ function renderFigura(objeto){
 
         btnResultPCReg = objeto.btnClPC;
         btnResultPC.classList.add("btnResult", btnResultPCReg);
+        btnResultPC.classList.add("btnResult");
         btnResultPC.innerHTML = "Resultado";
 
         btnClearPCReg = objeto.btn2ClPC;
@@ -524,6 +531,7 @@ function pcCDIM(){
         XL.checked = true;
         DL.disabled = true;
         IL.disabled = true;
+
         XC.disabled = true;
         XR.disabled = true;
 
@@ -547,77 +555,191 @@ function pcCDIM(){
                 winCDIMvalorW.value = resultR3C.toFixed(2);
                 winCDIMvalorW.classList.add("resultColor");
             }else{
-                pResultPC.innerHTML = "Solo 1 incognita con 2 Inversas o Directas o 1 directa y 1 inversa";
+                pResultPC.innerHTML = "Solo 1 incognita (X) es permitida,<br>y combinaciones de (D) e (I)";
             }
         }else{
-            pResultPC.innerHTML = "Elegir su relacion directa (D) o inversa (I) respecto a (X)";
+            pResultPC.innerHTML = "Elegir su relacion directa (D)<br>o inversa (I) respecto a (X)";
+        };
+    }else if(winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value == "" && winCDIMvalorZ.value > 0){
+        XL.disabled = true;
+
+        XC.checked = true;
+        DC.disabled = true;
+        IC.disabled = true;
+
+        XR.disabled = true;
+
+        if((XL.checked || DL.checked || IL.checked) && (XC.checked || DC.checked || IC.checked) && (XR.checked || DR.checked || IR.checked)){
+            if((DL.checked && XC.checked && DR.checked) || (IL.checked && XC.checked && IR.checked) || (DL.checked && XC.checked && IR.checked) || (IL.checked && XC.checked && DR.checked)){
+                if(DL.checked && DR.checked){
+                    magnitud1 = winCDIMvalorA.value * winCDIMvalorC.value;
+                    magnitud2 = winCDIMvalorW.value * winCDIMvalorZ.value;
+                }else if(IL.checked && IR.checked){
+                    magnitud1 = winCDIMvalorW.value * winCDIMvalorZ.value;
+                    magnitud2 = winCDIMvalorA.value * winCDIMvalorC.value;
+                }else if(DL.checked && IR.checked){
+                    magnitud1 = winCDIMvalorA.value * winCDIMvalorZ.value;
+                    magnitud2 = winCDIMvalorW.value * winCDIMvalorC.value;
+                }else if(IL.checked && DR.checked){
+                    magnitud1 = winCDIMvalorW.value * winCDIMvalorC.value;
+                    magnitud2 = winCDIMvalorA.value * winCDIMvalorZ.value;
+                };
+                resultR3C = winCDIMvalorB.value * magnitud2 / magnitud1;
+                pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
+                winCDIMvalorY.value = resultR3C.toFixed(2);
+                winCDIMvalorY.classList.add("resultColor");
+            }else{
+                pResultPC.innerHTML = "Solo 1 incognita (X) es permitida,<br>y combinaciones de (D) e (I)";
+            }
+        }else{
+            pResultPC.innerHTML = "Elegir su relacion directa (D)<br>o inversa (I) respecto a (X)";
         };
 
-    }else if(winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorZ.value > 0){
-        console.log("segunda opcion");
-    // }else if(winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0){
+    }else if(winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0){
+        XL.disabled = true;
 
-    // }else if(winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0){
+        XC.disabled = true;
 
-    // }else if(winCDIMvalorA.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0){
+        XR.checked = true;
+        DR.disabled = true;
+        IR.disabled = true;
 
-    // }else if(winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0)){
+        if((XL.checked || DL.checked || IL.checked) && (XC.checked || DC.checked || IC.checked) && (XR.checked || DR.checked || IR.checked)){
+            if((DL.checked && DC.checked && XR.checked) || (IL.checked && IC.checked && XR.checked) || (DL.checked && IC.checked && XR.checked) || (IL.checked && DC.checked && XR.checked)){
+                if(DL.checked && DC.checked){
+                    magnitud1 = winCDIMvalorA.value * winCDIMvalorB.value;
+                    magnitud2 = winCDIMvalorW.value * winCDIMvalorY.value;
+                }else if(IL.checked && IC.checked){
+                    magnitud1 = winCDIMvalorW.value * winCDIMvalorY.value;
+                    magnitud2 = winCDIMvalorA.value * winCDIMvalorB.value;
+                }else if(DL.checked && IC.checked){
+                    magnitud1 = winCDIMvalorA.value * winCDIMvalorY.value;
+                    magnitud2 = winCDIMvalorW.value * winCDIMvalorB.value;
+                }else if(IL.checked && DC.checked){
+                    magnitud1 = winCDIMvalorW.value * winCDIMvalorB.value;
+                    magnitud2 = winCDIMvalorA.value * winCDIMvalorY.value;
+                };
+                resultR3C = winCDIMvalorC.value * magnitud2 / magnitud1;
+                pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
+                winCDIMvalorZ.value = resultR3C.toFixed(2);
+                winCDIMvalorZ.classList.add("resultColor");
+            }else{
+                pResultPC.innerHTML = "Solo 1 incognita (X) es permitida,<br>y combinaciones de (D) e (I)";
+            }
+        }else{
+            pResultPC.innerHTML = "Elegir su relacion directa (D)<br>o inversa (I) respecto a (X)";
+        };
+    }else if(winCDIMvalorA.value == "" && winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0){
+        XL.checked = true;
+        DL.disabled = true;
+        IL.disabled = true;
+
+        XC.disabled = true;
+
+        XR.disabled = true;
+
+        if((XL.checked || DL.checked || IL.checked) && (XC.checked || DC.checked || IC.checked) && (XR.checked || DR.checked || IR.checked)){
+            if((XL.checked && DC.checked && DR.checked) || (XL.checked && IC.checked && IR.checked) || (XL.checked && DC.checked && IR.checked) || (XL.checked && IC.checked && DR.checked)){
+                if(DC.checked && DR.checked){
+                    magnitud1 = winCDIMvalorB.value * winCDIMvalorC.value;
+                    magnitud2 = winCDIMvalorY.value * winCDIMvalorZ.value;
+                }else if(IC.checked && IR.checked){
+                    magnitud1 = winCDIMvalorY.value * winCDIMvalorZ.value;
+                    magnitud2 = winCDIMvalorB.value * winCDIMvalorC.value;
+                }else if(DC.checked && IR.checked){
+                    magnitud1 = winCDIMvalorB.value * winCDIMvalorZ.value;
+                    magnitud2 = winCDIMvalorY.value * winCDIMvalorC.value;
+                }else if(IC.checked && DR.checked){
+                    magnitud1 = winCDIMvalorY.value * winCDIMvalorC.value;
+                    magnitud2 = winCDIMvalorB.value * winCDIMvalorZ.value;
+                };
+                resultR3C = winCDIMvalorW.value * magnitud1 / magnitud2;
+                pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
+                winCDIMvalorA.value = resultR3C.toFixed(2);
+                winCDIMvalorA.classList.add("resultColor");
+            }else{
+                pResultPC.innerHTML = "Solo 1 incognita (X) es permitida,<br>y combinaciones de (D) e (I)";
+            }
+        }else{
+            pResultPC.innerHTML = "Elegir su relacion directa (D)<br>o inversa (I) respecto a (X)";
+        };
+    }else if(winCDIMvalorA.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0){
+        XL.disabled = true;
         
+        XC.checked = true;
+        DC.disabled = true;
+        IC.disabled = true;
+
+        XR.disabled = true;
+
+        if((XL.checked || DL.checked || IL.checked) && (XC.checked || DC.checked || IC.checked) && (XR.checked || DR.checked || IR.checked)){
+            if((DL.checked && XC.checked && DR.checked) || (IL.checked && XC.checked && IR.checked) || (DL.checked && XC.checked && IR.checked) || (IL.checked && XC.checked && DR.checked)){
+                if(DL.checked && DR.checked){
+                    magnitud1 = winCDIMvalorA.value * winCDIMvalorC.value;
+                    magnitud2 = winCDIMvalorW.value * winCDIMvalorZ.value;
+                }else if(IL.checked && IR.checked){
+                    magnitud1 = winCDIMvalorW.value * winCDIMvalorZ.value;
+                    magnitud2 = winCDIMvalorA.value * winCDIMvalorC.value;
+                }else if(DL.checked && IR.checked){
+                    magnitud1 = winCDIMvalorA.value * winCDIMvalorZ.value;
+                    magnitud2 = winCDIMvalorW.value * winCDIMvalorC.value;
+                }else if(IL.checked && DR.checked){
+                    magnitud1 = winCDIMvalorW.value * winCDIMvalorC.value;
+                    magnitud2 = winCDIMvalorA.value * winCDIMvalorZ.value;
+                };
+                resultR3C = winCDIMvalorY.value * magnitud1 / magnitud2;
+                pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
+                winCDIMvalorB.value = resultR3C.toFixed(2);
+                winCDIMvalorB.classList.add("resultColor");
+            }else{
+                pResultPC.innerHTML = "Solo 1 incognita (X) es permitida,<br>y combinaciones de (D) e (I)";
+            }
+        }else{
+            pResultPC.innerHTML = "Elegir su relacion directa (D)<br>o inversa (I) respecto a (X)";
+        };
+    }else if(winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0){
+        XL.disabled = true;
+
+        XC.disabled = true;
+        
+        XR.checked = true;
+        DR.disabled = true;
+        IR.disabled = true;
+
+        if((XL.checked || DL.checked || IL.checked) && (XC.checked || DC.checked || IC.checked) && (XR.checked || DR.checked || IR.checked)){
+            if((DL.checked && DC.checked && XR.checked) || (IL.checked && IC.checked && XR.checked) || (DL.checked && IC.checked && XR.checked) || (IL.checked && DC.checked && XR.checked)){
+                if(DL.checked && DC.checked){
+                    magnitud1 = winCDIMvalorA.value * winCDIMvalorB.value;
+                    magnitud2 = winCDIMvalorW.value * winCDIMvalorY.value;
+                }else if(IL.checked && IC.checked){
+                    magnitud1 = winCDIMvalorW.value * winCDIMvalorY.value;
+                    magnitud2 = winCDIMvalorA.value * winCDIMvalorB.value;
+                }else if(DL.checked && IC.checked){
+                    magnitud1 = winCDIMvalorA.value * winCDIMvalorY.value;
+                    magnitud2 = winCDIMvalorW.value * winCDIMvalorB.value;
+                }else if(IL.checked && DC.checked){
+                    magnitud1 = winCDIMvalorW.value * winCDIMvalorB.value;
+                    magnitud2 = winCDIMvalorA.value * winCDIMvalorY.value;
+                };
+                resultR3C = winCDIMvalorZ.value * magnitud1 / magnitud2;
+                pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
+                winCDIMvalorC.value = resultR3C.toFixed(2);
+                winCDIMvalorC.classList.add("resultColor");
+            }else{
+                pResultPC.innerHTML = "Solo 1 incognita (X) es permitida,<br>y combinaciones de (D) e (I)";
+            }
+        }else{
+            pResultPC.innerHTML = "Elegir su relacion directa (D)<br>o inversa (I) respecto a (X)";
+        };
 
     }else{
-        pResultPC.innerHTML = "Introduce 5 valores conocidos y deja vacia la incognita";
+        pResultPC.innerHTML = "Introduce 5 valores conocidos<br>y deja vacia la incognita";
     };
-    // if(inputRadioPCD.checked || inputRadioPCI.checked || inputRadioPCI.checked && inputRadioPCD.checked || inputRadioPCI.checked || inputRadioPCI.checked && inputRadioPCD.checked || inputRadioPCI.checked || inputRadioPCI.checked){
-    //     let result = null;
-    //     if(winSDIvalorA.value > 0 && winSDIvalorB.value > 0 && winSDIvalorC.value > 0 && winSDIvalorD.value > 0){
-    //         pResultPC.innerHTML = "Se requiren solo 3 valores";
-    //     }else{
-    //         if(winSDIvalorA.value > 0 && winSDIvalorB.value > 0 && winSDIvalorC.value > 0 && (winSDIvalorD.value == "" )){
-    //             if(inputRadioPCD.checked){
-    //                 result = Number((winSDIvalorB.value * winSDIvalorC.value) / winSDIvalorA.value);
-    //             }else if(inputRadioPCI.checked){
-    //                 result = Number((winSDIvalorA.value * winSDIvalorB.value) / winSDIvalorC.value);
-    //             };
-    //             winSDIvalorD.classList.add("resultColor");
-    //             winSDIvalorD.value = result;
-    //             pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
-    //         }
-    //         else if(winSDIvalorA.value > 0 && winSDIvalorB.value > 0 && winSDIvalorD.value > 0 && (winSDIvalorC.value == "" )){
-    //             if(inputRadioPCD.checked){
-    //                 result = Number((winSDIvalorA.value * winSDIvalorD.value) / winSDIvalorB.value);
-    //             }else if(inputRadioPCI.checked){
-    //                 result = Number((winSDIvalorA.value * winSDIvalorB.value) / winSDIvalorD.value);
-    //             };
-    //             winSDIvalorC.classList.add("resultColor");
-    //             winSDIvalorC.value = result;
-    //             pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
-    //         }
-    //         else if(winSDIvalorA.value > 0 && winSDIvalorC.value > 0 && winSDIvalorD.value > 0 && (winSDIvalorB.value == "" )){
-    //             if(inputRadioPCD.checked){
-    //                 result = Number((winSDIvalorD.value * winSDIvalorA.value) / winSDIvalorC.value);
-    //             }else if(inputRadioPCI.checked){
-    //                 result = Number((winSDIvalorD.value * winSDIvalorC.value) / winSDIvalorA.value);
-    //             };
-    //             winSDIvalorB.classList.add("resultColor");
-    //             winSDIvalorB.value = result;
-    //             pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
-    //         }
-    //         else if(winSDIvalorB.value > 0 && winSDIvalorC.value > 0 && winSDIvalorD.value > 0 && (winSDIvalorA.value == "" )){
-    //             if(inputRadioPCD.checked){
-    //                 result = Number((winSDIvalorC.value * winSDIvalorB.value) / winSDIvalorD.value);
-    //             }else if(inputRadioPCI.checked){
-    //                 result = Number((winSDIvalorC.value * winSDIvalorD.value) / winSDIvalorB.value);
-    //             };
-    //             winSDIvalorA.classList.add("resultColor");
-    //             winSDIvalorA.value = result;
-    //             pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
-    //         }
-    //         else{
-    //             pResultPC.innerHTML = "Se requiren los 3 valores conocidos";
-    //         }
-    //     }
-    // }else{
-    //     pResultPC.innerHTML = "Elegir directa o inversa";
-    // }
+    winCDIMvalorA.disabled = true;
+    winCDIMvalorB.disabled = true;
+    winCDIMvalorC.disabled = true;
+    winCDIMvalorW.disabled = true;
+    winCDIMvalorY.disabled = true;
+    winCDIMvalorZ.disabled = true;
 };
 renderIntroduccion();
