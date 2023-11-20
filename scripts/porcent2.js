@@ -44,7 +44,81 @@ function selecFnc(event){
     // const topOffset = cid.offsetTop - 70;
     // window.scroll(0, topOffset);
     // blurFnc();
-}
+};
+function borrar(){
+    loadVar = "";
+    sectionPCmiddle.innerHTML = "";
+    pResultPC.innerHTML = "";
+    pResultPC.classList.remove(pResultPCReg);
+    btnResultPC.classList.remove(btnResultPCReg);
+    btnClearPC.classList.remove(btnClearPCReg);
+    containerFiguras.innerHTML = "";
+    divPorcentaje.innerHTML = "";
+};
+function disableWindow(){
+    winCDIMvalorA.disabled = true;
+    winCDIMvalorB.disabled = true;
+    winCDIMvalorC.disabled = true;
+    winCDIMvalorW.disabled = true;
+    winCDIMvalorY.disabled = true;
+    winCDIMvalorZ.disabled = true;
+};
+function enableWindow(){
+    winCDIMvalorA.disabled = false;
+    winCDIMvalorB.disabled = false;
+    winCDIMvalorC.disabled = false;
+    winCDIMvalorW.disabled = false;
+    winCDIMvalorY.disabled = false;
+    winCDIMvalorZ.disabled = false;
+};
+function clearInputsWindows(){
+    winCDIMvalorA.value = "";
+    winCDIMvalorB.value = "";
+    winCDIMvalorC.value = "";
+    winCDIMvalorW.value = "";
+    winCDIMvalorY.value = "";
+    winCDIMvalorZ.value = "";
+};
+function clearColor(){
+    winCDIMvalorA.classList.remove("resultColor");
+    winCDIMvalorB.classList.remove("resultColor");
+    winCDIMvalorC.classList.remove("resultColor");
+    winCDIMvalorW.classList.remove("resultColor");
+    winCDIMvalorY.classList.remove("resultColor");
+    winCDIMvalorZ.classList.remove("resultColor");
+};
+function clearRadios(){
+    XL.checked = false;
+    DL.checked = false;
+    IL.checked = false;
+    XC.checked = false;
+    DC.checked = false;
+    IC.checked = false;
+    XR.checked = false;
+    DR.checked = false;
+    IR.checked = false;
+};
+function enableRadios(){
+    XL.disabled = false;
+    DL.disabled = false;
+    IL.disabled = false;
+    XC.disabled = false;
+    DC.disabled = false;
+    IC.disabled = false;
+    XR.disabled = false;
+    DR.disabled = false;
+    IR.disabled = false;
+};
+function disableButtonResultado(){
+    btnResultPC.disabled = true;
+    btnResultPC.classList.remove("btnResult");
+    btnResultPC.classList.add("btnInactive");
+};
+function enableButtonResultado(){
+    btnResultPC.disabled = false;
+    btnResultPC.classList.remove("btnInactive");
+    btnResultPC.classList.add("btnResult");
+};
 
 function clearSDI(){
     SD.checked = false;
@@ -61,62 +135,15 @@ function clearSDI(){
     winSDIvalorD.classList.remove("resultColor");
 
     pResultPC.innerHTML = "";
-}
-
+};
 function clearCDIM(){
-    XL.checked = false;
-    DL.checked = false;
-    IL.checked = false;
-    XC.checked = false;
-    DC.checked = false;
-    IC.checked = false;
-    XR.checked = false;
-    DR.checked = false;
-    IR.checked = false;
-
-    XL.disabled = false;
-    DL.disabled = false;
-    IL.disabled = false;
-    XC.disabled = false;
-    DC.disabled = false;
-    IC.disabled = false;
-    XR.disabled = false;
-    DR.disabled = false;
-    IR.disabled = false;
-
-    winCDIMvalorA.disabled = false;
-    winCDIMvalorB.disabled = false;
-    winCDIMvalorC.disabled = false;
-    winCDIMvalorW.disabled = false;
-    winCDIMvalorY.disabled = false;
-    winCDIMvalorZ.disabled = false;
-
-    winCDIMvalorA.value = "";
-    winCDIMvalorB.value = "";
-    winCDIMvalorC.value = "";
-    winCDIMvalorW.value = "";
-    winCDIMvalorY.value = "";
-    winCDIMvalorZ.value = "";
-
-    winCDIMvalorA.classList.remove("resultColor");
-    winCDIMvalorB.classList.remove("resultColor");
-    winCDIMvalorC.classList.remove("resultColor");
-    winCDIMvalorW.classList.remove("resultColor");
-    winCDIMvalorY.classList.remove("resultColor");
-    winCDIMvalorZ.classList.remove("resultColor");
-
+    clearRadios();
+    enableRadios();
+    clearColor();
+    clearInputsWindows();
+    enableWindow();
+    enableButtonResultado();
     pResultPC.innerHTML = "";
-}
-
-function borrar(){
-    loadVar = "";
-    sectionPCmiddle.innerHTML = "";
-    pResultPC.innerHTML = "";
-    pResultPC.classList.remove(pResultPCReg);
-    btnResultPC.classList.remove(btnResultPCReg);
-    btnClearPC.classList.remove(btnClearPCReg);
-    containerFiguras.innerHTML = "";
-    divPorcentaje.innerHTML = "";
 };
 
 // ================================= Constantes ===================================
@@ -168,7 +195,6 @@ const inputLabelPCI = document.createElement("label");
 const divRadioPCCL = document.createElement("div");
 const divRadioPCCC = document.createElement("div");
 const divRadioPCCR = document.createElement("div");
-
 // -------------------------------- sectionHbottom --------------------------------
 const sectionPCbottom = document.createElement("section");
 const pResultPC = document.createElement("p");
@@ -456,7 +482,7 @@ function renderFigura(objeto){
 };
 
 // ------------------------ Porcentajes --------------------------
-// ------------- regla de tres simple directa y simple inversa -------------
+// -------- regla de tres simple directa y simple inversa --------
 
 function pcSDI(){
     // SD = document.querySelector("#radPCD");
@@ -486,8 +512,7 @@ function pcSDI(){
                 winSDIvalorD.classList.add("resultColor");
                 winSDIvalorD.value = result;
                 pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
-            }
-            else if(winSDIvalorA.value > 0 && winSDIvalorB.value > 0 && winSDIvalorD.value > 0 && (winSDIvalorC.value == "" )){
+            }else if(winSDIvalorA.value > 0 && winSDIvalorB.value > 0 && winSDIvalorD.value > 0 && (winSDIvalorC.value == "" )){
                 if(inputRadioPCD.checked){
                     result = Number((winSDIvalorA.value * winSDIvalorD.value) / winSDIvalorB.value);
                 }else if(inputRadioPCI.checked){
@@ -496,8 +521,7 @@ function pcSDI(){
                 winSDIvalorC.classList.add("resultColor");
                 winSDIvalorC.value = result;
                 pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
-            }
-            else if(winSDIvalorA.value > 0 && winSDIvalorC.value > 0 && winSDIvalorD.value > 0 && (winSDIvalorB.value == "" )){
+            }else if(winSDIvalorA.value > 0 && winSDIvalorC.value > 0 && winSDIvalorD.value > 0 && (winSDIvalorB.value == "" )){
                 if(inputRadioPCD.checked){
                     result = Number((winSDIvalorD.value * winSDIvalorA.value) / winSDIvalorC.value);
                 }else if(inputRadioPCI.checked){
@@ -506,8 +530,7 @@ function pcSDI(){
                 winSDIvalorB.classList.add("resultColor");
                 winSDIvalorB.value = result;
                 pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
-            }
-            else if(winSDIvalorB.value > 0 && winSDIvalorC.value > 0 && winSDIvalorD.value > 0 && (winSDIvalorA.value == "" )){
+            }else if(winSDIvalorB.value > 0 && winSDIvalorC.value > 0 && winSDIvalorD.value > 0 && (winSDIvalorA.value == "" )){
                 if(inputRadioPCD.checked){
                     result = Number((winSDIvalorC.value * winSDIvalorB.value) / winSDIvalorD.value);
                 }else if(inputRadioPCI.checked){
@@ -516,8 +539,7 @@ function pcSDI(){
                 winSDIvalorA.classList.add("resultColor");
                 winSDIvalorA.value = result;
                 pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
-            }
-            else{
+            }else{
                 pResultPC.innerHTML = "Se requiren los 3 valores conocidos";
             }
         }
@@ -525,13 +547,12 @@ function pcSDI(){
         pResultPC.innerHTML = "Elegir directa o inversa";
     }
 }
-
 function pcCDIM(){
-    if(winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0){
+
+    if(winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value == "" && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0){
         XL.checked = true;
         DL.disabled = true;
         IL.disabled = true;
-
         XC.disabled = true;
         XR.disabled = true;
 
@@ -540,20 +561,30 @@ function pcCDIM(){
                 if(DC.checked && DR.checked){
                     magnitud1 = winCDIMvalorB.value * winCDIMvalorC.value;
                     magnitud2 = winCDIMvalorY.value * winCDIMvalorZ.value;
+                    IC.disabled = true;
+                    IR.disabled = true;
                 }else if(IC.checked && IR.checked){
                     magnitud1 = winCDIMvalorY.value * winCDIMvalorZ.value;
                     magnitud2 = winCDIMvalorB.value * winCDIMvalorC.value;
+                    DC.disabled = true;
+                    DR.disabled = true;
                 }else if(DC.checked && IR.checked){
                     magnitud1 = winCDIMvalorB.value * winCDIMvalorZ.value;
                     magnitud2 = winCDIMvalorY.value * winCDIMvalorC.value;
+                    IC.disabled = true;
+                    DR.disabled = true;
                 }else if(IC.checked && DR.checked){
                     magnitud1 = winCDIMvalorY.value * winCDIMvalorC.value;
                     magnitud2 = winCDIMvalorB.value * winCDIMvalorZ.value;
+                    DC.disabled = true;
+                    IR.disabled = true;
                 };
                 resultR3C = winCDIMvalorA.value * magnitud2 / magnitud1;
                 pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
                 winCDIMvalorW.value = resultR3C.toFixed(2);
                 winCDIMvalorW.classList.add("resultColor");
+                disableWindow();
+                disableButtonResultado();
             }else{
                 pResultPC.innerHTML = "Solo 1 incognita (X) es permitida,<br>y combinaciones de (D) e (I)";
             }
@@ -562,11 +593,9 @@ function pcCDIM(){
         };
     }else if(winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value == "" && winCDIMvalorZ.value > 0){
         XL.disabled = true;
-
         XC.checked = true;
         DC.disabled = true;
         IC.disabled = true;
-
         XR.disabled = true;
 
         if((XL.checked || DL.checked || IL.checked) && (XC.checked || DC.checked || IC.checked) && (XR.checked || DR.checked || IR.checked)){
@@ -574,20 +603,29 @@ function pcCDIM(){
                 if(DL.checked && DR.checked){
                     magnitud1 = winCDIMvalorA.value * winCDIMvalorC.value;
                     magnitud2 = winCDIMvalorW.value * winCDIMvalorZ.value;
+                    IL.disabled = true;
+                    IR.disabled = true;
                 }else if(IL.checked && IR.checked){
                     magnitud1 = winCDIMvalorW.value * winCDIMvalorZ.value;
                     magnitud2 = winCDIMvalorA.value * winCDIMvalorC.value;
+                    DL.disabled = true;
+                    DR.disabled = true;
                 }else if(DL.checked && IR.checked){
                     magnitud1 = winCDIMvalorA.value * winCDIMvalorZ.value;
                     magnitud2 = winCDIMvalorW.value * winCDIMvalorC.value;
+                    IL.disabled = true;
+                    DR.disabled = true;
                 }else if(IL.checked && DR.checked){
                     magnitud1 = winCDIMvalorW.value * winCDIMvalorC.value;
                     magnitud2 = winCDIMvalorA.value * winCDIMvalorZ.value;
+                    DL.disabled = true;
+                    IR.disabled = true;
                 };
                 resultR3C = winCDIMvalorB.value * magnitud2 / magnitud1;
                 pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
                 winCDIMvalorY.value = resultR3C.toFixed(2);
                 winCDIMvalorY.classList.add("resultColor");
+                disableWindow();
             }else{
                 pResultPC.innerHTML = "Solo 1 incognita (X) es permitida,<br>y combinaciones de (D) e (I)";
             }
@@ -595,11 +633,9 @@ function pcCDIM(){
             pResultPC.innerHTML = "Elegir su relacion directa (D)<br>o inversa (I) respecto a (X)";
         };
 
-    }else if(winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0){
+    }else if(winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value == ""){
         XL.disabled = true;
-
         XC.disabled = true;
-
         XR.checked = true;
         DR.disabled = true;
         IR.disabled = true;
@@ -609,20 +645,29 @@ function pcCDIM(){
                 if(DL.checked && DC.checked){
                     magnitud1 = winCDIMvalorA.value * winCDIMvalorB.value;
                     magnitud2 = winCDIMvalorW.value * winCDIMvalorY.value;
+                    IL.disabled = true;
+                    IC.disabled = true;
                 }else if(IL.checked && IC.checked){
                     magnitud1 = winCDIMvalorW.value * winCDIMvalorY.value;
                     magnitud2 = winCDIMvalorA.value * winCDIMvalorB.value;
+                    DL.disabled = true;
+                    DC.disabled = true;
                 }else if(DL.checked && IC.checked){
                     magnitud1 = winCDIMvalorA.value * winCDIMvalorY.value;
                     magnitud2 = winCDIMvalorW.value * winCDIMvalorB.value;
+                    IL.disabled = true;
+                    DC.disabled = true;
                 }else if(IL.checked && DC.checked){
                     magnitud1 = winCDIMvalorW.value * winCDIMvalorB.value;
                     magnitud2 = winCDIMvalorA.value * winCDIMvalorY.value;
+                    DL.disabled = true;
+                    IC.disabled = true;
                 };
                 resultR3C = winCDIMvalorC.value * magnitud2 / magnitud1;
                 pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
                 winCDIMvalorZ.value = resultR3C.toFixed(2);
                 winCDIMvalorZ.classList.add("resultColor");
+                disableWindow();
             }else{
                 pResultPC.innerHTML = "Solo 1 incognita (X) es permitida,<br>y combinaciones de (D) e (I)";
             }
@@ -633,9 +678,7 @@ function pcCDIM(){
         XL.checked = true;
         DL.disabled = true;
         IL.disabled = true;
-
         XC.disabled = true;
-
         XR.disabled = true;
 
         if((XL.checked || DL.checked || IL.checked) && (XC.checked || DC.checked || IC.checked) && (XR.checked || DR.checked || IR.checked)){
@@ -643,33 +686,40 @@ function pcCDIM(){
                 if(DC.checked && DR.checked){
                     magnitud1 = winCDIMvalorB.value * winCDIMvalorC.value;
                     magnitud2 = winCDIMvalorY.value * winCDIMvalorZ.value;
+                    IC.disabled = true;
+                    IR.disabled = true;
                 }else if(IC.checked && IR.checked){
                     magnitud1 = winCDIMvalorY.value * winCDIMvalorZ.value;
                     magnitud2 = winCDIMvalorB.value * winCDIMvalorC.value;
+                    DC.disabled = true;
+                    DR.disabled = true;
                 }else if(DC.checked && IR.checked){
                     magnitud1 = winCDIMvalorB.value * winCDIMvalorZ.value;
                     magnitud2 = winCDIMvalorY.value * winCDIMvalorC.value;
+                    IC.disabled = true;
+                    DR.disabled = true;
                 }else if(IC.checked && DR.checked){
                     magnitud1 = winCDIMvalorY.value * winCDIMvalorC.value;
                     magnitud2 = winCDIMvalorB.value * winCDIMvalorZ.value;
+                    DC.disabled = true;
+                    IR.disabled = true;
                 };
                 resultR3C = winCDIMvalorW.value * magnitud1 / magnitud2;
                 pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
                 winCDIMvalorA.value = resultR3C.toFixed(2);
                 winCDIMvalorA.classList.add("resultColor");
+                disableWindow();
             }else{
                 pResultPC.innerHTML = "Solo 1 incognita (X) es permitida,<br>y combinaciones de (D) e (I)";
             }
         }else{
             pResultPC.innerHTML = "Elegir su relacion directa (D)<br>o inversa (I) respecto a (X)";
         };
-    }else if(winCDIMvalorA.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0){
+    }else if(winCDIMvalorA.value > 0 && winCDIMvalorB.value == "" && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0){
         XL.disabled = true;
-        
         XC.checked = true;
         DC.disabled = true;
         IC.disabled = true;
-
         XR.disabled = true;
 
         if((XL.checked || DL.checked || IL.checked) && (XC.checked || DC.checked || IC.checked) && (XR.checked || DR.checked || IR.checked)){
@@ -677,31 +727,38 @@ function pcCDIM(){
                 if(DL.checked && DR.checked){
                     magnitud1 = winCDIMvalorA.value * winCDIMvalorC.value;
                     magnitud2 = winCDIMvalorW.value * winCDIMvalorZ.value;
+                    IL.disabled = true;
+                    IR.disabled = true;
                 }else if(IL.checked && IR.checked){
                     magnitud1 = winCDIMvalorW.value * winCDIMvalorZ.value;
                     magnitud2 = winCDIMvalorA.value * winCDIMvalorC.value;
+                    DL.disabled = true;
+                    DR.disabled = true;
                 }else if(DL.checked && IR.checked){
                     magnitud1 = winCDIMvalorA.value * winCDIMvalorZ.value;
                     magnitud2 = winCDIMvalorW.value * winCDIMvalorC.value;
+                    IL.disabled = true;
+                    DR.disabled = true;
                 }else if(IL.checked && DR.checked){
                     magnitud1 = winCDIMvalorW.value * winCDIMvalorC.value;
                     magnitud2 = winCDIMvalorA.value * winCDIMvalorZ.value;
+                    DL.disabled = true;
+                    IR.disabled = true;
                 };
                 resultR3C = winCDIMvalorY.value * magnitud1 / magnitud2;
                 pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
                 winCDIMvalorB.value = resultR3C.toFixed(2);
                 winCDIMvalorB.classList.add("resultColor");
+                disableWindow();
             }else{
                 pResultPC.innerHTML = "Solo 1 incognita (X) es permitida,<br>y combinaciones de (D) e (I)";
             }
         }else{
             pResultPC.innerHTML = "Elegir su relacion directa (D)<br>o inversa (I) respecto a (X)";
         };
-    }else if(winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0){
+    }else if(winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorC.value == "" && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0){
         XL.disabled = true;
-
         XC.disabled = true;
-        
         XR.checked = true;
         DR.disabled = true;
         IR.disabled = true;
@@ -711,20 +768,29 @@ function pcCDIM(){
                 if(DL.checked && DC.checked){
                     magnitud1 = winCDIMvalorA.value * winCDIMvalorB.value;
                     magnitud2 = winCDIMvalorW.value * winCDIMvalorY.value;
+                    IL.disabled = true;
+                    IC.disabled = true;
                 }else if(IL.checked && IC.checked){
                     magnitud1 = winCDIMvalorW.value * winCDIMvalorY.value;
                     magnitud2 = winCDIMvalorA.value * winCDIMvalorB.value;
+                    DL.disabled = true;
+                    DC.disabled = true;
                 }else if(DL.checked && IC.checked){
                     magnitud1 = winCDIMvalorA.value * winCDIMvalorY.value;
                     magnitud2 = winCDIMvalorW.value * winCDIMvalorB.value;
+                    IL.disabled = true;
+                    DC.disabled = true;
                 }else if(IL.checked && DC.checked){
                     magnitud1 = winCDIMvalorW.value * winCDIMvalorB.value;
                     magnitud2 = winCDIMvalorA.value * winCDIMvalorY.value;
+                    DL.disabled = true;
+                    IC.disabled = true;
                 };
                 resultR3C = winCDIMvalorZ.value * magnitud1 / magnitud2;
                 pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
                 winCDIMvalorC.value = resultR3C.toFixed(2);
                 winCDIMvalorC.classList.add("resultColor");
+                disableWindow();
             }else{
                 pResultPC.innerHTML = "Solo 1 incognita (X) es permitida,<br>y combinaciones de (D) e (I)";
             }
@@ -735,11 +801,6 @@ function pcCDIM(){
     }else{
         pResultPC.innerHTML = "Introduce 5 valores conocidos<br>y deja vacia la incognita";
     };
-    winCDIMvalorA.disabled = true;
-    winCDIMvalorB.disabled = true;
-    winCDIMvalorC.disabled = true;
-    winCDIMvalorW.disabled = true;
-    winCDIMvalorY.disabled = true;
-    winCDIMvalorZ.disabled = true;
 };
+
 renderIntroduccion();

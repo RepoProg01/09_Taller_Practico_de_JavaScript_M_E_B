@@ -355,7 +355,16 @@ span {
     border: 1px solid var(--white);
     color: var(--white);
 }
-
+.btnInactive {
+    width: 145px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid var(--blue);
+    background: var(--secundario);
+    color: var(--blue);
+    font-size: 18px;
+    font-weight: 700;
+}
 .winPosition {
     display: flex;
     gap: 5px;

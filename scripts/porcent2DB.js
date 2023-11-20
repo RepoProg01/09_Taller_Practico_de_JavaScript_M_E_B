@@ -1,5 +1,6 @@
+//-------------Array-----------------
 const introPorcentajeArray = [];
-
+//--------------Intro----------------
 const introPorcentaje = {
     defImg: "../assets/porcentaje_img.svg",
     defTitulo: "Introduccion",
@@ -14,6 +15,7 @@ const introPorcentaje = {
     defGuiaTitulo: "Forma de uso :",
     defGuia: "Con el boton de <span>Mas..</span> mostrara calculadoras y ejemplos de diferentes casos de la regla de tres,<br>Con el boton <span>Menu</span> regrezaras al menu principal."
 };
+//-----------Calculadoras------------
 const RD3SDICalculadoraObj = {
     definicion: "on",
     radiosC: "off",
@@ -55,7 +57,6 @@ const RD3CDIMCalculadoraObj = {
     titleFig: "Instrucciones",
     imgFig: "../assets/calculadora_compuesta.png",
     secMid: "sectionPCmiddleC",
-
     titlePorcentaje: "Calculadora Compuesta",
     formulaPorcentaje: "Inserta los 5 datos conocidos",
     lista: [
@@ -157,6 +158,7 @@ const RD3SDescCalculadoraObj = {
     funcionPorcentaje: "pcSDI",
     clearWindow: "clearSDI"
 };
+//--------------Ejemplos--------------
 const RD3SimpleDirectaObj = {
     definicion: "off",
     id: "ejemplo_simple_directa",
@@ -197,7 +199,7 @@ const RD3CompuestaMixtaObj = {
     imgFig2: "../assets/compuesta_mixta_bottom.png",
     titlePorcentaje: "Procedimiento"
 };
-
+//-----------Agregar al array---------
 introPorcentajeArray.push(introPorcentaje);
 introPorcentajeArray.push(RD3SDICalculadoraObj);
 introPorcentajeArray.push(RD3CDIMCalculadoraObj);
@@ -207,6 +209,4 @@ introPorcentajeArray.push(RD3SimpleInversaObj);
 introPorcentajeArray.push(RD3CompuestaDirectaObj);
 introPorcentajeArray.push(RD3CompuestaInversaObj);
 introPorcentajeArray.push(RD3CompuestaMixtaObj);
-
-
 
