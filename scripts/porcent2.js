@@ -24,7 +24,7 @@ const seleccion = document.querySelectorAll(".seleccion");
 seleccion.forEach(element => {
     element.addEventListener("click", selecFnc);
 });
-
+//---------Funcion de seleccion en menu----------
 function selecFnc(event){
     listIndex.classList.remove("listIndexShow");
     const figura = event.target.innerText.toLowerCase();
@@ -45,8 +45,10 @@ function selecFnc(event){
     // window.scroll(0, topOffset);
     // blurFnc();
 };
+//---------Funciones de borrado, activacion y desactivacion de bentanas y radios----------
 function borrar(){
     loadVar = "";
+    incognitaSC = "";
     sectionPCmiddle.innerHTML = "";
     pResultPC.innerHTML = "";
     pResultPC.classList.remove(pResultPCReg);
@@ -54,60 +56,104 @@ function borrar(){
     btnClearPC.classList.remove(btnClearPCReg);
     containerFiguras.innerHTML = "";
     divPorcentaje.innerHTML = "";
+    btnResultPC.disabled = false;
+    btnResultPC.classList.remove("btnInactive");
 };
 function disableWindow(){
-    winCDIMvalorA.disabled = true;
-    winCDIMvalorB.disabled = true;
-    winCDIMvalorC.disabled = true;
-    winCDIMvalorW.disabled = true;
-    winCDIMvalorY.disabled = true;
-    winCDIMvalorZ.disabled = true;
+    if(incognitaSC == "S"){
+        winA.disabled = true;
+        winB.disabled = true;
+        winW.disabled = true;
+        winY.disabled = true;
+    }else if(incognitaSC == "C"){
+        winA.disabled = true;
+        winB.disabled = true;
+        winC.disabled = true;
+        winW.disabled = true;
+        winY.disabled = true;
+        winZ.disabled = true;
+    };
+
 };
 function enableWindow(){
-    winCDIMvalorA.disabled = false;
-    winCDIMvalorB.disabled = false;
-    winCDIMvalorC.disabled = false;
-    winCDIMvalorW.disabled = false;
-    winCDIMvalorY.disabled = false;
-    winCDIMvalorZ.disabled = false;
+    if(incognitaSC == "S"){
+        winA.disabled = false;
+        winB.disabled = false;
+        winW.disabled = false;
+        winY.disabled = false;
+    }else if(incognitaSC == "C"){
+        winA.disabled = false;
+        winB.disabled = false;
+        winC.disabled = false;
+        winW.disabled = false;
+        winY.disabled = false;
+        winZ.disabled = false;
+    };
 };
 function clearInputsWindows(){
-    winCDIMvalorA.value = "";
-    winCDIMvalorB.value = "";
-    winCDIMvalorC.value = "";
-    winCDIMvalorW.value = "";
-    winCDIMvalorY.value = "";
-    winCDIMvalorZ.value = "";
+    if(incognitaSC == "S"){
+        winA.value = "";
+        winB.value = "";
+        winW.value = "";
+        winY.value = "";
+    }else if(incognitaSC == "C"){
+        winA.value = "";
+        winB.value = "";
+        winC.value = "";
+        winW.value = "";
+        winY.value = "";
+        winZ.value = "";
+    }
+
 };
 function clearColor(){
-    winCDIMvalorA.classList.remove("resultColor");
-    winCDIMvalorB.classList.remove("resultColor");
-    winCDIMvalorC.classList.remove("resultColor");
-    winCDIMvalorW.classList.remove("resultColor");
-    winCDIMvalorY.classList.remove("resultColor");
-    winCDIMvalorZ.classList.remove("resultColor");
+    if(incognitaSC == "S"){
+        winA.classList.remove("resultColor");
+        winB.classList.remove("resultColor");
+        winW.classList.remove("resultColor");
+        winY.classList.remove("resultColor");
+    }else if(incognitaSC == "C"){
+        winA.classList.remove("resultColor");
+        winB.classList.remove("resultColor");
+        winC.classList.remove("resultColor");
+        winW.classList.remove("resultColor");
+        winY.classList.remove("resultColor");
+        winZ.classList.remove("resultColor");
+    }
+
 };
 function clearRadios(){
-    XL.checked = false;
-    DL.checked = false;
-    IL.checked = false;
-    XC.checked = false;
-    DC.checked = false;
-    IC.checked = false;
-    XR.checked = false;
-    DR.checked = false;
-    IR.checked = false;
+    if(incognitaSC == "S"){
+        SD.checked = false;
+        SI.checked = false;
+    }else if(incognitaSC == "C"){
+        XL.checked = false;
+        DL.checked = false;
+        IL.checked = false;
+        XC.checked = false;
+        DC.checked = false;
+        IC.checked = false;
+        XR.checked = false;
+        DR.checked = false;
+        IR.checked = false;
+    }
 };
 function enableRadios(){
-    XL.disabled = false;
-    DL.disabled = false;
-    IL.disabled = false;
-    XC.disabled = false;
-    DC.disabled = false;
-    IC.disabled = false;
-    XR.disabled = false;
-    DR.disabled = false;
-    IR.disabled = false;
+    if(incognitaSC == "S"){
+        SD.disabled = false;
+        SI.disabled = false;
+    }else if(incognitaSC == "C"){
+        XL.disabled = false;
+        DL.disabled = false;
+        IL.disabled = false;
+        XC.disabled = false;
+        DC.disabled = false;
+        IC.disabled = false;
+        XR.disabled = false;
+        DR.disabled = false;
+        IR.disabled = false;
+    };
+
 };
 function disableButtonResultado(){
     btnResultPC.disabled = true;
@@ -119,37 +165,209 @@ function enableButtonResultado(){
     btnResultPC.classList.remove("btnInactive");
     btnResultPC.classList.add("btnResult");
 };
-
-function clearSDI(){
-    SD.checked = false;
-    SI.checked = false;
-    
-    winSDIvalorA.value = "";
-    winSDIvalorB.value = "";
-    winSDIvalorC.value = "";
-    winSDIvalorD.value = "";
-
-    winSDIvalorA.classList.remove("resultColor");
-    winSDIvalorB.classList.remove("resultColor");
-    winSDIvalorC.classList.remove("resultColor");
-    winSDIvalorD.classList.remove("resultColor");
-
-    pResultPC.innerHTML = "";
-};
-function clearCDIM(){
+function clearS_C(){
     clearRadios();
     enableRadios();
     clearColor();
     clearInputsWindows();
     enableWindow();
     enableButtonResultado();
-    pResultPC.innerHTML = "";
+    pResultPC.innerHTML = ""; 
 };
 
+//-----------Funciones de condicionales------------
+function inc_Simple(){
+    if(SD.checked || SI.checked){
+        //---------------------------------------
+        if(winA.value == "" && winB.value > 0 && winW.value > 0 && winY.value > 0){
+            incognitaA();
+        //---------------------------------------
+        }else if(winA.value > 0 && winB.value == "" && winW.value > 0 && winY.value > 0){
+            incognitaB();
+        //---------------------------------------
+        }else if(winA.value > 0 && winC.value > 0 && winW.value == "" && winA.value > 0){
+            incognitaW();
+        //---------------------------------------
+        }else if(winA.value > 0 && winB.value > 0 && winW.value > 0 && winY.value == ""){
+            incognitaY();
+        //---------------------------------------
+        }else{
+            pResultPC.innerHTML = "Solo 1 incognita (X) es permitida,<br>y combinaciones de (D) e (I)";
+        }
+    }else{
+        pResultPC.innerHTML = "Elegir directa o inversa";
+    };
+        // if(incognitaSC == "S"){
+    //     if(SD.checked){
+    //         result = Number((winA.value * winD.value) / winB.value);
+    //     }else if(SI.checked){
+    //         result = Number((winA.value * winB.value) / winD.value);
+    //     };
+    //     winC.classList.add("resultColor");
+    //     winC.value = result;
+    //     pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
+   
+    // }else if(incognitaSC == "C"){
+    // if(incognitaSC == "S"){
+    //     if(SD.checked){
+    //         result = Number((winA.value * winY.value) / winB.value);
+    //     }else if(SI.checked){
+    //         result = Number((winA.value * winB.value) / winY.value);
+    //     };
+    //     winW.classList.add("resultColor");
+    //     winW.value = result;
+    //     pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
+    // if(incognitaSC == "S"){
+    //     if(SD.checked){
+    //         result = Number((winC.value * winB.value) / winD.value);
+    //     }else if(SI.checked){
+    //         result = Number((winC.value * winD.value) / winB.value);
+    //     };
+    //     winA.classList.add("resultColor");
+    //     winA.value = result;
+    //     pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
+};
+
+//------------------------------Operaciones Compuesta----------------------------
+function incognitaAW (){
+    if(DC.checked && DR.checked){
+        magnitud1 = winB.value * winC.value;
+        magnitud2 = winY.value * winZ.value;
+        IC.disabled = true;
+        IR.disabled = true;
+    }else if(IC.checked && IR.checked){
+        magnitud1 = winY.value * winZ.value;
+        magnitud2 = winB.value * winC.value;
+        DC.disabled = true;
+        DR.disabled = true;
+    }else if(DC.checked && IR.checked){
+        magnitud1 = winB.value * winZ.value;
+        magnitud2 = winY.value * winC.value;
+        IC.disabled = true;
+        DR.disabled = true;
+    }else if(IC.checked && DR.checked){
+        magnitud1 = winY.value * winC.value;
+        magnitud2 = winB.value * winZ.value;
+        DC.disabled = true;
+        IR.disabled = true;
+    };
+    if(winA.value == ""){
+        resultR3C = winW.value * magnitud1 / magnitud2;
+        pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
+        winA.value = resultR3C.toFixed(2);
+        winA.classList.add("resultColor");
+        disableWindow();
+        disableButtonResultado();
+    }else if(winW.value == ""){
+        resultR3C = winA.value * magnitud2 / magnitud1;
+        pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
+        winW.value = resultR3C.toFixed(2);
+        winW.classList.add("resultColor");
+        disableWindow();
+        disableButtonResultado(); 
+    };
+};
+function incognitaBY(){
+    if(DL.checked && DR.checked){
+        magnitud1 = winA.value * winC.value;
+        magnitud2 = winW.value * winZ.value;
+        IL.disabled = true;
+        IR.disabled = true;
+    }else if(IL.checked && IR.checked){
+        magnitud1 = winW.value * winZ.value;
+        magnitud2 = winA.value * winC.value;
+        DL.disabled = true;
+        DR.disabled = true;
+    }else if(DL.checked && IR.checked){
+        magnitud1 = winA.value * winZ.value;
+        magnitud2 = winW.value * winC.value;
+        IL.disabled = true;
+        DR.disabled = true;
+    }else if(IL.checked && DR.checked){
+        magnitud1 = winW.value * winC.value;
+        magnitud2 = winA.value * winZ.value;
+        DL.disabled = true;
+        IR.disabled = true;
+    };
+    if(winB.value == ""){
+        resultR3C = winY.value * magnitud1 / magnitud2;
+        pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
+        winB.value = resultR3C.toFixed(2);
+        winB.classList.add("resultColor");
+        disableWindow();
+        disableButtonResultado();
+    }else if(winY.value == ""){
+        resultR3C = winB.value * magnitud2 / magnitud1;
+        pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
+        winY.value = resultR3C.toFixed(2);
+        winY.classList.add("resultColor");
+        disableWindow();
+        disableButtonResultado(); 
+    };
+};
+function incognitaCZ(){
+    if(DL.checked && DC.checked){
+        magnitud1 = winA.value * winB.value;
+        magnitud2 = winW.value * winY.value;
+        IL.disabled = true;
+        IC.disabled = true;
+    }else if(IL.checked && IC.checked){
+        magnitud1 = winW.value * winY.value;
+        magnitud2 = winA.value * winB.value;
+        DL.disabled = true;
+        DC.disabled = true;
+    }else if(DL.checked && IC.checked){
+        magnitud1 = winA.value * winY.value;
+        magnitud2 = winW.value * winB.value;
+        IL.disabled = true;
+        DC.disabled = true;
+    }else if(IL.checked && DC.checked){
+        magnitud1 = winW.value * winB.value;
+        magnitud2 = winA.value * winY.value;
+        DL.disabled = true;
+        IC.disabled = true;
+    };
+    if(winC.value == ""){
+        resultR3C = winZ.value * magnitud1 / magnitud2;
+        pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
+        winC.value = resultR3C.toFixed(2);
+        winC.classList.add("resultColor");
+        disableWindow();
+        disableButtonResultado();
+    }else if(winZ.value == ""){
+        resultR3C = winC.value * magnitud2 / magnitud1;
+        pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
+        winZ.value = resultR3C.toFixed(2);
+        winZ.classList.add("resultColor");
+        disableWindow();
+        disableButtonResultado();
+    };
+};
+//------------------Desactivar radios en relacion a X compuesta-------------------
+function leftDisabledR(){
+    XL.checked = true;
+    DL.disabled = true;
+    IL.disabled = true;
+    XC.disabled = true;
+    XR.disabled = true;
+};
+function centerDisabledR(){
+    XL.disabled = true;
+    XC.checked = true;
+    DC.disabled = true;
+    IC.disabled = true;
+    XR.disabled = true;
+};
+function rightDisabledR(){
+    XL.disabled = true;
+    XC.disabled = true;
+    XR.checked = true;
+    DR.disabled = true;
+    IR.disabled = true;
+};
 // ================================= Constantes ===================================
 // =========================== Constantes Container fig ===========================
 const containerFiguras = document.querySelector(".containerFiguras");
-
 // -------------------------------- containerIntro --------------------------------
 const containerIntro = document.createElement("section");
 // ---------------------------------- sectionDtop ---------------------------------
@@ -186,12 +404,6 @@ const pformulaPC = document.createElement("p");
 const sectionPCmiddleTop = document.createElement("section");
 const sectionPCmiddle = document.createElement("section");
 
-const divRadioPC = document.createElement("div");
-const inputRadioPCD = document.createElement("input");
-const inputRadioPCI = document.createElement("input");
-const inputLabelPCD = document.createElement("label");
-const inputLabelPCI = document.createElement("label");
-
 const divRadioPCCL = document.createElement("div");
 const divRadioPCCC = document.createElement("div");
 const divRadioPCCR = document.createElement("div");
@@ -210,14 +422,22 @@ const inputLabelPC2M = document.createElement("label");
 // -------------------------------- sectionPbottom --------------------------------
 const sectionPC2bottom = document.createElement("section");
 const btnClearPC = document.createElement("button");
-
-const definicion = null;
-
+// -------------------------------- inputs windows --------------------------------
+let winA = null;
+let winB = null;
+let winC = null;
+let winW = null;
+let winY = null;
+let winZ = null;
+// ----------------
 let loadVar = null;
+// -----------------Magnitudes-----------------
 let magnitud1 = null;
 let magnitud2 = null;
+// ----------window mensaje resultado----------
 let resultR3C = null;
-
+// ----------------inputs radios---------------
+// ------------------compuesta-----------------
 let XL = null;
 let DL = null;
 let IL = null;
@@ -227,30 +447,19 @@ let IC = null;
 let XR = null;
 let DR = null;
 let IR = null;
-
-let winCDIMvalorA = null;
-let winCDIMvalorB = null;
-let winCDIMvalorC = null;
-let winCDIMvalorW = null;
-let winCDIMvalorY = null;
-let winCDIMvalorZ = null;
-
+// ------------------simple-----------------
+let SD = null;
+let SI = null;
 // =================================== variables ==================================
 let btnResultPCReg;
 let btnClearPCReg;
 let pResultPCReg;
 let rutaFPC;
 let rutaFClear;
-let classTemp;
+let classSimpleCompuesta;
 
-let SD = null;
-let SI = null;
-
-let winSDIvalorA = null;
-let winSDIvalorB = null;
-let winSDIvalorC = null;
-let winSDIvalorD = null;
-
+let incognitaSC;
+//-----------Funciones renderizado-----------
 function renderIntroduccion(){
     borrar();
     containerFiguras.appendChild(containerIntro);
@@ -324,20 +533,28 @@ function renderFigura(objeto){
         sectionPCmiddleTop.classList.add("sectionPCmiddleTop");
 
         if(objeto.radiosC == "off"){
+            const divRadioPC = document.createElement("div");
             divRadioPC.classList.add("divRadioPC");
+
+            const inputRadioPCD = document.createElement("input");
             inputRadioPCD.setAttribute("type", "radio");
             inputRadioPCD.setAttribute("name", "radPCDI");
-            inputRadioPCD.setAttribute("id", "radPCD"); 
+            inputRadioPCD.setAttribute("id", "radPCD");
+            const inputLabelPCD = document.createElement("label");
             inputLabelPCD.setAttribute("for", "radPCD");
             inputLabelPCD.innerHTML = "directa";
+            const inputRadioPCI = document.createElement("input");
             inputRadioPCI.setAttribute("type", "radio");
             inputRadioPCI.setAttribute("name", "radPCDI");
             inputRadioPCI.setAttribute("id", "radPCI");
+            const inputLabelPCI = document.createElement("label");
             inputLabelPCI.setAttribute("for", "radPCI");
             inputLabelPCI.innerHTML = "inversa";
+
             divRadioPC.append(inputRadioPCD, inputLabelPCD,  inputRadioPCI, inputLabelPCI);
             sectionPCmiddleTop.appendChild(divRadioPC);
             loadVar = "SDI";
+            incognitaSC = "S";
         }else if(objeto.radiosC == "on"){
             objeto.lista.forEach(datos =>{
                 // radio y label X incognita
@@ -383,10 +600,11 @@ function renderFigura(objeto){
                 sectionPCmiddleTop.append(divCont);
             });
             loadVar = "CDIM";
+            incognitaSC = "C";
         };
-        sectionPCmiddle.classList.remove(classTemp);
-        classTemp = objeto.secMid;
-        sectionPCmiddle.classList.toggle(objeto.secMid);
+        sectionPCmiddle.classList.remove(classSimpleCompuesta);
+        classSimpleCompuesta = objeto.secMid;
+        sectionPCmiddle.classList.add(classSimpleCompuesta);
 
         objeto.inputPorcentaje.forEach(winInput => {
             const divWin = document.createElement("div");
@@ -396,10 +614,12 @@ function renderFigura(objeto){
             labelArea.setAttribute("for", winInput.inputId);
             labelArea.innerHTML = winInput.inputLabel;
             divWin.appendChild(labelArea);
+
             const inputHeightWindow = document.createElement("input");
             inputHeightWindow.setAttribute("type", "number");
             inputHeightWindow.setAttribute("id", winInput.inputId);
             inputHeightWindow.classList.add("inputStyle");
+
             divWin.appendChild(inputHeightWindow);
             sectionPCmiddle.appendChild(divWin);
         });
@@ -409,7 +629,6 @@ function renderFigura(objeto){
 
         btnResultPCReg = objeto.btnClPC;
         btnResultPC.classList.add("btnResult", btnResultPCReg);
-        btnResultPC.classList.add("btnResult");
         btnResultPC.innerHTML = "Resultado";
 
         btnClearPCReg = objeto.btn2ClPC;
@@ -441,15 +660,15 @@ function renderFigura(objeto){
         SD = document.querySelector("#radPCD");
         SI = document.querySelector("#radPCI");
         
-        winSDIvalorA = document.querySelector("#winSDIvalorA");
-        winSDIvalorB = document.querySelector("#winSDIvalorB");
-        winSDIvalorC = document.querySelector("#winSDIvalorC");
-        winSDIvalorD = document.querySelector("#winSDIvalorD");
+        winA = document.querySelector("#winSDIvalorA");
+        winB = document.querySelector("#winSDIvalorB");
+        winW = document.querySelector("#winSDIvalorW");
+        winY = document.querySelector("#winSDIvalorY");
         
-        winSDIvalorA.classList.remove("resultColor");
-        winSDIvalorB.classList.remove("resultColor");
-        winSDIvalorC.classList.remove("resultColor");
-        winSDIvalorD.classList.remove("resultColor");
+        winA.classList.remove("resultColor");
+        winB.classList.remove("resultColor");
+        winW.classList.remove("resultColor");
+        winY.classList.remove("resultColor");
     }else if(loadVar == "CDIM"){
         XL = document.querySelector("#radPCLX");
         DL = document.querySelector("#radPCLD");
@@ -461,343 +680,80 @@ function renderFigura(objeto){
         DR = document.querySelector("#radPCRD");
         IR = document.querySelector("#radPCRI");
         
-        winCDIMvalorA = document.querySelector("#winCDIMvalorA");
-        winCDIMvalorB = document.querySelector("#winCDIMvalorB");
-        winCDIMvalorC = document.querySelector("#winCDIMvalorC");
-        winCDIMvalorW = document.querySelector("#winCDIMvalorW");
-        winCDIMvalorY = document.querySelector("#winCDIMvalorY");
-        winCDIMvalorZ = document.querySelector("#winCDIMvalorZ");
+        winA = document.querySelector("#winCDIMvalorA");
+        winB = document.querySelector("#winCDIMvalorB");
+        winC = document.querySelector("#winCDIMvalorC");
+        winW = document.querySelector("#winCDIMvalorW");
+        winY = document.querySelector("#winCDIMvalorY");
+        winZ = document.querySelector("#winCDIMvalorZ");
     
         XL.checked = false;
         XC.checked = false;
         XR.checked = false;
     
-        winCDIMvalorA.classList.remove("resultColor");
-        winCDIMvalorB.classList.remove("resultColor");
-        winCDIMvalorC.classList.remove("resultColor");
-        winCDIMvalorW.classList.remove("resultColor");
-        winCDIMvalorY.classList.remove("resultColor");
-        winCDIMvalorZ.classList.remove("resultColor");
+        winA.classList.remove("resultColor");
+        winB.classList.remove("resultColor");
+        winC.classList.remove("resultColor");
+        winW.classList.remove("resultColor");
+        winY.classList.remove("resultColor");
+        winZ.classList.remove("resultColor");
     }
 };
 
-// ------------------------ Porcentajes --------------------------
-// -------- regla de tres simple directa y simple inversa --------
-
+// ----------Funciones Logica de calculadoras------------
 function pcSDI(){
-    // SD = document.querySelector("#radPCD");
-    // SI = document.querySelector("#radPCI");
-    
-    // winSDIvalorA = document.querySelector("#winSDIvalorA");
-    // winSDIvalorB = document.querySelector("#winSDIvalorB");
-    // winSDIvalorC = document.querySelector("#winSDIvalorC");
-    // winSDIvalorD = document.querySelector("#winSDIvalorD");
-    
-    // winSDIvalorA.classList.remove("resultColor");
-    // winSDIvalorB.classList.remove("resultColor");
-    // winSDIvalorC.classList.remove("resultColor");
-    // winSDIvalorD.classList.remove("resultColor");
-
-    if(inputRadioPCD.checked || inputRadioPCI.checked){
-        let result = null;
-        if(winSDIvalorA.value > 0 && winSDIvalorB.value > 0 && winSDIvalorC.value > 0 && winSDIvalorD.value > 0){
-            pResultPC.innerHTML = "Se requiren solo 3 valores";
-        }else{
-            if(winSDIvalorA.value > 0 && winSDIvalorB.value > 0 && winSDIvalorC.value > 0 && (winSDIvalorD.value == "" )){
-                if(inputRadioPCD.checked){
-                    result = Number((winSDIvalorB.value * winSDIvalorC.value) / winSDIvalorA.value);
-                }else if(inputRadioPCI.checked){
-                    result = Number((winSDIvalorA.value * winSDIvalorB.value) / winSDIvalorC.value);
-                };
-                winSDIvalorD.classList.add("resultColor");
-                winSDIvalorD.value = result;
-                pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
-            }else if(winSDIvalorA.value > 0 && winSDIvalorB.value > 0 && winSDIvalorD.value > 0 && (winSDIvalorC.value == "" )){
-                if(inputRadioPCD.checked){
-                    result = Number((winSDIvalorA.value * winSDIvalorD.value) / winSDIvalorB.value);
-                }else if(inputRadioPCI.checked){
-                    result = Number((winSDIvalorA.value * winSDIvalorB.value) / winSDIvalorD.value);
-                };
-                winSDIvalorC.classList.add("resultColor");
-                winSDIvalorC.value = result;
-                pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
-            }else if(winSDIvalorA.value > 0 && winSDIvalorC.value > 0 && winSDIvalorD.value > 0 && (winSDIvalorB.value == "" )){
-                if(inputRadioPCD.checked){
-                    result = Number((winSDIvalorD.value * winSDIvalorA.value) / winSDIvalorC.value);
-                }else if(inputRadioPCI.checked){
-                    result = Number((winSDIvalorD.value * winSDIvalorC.value) / winSDIvalorA.value);
-                };
-                winSDIvalorB.classList.add("resultColor");
-                winSDIvalorB.value = result;
-                pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
-            }else if(winSDIvalorB.value > 0 && winSDIvalorC.value > 0 && winSDIvalorD.value > 0 && (winSDIvalorA.value == "" )){
-                if(inputRadioPCD.checked){
-                    result = Number((winSDIvalorC.value * winSDIvalorB.value) / winSDIvalorD.value);
-                }else if(inputRadioPCI.checked){
-                    result = Number((winSDIvalorC.value * winSDIvalorD.value) / winSDIvalorB.value);
-                };
-                winSDIvalorA.classList.add("resultColor");
-                winSDIvalorA.value = result;
-                pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
-            }else{
-                pResultPC.innerHTML = "Se requiren los 3 valores conocidos";
-            }
-        }
+    if(winA.value == "" && winB.value > 0 && winW.value > 0 && (winY.value > 0 )){
+        inc_Simple();
+    }else if(winA.value > 0 && winB.value == "" && winW.value > 0 && winY.value > 0){
+        inc_Simple();
+    }else if(winA.value > 0 && winB.value > 0 && winW.value == "" && winY.value > 0){
+        inc_Simple();
+    }else if(winA.value > 0 && winB.value > 0 && winW.value > 0 && winY.value == ""){
+        inc_Simple();
     }else{
-        pResultPC.innerHTML = "Elegir directa o inversa";
-    }
-}
+        pResultPC.innerHTML = "Introduce 3 valores conocidos<br>y deja vacia la incognita.";
+    };
+};
 function pcCDIM(){
-
-    if(winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value == "" && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0){
-        XL.checked = true;
-        DL.disabled = true;
-        IL.disabled = true;
-        XC.disabled = true;
-        XR.disabled = true;
-
+    //-------------------------Window A y W----------------------------
+    if((winA.value == "" && winB.value > 0 && winC.value > 0 && winW.value > 0 && winY.value > 0 && winZ.value > 0) || (winA.value > 0 && winB.value > 0 && winC.value > 0 && winW.value == "" && winY.value > 0 && winZ.value > 0)){
         if((XL.checked || DL.checked || IL.checked) && (XC.checked || DC.checked || IC.checked) && (XR.checked || DR.checked || IR.checked)){
             if((XL.checked && DC.checked && DR.checked) || (XL.checked && IC.checked && IR.checked) || (XL.checked && DC.checked && IR.checked) || (XL.checked && IC.checked && DR.checked)){
-                if(DC.checked && DR.checked){
-                    magnitud1 = winCDIMvalorB.value * winCDIMvalorC.value;
-                    magnitud2 = winCDIMvalorY.value * winCDIMvalorZ.value;
-                    IC.disabled = true;
-                    IR.disabled = true;
-                }else if(IC.checked && IR.checked){
-                    magnitud1 = winCDIMvalorY.value * winCDIMvalorZ.value;
-                    magnitud2 = winCDIMvalorB.value * winCDIMvalorC.value;
-                    DC.disabled = true;
-                    DR.disabled = true;
-                }else if(DC.checked && IR.checked){
-                    magnitud1 = winCDIMvalorB.value * winCDIMvalorZ.value;
-                    magnitud2 = winCDIMvalorY.value * winCDIMvalorC.value;
-                    IC.disabled = true;
-                    DR.disabled = true;
-                }else if(IC.checked && DR.checked){
-                    magnitud1 = winCDIMvalorY.value * winCDIMvalorC.value;
-                    magnitud2 = winCDIMvalorB.value * winCDIMvalorZ.value;
-                    DC.disabled = true;
-                    IR.disabled = true;
-                };
-                resultR3C = winCDIMvalorA.value * magnitud2 / magnitud1;
-                pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
-                winCDIMvalorW.value = resultR3C.toFixed(2);
-                winCDIMvalorW.classList.add("resultColor");
-                disableWindow();
-                disableButtonResultado();
+                incognitaAW ();
+                leftDisabledR();
             }else{
-                pResultPC.innerHTML = "Solo 1 incognita (X) es permitida,<br>y combinaciones de (D) e (I)";
-            }
+                leftDisabledR();
+                pResultPC.innerHTML = "Solo una incognita (X) es permitida<br>mas una combinacion de (D) e (I)";
+            };
         }else{
             pResultPC.innerHTML = "Elegir su relacion directa (D)<br>o inversa (I) respecto a (X)";
         };
-    }else if(winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value == "" && winCDIMvalorZ.value > 0){
-        XL.disabled = true;
-        XC.checked = true;
-        DC.disabled = true;
-        IC.disabled = true;
-        XR.disabled = true;
-
+    //-------------------------Window B y Y----------------------------
+    }else if((winA.value > 0 && winB.value == "" && winC.value > 0 && winW.value > 0 && winY.value > 0 && winZ.value > 0) || (winA.value > 0 && winB.value > 0 && winC.value > 0 && winW.value > 0 && winY.value == "" && winZ.value > 0)){
         if((XL.checked || DL.checked || IL.checked) && (XC.checked || DC.checked || IC.checked) && (XR.checked || DR.checked || IR.checked)){
             if((DL.checked && XC.checked && DR.checked) || (IL.checked && XC.checked && IR.checked) || (DL.checked && XC.checked && IR.checked) || (IL.checked && XC.checked && DR.checked)){
-                if(DL.checked && DR.checked){
-                    magnitud1 = winCDIMvalorA.value * winCDIMvalorC.value;
-                    magnitud2 = winCDIMvalorW.value * winCDIMvalorZ.value;
-                    IL.disabled = true;
-                    IR.disabled = true;
-                }else if(IL.checked && IR.checked){
-                    magnitud1 = winCDIMvalorW.value * winCDIMvalorZ.value;
-                    magnitud2 = winCDIMvalorA.value * winCDIMvalorC.value;
-                    DL.disabled = true;
-                    DR.disabled = true;
-                }else if(DL.checked && IR.checked){
-                    magnitud1 = winCDIMvalorA.value * winCDIMvalorZ.value;
-                    magnitud2 = winCDIMvalorW.value * winCDIMvalorC.value;
-                    IL.disabled = true;
-                    DR.disabled = true;
-                }else if(IL.checked && DR.checked){
-                    magnitud1 = winCDIMvalorW.value * winCDIMvalorC.value;
-                    magnitud2 = winCDIMvalorA.value * winCDIMvalorZ.value;
-                    DL.disabled = true;
-                    IR.disabled = true;
-                };
-                resultR3C = winCDIMvalorB.value * magnitud2 / magnitud1;
-                pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
-                winCDIMvalorY.value = resultR3C.toFixed(2);
-                winCDIMvalorY.classList.add("resultColor");
-                disableWindow();
+                incognitaBY ();
+                centerDisabledR();
             }else{
-                pResultPC.innerHTML = "Solo 1 incognita (X) es permitida,<br>y combinaciones de (D) e (I)";
-            }
+                centerDisabledR();
+                pResultPC.innerHTML = "Solo una incognita (X) es permitida<br>mas una combinacion de (D) e (I)";
+            };
         }else{
             pResultPC.innerHTML = "Elegir su relacion directa (D)<br>o inversa (I) respecto a (X)";
         };
-
-    }else if(winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value == ""){
-        XL.disabled = true;
-        XC.disabled = true;
-        XR.checked = true;
-        DR.disabled = true;
-        IR.disabled = true;
-
+    //-------------------------Window C y Z----------------------------
+    }else if((winA.value > 0 && winB.value > 0 && winC.value == ""  && winW.value > 0 && winY.value > 0 && winZ.value > 0) || (winA.value > 0 && winB.value > 0 && winC.value > 0 && winW.value > 0 && winY.value > 0 && winZ.value == "")){
         if((XL.checked || DL.checked || IL.checked) && (XC.checked || DC.checked || IC.checked) && (XR.checked || DR.checked || IR.checked)){
             if((DL.checked && DC.checked && XR.checked) || (IL.checked && IC.checked && XR.checked) || (DL.checked && IC.checked && XR.checked) || (IL.checked && DC.checked && XR.checked)){
-                if(DL.checked && DC.checked){
-                    magnitud1 = winCDIMvalorA.value * winCDIMvalorB.value;
-                    magnitud2 = winCDIMvalorW.value * winCDIMvalorY.value;
-                    IL.disabled = true;
-                    IC.disabled = true;
-                }else if(IL.checked && IC.checked){
-                    magnitud1 = winCDIMvalorW.value * winCDIMvalorY.value;
-                    magnitud2 = winCDIMvalorA.value * winCDIMvalorB.value;
-                    DL.disabled = true;
-                    DC.disabled = true;
-                }else if(DL.checked && IC.checked){
-                    magnitud1 = winCDIMvalorA.value * winCDIMvalorY.value;
-                    magnitud2 = winCDIMvalorW.value * winCDIMvalorB.value;
-                    IL.disabled = true;
-                    DC.disabled = true;
-                }else if(IL.checked && DC.checked){
-                    magnitud1 = winCDIMvalorW.value * winCDIMvalorB.value;
-                    magnitud2 = winCDIMvalorA.value * winCDIMvalorY.value;
-                    DL.disabled = true;
-                    IC.disabled = true;
-                };
-                resultR3C = winCDIMvalorC.value * magnitud2 / magnitud1;
-                pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
-                winCDIMvalorZ.value = resultR3C.toFixed(2);
-                winCDIMvalorZ.classList.add("resultColor");
-                disableWindow();
+                incognitaCZ ();
+                rightDisabledR();
             }else{
-                pResultPC.innerHTML = "Solo 1 incognita (X) es permitida,<br>y combinaciones de (D) e (I)";
-            }
+                rightDisabledR();
+                pResultPC.innerHTML = "Solo una incognita (X) es permitida<br>mas una combinacion de (D) e (I)";
+            };
         }else{
             pResultPC.innerHTML = "Elegir su relacion directa (D)<br>o inversa (I) respecto a (X)";
         };
-    }else if(winCDIMvalorA.value == "" && winCDIMvalorB.value > 0 && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0){
-        XL.checked = true;
-        DL.disabled = true;
-        IL.disabled = true;
-        XC.disabled = true;
-        XR.disabled = true;
-
-        if((XL.checked || DL.checked || IL.checked) && (XC.checked || DC.checked || IC.checked) && (XR.checked || DR.checked || IR.checked)){
-            if((XL.checked && DC.checked && DR.checked) || (XL.checked && IC.checked && IR.checked) || (XL.checked && DC.checked && IR.checked) || (XL.checked && IC.checked && DR.checked)){
-                if(DC.checked && DR.checked){
-                    magnitud1 = winCDIMvalorB.value * winCDIMvalorC.value;
-                    magnitud2 = winCDIMvalorY.value * winCDIMvalorZ.value;
-                    IC.disabled = true;
-                    IR.disabled = true;
-                }else if(IC.checked && IR.checked){
-                    magnitud1 = winCDIMvalorY.value * winCDIMvalorZ.value;
-                    magnitud2 = winCDIMvalorB.value * winCDIMvalorC.value;
-                    DC.disabled = true;
-                    DR.disabled = true;
-                }else if(DC.checked && IR.checked){
-                    magnitud1 = winCDIMvalorB.value * winCDIMvalorZ.value;
-                    magnitud2 = winCDIMvalorY.value * winCDIMvalorC.value;
-                    IC.disabled = true;
-                    DR.disabled = true;
-                }else if(IC.checked && DR.checked){
-                    magnitud1 = winCDIMvalorY.value * winCDIMvalorC.value;
-                    magnitud2 = winCDIMvalorB.value * winCDIMvalorZ.value;
-                    DC.disabled = true;
-                    IR.disabled = true;
-                };
-                resultR3C = winCDIMvalorW.value * magnitud1 / magnitud2;
-                pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
-                winCDIMvalorA.value = resultR3C.toFixed(2);
-                winCDIMvalorA.classList.add("resultColor");
-                disableWindow();
-            }else{
-                pResultPC.innerHTML = "Solo 1 incognita (X) es permitida,<br>y combinaciones de (D) e (I)";
-            }
-        }else{
-            pResultPC.innerHTML = "Elegir su relacion directa (D)<br>o inversa (I) respecto a (X)";
-        };
-    }else if(winCDIMvalorA.value > 0 && winCDIMvalorB.value == "" && winCDIMvalorC.value > 0 && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0){
-        XL.disabled = true;
-        XC.checked = true;
-        DC.disabled = true;
-        IC.disabled = true;
-        XR.disabled = true;
-
-        if((XL.checked || DL.checked || IL.checked) && (XC.checked || DC.checked || IC.checked) && (XR.checked || DR.checked || IR.checked)){
-            if((DL.checked && XC.checked && DR.checked) || (IL.checked && XC.checked && IR.checked) || (DL.checked && XC.checked && IR.checked) || (IL.checked && XC.checked && DR.checked)){
-                if(DL.checked && DR.checked){
-                    magnitud1 = winCDIMvalorA.value * winCDIMvalorC.value;
-                    magnitud2 = winCDIMvalorW.value * winCDIMvalorZ.value;
-                    IL.disabled = true;
-                    IR.disabled = true;
-                }else if(IL.checked && IR.checked){
-                    magnitud1 = winCDIMvalorW.value * winCDIMvalorZ.value;
-                    magnitud2 = winCDIMvalorA.value * winCDIMvalorC.value;
-                    DL.disabled = true;
-                    DR.disabled = true;
-                }else if(DL.checked && IR.checked){
-                    magnitud1 = winCDIMvalorA.value * winCDIMvalorZ.value;
-                    magnitud2 = winCDIMvalorW.value * winCDIMvalorC.value;
-                    IL.disabled = true;
-                    DR.disabled = true;
-                }else if(IL.checked && DR.checked){
-                    magnitud1 = winCDIMvalorW.value * winCDIMvalorC.value;
-                    magnitud2 = winCDIMvalorA.value * winCDIMvalorZ.value;
-                    DL.disabled = true;
-                    IR.disabled = true;
-                };
-                resultR3C = winCDIMvalorY.value * magnitud1 / magnitud2;
-                pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
-                winCDIMvalorB.value = resultR3C.toFixed(2);
-                winCDIMvalorB.classList.add("resultColor");
-                disableWindow();
-            }else{
-                pResultPC.innerHTML = "Solo 1 incognita (X) es permitida,<br>y combinaciones de (D) e (I)";
-            }
-        }else{
-            pResultPC.innerHTML = "Elegir su relacion directa (D)<br>o inversa (I) respecto a (X)";
-        };
-    }else if(winCDIMvalorA.value > 0 && winCDIMvalorB.value > 0 && winCDIMvalorC.value == "" && winCDIMvalorW.value > 0 && winCDIMvalorY.value > 0 && winCDIMvalorZ.value > 0){
-        XL.disabled = true;
-        XC.disabled = true;
-        XR.checked = true;
-        DR.disabled = true;
-        IR.disabled = true;
-
-        if((XL.checked || DL.checked || IL.checked) && (XC.checked || DC.checked || IC.checked) && (XR.checked || DR.checked || IR.checked)){
-            if((DL.checked && DC.checked && XR.checked) || (IL.checked && IC.checked && XR.checked) || (DL.checked && IC.checked && XR.checked) || (IL.checked && DC.checked && XR.checked)){
-                if(DL.checked && DC.checked){
-                    magnitud1 = winCDIMvalorA.value * winCDIMvalorB.value;
-                    magnitud2 = winCDIMvalorW.value * winCDIMvalorY.value;
-                    IL.disabled = true;
-                    IC.disabled = true;
-                }else if(IL.checked && IC.checked){
-                    magnitud1 = winCDIMvalorW.value * winCDIMvalorY.value;
-                    magnitud2 = winCDIMvalorA.value * winCDIMvalorB.value;
-                    DL.disabled = true;
-                    DC.disabled = true;
-                }else if(DL.checked && IC.checked){
-                    magnitud1 = winCDIMvalorA.value * winCDIMvalorY.value;
-                    magnitud2 = winCDIMvalorW.value * winCDIMvalorB.value;
-                    IL.disabled = true;
-                    DC.disabled = true;
-                }else if(IL.checked && DC.checked){
-                    magnitud1 = winCDIMvalorW.value * winCDIMvalorB.value;
-                    magnitud2 = winCDIMvalorA.value * winCDIMvalorY.value;
-                    DL.disabled = true;
-                    IC.disabled = true;
-                };
-                resultR3C = winCDIMvalorZ.value * magnitud1 / magnitud2;
-                pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
-                winCDIMvalorC.value = resultR3C.toFixed(2);
-                winCDIMvalorC.classList.add("resultColor");
-                disableWindow();
-            }else{
-                pResultPC.innerHTML = "Solo 1 incognita (X) es permitida,<br>y combinaciones de (D) e (I)";
-            }
-        }else{
-            pResultPC.innerHTML = "Elegir su relacion directa (D)<br>o inversa (I) respecto a (X)";
-        };
-
     }else{
         pResultPC.innerHTML = "Introduce 5 valores conocidos<br>y deja vacia la incognita";
     };

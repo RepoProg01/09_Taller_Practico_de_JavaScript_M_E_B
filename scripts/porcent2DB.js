@@ -36,19 +36,19 @@ const RD3SDICalculadoraObj = {
             inputId: "winSDIvalorB"
         },
         {
-            inputLabel: "C",
-            inputId: "winSDIvalorC"
+            inputLabel: "W",
+            inputId: "winSDIvalorW"
         },
         {
-            inputLabel: "D",
-            inputId: "winSDIvalorD"
+            inputLabel: "Y",
+            inputId: "winSDIvalorY"
         }
     ],
     resultClPC: "resultPCSDI",
     btnClPC: "btnResultPCSDI",
     btn2ClPC: "btnClearPCSDI",
     funcionPorcentaje: "pcSDI",
-    clearWindow: "clearSDI"
+    clearWindow: "clearS_C"
 };
 const RD3CDIMCalculadoraObj = {
     definicion: "on",
@@ -130,7 +130,7 @@ const RD3CDIMCalculadoraObj = {
     btnClPC: "btnResultPCCDIM",
     btn2ClPC: "btnClearPCCDIM",
     funcionPorcentaje: "pcCDIM",
-    clearWindow: "clearCDIM"
+    clearWindow: "clearS_C"
 };
 const RD3SDescCalculadoraObj = {
     definicion: "on",
