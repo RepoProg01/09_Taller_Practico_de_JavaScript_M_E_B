@@ -175,57 +175,49 @@ function clearS_C(){
     pResultPC.innerHTML = ""; 
 };
 
-//-----------Funciones de condicionales------------
+//------------------------------Operaciones Simple----------------------------
 function inc_Simple(){
     if(SD.checked || SI.checked){
-        //---------------------------------------
-        if(winA.value == "" && winB.value > 0 && winW.value > 0 && winY.value > 0){
-            incognitaA();
-        //---------------------------------------
-        }else if(winA.value > 0 && winB.value == "" && winW.value > 0 && winY.value > 0){
-            incognitaB();
-        //---------------------------------------
-        }else if(winA.value > 0 && winC.value > 0 && winW.value == "" && winA.value > 0){
-            incognitaW();
-        //---------------------------------------
-        }else if(winA.value > 0 && winB.value > 0 && winW.value > 0 && winY.value == ""){
-            incognitaY();
-        //---------------------------------------
-        }else{
-            pResultPC.innerHTML = "Solo 1 incognita (X) es permitida,<br>y combinaciones de (D) e (I)";
+        if(winA.value == ""){
+            if(SD.checked){
+                result = Number((winW.value * winB.value) / winY.value);
+            }else if(SI.checked){
+                result = Number((winW.value * winY.value) / winB.value);
+            };
+            winA.classList.add("resultColor");
+            winA.value = result;
+        }else if(winB.value == ""){
+            console.log("B");
+            if(SD.checked){
+                result = Number((winY.value * winA.value) / winW.value);
+            }else if(SI.checked){
+                result = Number((winY.value * winW.value) / winA.value);
+            };
+            winB.classList.add("resultColor");
+            winB.value = result;
+        }else if(winW.value == ""){
+            console.log("W");
+            if(SD.checked){
+                result = Number((winA.value * winY.value) / winB.value);
+            }else if(SI.checked){
+                result = Number((winA.value * winB.value) / winY.value);
+            };
+            winW.classList.add("resultColor");
+            winW.value = result;
+        }else if(winY.value == ""){
+            console.log("Y");
+            if(SD.checked){
+                result = Number((winB.value * winW.value) / winA.value);
+            }else if(SI.checked){
+                result = Number((winB.value * winA.value) / winW.value);
+            };
+            winY.classList.add("resultColor");
+            winY.value = result;
         }
+        pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
     }else{
         pResultPC.innerHTML = "Elegir directa o inversa";
     };
-        // if(incognitaSC == "S"){
-    //     if(SD.checked){
-    //         result = Number((winA.value * winD.value) / winB.value);
-    //     }else if(SI.checked){
-    //         result = Number((winA.value * winB.value) / winD.value);
-    //     };
-    //     winC.classList.add("resultColor");
-    //     winC.value = result;
-    //     pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
-   
-    // }else if(incognitaSC == "C"){
-    // if(incognitaSC == "S"){
-    //     if(SD.checked){
-    //         result = Number((winA.value * winY.value) / winB.value);
-    //     }else if(SI.checked){
-    //         result = Number((winA.value * winB.value) / winY.value);
-    //     };
-    //     winW.classList.add("resultColor");
-    //     winW.value = result;
-    //     pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
-    // if(incognitaSC == "S"){
-    //     if(SD.checked){
-    //         result = Number((winC.value * winB.value) / winD.value);
-    //     }else if(SI.checked){
-    //         result = Number((winC.value * winD.value) / winB.value);
-    //     };
-    //     winA.classList.add("resultColor");
-    //     winA.value = result;
-    //     pResultPC.innerHTML = `Valor = ${result.toFixed(2)}`;
 };
 
 //------------------------------Operaciones Compuesta----------------------------
@@ -459,6 +451,7 @@ let rutaFClear;
 let classSimpleCompuesta;
 
 let incognitaSC;
+let result;
 //-----------Funciones renderizado-----------
 function renderIntroduccion(){
     borrar();
@@ -703,13 +696,13 @@ function renderFigura(objeto){
 // ----------Funciones Logica de calculadoras------------
 function pcSDI(){
     if(winA.value == "" && winB.value > 0 && winW.value > 0 && (winY.value > 0 )){
-        inc_Simple();
+            inc_Simple();
     }else if(winA.value > 0 && winB.value == "" && winW.value > 0 && winY.value > 0){
-        inc_Simple();
+            inc_Simple();
     }else if(winA.value > 0 && winB.value > 0 && winW.value == "" && winY.value > 0){
-        inc_Simple();
+            inc_Simple();
     }else if(winA.value > 0 && winB.value > 0 && winW.value > 0 && winY.value == ""){
-        inc_Simple();
+            inc_Simple();
     }else{
         pResultPC.innerHTML = "Introduce 3 valores conocidos<br>y deja vacia la incognita.";
     };

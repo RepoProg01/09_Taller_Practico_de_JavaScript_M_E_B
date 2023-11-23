@@ -15,6 +15,7 @@ const introPorcentaje = {
     defGuiaTitulo: "Forma de uso :",
     defGuia: "Con el boton de <span>Mas..</span> mostrara calculadoras y ejemplos de diferentes casos de la regla de tres,<br>Con el boton <span>Menu</span> regrezaras al menu principal."
 };
+
 //-----------Calculadoras------------
 const RD3SDICalculadoraObj = {
     definicion: "on",
@@ -158,6 +159,7 @@ const RD3SDescCalculadoraObj = {
     funcionPorcentaje: "pcSDI",
     clearWindow: "clearSDI"
 };
+
 //--------------Ejemplos--------------
 const RD3SimpleDirectaObj = {
     definicion: "off",
