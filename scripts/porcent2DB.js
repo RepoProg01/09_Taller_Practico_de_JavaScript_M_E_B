@@ -139,7 +139,7 @@ const RD3SDescCalculadoraObj = {
     id: "calculadora_descuento",
     titleFig: "Instrucciones",
     imgFig: "../assets/calculadora_simple.png",
-    secMid: "sectionPCmiddleS",
+    secMid: "sectionPCmiddleDesc",
 
     titlePorcentaje: "Calculadora Descuento",
     formulaPorcentaje: "Inserta el precio y el descuento",
@@ -153,11 +153,11 @@ const RD3SDescCalculadoraObj = {
             inputId: "winDescuento"
         }
     ],
-    resultClPC: "resultPCSDI",
-    btnClPC: "btnResultPCSDI",
-    btn2ClPC: "btnClearPCSDI",
-    funcionPorcentaje: "pcSDI",
-    clearWindow: "clearSDI"
+    resultClPC: "resultPCDESC",
+    btnClPC: "btnResultPCDESC",
+    btn2ClPC: "btnClearPCDESC",
+    funcionPorcentaje: "pcDescuento",
+    clearWindow: "clearS_C"
 };
 
 //--------------Ejemplos--------------
