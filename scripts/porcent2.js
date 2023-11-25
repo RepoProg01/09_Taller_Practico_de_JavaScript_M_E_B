@@ -245,8 +245,8 @@ function bottomContainer(objeto){
         sectionPCtop.append(pTitlePC, pformulaPC);
 // ----Top middle------------------------------------------------------------------------   
         // sectionPCmiddleTop.innerHTML = "";
-        sectionPCmiddleTop.classList.add("sectionPCmiddleTop");
-        if(objeto.radiosC == "off"){
+        if(objeto.radios == "Simple"){
+            sectionPCmiddleTop.classList.add("sectionPCmiddleTop");
             const divRadioPC = document.createElement("div");
             divRadioPC.classList.add("divRadioPC");
             const inputRadioPCD = document.createElement("input");
@@ -255,19 +255,20 @@ function bottomContainer(objeto){
             inputRadioPCD.setAttribute("id", "radPCD");
             const inputLabelPCD = document.createElement("label");
             inputLabelPCD.setAttribute("for", "radPCD");
-            inputLabelPCD.innerHTML = "directa";
+            inputLabelPCD.innerHTML = "Directa";
             const inputRadioPCI = document.createElement("input");
             inputRadioPCI.setAttribute("type", "radio");
             inputRadioPCI.setAttribute("name", "radPCDI");
             inputRadioPCI.setAttribute("id", "radPCI");
             const inputLabelPCI = document.createElement("label");
             inputLabelPCI.setAttribute("for", "radPCI");
-            inputLabelPCI.innerHTML = "inversa";
+            inputLabelPCI.innerHTML = "Inversa";
             divRadioPC.append(inputRadioPCD, inputLabelPCD,  inputRadioPCI, inputLabelPCI);
             sectionPCmiddleTop.appendChild(divRadioPC);
             loadVar = "SDI";
             incognitaSC = "S";
-        }else if(objeto.radiosC == "on"){
+        }else if(objeto.radios == "Compuesta"){
+            sectionPCmiddleTop.classList.add("sectionPCmiddleTop");
             objeto.lista.forEach(datos =>{
                 // radio y label X incognita
                 const divRadioX = document.createElement("div");
@@ -310,14 +311,17 @@ function bottomContainer(objeto){
             });
             loadVar = "CDIM";
             incognitaSC = "C";
+        }else if(objeto.radios == "Descuento"){
+            loadVar = "DESC";
         };
 //----BottomMiddle-----------------------------------------------------------------------
-        sectionPCmiddle.classList.remove(classSimpleCompuesta);
-        classSimpleCompuesta = objeto.secMid;
-        sectionPCmiddle.classList.add(classSimpleCompuesta);
+        sectionPCmiddle.classList.remove(classSimpCompDesc);
+        classSimpCompDesc = objeto.secMid;
+        sectionPCmiddle.classList.add(classSimpCompDesc);
+
         objeto.inputPorcentaje.forEach(winInput => {
             const divWin = document.createElement("div");
-            divWin.classList.add("winPosition");
+            divWin.classList.add(objeto.winPos);
             const labelArea = document.createElement("label");
             labelArea.setAttribute("for", winInput.inputId);
             labelArea.innerHTML = winInput.inputLabel;
@@ -328,10 +332,22 @@ function bottomContainer(objeto){
             inputHeightWindow.classList.add("inputStyle");
             divWin.appendChild(inputHeightWindow);
             sectionPCmiddle.appendChild(divWin);
+            divPorcentaje.append(sectionPCtop, sectionPCmiddleTop, sectionPCmiddle);
+            
         });
         if(loadVar == "DESC"){
-            
-        }
+            const sectionPCmidMid = document.createElement("div");
+            sectionPCmidMid.classList.add("infoDesc");
+            const precioOrig = document.createElement("p");
+            precioOrig.innerHTML = "Precio $ 300";
+            const cantDesc = document.createElement("p");
+            cantDesc.innerHTML = "Descuento $ 30";
+            const totalPay = document.createElement("p");
+            totalPay.innerHTML = "Total a pagar $ 260";
+            sectionPCmidMid.append(precioOrig, cantDesc, totalPay);
+            divPorcentaje.append(sectionPCtop, sectionPCmiddle, sectionPCmidMid);
+        };
+
 //----Bottom------------------------------------------------------------------------------    
         pResultPCReg = objeto.resultClPC
         pResultPC.classList.add("winStyle", pResultPCReg);
@@ -343,7 +359,8 @@ function bottomContainer(objeto){
         btnClearPC.innerHTML = "Borrar";
         sectionPCbottom.classList.add("sectionPCbottom");
         sectionPCbottom.append(pResultPC, btnClearPC, btnResultPC);
-        divPorcentaje.append(sectionPCtop, sectionPCmiddleTop, sectionPCmiddle, sectionPCbottom);
+        // divPorcentaje.append(sectionPCtop, sectionPCmiddleTop, sectionPCmiddle, sectionPCbottom);
+        divPorcentaje.append(sectionPCbottom);
         btnClearPC.removeEventListener("click", rutaFClear);
         rutaFClear = (eval(objeto.clearWindow));
         btnClearPC.addEventListener("click", rutaFClear);
@@ -749,7 +766,7 @@ let btnClearPCReg;
 let pResultPCReg;
 let rutaFPC;
 let rutaFClear;
-let classSimpleCompuesta;
+let classSimpCompDesc;
 let incognitaSC;
 let result;
 

@@ -19,14 +19,14 @@ const introPorcentaje = {
 //-----------Calculadoras------------
 const RD3SDICalculadoraObj = {
     definicion: "on",
-    radiosC: "off",
+    radios: "Simple",
     id: "calculadora_simple",
     titleFig: "Instrucciones",
     imgFig: "../assets/calculadora_simple.png",
     secMid: "sectionPCmiddleS",
-
     titlePorcentaje: "Calculadora Simple",
     formulaPorcentaje: "Inserta los 3 datos conocidos",
+    winPos: "winPosDirInv",
     inputPorcentaje: [
         {
             inputLabel: "A",
@@ -53,13 +53,14 @@ const RD3SDICalculadoraObj = {
 };
 const RD3CDIMCalculadoraObj = {
     definicion: "on",
-    radiosC: "on",
+    radios: "Compuesta",
     id: "calculadora_compuesta",
     titleFig: "Instrucciones",
     imgFig: "../assets/calculadora_compuesta.png",
     secMid: "sectionPCmiddleC",
     titlePorcentaje: "Calculadora Compuesta",
     formulaPorcentaje: "Inserta los 5 datos conocidos",
+    winPos: "winPosDirInv",
     lista: [
         {
             family: "radPCCL",
@@ -135,11 +136,12 @@ const RD3CDIMCalculadoraObj = {
 };
 const RD3SDescCalculadoraObj = {
     definicion: "on",
-    //radiosC: "off",
+    radios: "Descuento",
     id: "calculadora_descuento",
     titleFig: "Instrucciones",
     imgFig: "../assets/calculadora_simple.png",
     secMid: "sectionPCmiddleDesc",
+    winPos: "winPosDesc",
 
     titlePorcentaje: "Calculadora Descuento",
     formulaPorcentaje: "Inserta el precio y el descuento",
