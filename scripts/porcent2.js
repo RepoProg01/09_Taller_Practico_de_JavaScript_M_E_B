@@ -105,6 +105,11 @@ function clearInputsWindows(){
         winW.value = "";
         winY.value = "";
         winZ.value = "";
+    }else if(incognitaSC == "D"){
+        porcDescWindow.value = "";
+        precListWindow.value = "";
+        descCantWindow.value = "";
+        totalPagWindow.value = "";
     }
 
 };
@@ -323,6 +328,7 @@ function bottomContainer(objeto){
         }
         if(objeto.radios == "Descuento"){
             loadVar = "DESC";
+            incognitaSC = "D";
         };
         //----BottomMiddle-----------------------------------------------------------------------
 
@@ -333,6 +339,7 @@ function bottomContainer(objeto){
             // Contenedor en PCsubMid
             const containerWindows = document.createElement("div");
             containerWindows.classList.add("containerWindows");
+
             // div porcentaje de descuento
             const pdd = document.createElement("div");
             pdd.classList.add("pcRow");
@@ -341,7 +348,7 @@ function bottomContainer(objeto){
             porcDescLablel.setAttribute("for", "pcPDD");
             porcDescLablel.innerHTML = "Porcentaje descuento %"; 
 
-            const porcDescWindow = document.createElement("input");
+            porcDescWindow = document.createElement("input");
             porcDescWindow.classList.add("porcDescWindow");
             porcDescWindow.setAttribute("type", "number");
             porcDescWindow.setAttribute("id", "pcPDD");
@@ -354,11 +361,12 @@ function bottomContainer(objeto){
             precListLablel.setAttribute("for", "pcPDL");
             precListLablel.innerHTML = "Precio de lista $"; 
 
-            const precListWindow = document.createElement("input");
+            precListWindow = document.createElement("input");
             precListWindow.classList.add("desWindows");
             precListWindow.setAttribute("type", "number");
             precListWindow.setAttribute("id", "pcPDL");
             pdl.append(precListLablel, precListWindow);
+
             // div descuento en cantidad
             const dec = document.createElement("div");
             dec.classList.add("pcRow");
@@ -366,7 +374,7 @@ function bottomContainer(objeto){
             const descCantLablel = document.createElement("label");
             descCantLablel.innerHTML = "Descuento $"; 
 
-            const descCantWindow = document.createElement("input");
+            descCantWindow = document.createElement("input");
             descCantWindow.classList.add("desWindows", "greenBG");
             descCantWindow.disabled = true;
             descCantWindow.setAttribute("id", "pcDEC");
@@ -378,7 +386,7 @@ function bottomContainer(objeto){
             const totalPagLablel = document.createElement("label");
             totalPagLablel.innerHTML = "Total a pagar $"; 
 
-            const totalPagWindow = document.createElement("input");
+            totalPagWindow = document.createElement("input");
             totalPagWindow.classList.add("desWindows", "greenBG");
             totalPagWindow.disabled = true;
             totalPagWindow.setAttribute("id", "pcTAP");
@@ -737,8 +745,11 @@ function pcCDIM(){
     };
 };
 function pcDescuento(){
-
-}
+    const resultDescuento = precListWindow.value * porcDescWindow.value / 100;
+    const totalApagar = precListWindow.value - resultDescuento;
+    descCantWindow.value = resultDescuento.toFixed(2);
+    totalPagWindow.value = totalApagar.toFixed(2);
+};
 
 // ===================================== Constantes =====================================
 // ==============Constantes Container fig ===============================================
@@ -796,7 +807,11 @@ const inputLabelPC2M = document.createElement("label");
 //----sectionPbottom --------------------------------------------------------------------
 const sectionPC2bottom = document.createElement("section");
 const btnClearPC = document.createElement("button");
-
+// -------------------------------------------------
+let porcDescWindow; 
+let precListWindow;
+let descCantWindow;
+let totalPagWindow;
 // ====================================== variables =====================================
 //----inputs windows --------------------------------------------------------------------
 let winA = null;
