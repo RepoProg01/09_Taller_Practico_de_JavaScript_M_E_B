@@ -278,6 +278,47 @@ span {
     justify-content: center;
 }
 
+
+
+.containerWindows {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 270px;
+    padding: 15px;
+    background-color: var(--blue);
+    border-radius: 10px;
+}
+.pcRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+.pcRow label {
+    font-size: 18px;
+    color: var(--white);
+}
+.porcDescWindow {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    width: 50px;
+    height: 25px;
+}
+.desWindows {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    width: 130px;
+    height: 25px;
+}
+.greenBG {
+    background-color: var(--grey);
+}
+
+
+
 .titlesFormules {
     font-size: 24px;
     font-weight: 700;

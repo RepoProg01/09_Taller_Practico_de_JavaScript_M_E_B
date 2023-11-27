@@ -51,6 +51,7 @@ function borrar(){
     incognitaSC = "";
     sectionPCmiddleTop.innerHTML = "";
     sectionPCmiddle.innerHTML = "";
+    sectionPCbottom.innerHTML = "";
     pResultPC.innerHTML = "";
     pResultPC.classList.remove(pResultPCReg);
     btnResultPC.classList.remove(btnResultPCReg);
@@ -214,10 +215,10 @@ function asignacionesWindowsRadios(){
         winY.classList.remove("resultColor");
         winZ.classList.remove("resultColor");
     }else if(loadVar == "DESC"){
-        winA = document.querySelector("#winPrecio");
-        winB = document.querySelector("#winDescuento");
-        winA.classList.remove("resultColor");
-        winB.classList.remove("resultColor");
+        // winA = document.querySelector("#winPrecio");
+        // winB = document.querySelector("#winDescuento");
+        // winA.classList.remove("resultColor");
+        // winB.classList.remove("resultColor");
     };
 };
 function topContainer(objeto){
@@ -243,31 +244,39 @@ function bottomContainer(objeto){
         pformulaPC.innerHTML = objeto.formulaPorcentaje;
         sectionPCtop.classList.add("sectionPCtop");
         sectionPCtop.append(pTitlePC, pformulaPC);
-// ----Top middle------------------------------------------------------------------------   
+        // ----Top middle------------------------------------------------------------------------   
         // sectionPCmiddleTop.innerHTML = "";
         if(objeto.radios == "Simple"){
             sectionPCmiddleTop.classList.add("sectionPCmiddleTop");
+
             const divRadioPC = document.createElement("div");
             divRadioPC.classList.add("divRadioPC");
+
             const inputRadioPCD = document.createElement("input");
             inputRadioPCD.setAttribute("type", "radio");
             inputRadioPCD.setAttribute("name", "radPCDI");
             inputRadioPCD.setAttribute("id", "radPCD");
+
             const inputLabelPCD = document.createElement("label");
             inputLabelPCD.setAttribute("for", "radPCD");
             inputLabelPCD.innerHTML = "Directa";
+
             const inputRadioPCI = document.createElement("input");
             inputRadioPCI.setAttribute("type", "radio");
             inputRadioPCI.setAttribute("name", "radPCDI");
             inputRadioPCI.setAttribute("id", "radPCI");
+
             const inputLabelPCI = document.createElement("label");
             inputLabelPCI.setAttribute("for", "radPCI");
             inputLabelPCI.innerHTML = "Inversa";
+
             divRadioPC.append(inputRadioPCD, inputLabelPCD,  inputRadioPCI, inputLabelPCI);
             sectionPCmiddleTop.appendChild(divRadioPC);
+
             loadVar = "SDI";
             incognitaSC = "S";
-        }else if(objeto.radios == "Compuesta"){
+        }
+        if(objeto.radios == "Compuesta"){
             sectionPCmiddleTop.classList.add("sectionPCmiddleTop");
             objeto.lista.forEach(datos =>{
                 // radio y label X incognita
@@ -311,62 +320,119 @@ function bottomContainer(objeto){
             });
             loadVar = "CDIM";
             incognitaSC = "C";
-        }else if(objeto.radios == "Descuento"){
+        }
+        if(objeto.radios == "Descuento"){
             loadVar = "DESC";
         };
-//----BottomMiddle-----------------------------------------------------------------------
-        sectionPCmiddle.classList.remove(classSimpCompDesc);
-        classSimpCompDesc = objeto.secMid;
-        sectionPCmiddle.classList.add(classSimpCompDesc);
+        //----BottomMiddle-----------------------------------------------------------------------
 
-        objeto.inputPorcentaje.forEach(winInput => {
-            const divWin = document.createElement("div");
-            divWin.classList.add(objeto.winPos);
-            const labelArea = document.createElement("label");
-            labelArea.setAttribute("for", winInput.inputId);
-            labelArea.innerHTML = winInput.inputLabel;
-            divWin.appendChild(labelArea);
-            const inputHeightWindow = document.createElement("input");
-            inputHeightWindow.setAttribute("type", "number");
-            inputHeightWindow.setAttribute("id", winInput.inputId);
-            inputHeightWindow.classList.add("inputStyle");
-            divWin.appendChild(inputHeightWindow);
-            sectionPCmiddle.appendChild(divWin);
-            divPorcentaje.append(sectionPCtop, sectionPCmiddleTop, sectionPCmiddle);
-            
-        });
         if(loadVar == "DESC"){
-            const sectionPCmidMid = document.createElement("div");
-            sectionPCmidMid.classList.add("infoDesc");
-            const precioOrig = document.createElement("p");
-            precioOrig.innerHTML = "Precio $ 300";
-            const cantDesc = document.createElement("p");
-            cantDesc.innerHTML = "Descuento $ 30";
-            const totalPay = document.createElement("p");
-            totalPay.innerHTML = "Total a pagar $ 260";
-            sectionPCmidMid.append(precioOrig, cantDesc, totalPay);
-            divPorcentaje.append(sectionPCtop, sectionPCmiddle, sectionPCmidMid);
-        };
+            // Seccion PCsubMid
+            const sectionPCsubMid = document.createElement("div");
+            sectionPCsubMid.classList.add("sectionPCsubMid");
+            // Contenedor en PCsubMid
+            const containerWindows = document.createElement("div");
+            containerWindows.classList.add("containerWindows");
+            // div porcentaje de descuento
+            const pdd = document.createElement("div");
+            pdd.classList.add("pcRow");
 
-//----Bottom------------------------------------------------------------------------------    
-        pResultPCReg = objeto.resultClPC
-        pResultPC.classList.add("winStyle", pResultPCReg);
-        btnResultPCReg = objeto.btnClPC;
-        btnResultPC.classList.add("btnResult", btnResultPCReg);
-        btnResultPC.innerHTML = "Resultado";
+            const porcDescLablel = document.createElement("label");
+            porcDescLablel.setAttribute("for", "pcPDD");
+            porcDescLablel.innerHTML = "Porcentaje de descuento %"; 
+
+            const porcDescWindow = document.createElement("input");
+            porcDescWindow.classList.add("porcDescWindow");
+            porcDescWindow.setAttribute("type", "number");
+            porcDescWindow.setAttribute("id", "pcPDD");
+            pdd.append(porcDescLablel, porcDescWindow);
+            // div precio de lista
+            const pdl = document.createElement("div");
+            pdl.classList.add("pcRow");
+
+            const precListLablel = document.createElement("label");
+            precListLablel.setAttribute("for", "pcPDL");
+            precListLablel.innerHTML = "Precio de lista $"; 
+
+            const precListWindow = document.createElement("input");
+            precListWindow.classList.add("desWindows");
+            precListWindow.setAttribute("type", "number");
+            precListWindow.setAttribute("id", "pcPDL");
+            pdl.append(precListLablel, precListWindow);
+            // div descuento en cantidad
+            const dec = document.createElement("div");
+            dec.classList.add("pcRow");
+
+            const descCantLablel = document.createElement("label");
+            descCantLablel.innerHTML = "Descuento $"; 
+
+            const descCantWindow = document.createElement("input");
+            descCantWindow.classList.add("desWindows", "greenBG");
+            descCantWindow.disabled = true;
+            descCantWindow.setAttribute("id", "pcDEC");
+            dec.append(descCantLablel, descCantWindow);
+            // div total a pagar
+            const tap = document.createElement("div");
+            tap.classList.add("pcRow");
+
+            const totalPagLablel = document.createElement("label");
+            totalPagLablel.innerHTML = "Total a pagar $"; 
+
+            const totalPagWindow = document.createElement("input");
+            totalPagWindow.classList.add("desWindows", "greenBG");
+            totalPagWindow.disabled = true;
+            totalPagWindow.setAttribute("id", "pcTAP");
+            tap.append(totalPagLablel, totalPagWindow);
+
+            containerWindows.append(pdd, pdl, dec, tap);
+
+            sectionPCsubMid.append(containerWindows);
+            divPorcentaje.append(sectionPCtop, sectionPCsubMid);
+        }
+        else{
+            sectionPCmiddle.classList.remove(classSimpCompDesc);
+            classSimpCompDesc = objeto.secMid;
+            sectionPCmiddle.classList.add(classSimpCompDesc);   
+
+            objeto.inputPorcentaje.forEach(winInput => {
+                const divWin = document.createElement("div");
+                divWin.classList.add(objeto.winPos);
+                const labelArea = document.createElement("label");
+                labelArea.setAttribute("for", winInput.inputId);
+                labelArea.innerHTML = winInput.inputLabel;
+                divWin.appendChild(labelArea);
+                const inputHeightWindow = document.createElement("input");
+                inputHeightWindow.setAttribute("type", "number");
+                inputHeightWindow.setAttribute("id", winInput.inputId);
+                inputHeightWindow.classList.add("inputStyle");
+                divWin.appendChild(inputHeightWindow);
+                sectionPCmiddle.appendChild(divWin);
+                divPorcentaje.append(sectionPCtop, sectionPCmiddleTop, sectionPCmiddle);
+            });
+            //----Bottom------------------------------------------------------------------------------    
+            pResultPCReg = objeto.resultClPC
+            pResultPC.classList.add("winStyle", pResultPCReg);
+            sectionPCbottom.append(pResultPC);
+        };
         btnClearPCReg = objeto.btn2ClPC;
         btnClearPC.classList.add("btnClear", btnClearPCReg);
         btnClearPC.innerHTML = "Borrar";
-        sectionPCbottom.classList.add("sectionPCbottom");
-        sectionPCbottom.append(pResultPC, btnClearPC, btnResultPC);
-        // divPorcentaje.append(sectionPCtop, sectionPCmiddleTop, sectionPCmiddle, sectionPCbottom);
-        divPorcentaje.append(sectionPCbottom);
+
+        btnResultPCReg = objeto.btnClPC;
+        btnResultPC.classList.add("btnResult", btnResultPCReg);
+        btnResultPC.innerHTML = "Resultado";
+
         btnClearPC.removeEventListener("click", rutaFClear);
         rutaFClear = (eval(objeto.clearWindow));
         btnClearPC.addEventListener("click", rutaFClear);
+        
         btnResultPC.removeEventListener("click", rutaFPC);
         rutaFPC = (eval(objeto.funcionPorcentaje));
         btnResultPC.addEventListener("click", rutaFPC);
+
+        sectionPCbottom.classList.add("sectionPCbottom");
+        sectionPCbottom.append(btnClearPC, btnResultPC);
+        divPorcentaje.append(sectionPCbottom);
     }
     else if(objeto.definicion == "off"){
         divPorcentaje.classList.remove("containerFormules");
