@@ -339,7 +339,7 @@ function bottomContainer(objeto){
 
             const porcDescLablel = document.createElement("label");
             porcDescLablel.setAttribute("for", "pcPDD");
-            porcDescLablel.innerHTML = "Porcentaje de descuento %"; 
+            porcDescLablel.innerHTML = "Porcentaje descuento %"; 
 
             const porcDescWindow = document.createElement("input");
             porcDescWindow.classList.add("porcDescWindow");

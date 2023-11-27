@@ -144,7 +144,7 @@ const RD3SDescCalculadoraObj = {
     winPos: "winPosDesc",
 
     titlePorcentaje: "Calculadora Descuento",
-    formulaPorcentaje: "Introduce porcentaje y precio",
+    formulaPorcentaje: "Inserta porcentaje y precio",
     inputPorcentaje: [
         {
             inputLabel: "Precio ",
