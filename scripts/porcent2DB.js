@@ -49,7 +49,7 @@ const RD3SDICalculadoraObj = {
     btnClPC: "btnResultPCSDI",
     btn2ClPC: "btnClearPCSDI",
     funcionPorcentaje: "pcSDI",
-    clearWindow: "clearS_C"
+    clearWindow: "clearSCD"
 };
 const RD3CDIMCalculadoraObj = {
     definicion: "on",
@@ -132,14 +132,14 @@ const RD3CDIMCalculadoraObj = {
     btnClPC: "btnResultPCCDIM",
     btn2ClPC: "btnClearPCCDIM",
     funcionPorcentaje: "pcCDIM",
-    clearWindow: "clearS_C"
+    clearWindow: "clearSCD"
 };
 const RD3SDescCalculadoraObj = {
     definicion: "on",
     radios: "Descuento",
     id: "calculadora_descuento",
     titleFig: "Instrucciones",
-    imgFig: "../assets/calculadora_simple.png",
+    imgFig: "../assets/calculadora_descuento.png",
     secMid: "sectionPCmiddleDesc",
     winPos: "winPosDesc",
 
@@ -159,7 +159,7 @@ const RD3SDescCalculadoraObj = {
     btnClPC: "btnResultPCDESC",
     btn2ClPC: "btnClearPCDESC",
     funcionPorcentaje: "pcDescuento",
-    clearWindow: "clearS_C"
+    clearWindow: "clearSCD"
 };
 
 //--------------Ejemplos--------------

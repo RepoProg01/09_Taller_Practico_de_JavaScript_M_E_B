@@ -74,8 +74,10 @@ function disableWindow(){
         winW.disabled = true;
         winY.disabled = true;
         winZ.disabled = true;
+    }else if(incognitaSC == "D"){
+        porcDescWindow.disabled = true;
+        precListWindow.disabled = true;
     };
-
 };
 function enableWindow(){
     if(incognitaSC == "S"){
@@ -90,7 +92,10 @@ function enableWindow(){
         winW.disabled = false;
         winY.disabled = false;
         winZ.disabled = false;
-    };
+    }else if(incognitaSC == "D"){
+        porcDescWindow.disabled = false;
+        precListWindow.disabled = false;
+    }
 };
 function clearInputsWindows(){
     if(incognitaSC == "S"){
@@ -110,7 +115,7 @@ function clearInputsWindows(){
         precListWindow.value = "";
         descCantWindow.value = "";
         totalPagWindow.value = "";
-    }
+    };
 
 };
 function clearColor(){
@@ -172,7 +177,7 @@ function enableButtonResultado(){
     btnResultPC.classList.remove("btnInactive");
     btnResultPC.classList.add("btnResult");
 };
-function clearS_C(){
+function clearSCD(){
     clearRadios();
     enableRadios();
     clearColor();
@@ -745,10 +750,16 @@ function pcCDIM(){
     };
 };
 function pcDescuento(){
-    const resultDescuento = precListWindow.value * porcDescWindow.value / 100;
-    const totalApagar = precListWindow.value - resultDescuento;
-    descCantWindow.value = resultDescuento.toFixed(2);
-    totalPagWindow.value = totalApagar.toFixed(2);
+    if(porcDescWindow.value > 0 && precListWindow.value > 0){
+        const resultDescuento = precListWindow.value * porcDescWindow.value / 100;
+        const totalApagar = precListWindow.value - resultDescuento;
+        descCantWindow.value = resultDescuento.toFixed(2);
+        totalPagWindow.value = totalApagar.toFixed(2);
+        disableWindow();
+        disableButtonResultado();
+    }else{
+        console.log("Porcentaje y precio requeridos");
+    };
 };
 
 // ===================================== Constantes =====================================
