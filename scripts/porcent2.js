@@ -706,7 +706,7 @@ function pcCDIM(){
                 leftDisabledR();
             }else{
                 leftDisabledR();
-                pResultPC.innerHTML = "Solo 1 incognita (X) permitida<br>mas combinaciones de (D) e (I)";
+                pResultPC.innerHTML = "Una incognita (X) y combinaciones<br>de (D) e (I) permitido";
             };
         }else{
             pResultPC.innerHTML = "Elegir su relacion directa (D)<br>o inversa (I) respecto a (X)";
