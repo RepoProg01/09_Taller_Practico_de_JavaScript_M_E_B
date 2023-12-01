@@ -116,7 +116,6 @@ function clearInputsWindows(){
         descCantWindow.value = "";
         totalPagWindow.value = "";
     };
-
 };
 function clearColor(){
     if(incognitaSC == "S"){
@@ -131,8 +130,7 @@ function clearColor(){
         winW.classList.remove("resultColor");
         winY.classList.remove("resultColor");
         winZ.classList.remove("resultColor");
-    }
-
+    };
 };
 function clearRadios(){
     if(incognitaSC == "S"){
@@ -165,7 +163,6 @@ function enableRadios(){
         DR.disabled = false;
         IR.disabled = false;
     };
-
 };
 function disableButtonResultado(){
     btnResultPC.disabled = true;
@@ -224,11 +221,6 @@ function asignacionesWindowsRadios(){
         winW.classList.remove("resultColor");
         winY.classList.remove("resultColor");
         winZ.classList.remove("resultColor");
-    }else if(loadVar == "DESC"){
-        // winA = document.querySelector("#winPrecio");
-        // winB = document.querySelector("#winDescuento");
-        // winA.classList.remove("resultColor");
-        // winB.classList.remove("resultColor");
     };
 };
 function topContainer(objeto){
@@ -714,7 +706,7 @@ function pcCDIM(){
                 leftDisabledR();
             }else{
                 leftDisabledR();
-                pResultPC.innerHTML = "Solo una incognita (X) es permitida<br>mas una combinacion de (D) e (I)";
+                pResultPC.innerHTML = "Solo 1 incognita (X) permitida<br>mas combinaciones de (D) e (I)";
             };
         }else{
             pResultPC.innerHTML = "Elegir su relacion directa (D)<br>o inversa (I) respecto a (X)";
@@ -761,7 +753,6 @@ function pcDescuento(){
         console.log("Porcentaje y precio requeridos");
     };
 };
-
 // ===================================== Constantes =====================================
 // ==============Constantes Container fig ===============================================
 const containerFiguras = document.querySelector(".containerFiguras");
@@ -800,23 +791,10 @@ const pformulaPC = document.createElement("p");
 //----sectionPCmiddle -------------------------------------------------------------------
 const sectionPCmiddleTop = document.createElement("section");
 const sectionPCmiddle = document.createElement("section");
-const divRadioPCCL = document.createElement("div");
-const divRadioPCCC = document.createElement("div");
-const divRadioPCCR = document.createElement("div");
 //----sectionHbottom --------------------------------------------------------------------
 const sectionPCbottom = document.createElement("section");
 const pResultPC = document.createElement("p");
 const btnResultPC = document.createElement("button");
-//----sectionPtop -----------------------------------------------------------------------
-const sectionPC2top = document.createElement("section");
-const pTitlePC2 = document.createElement("p");
-const pformulaPC2 = document.createElement("p");
-//----sectionPmiddle --------------------------------------------------------------------
-const divRadioPC2 = document.createElement("div");
-const inputLabelPC2C = document.createElement("label");
-const inputLabelPC2M = document.createElement("label");
-//----sectionPbottom --------------------------------------------------------------------
-const sectionPC2bottom = document.createElement("section");
 const btnClearPC = document.createElement("button");
 // -------------------------------------------------
 let porcDescWindow; 
