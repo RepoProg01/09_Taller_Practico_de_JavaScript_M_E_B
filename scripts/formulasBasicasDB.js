@@ -31,7 +31,9 @@ const trianguloObj = {
     ],
     resultClA: "resultATri",
     btnClA: "btnResultATri",
+    btn2ClA: "btnClearATri",
     funcionArea: "aTriangle",
+    clearWindowA: "clearAFig",
 
     titlePerimetro: "Perimetro del Triangulo",
     inputPerimetro: [
@@ -50,7 +52,9 @@ const trianguloObj = {
     ],
     resultClP: "resultPTri",
     btnClP: "btnResultPTri",
+    btn2ClP: "btnClearPTri",
     funcionPerimetro: "pTriangle",
+    clearWindowP: "clearPFig"
 };
 const cuadradoObj = {
     id: "cuadrado",
@@ -66,7 +70,9 @@ const cuadradoObj = {
     ],
     resultClA: "resultASqr",
     btnClA: "btnResultASqr",
+    btn2ClA: "btnClearASqr",
     funcionArea: "aSquare",
+    clearWindowA: "clearAFig",
 
     titlePerimetro: "Perimetro del Cuadrado",
     inputPerimetro: [
@@ -77,7 +83,9 @@ const cuadradoObj = {
     ],
     resultClP: "resultPSqr",
     btnClP: "btnResultPSqr",
+    btn2ClP: "btnClearPSqr",
     funcionPerimetro: "pSquare",
+    clearWindowP: "clearPFig"
 };
 const rectanguloObj = {
     id: "rectangulo",
@@ -97,7 +105,9 @@ const rectanguloObj = {
     ],
     resultClA: "resultARec",
     btnClA: "btnResultARec",
+    btn2ClA: "btnClearARec",
     funcionArea: "aRectangulo",
+    clearWindowA: "clearAFig",
 
     titlePerimetro: "Perimetro del Rectangulo",
     inputPerimetro: [
@@ -112,7 +122,9 @@ const rectanguloObj = {
     ],
     resultClP: "resultPRec",
     btnClP: "btnResultPRec",
+    btn2ClP: "btnClearPRec",
     funcionPerimetro: "pRectangulo",
+    clearWindowP: "clearPFig"
 };
 const paralelogramoObj = {
     id: "paralelogramo",
@@ -132,7 +144,9 @@ const paralelogramoObj = {
     ],
     resultClA: "resultAPar",
     btnClA: "btnResultAPar",
+    btn2ClA: "btnClearAPar",
     funcionArea: "aParalelogramo",
+    clearWindowA: "clearAFig",
 
     titlePerimetro: "Perimetro del Paralelogramo",
     inputPerimetro: [
@@ -147,7 +161,9 @@ const paralelogramoObj = {
     ],
     resultClP: "resultPPar",
     btnClP: "btnResultPPar",
+    btn2ClP: "btnClearPPar",
     funcionPerimetro: "pParalelogramo",
+    clearWindowP: "clearPFig"
 };
 const trapecioObj = {
     id: "trapecio",
@@ -171,7 +187,9 @@ const trapecioObj = {
     ],
     resultClA: "resultATrapecio",
     btnClA: "btnResultATrapecio",
+    btn2ClA: "btnClearATrapecio",
     funcionArea: "aTrapecio",
+    clearWindowA: "clearAFig",
 
     titlePerimetro: "Perimetro del Trapecio",
     inputPerimetro: [
@@ -194,7 +212,9 @@ const trapecioObj = {
     ],
     resultClP: "resultPTrap",
     btnClP: "btnResultPTrap",
+    btn2ClP: "btnClearPTrap",
     funcionPerimetro: "pTrapecio",
+    clearWindowP: "clearPFig",
 };
 const romboObj = {
     id: "rombo",
@@ -214,7 +234,9 @@ const romboObj = {
     ],
     resultClA: "resultARombo",
     btnClA: "btnResultARombo",
+    btn2ClA: "btnClearARombo",
     funcionArea: "aRombo",
+    clearWindowA: "clearAFig",
 
     titlePerimetro: "Perimetro del Rombo",
     inputPerimetro: [
@@ -237,7 +259,9 @@ const romboObj = {
     ],
     resultClP: "resultPRombo",
     btnClP: "btnResultPRombo",
+    btn2ClP: "btnClearPRombo",
     funcionPerimetro: "pRombo",
+    clearWindowP: "clearPFig"
 };
 const pentagonoObj = {
     id: "pentagono",
@@ -257,7 +281,9 @@ const pentagonoObj = {
     ],
     resultClA: "resultAPentagono",
     btnClA: "btnResultAPentagono",
+    btn2ClA: "btnClearAPentagono",
     funcionArea: "aPentagono",
+    clearWindowA: "clearAFig",
 
     titlePerimetro: "Perimetro del Pentagono",
     inputPerimetro: [
@@ -268,7 +294,9 @@ const pentagonoObj = {
     ],
     resultClP: "resultPPentagono",
     btnClP: "btnResultPPentagono",
+    btn2ClP: "btnClearPPentagono",
     funcionPerimetro: "pPentagono",
+    clearWindowP: "clearPFig"
 };
 const hexagonoObj = {
     id: "hexagono",
@@ -288,7 +316,9 @@ const hexagonoObj = {
     ],
     resultClA: "resultAHexagono",
     btnClA: "btnResultAHex",
+    btn2ClA: "btnClearAHex",
     funcionArea: "aHexagono",
+    clearWindowA: "clearAFig",
 
     titlePerimetro: "Perimetro del Hexagono",
     inputPerimetro: [
@@ -299,7 +329,9 @@ const hexagonoObj = {
     ],
     resultClP: "resultPHex",
     btnClP: "btnResultPHex",
+    btn2ClP: "btnClearPHex",
     funcionPerimetro: "pHexagono",
+    clearWindowP: "clearPFig"
 };
 const circuloObj = {
     id: "circulo",
@@ -315,7 +347,9 @@ const circuloObj = {
     ],
     resultClA: "resultACirc",
     btnClA: "btnResultACirc",
+    btn2ClA: "btnClearACirc",
     funcionArea: "aCirculo",
+    clearWindowA: "clearAFig",
 
     titlePerimetro: "Circunferncia",
     inputPerimetro: [
@@ -326,7 +360,9 @@ const circuloObj = {
     ],
     resultClP: "resultCircunferencia",
     btnClP: "btnResultCircunferencia",
+    btn2ClP: "btnClearCircunferencia",
     funcionPerimetro: "circunferencia",
+    clearWindowP: "clearPFig"
 };
 // const elipseObj = {
 //     id: "elipse",

@@ -295,7 +295,7 @@ span {
     font-size: 18px;
 }
 
-.btnResult {
+/* .btnResult {
     width: 100%;
     height: 40px;
     border-radius: 10px;
@@ -310,7 +310,42 @@ span {
     background-color: var(--terciario);
     border: 1px solid var(--white);
     color: var(--white);
+} */
+
+
+.btnClear,
+.btnResult {
+    width: 145px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid var(--naranja);
+    background: var(--background_linear_1);
+    color: var(--naranja);
+    font-size: 18px;
+    font-weight: 700;
 }
+.btnClear{
+    margin-right: 10px;
+}
+.btnClear:hover,
+.btnResult:hover {
+    cursor: pointer;
+    background-color: var(--terciario);
+    border: 1px solid var(--white);
+    color: var(--white);
+}
+.btnInactive {
+    width: 145px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid var(--blue);
+    background: var(--secundario);
+    color: var(--blue);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/**/
 .winPosition {
     width: 100%;
     display: flex;
@@ -327,6 +362,10 @@ span {
     height: 25px;
     font-weight: 700;
     margin-right: 50px;
+}
+.resultColor {
+    background-color: var(--background_linear_2);
+    color: var(--white);
 }
 /* ------ PerimeterSquare ------ */
 /* -------- AreaSquare --------- */

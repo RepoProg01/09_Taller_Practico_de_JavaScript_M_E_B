@@ -119,6 +119,7 @@ function clearInputsWindows(){
 };
 function clearColor(){
     if(incognitaSC == "S"){
+        console.log("color");
         winA.classList.remove("resultColor");
         winB.classList.remove("resultColor");
         winW.classList.remove("resultColor");
@@ -448,6 +449,7 @@ function bottomContainer(objeto){
         divPorcentaje.append(pTitlePC,  imgDefinicion);
     };
 }
+//----Operaciones ------------------------------------------------------------------------
 //----Operaciones Simple-----------------------------------------------------------------
 function inc_Simple(){
     if(SD.checked || SI.checked){
@@ -753,8 +755,9 @@ function pcDescuento(){
         console.log("Porcentaje y precio requeridos");
     };
 };
-// ===================================== Constantes =====================================
-// ==============Constantes Container fig ===============================================
+
+// ================================= Constantes ===================================
+// =========================== Constantes Container fig ===========================
 const containerFiguras = document.querySelector(".containerFiguras");
 //----containerIntro---------------------------------------------------------------------
 const containerIntro = document.createElement("section");
@@ -796,12 +799,12 @@ const sectionPCbottom = document.createElement("section");
 const pResultPC = document.createElement("p");
 const btnResultPC = document.createElement("button");
 const btnClearPC = document.createElement("button");
+// ====================================== variables =====================================
 // -------------------------------------------------
 let porcDescWindow; 
 let precListWindow;
 let descCantWindow;
 let totalPagWindow;
-// ====================================== variables =====================================
 //----inputs windows --------------------------------------------------------------------
 let winA = null;
 let winB = null;
@@ -834,8 +837,10 @@ let SI = null;
 let btnResultPCReg;
 let btnClearPCReg;
 let pResultPCReg;
+
 let rutaFPC;
 let rutaFClear;
+
 let classSimpCompDesc;
 let incognitaSC;
 let result;
