@@ -18,13 +18,13 @@ function figurasFnc(){
     blurC.classList.toggle("off");
     body.classList.toggle("noMove");
 }
-//----Funcion opacar background---------------------------------------------------------
+//----Funcion opacar background----------------------------------------------------------
 function blurFnc(){
     listIndex.classList.remove("listIndexShow");
     blurC.classList.add("off");
     body.classList.remove("noMove");
 }
-//----Funcion de seleccion en menu------------------------------------------------------
+//----Funcion de seleccion en menu-------------------------------------------------------
 function selecFnc(event){
     listIndex.classList.remove("listIndexShow");
     const figura = event.target.innerText.toLowerCase();
@@ -44,7 +44,7 @@ function selecFnc(event){
     // window.scroll(0, topOffset);
     // blurFnc();
 }
-//----Funciones de borrado, activacion y desactivacion de bentanas y radios-------------
+//----Funciones de borrado, activacion y desactivacion de bentanas y radios--------------
 function borrar(){
     // ---- Limpieza de valor de medida ----
     medidaA = "";
@@ -81,8 +81,7 @@ function borrar(){
     inputRadioPC.disabled = false;
     inputRadioPM.disabled = false;
 };
-
-//--- ---
+//--- funciones para deshabilitar ventanas y botones de Area y Perimetro-----------------
 function disableAOptions(){
     winAW1.disabled = true;
     winAW2.disabled = true;
@@ -100,9 +99,8 @@ function disablePOptions(){
     btnResultP.classList.remove("btnResult");
     btnResultP.classList.add("btnInactive");
 }
-
-//--- ---
-function enableAOptions(){
+//--- funciones para limpiar y habilitar radios ventanas y botones ----------------------
+function clearAFig(){
     if(idFig == "triangulo" || idFig == "rectangulo" || idFig == "paralelogramo" || idFig == "rombo" || idFig == "pentagono" || idFig == "hexagono"){
         winAW1.disabled = false;
         winAW2.disabled = false;
@@ -133,7 +131,7 @@ function enableAOptions(){
     abilitarIntercambiarA();
     pResultA.innerHTML = ""; 
 };
-function enablePOptions(){
+function clearPFig(){
     if(idFig == "triangulo" ){
         winPW1.disabled = false;
         winPW2.disabled = false;
@@ -144,7 +142,7 @@ function enablePOptions(){
         winPW1.classList.remove("resultColor");
         winPW2.classList.remove("resultColor");
         winPW3.classList.remove("resultColor");
-    }else if(idFig == "cuadrado" || idFig == "pentagono" || idFig == "hexagono" || idFig == "circulo"){
+    }else if(idFig == "cuadrado" || idFig == "pentagono" || idFig == "hexagono" || idFig == "circulo" || idFig == "rombo"){
         winPW1.disabled = false;
         winPW1.value = "";
         winPW1.classList.remove("resultColor");
@@ -155,7 +153,7 @@ function enablePOptions(){
         winPW2.value = "";
         winPW1.classList.remove("resultColor");
         winPW2.classList.remove("resultColor");
-    }else if(idFig == "trapecio" || idFig == "rombo"){
+    }else if(idFig == "trapecio"){
         winPW1.disabled = false;
         winPW2.disabled = false;
         winPW3.disabled = false;
@@ -173,16 +171,7 @@ function enablePOptions(){
     abilitarIntercambiarP();
     pResultP.innerHTML = ""; 
 };
-
-//--- ---
-function clearAFig(){
-    enableAOptions();
-};
-function clearPFig(){
-    enablePOptions();
-};
-
-//----Funcion asignaciones y renderizado--------------------------------------------------
+//----Funcion asignaciones y renderizado-------------------------------------------------
 function asignacionesWindowsRadios(){
     if(idFig == "triangulo"){
         winAW1 = document.querySelector("#winTriBaseA");
@@ -221,9 +210,6 @@ function asignacionesWindowsRadios(){
         winAW2 = document.querySelector("#winD2A");
 
         winPW1 = document.querySelector("#winPRomL1");
-        winPW2 = document.querySelector("#winPRomL2");
-        winPW3 = document.querySelector("#winPRomL3");
-        winPW4 = document.querySelector("#winPRomL4");
     }else if(idFig == "pentagono"){
         winAW1 = document.querySelector("#winAPPent");
         winAW2 = document.querySelector("#winAApotPent");
@@ -240,9 +226,9 @@ function asignacionesWindowsRadios(){
         winPW1 = document.querySelector("#winCircunferencia");
     }
 };
-//----Operaciones ------------------------------------------------------------------------
-// ################################### triangulo ####################################
-// ================================= AreaTriangulo ==================================
+//----Operaciones -----------------------------------------------------------------------
+// ################################### triangulo ########################################
+// ================================= AreaTriangulo ======================================
 function aTriangle(){
     if(winAW1.value > 0 && winAW2.value > 0){
         if(inputRadioAC.checked || inputRadioAM.checked){
@@ -262,7 +248,7 @@ function aTriangle(){
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
     };
 };
-// =============================== PerimeterTriangle ================================
+// =============================== PerimeterTriangle ====================================
 function pTriangle(){
     if(winPW1.value > 0 && winPW2.value > 0 && winPW3.value > 0 ){
         if(inputRadioPC.checked || inputRadioPM.checked){
@@ -284,8 +270,8 @@ function pTriangle(){
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-// #################################### cuadrado ####################################
-// =================================== AreaSquare ===================================
+// #################################### cuadrado ########################################
+// =================================== AreaSquare =======================================
 function aSquare(){
     if(winAW1.value > 0){
         if(inputRadioAC.checked || inputRadioAM.checked){
@@ -303,7 +289,7 @@ function aSquare(){
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-// ================================= PerimeterSquare ================================
+// ================================= PerimeterSquare ====================================
 function pSquare(){
     if(winPW1.value > 0){
         if(inputRadioPC.checked || inputRadioPM.checked){
@@ -321,8 +307,8 @@ function pSquare(){
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-// ################################## Rectangulo ####################################
-// ================================ AreaRectangulo ==================================
+// ################################## Rectangulo ########################################
+// ================================ AreaRectangulo ======================================
 function aRectangulo(){ 
     if(winAW1.value > 0 && winAW2.value > 0){
         if(inputRadioAC.checked || inputRadioAM.checked){
@@ -342,7 +328,7 @@ function aRectangulo(){
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-// ============================== PerimeterRectangulo ===============================
+// ============================== PerimeterRectangulo ===================================
 function pRectangulo(){
     if(winPW1.value > 0 && winPW2.value > 0) {
         if(inputRadioPC.checked || inputRadioPM.checked){
@@ -362,8 +348,8 @@ function pRectangulo(){
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-// ################################# Paralelogramo ##################################
-// =============================== AreaParalelogramo ================================
+// ################################# Paralelogramo ######################################
+// =============================== AreaParalelogramo ====================================
 function aParalelogramo(){
     if(winAW1.value > 0 && winAW2.value > 0){
         if(inputRadioAC.checked || inputRadioAM.checked){
@@ -383,7 +369,7 @@ function aParalelogramo(){
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-// ============================= PerimeterParalelogramo =============================
+// ============================= PerimeterParalelogramo =================================
 function pParalelogramo(){
     if(winPW1.value > 0 && winPW2.value > 0) {
         if(inputRadioPC.checked || inputRadioPM.checked){
@@ -403,8 +389,8 @@ function pParalelogramo(){
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-// #################################### Trapecio ####################################
-// ================================== AreaTrapecio ==================================
+// #################################### Trapecio ########################################
+// ================================== AreaTrapecio ======================================
 function aTrapecio(){
     if(winAW1.value > 0 && winAW2.value > 0 && winAW3.value > 0){
         if(inputRadioAC.checked || inputRadioAM.checked){
@@ -426,7 +412,7 @@ function aTrapecio(){
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-// ================================ PerimeterTrapecio ===============================
+// ================================ PerimeterTrapecio ===================================
 function pTrapecio(){
     if(winPW1.value > 0 && winPW2.value > 0 && winPW3.value > 0 && winPW4.value > 0) {
         if(inputRadioPC.checked || inputRadioPM.checked){
@@ -450,8 +436,8 @@ function pTrapecio(){
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-// ##################################### rombo ######################################
-// ==================================== AreaRombo ===================================
+// ##################################### rombo ##########################################
+// ==================================== AreaRombo =======================================
 function aRombo(){
     if(winAW1.value > 0 && winAW2.value > 0){
         if(inputRadioAC.checked || inputRadioAM.checked){
@@ -471,22 +457,16 @@ function aRombo(){
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-// ================================== PerimeterRombo ================================
+// ================================== PerimeterRombo ====================================
 function pRombo(){
-    if(winPW1.value > 0 && winPW2.value > 0 && winPW3.value > 0 && winPW4.value > 0) {
+    if(winPW1.value > 0) {
         if(inputRadioPC.checked || inputRadioPM.checked){
             medSeleccion();
             const l1 = Number(winPW1.value);
-            const l2 = Number(winPW2.value);
-            const l3 = Number(winPW3.value);
-            const l4 = Number(winPW4.value);
-            const result = l1 + l2 + l3 + l4;
+            const result = 4 * l1;
             medEnableDisableP();
             disablePOptions();
             winPW1.classList.add("resultColor");
-            winPW2.classList.add("resultColor");
-            winPW3.classList.add("resultColor");
-            winPW4.classList.add("resultColor");
             pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} ${medidaP}`;
         }else{
             pResultP.innerHTML = "Elegir centimetros o metros";
@@ -495,8 +475,8 @@ function pRombo(){
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-// ################################### Pentagono ####################################
-// ================================= AreaPentagono ==================================
+// ################################### Pentagono ########################################
+// ================================= AreaPentagono ======================================
 function aPentagono(){
     if(winAW1.value > 0 && winAW2.value > 0){
         if(inputRadioAC.checked || inputRadioAM.checked){
@@ -516,7 +496,7 @@ function aPentagono(){
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-// ================================ PerimeterPentagono ==============================
+// ================================ PerimeterPentagono ==================================
 function pPentagono(){
     if(winPW1.value > 0) {
         if(inputRadioPC.checked || inputRadioPM.checked){
@@ -534,8 +514,8 @@ function pPentagono(){
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-// #################################### Hexagono ####################################
-// ================================== AreaHexagono ==================================
+// #################################### Hexagono ########################################
+// ================================== AreaHexagono ======================================
 function aHexagono(){
     if(winAW1.value > 0 && winAW2.value > 0){
         if(inputRadioAC.checked || inputRadioAM.checked){
@@ -555,7 +535,7 @@ function aHexagono(){
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-// ================================ PerimeterHexagono ===============================
+// ================================ PerimeterHexagono ===================================
 function pHexagono(){
     if(winPW1.value > 0) {
         if(inputRadioPC.checked || inputRadioPM.checked){
@@ -573,8 +553,8 @@ function pHexagono(){
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
     }
 }
-// ################################# Circunferencia #################################
-// =================================== AreaCirculo ==================================
+// ################################# Circunferencia #####################################
+// =================================== AreaCirculo ======================================
 function aCirculo(){
     if(winAW1.value > 0){
         if(inputRadioAC.checked || inputRadioAM.checked){
@@ -593,7 +573,7 @@ function aCirculo(){
         pResultA.innerHTML = "Radio debe de ser mayor a 0";
     }
 }
-// ================================= Circunferencia =================================
+// ================================= Circunferencia =====================================
 function circunferencia(){
     if(winPW1.value > 0){
         if(inputRadioPC.checked || inputRadioPM.checked){
@@ -612,7 +592,7 @@ function circunferencia(){
         pResultP.innerHTML = "Radio debe ser mayor a 0";
     }
 }
-//----Funciones seleccion y vaciado medida-------------------------------------------------------------
+//----Funciones seleccion y vaciado medida-----------------------------------------------
 function medSeleccion() {
     if(inputRadioAC.checked) {
         medidaA = "cm2";
@@ -655,7 +635,7 @@ function medDisableUncheckedP(){
     inputRadioPC.checked = false;
     inputRadioPM.checked = false;
 };
-//----Funciones renderizado-------------------------------------------------------------
+//----Funciones renderizado--------------------------------------------------------------
 function renderIntroduccion(){
     borrar();
     containerFiguras.appendChild(containerIntro);
@@ -851,7 +831,7 @@ function renderFigura(objeto){
 
     document.documentElement.scrollTop = 0;
 };
-//----Funciones para abilitar e intercambiar clase en btn resultado--------------------------------------------------
+//----Funciones para abilitar e intercambiar clase en btn resultado----------------------
 function abilitarIntercambiarA(){
     btnResultA.disabled = false;
     btnResultA.classList.remove("btnInactive");
@@ -862,8 +842,8 @@ function abilitarIntercambiarP(){
     btnResultP.classList.remove("btnInactive");
     btnResultP.classList.add("btnResult");
 }
-// ================================= Constantes ===================================
-// =========================== Constantes Container fig ===========================
+// ================================= Constantes =========================================
+// =========================== Constantes Container fig =================================
 const containerFiguras = document.querySelector(".containerFiguras");
 //----containerIntro---------------------------------------------------------------------
 const containerIntro = document.createElement("section");
@@ -885,77 +865,73 @@ const defGuiaTitulo = document.createElement("p");
 const defGuia = document.createElement("p");
 //----containerResponsive----------------------------------------------------------------
 const containerResponsive = document.createElement("section");
-// ---------------------------------- formulaImg ----------------------------------
+// ---------------------------------- formulaImg ----------------------------------------
 const formulaImg = document.createElement("div");
 const titleFig = document.createElement("h2");
 const imgFigura = document.createElement("img");
-// ------------------------------ perimetroYAreaDiv -------------------------------
+// ------------------------------ perimetroYAreaDiv -------------------------------------
 const perimetroYAreaDiv = document.createElement("div");
-// ----------------------------------- divArea ------------------------------------
+// ----------------------------------- divArea ------------------------------------------
 const divArea = document.createElement("div");
-// --------------------------------- sectionAtop ----------------------------------
+// --------------------------------- sectionAtop ----------------------------------------
 const sectionAtop = document.createElement("section");
 const pTitleA = document.createElement("p");
 const pformulaA = document.createElement("p");
-// -------------------------------- sectionAmiddle --------------------------------
+// -------------------------------- sectionAmiddle --------------------------------------
 const sectionAmiddle = document.createElement("section");
 const divRadioA = document.createElement("div");
 const inputRadioAC = document.createElement("input");
 const inputRadioAM = document.createElement("input");
 const inputLabelAC = document.createElement("label");
 const inputLabelAM = document.createElement("label");
-// -------------------------------- sectionAbottom --------------------------------
+// -------------------------------- sectionAbottom --------------------------------------
 const sectionAbottom = document.createElement("section");
 const pResultA = document.createElement("p");
 const btnResultA = document.createElement("button");
 const btnClearA = document.createElement("button");
-// --------------------------------- divPerimetro ----------------------------------
+// --------------------------------- divPerimetro ---------------------------------------
 const divPerimetro =document.createElement("div");
-// --------------------------------- sectionPtop -----------------------------------
+// --------------------------------- sectionPtop ----------------------------------------
 const sectionPtop = document.createElement("section");
 const pTitleP = document.createElement("p");
 const pformulaP = document.createElement("p");
-// -------------------------------- sectionPmiddle ---------------------------------
+// -------------------------------- sectionPmiddle --------------------------------------
 const sectionPmiddle = document.createElement("section");
 const divRadioP = document.createElement("div");
 const inputRadioPC = document.createElement("input");
 const inputRadioPM = document.createElement("input");
 const inputLabelPC = document.createElement("label");
 const inputLabelPM = document.createElement("label");
-// -------------------------------- sectionPbottom --------------------------------
+// -------------------------------- sectionPbottom --------------------------------------
 const sectionPbottom = document.createElement("section");
 const pResultP = document.createElement("p");
 const btnResultP = document.createElement("button");
 const btnClearP = document.createElement("button");
-// =================================== variables ==================================
-//----inputs windows --------------------------------------------------------------------
+// =================================== variables ========================================
+//----inputs windows atreas y perimetros ------------------------------------------------
 let winAW1 = "";
 let winAW2 = "";
 let winAW3 = "";
-
 let winPW1 = "";
 let winPW2 = "";
 let winPW3 = "";
 let winPW4 = "";
-
-// ----medida-------------------------------------------------
+// ----medida----------------------------------------------------------------------------
 let medidaA;
 let medidaP;
-//----Buttons y window result------------------------------------------------------------
+//----Variables de Botones y ventanas de resultados Areas y Perimetros ------------------
 let btnResultAReg;
 let btnClearAReg;
 let pResultAReg;
-
 let btnResultPReg;
 let btnClearPReg;
 let pResultPReg;
-
+// ---- Variables de redireccion para funciones de areas y perimetros -------------------
 let rutaFA;
 let rutaFAClear;
-
 let rutaFP;
 let rutaFPClear;
-
+// --- Variable de identificacion de figura ---------------------------------------------
 let idFig = "";
 //----Inicio-----------------------------------------------------------------------------
 renderIntroduccion();

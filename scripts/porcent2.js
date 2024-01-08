@@ -184,7 +184,7 @@ function clearSCD(){
     enableButtonResultado();
     pResultPC.innerHTML = ""; 
 };
-//----Funcion asignaciones y renderizado--------------------------------------------------
+//----Funcion asignaciones y renderizado-------------------------------------------------
 function asignacionesWindowsRadios(){
     if(loadVar == "SDI"){
         SD = document.querySelector("#radPCD");
@@ -449,7 +449,7 @@ function bottomContainer(objeto){
         divPorcentaje.append(pTitlePC,  imgDefinicion);
     };
 }
-//----Operaciones ------------------------------------------------------------------------
+//----Operaciones -----------------------------------------------------------------------
 //----Operaciones Simple-----------------------------------------------------------------
 function inc_Simple(){
     if(SD.checked || SI.checked){
@@ -685,6 +685,12 @@ function renderFigura(objeto){
     asignacionesWindowsRadios()    
     document.documentElement.scrollTop = 0;
 };
+function mensajeDI(){
+    pResultPC.innerHTML = "Elegir su relacion directa (D)<br>o inversa (I) respecto a (X)";
+};
+function mensajeIncognita(){
+    pResultPC.innerHTML = "Se permite solo una incognita<br>(X) con su relacion (D) (I)";
+};
 //----Funciones Logica de calculadoras--------------------------------------------------
 function pcSDI(){
     if(winA.value == "" && winB.value > 0 && winW.value > 0 && (winY.value > 0 )){
@@ -708,10 +714,10 @@ function pcCDIM(){
                 leftDisabledR();
             }else{
                 leftDisabledR();
-                pResultPC.innerHTML = "Una incognita (X) y combinaciones<br>de (D) e (I) permitido";
+                mensajeIncognita();
             };
         }else{
-            pResultPC.innerHTML = "Elegir su relacion directa (D)<br>o inversa (I) respecto a (X)";
+            mensajeDI();
         };
     //-------------------------Window B y Y----------------------------
     }else if((winA.value > 0 && winB.value == "" && winC.value > 0 && winW.value > 0 && winY.value > 0 && winZ.value > 0) || (winA.value > 0 && winB.value > 0 && winC.value > 0 && winW.value > 0 && winY.value == "" && winZ.value > 0)){
@@ -721,10 +727,10 @@ function pcCDIM(){
                 centerDisabledR();
             }else{
                 centerDisabledR();
-                pResultPC.innerHTML = "Solo una incognita (X) es permitida<br>mas una combinacion de (D) e (I)";
+                mensajeIncognita();
             };
         }else{
-            pResultPC.innerHTML = "Elegir su relacion directa (D)<br>o inversa (I) respecto a (X)";
+            mensajeDI();
         };
     //-------------------------Window C y Z----------------------------
     }else if((winA.value > 0 && winB.value > 0 && winC.value == ""  && winW.value > 0 && winY.value > 0 && winZ.value > 0) || (winA.value > 0 && winB.value > 0 && winC.value > 0 && winW.value > 0 && winY.value > 0 && winZ.value == "")){
@@ -734,10 +740,10 @@ function pcCDIM(){
                 rightDisabledR();
             }else{
                 rightDisabledR();
-                pResultPC.innerHTML = "Solo una incognita (X) es permitida<br>mas una combinacion de (D) e (I)";
+                mensajeIncognita();
             };
         }else{
-            pResultPC.innerHTML = "Elegir su relacion directa (D)<br>o inversa (I) respecto a (X)";
+            mensajeDI();
         };
     }else{
         pResultPC.innerHTML = "Introduce 5 valores conocidos<br>y deja vacia la incognita";
@@ -755,57 +761,56 @@ function pcDescuento(){
         console.log("Porcentaje y precio requeridos");
     };
 };
-
-// ================================= Constantes ===================================
-// =========================== Constantes Container fig ===========================
+// ================================= Constantes ========================================
+// =========================== Constantes Container fig ================================
 const containerFiguras = document.querySelector(".containerFiguras");
-//----containerIntro---------------------------------------------------------------------
+//----containerIntro--------------------------------------------------------------------
 const containerIntro = document.createElement("section");
-//----sectionDtop------------------------------------------------------------------------
+//----sectionDtop-----------------------------------------------------------------------
 const sectionDtop = document.createElement("div");
 const defTitulo = document.createElement("h2");
 const defImg = document.createElement("img");
-//----sectionDmiddle---------------------------------------------------------------------
+//----sectionDmiddle--------------------------------------------------------------------
 const sectionDmiddle = document.createElement("div");
 const defPorcentajeTitulo = document.createElement("p");
 const defPorcentaje = document.createElement("p");
 const defPorcentaje2Titulo = document.createElement("p");
 const defPorcentaje2 = document.createElement("p");
-//----sectionDbottom---------------------------------------------------------------------
+//----sectionDbottom--------------------------------------------------------------------
 const sectionDbottom = document.createElement("div");
 const defNotaTitulo = document.createElement("p");
 const defNota = document.createElement("p");
 const defGuiaTitulo = document.createElement("p");
 const defGuia = document.createElement("p");
-//----containerResponsive----------------------------------------------------------------
+//----containerResponsive---------------------------------------------------------------
 const containerResponsive = document.createElement("section");
-//----simpleDirectaImg-------------------------------------------------------------------
+//----simpleDirectaImg------------------------------------------------------------------
 const simpleDirectaImg = document.createElement("div");
 const titleFig = document.createElement("h2");
 const imgSD = document.createElement("img");
-//----containerAltura--------------------------------------------------------------------
+//----containerAltura-------------------------------------------------------------------
 const containerPorcentaje = document.createElement("div");
-//----divPorcentaje----------------------------------------------------------------------
+//----divPorcentaje---------------------------------------------------------------------
 const divPorcentaje = document.createElement("div");
-//----sectionPCtop ----------------------------------------------------------------------
+//----sectionPCtop ---------------------------------------------------------------------
 const sectionPCtop = document.createElement("section");
 const pTitlePC = document.createElement("p");
 const pformulaPC = document.createElement("p");
-//----sectionPCmiddle -------------------------------------------------------------------
+//----sectionPCmiddle ------------------------------------------------------------------
 const sectionPCmiddleTop = document.createElement("section");
 const sectionPCmiddle = document.createElement("section");
-//----sectionHbottom --------------------------------------------------------------------
+//----sectionHbottom -------------------------------------------------------------------
 const sectionPCbottom = document.createElement("section");
 const pResultPC = document.createElement("p");
 const btnResultPC = document.createElement("button");
 const btnClearPC = document.createElement("button");
-// ====================================== variables =====================================
+// ====================================== variables ====================================
 // -------------------------------------------------
 let porcDescWindow; 
 let precListWindow;
 let descCantWindow;
 let totalPagWindow;
-//----inputs windows --------------------------------------------------------------------
+//----inputs windows -------------------------------------------------------------------
 let winA = null;
 let winB = null;
 let winC = null;
@@ -814,13 +819,13 @@ let winY = null;
 let winZ = null;
 //----
 let loadVar = null;
-//----Magnitudes-------------------------------------------------------------------------
+//----Magnitudes------------------------------------------------------------------------
 let magnitud1 = null;
 let magnitud2 = null;
-//----window mensaje resultado-----------------------------------------------------------
+//----window mensaje resultado----------------------------------------------------------
 let resultR3C = null;
-//----inputs radios----------------------------------------------------------------------
-//----compuesta--------------------------------------------------------------------------
+//----inputs radios---------------------------------------------------------------------
+//----compuesta-------------------------------------------------------------------------
 let XL = null;
 let DL = null;
 let IL = null;
@@ -830,20 +835,19 @@ let IC = null;
 let XR = null;
 let DR = null;
 let IR = null;
-//----simple-----------------------------------------------------------------------------
+//----simple----------------------------------------------------------------------------
 let SD = null;
 let SI = null;
-//----Buttons y window result------------------------------------------------------------
+//----Buttons y window result-----------------------------------------------------------
 let btnResultPCReg;
 let btnClearPCReg;
 let pResultPCReg;
-
+// ---- Variables de redireccion para funciones de areas y perimetros ------------------
 let rutaFPC;
 let rutaFClear;
 
 let classSimpCompDesc;
 let incognitaSC;
 let result;
-
-//----Inicio-----------------------------------------------------------------------------
+//----Inicio----------------------------------------------------------------------------
 renderIntroduccion();

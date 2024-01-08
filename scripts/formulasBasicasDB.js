@@ -241,20 +241,8 @@ const romboObj = {
     titlePerimetro: "Perimetro del Rombo",
     inputPerimetro: [
         {
-            inputLabel: "Medida L1",
+            inputLabel: "Medida L",
             inputId: "winPRomL1"
-        },
-        {
-            inputLabel: "Medida L2",
-            inputId: "winPRomL2"
-        },
-        {
-            inputLabel: "Medida L3",
-            inputId: "winPRomL3"
-        },
-        {
-            inputLabel: "Medida L4",
-            inputId: "winPRomL4"
         }
     ],
     resultClP: "resultPRombo",
@@ -364,38 +352,6 @@ const circuloObj = {
     funcionPerimetro: "circunferencia",
     clearWindowP: "clearPFig"
 };
-// const elipseObj = {
-//     id: "elipse",
-//     imgFig: "../assets/elipse.png",
-
-//     titleArea: "Area del Elipse",
-//     formulaArea: "Formula = pi x a x b",
-//     inputArea: [
-//         {
-//             inputLabel: "Medida Semieje H",
-//             inputId: "winElipSemiEjeH"
-//         },
-//         {
-//             inputLabel: "Medida Semieje V",
-//             inputId: "winElipSemiEjeV"
-//         }
-//     ],
-//     resultClA: "resultAElip",
-//     btnClA: "btnResultAElip",
-//     funcionArea: "aElipse",
-
-//     titlePerimetro: "Longitud Elipse",
-//     formulaPerimetro: "Formula = pi * diametro",
-//     inputPerimetro: [
-//         {
-//             inputLabel: "Medida radio",
-//             inputId: "winElipse"
-//         }
-//     ],
-//     resultClP: "resultElipse",
-//     btnClP: "btnResultElipse",
-//     funcionPerimetro: "elipse",
-// };
 
 formulasArray.push(intro);
 formulasArray.push(trianguloObj);
@@ -407,5 +363,5 @@ formulasArray.push(romboObj);
 formulasArray.push(pentagonoObj);
 formulasArray.push(hexagonoObj);
 formulasArray.push(circuloObj);
-// formulasArray.push(elipseObj);
+
 
