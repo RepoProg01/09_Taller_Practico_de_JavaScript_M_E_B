@@ -5,7 +5,7 @@ const introAlturas = {
     defTitulo: "Introduccion",
 
     defAlturaTitulo: "Que es la Altura ?",
-    defAltura: "La altura de un objeto o figura geométrica es la longitud o distancia de una dimensión geométrica, vertical o en la dirección de la gravedad. Este término también se utiliza para designar la coordenada vertical de la parte más elevada de un objeto a su base.",
+    defAltura: "La altura de una figura geométrica es la longitud o distancia de una dimensión geométrica, vertical o dirección de la gravedad. Este término se utiliza para designar la coordenada vertical de la parte más elevada de la figura a su base.",
     defAltura2Titulo: "Que es la Base ?",
     defAltura2: "Base es un lado o cara elegido ( en algunos casos arbitrariamente) para realizar el cálculo de área o volumen.",
 
