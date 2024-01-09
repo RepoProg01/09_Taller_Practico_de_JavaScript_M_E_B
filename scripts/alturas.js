@@ -145,7 +145,7 @@ function mensajeMayorCero(){
     pResultH.innerHTML = "Lados deben de ser mayores a 0";
 }
 function mensajeBaseMedida(){
-    pResultH.innerHTML = "La medida de la base debe ser<br>mayor a la medida de los lados";
+    pResultH.innerHTML = "La medida de la Base debe ser<br>mayor a la de los lados";
 }
 //----Funciones renderizado--------------------------------------------------------------
 function renderIntroduccion(){
