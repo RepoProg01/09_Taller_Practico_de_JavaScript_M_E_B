@@ -30,13 +30,15 @@ const trianguloIsoscelesObj = {
             inputId: "winHTriIsoSide2"
         },
         {
-            inputLabel: "Medida d base",
+            inputLabel: "Medida de base",
             inputId: "winHTriIsoBase"
         }
     ],
     resultClH: "resultHTriIso",
     btnClH: "btnResultHTriIso",
+    btn2ClH: "btnClearHTriIso",
     funcionAltura: "hTriangleIso",
+    clearWindowH: "clearHFig",
 };
 const trianguloEscalenoObj = {
     id: "triangulo_escaleno",
@@ -54,13 +56,15 @@ const trianguloEscalenoObj = {
             inputId: "winHTriEscSide2"
         },
         {
-            inputLabel: "Medida de base",
+            inputLabel: "Base medida mayor",
             inputId: "winHTriEscBase"
         }
     ],
     resultClH: "resultHTriEsc",
     btnClH: "btnResultHTriEsc",
+    btn2ClH: "btnClearHTriEsc",
     funcionAltura: "hTriEsc",
+    clearWindowH: "clearHFig",
 };
 
 AlturasArray.push(introAlturas);

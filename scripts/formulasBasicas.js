@@ -171,6 +171,32 @@ function clearPFig(){
     abilitarIntercambiarP();
     pResultP.innerHTML = ""; 
 };
+function medDisableUncheckedA(){
+    // ---- Abilitar radios ----
+    inputRadioAC.disabled = false;
+    inputRadioAM.disabled = false;
+    // ---- Limpiar radios ----
+    inputRadioAC.checked = false;
+    inputRadioAM.checked = false;
+};
+function medDisableUncheckedP(){
+    // ---- Abilitar radios ----
+    inputRadioPC.disabled = false;
+    inputRadioPM.disabled = false;
+    // ---- Limpiar radios ----
+    inputRadioPC.checked = false;
+    inputRadioPM.checked = false;
+};
+function abilitarIntercambiarA(){
+    btnResultA.disabled = false;
+    btnResultA.classList.remove("btnInactive");
+    btnResultA.classList.add("btnResult");
+};
+function abilitarIntercambiarP(){
+    btnResultP.disabled = false;
+    btnResultP.classList.remove("btnInactive");
+    btnResultP.classList.add("btnResult");
+}
 //----Funcion asignaciones y renderizado-------------------------------------------------
 function asignacionesWindowsRadios(){
     if(idFig == "triangulo"){
@@ -225,6 +251,226 @@ function asignacionesWindowsRadios(){
 
         winPW1 = document.querySelector("#winCircunferencia");
     }
+};
+//----Funciones seleccion y vaciado medida-----------------------------------------------
+function medSeleccion() {
+    if(inputRadioAC.checked) {
+        medidaA = "cm2";
+    }else if(inputRadioAM.checked) {
+        medidaA = "m2";
+    };
+    if(inputRadioPC.checked) {
+        medidaP = "cm";
+    }else if(inputRadioPM.checked) {
+        medidaP = "m";
+    };
+};
+function medEnableDisableA(){
+    if(inputRadioAC.checked){
+        inputRadioAM.disabled = true;
+    }else if(inputRadioAM.checked){
+        inputRadioAC.disabled = true;
+    };
+};
+function medEnableDisableP(){
+    if(inputRadioPC.checked){
+        inputRadioPM.disabled = true;
+    }else if(inputRadioPM.checked){
+        inputRadioPC.disabled = true;
+    };
+};
+//----Funciones renderizado--------------------------------------------------------------
+function renderIntroduccion(){
+    borrar();
+    containerFiguras.appendChild(containerIntro);
+
+    containerIntro.classList.add("containerIntro");
+
+    defTitulo.classList.add("tituloIntro");
+    defTitulo.innerHTML = formulasArray[0].defTitulo;
+    defImg.classList.add("imgIntro");
+    defImg.setAttribute("src", formulasArray[0].defImg);
+    sectionDtop.classList.add("sectionDtop", "secD");
+    sectionDtop.append(defTitulo, defImg);
+
+    defAreaTitulo.classList.add("defAreaTitulo", "defT");
+    defAreaTitulo.innerHTML = formulasArray[0].defAreaTitulo;
+    defArea.classList.add("defArea", "defC");
+    defArea.innerHTML = formulasArray[0].defArea;
+    defPerimetroTitulo.classList.add("defPerimetroTitulo", "defT");
+    defPerimetroTitulo.innerHTML = formulasArray[0].defPerimetroTitulo;
+    defPerimetro.classList.add("defPerimetro", "defC");
+    defPerimetro.innerHTML = formulasArray[0].defPerimetro;
+    sectionDmiddle.classList.add("sectionDmiddle", "secD");
+    sectionDmiddle.append(defAreaTitulo, defArea, defPerimetroTitulo, defPerimetro);
+
+    defNotaTitulo.classList.add("defNotaTitulo", "defT");
+    defNotaTitulo.innerHTML = formulasArray[0].defNotaTitulo;
+    defNota.classList.add("defNota", "defC");
+    defNota.innerHTML = formulasArray[0].defNota;
+    defGuiaTitulo.classList.add("defGuiaTitulo", "defT");
+    defGuiaTitulo.innerHTML = formulasArray[0].defGuiaTitulo;
+    defGuia.classList.add("defGuia", "defC");
+    defGuia.innerHTML = formulasArray[0].defGuia;
+    sectionDbottom.classList.add("sectionDbottom", "secD");
+    sectionDbottom.append(defNotaTitulo, defNota, defGuiaTitulo, defGuia);
+
+    containerIntro.append(sectionDtop, sectionDmiddle, sectionDbottom);
+    document.documentElement.scrollTop = 0;
+};
+function renderFigura(objeto){
+    borrar();
+    idFig = objeto.id;
+
+    containerFiguras.appendChild(containerResponsive);
+    containerResponsive.classList.add("containerResponsive");
+
+    containerResponsive.appendChild(formulaImg);
+    formulaImg.classList.add("formulaImg");
+    
+    formulaImg.appendChild(titleFig);
+    titleFig.classList.add("titleFig");
+    titleFig.innerHTML = objeto.titleFig;
+
+    formulaImg.appendChild(imgFigura);
+    imgFigura.setAttribute("src", objeto.imgFig);
+
+    containerResponsive.appendChild(perimetroYAreaDiv);
+    perimetroYAreaDiv.classList.add("perimetroYArea");
+    perimetroYAreaDiv.appendChild(divArea);
+    divArea.classList.add("containerFormules");
+
+    pTitleA.classList.add("titlesFormules");
+    pTitleA.innerHTML = objeto.titleArea;
+    pformulaA.classList.add("textFormule");
+    pformulaA.innerHTML = "Calculadora";
+    sectionAtop.classList.add("sectionAtop");
+    sectionAtop.append(pTitleA, pformulaA);
+
+    divRadioA.classList.add("divRadioA");
+    inputRadioAC.setAttribute("type", "radio");
+    inputRadioAC.setAttribute("name", "radA");
+    inputRadioAC.setAttribute("id", "radAC");
+    inputLabelAC.setAttribute("for", "radAC");
+    inputLabelAC.innerHTML = "centimetros";
+    inputRadioAM.setAttribute("type", "radio");
+    inputRadioAM.setAttribute("name", "radA");
+    inputRadioAM.setAttribute("id", "radAM");
+    inputLabelAM.setAttribute("for", "radAM");
+    inputLabelAM.innerHTML = "metros";
+    divRadioA.append(inputRadioAC, inputLabelAC, inputRadioAM, inputLabelAM);
+    sectionAmiddle.classList.add("sectionAmiddle");
+    sectionAmiddle.appendChild(divRadioA);
+
+    objeto.inputArea.forEach(winInput => {
+        const divWin = document.createElement("div");
+        divWin.classList.add("winPosition");
+
+        const labelArea = document.createElement("label");
+        labelArea.setAttribute("for", winInput.inputId);
+        labelArea.innerHTML = winInput.inputLabel;
+        divWin.appendChild(labelArea);
+        const inputAreaWindow = document.createElement("input");
+        inputAreaWindow.setAttribute("type", "number");
+        inputAreaWindow.setAttribute("id", winInput.inputId);
+        inputAreaWindow.classList.add("inputStyle");
+        divWin.appendChild(inputAreaWindow);
+        sectionAmiddle.appendChild(divWin);
+    });
+
+    btnClearAReg = objeto.btn2ClA;
+    btnClearA.classList.add("btnClear", btnClearAReg);
+    btnClearA.innerHTML = "Borrar";
+
+    btnResultAReg = objeto.btnClA;
+    btnResultA.classList.add("btnResult", btnResultAReg);
+    btnResultA.innerHTML = "Resultado";
+
+    btnClearA.removeEventListener("click", rutaFAClear);
+    rutaFAClear = (eval(objeto.clearWindowA));
+    btnClearA.addEventListener("click", rutaFAClear);
+    
+    btnResultA.removeEventListener("click", rutaFA);
+    rutaFA = (eval(objeto.funcionArea));
+    btnResultA.addEventListener("click", rutaFA);
+
+    pResultAReg = objeto.resultClA
+    pResultA.classList.add("winStyle", pResultAReg);
+    btnResultAReg = objeto.btnClA;
+    btnResultA.classList.add("btnResult", btnResultAReg);
+    btnResultA.innerHTML = "Resultado";
+
+    sectionAbottom.classList.add("sectionAbottom");
+    sectionAbottom.append(pResultA, btnClearA, btnResultA);
+    divArea.append(sectionAtop, sectionAmiddle, sectionAbottom);
+
+    //=================================== Perimetro ===================================
+    perimetroYAreaDiv.appendChild(divPerimetro);
+
+    divPerimetro.classList.add("containerFormules");
+
+    pTitleP.classList.add("titlesFormules");
+    pTitleP.innerHTML = objeto.titlePerimetro;
+    pformulaP.classList.add("textFormule");
+    pformulaP.innerHTML = "Calculadora";
+    sectionPtop.classList.add("sectionPtop");
+    sectionPtop.append(pTitleP, pformulaP);
+
+    divRadioP.classList.add("divRadioP");
+    inputRadioPC.setAttribute("type", "radio");
+    inputRadioPC.setAttribute("name", "radP");
+    inputRadioPC.setAttribute("id", "radPC");
+    inputLabelPC.setAttribute("for", "radPC");
+    inputLabelPC.innerHTML = "centimetros";
+    inputRadioPM.setAttribute("type", "radio");
+    inputRadioPM.setAttribute("name", "radP");
+    inputRadioPM.setAttribute("id", "radPM");
+    inputLabelPM.setAttribute("for", "radPM");
+    inputLabelPM.innerHTML = "metros";
+    divRadioP.append(inputRadioPC, inputLabelPC, inputRadioPM, inputLabelPM);
+    sectionPmiddle.classList.add("sectionPmiddle");
+    sectionPmiddle.appendChild(divRadioP);
+
+    objeto.inputPerimetro.forEach(winInput => {
+        const divWinP = document.createElement("div");
+        divWinP.classList.add("winPosition");
+        const labelPerimetro = document.createElement("label");
+        labelPerimetro.setAttribute("for", winInput.inputId);
+        labelPerimetro.innerHTML = winInput.inputLabel;
+        divWinP.appendChild(labelPerimetro);
+        const inputPerimetroWindow = document.createElement("input");
+        inputPerimetroWindow.setAttribute("type", "number");
+        inputPerimetroWindow.setAttribute("id", winInput.inputId);
+        inputPerimetroWindow.classList.add("inputStyle");
+        divWinP.appendChild(inputPerimetroWindow);
+        sectionPmiddle.appendChild(divWinP);
+    });
+
+    btnClearPReg = objeto.btn2ClP;
+    btnClearP.classList.add("btnClear", btnClearPReg);
+    btnClearP.innerHTML = "Borrar";
+
+    btnResultPReg = objeto.btnClP;
+    btnResultP.classList.add("btnResult", btnResultPReg);
+    btnResultP.innerHTML = "Resultado";
+
+    btnClearP.removeEventListener("click", rutaFPClear);
+    rutaFPClear = (eval(objeto.clearWindowP));
+    btnClearP.addEventListener("click", rutaFPClear);
+    
+    btnResultP.removeEventListener("click", rutaFP);
+    rutaFP = (eval(objeto.funcionPerimetro));
+    btnResultP.addEventListener("click", rutaFP);
+
+    pResultPReg = objeto.resultClP;
+    pResultP.classList.add("winStyle", pResultPReg);
+   
+    sectionPbottom.classList.add("sectionPbottom");
+    sectionPbottom.append(pResultP, btnClearP, btnResultP);
+    divPerimetro.append(sectionPtop, sectionPmiddle, sectionPbottom);
+
+    asignacionesWindowsRadios();
+    document.documentElement.scrollTop = 0;
 };
 //----Operaciones -----------------------------------------------------------------------
 // ################################### triangulo ########################################
@@ -592,256 +838,7 @@ function circunferencia(){
         pResultP.innerHTML = "Radio debe ser mayor a 0";
     }
 }
-//----Funciones seleccion y vaciado medida-----------------------------------------------
-function medSeleccion() {
-    if(inputRadioAC.checked) {
-        medidaA = "cm2";
-    }else if(inputRadioAM.checked) {
-        medidaA = "m2";
-    };
-    if(inputRadioPC.checked) {
-        medidaP = "cm";
-    }else if(inputRadioPM.checked) {
-        medidaP = "m";
-    };
-};
-function medEnableDisableA(){
-    if(inputRadioAC.checked){
-        inputRadioAM.disabled = true;
-    }else if(inputRadioAM.checked){
-        inputRadioAC.disabled = true;
-    };
-};
-function medEnableDisableP(){
-    if(inputRadioPC.checked){
-        inputRadioPM.disabled = true;
-    }else if(inputRadioPM.checked){
-        inputRadioPC.disabled = true;
-    };
-};
-function medDisableUncheckedA(){
-    // ---- Abilitar radios ----
-    inputRadioAC.disabled = false;
-    inputRadioAM.disabled = false;
-    // ---- Limpiar radios ----
-    inputRadioAC.checked = false;
-    inputRadioAM.checked = false;
-};
-function medDisableUncheckedP(){
-    // ---- Abilitar radios ----
-    inputRadioPC.disabled = false;
-    inputRadioPM.disabled = false;
-    // ---- Limpiar radios ----
-    inputRadioPC.checked = false;
-    inputRadioPM.checked = false;
-};
-//----Funciones renderizado--------------------------------------------------------------
-function renderIntroduccion(){
-    borrar();
-    containerFiguras.appendChild(containerIntro);
 
-    containerIntro.classList.add("containerIntro");
-
-    defTitulo.classList.add("tituloIntro");
-    defTitulo.innerHTML = formulasArray[0].defTitulo;
-    defImg.classList.add("imgIntro");
-    defImg.setAttribute("src", formulasArray[0].defImg);
-    sectionDtop.classList.add("sectionDtop", "secD");
-    sectionDtop.append(defTitulo, defImg);
-
-    defAreaTitulo.classList.add("defAreaTitulo", "defT");
-    defAreaTitulo.innerHTML = formulasArray[0].defAreaTitulo;
-    defArea.classList.add("defArea", "defC");
-    defArea.innerHTML = formulasArray[0].defArea;
-    defPerimetroTitulo.classList.add("defPerimetroTitulo", "defT");
-    defPerimetroTitulo.innerHTML = formulasArray[0].defPerimetroTitulo;
-    defPerimetro.classList.add("defPerimetro", "defC");
-    defPerimetro.innerHTML = formulasArray[0].defPerimetro;
-    sectionDmiddle.classList.add("sectionDmiddle", "secD");
-    sectionDmiddle.append(defAreaTitulo, defArea, defPerimetroTitulo, defPerimetro);
-
-    defNotaTitulo.classList.add("defNotaTitulo", "defT");
-    defNotaTitulo.innerHTML = formulasArray[0].defNotaTitulo;
-    defNota.classList.add("defNota", "defC");
-    defNota.innerHTML = formulasArray[0].defNota;
-    defGuiaTitulo.classList.add("defGuiaTitulo", "defT");
-    defGuiaTitulo.innerHTML = formulasArray[0].defGuiaTitulo;
-    defGuia.classList.add("defGuia", "defC");
-    defGuia.innerHTML = formulasArray[0].defGuia;
-    sectionDbottom.classList.add("sectionDbottom", "secD");
-    sectionDbottom.append(defNotaTitulo, defNota, defGuiaTitulo, defGuia);
-
-    containerIntro.append(sectionDtop, sectionDmiddle, sectionDbottom);
-    document.documentElement.scrollTop = 0;
-};
-function renderFigura(objeto){
-    idFig = objeto.id;
-    borrar();
-    containerFiguras.appendChild(containerResponsive);
-    containerResponsive.classList.add("containerResponsive");
-
-    containerResponsive.appendChild(formulaImg);
-    formulaImg.classList.add("formulaImg");
-    
-    formulaImg.appendChild(titleFig);
-    titleFig.classList.add("titleFig");
-    titleFig.innerHTML = objeto.titleFig;
-
-    formulaImg.appendChild(imgFigura);
-    imgFigura.setAttribute("src", objeto.imgFig);
-
-    containerResponsive.appendChild(perimetroYAreaDiv);
-    perimetroYAreaDiv.classList.add("perimetroYArea");
-    perimetroYAreaDiv.appendChild(divArea);
-    divArea.classList.add("containerFormules");
-
-    pTitleA.classList.add("titlesFormules");
-    pTitleA.innerHTML = objeto.titleArea;
-    pformulaA.classList.add("textFormule");
-    pformulaA.innerHTML = "Calculadora";
-    sectionAtop.classList.add("sectionAtop");
-    sectionAtop.append(pTitleA, pformulaA);
-
-    divRadioA.classList.add("divRadioA");
-    inputRadioAC.setAttribute("type", "radio");
-    inputRadioAC.setAttribute("name", "radA");
-    inputRadioAC.setAttribute("id", "radAC");
-    inputLabelAC.setAttribute("for", "radAC");
-    inputLabelAC.innerHTML = "centimetros";
-    inputRadioAM.setAttribute("type", "radio");
-    inputRadioAM.setAttribute("name", "radA");
-    inputRadioAM.setAttribute("id", "radAM");
-    inputLabelAM.setAttribute("for", "radAM");
-    inputLabelAM.innerHTML = "metros";
-    divRadioA.append(inputRadioAC, inputLabelAC, inputRadioAM, inputLabelAM);
-    sectionAmiddle.classList.add("sectionAmiddle");
-    sectionAmiddle.appendChild(divRadioA);
-
-    objeto.inputArea.forEach(winInput => {
-        const divWin = document.createElement("div");
-        divWin.classList.add("winPosition");
-
-        const labelArea = document.createElement("label");
-        labelArea.setAttribute("for", winInput.inputId);
-        labelArea.innerHTML = winInput.inputLabel;
-        divWin.appendChild(labelArea);
-        const inputAreaWindow = document.createElement("input");
-        inputAreaWindow.setAttribute("type", "number");
-        inputAreaWindow.setAttribute("id", winInput.inputId);
-        inputAreaWindow.classList.add("inputStyle");
-        divWin.appendChild(inputAreaWindow);
-        sectionAmiddle.appendChild(divWin);
-    });
-
-    btnClearAReg = objeto.btn2ClA;
-    btnClearA.classList.add("btnClear", btnClearAReg);
-    btnClearA.innerHTML = "Borrar";
-
-    btnResultAReg = objeto.btnClA;
-    btnResultA.classList.add("btnResult", btnResultAReg);
-    btnResultA.innerHTML = "Resultado";
-
-    btnClearA.removeEventListener("click", rutaFAClear);
-    rutaFAClear = (eval(objeto.clearWindowA));
-    btnClearA.addEventListener("click", rutaFAClear);
-    
-    btnResultA.removeEventListener("click", rutaFA);
-    rutaFA = (eval(objeto.funcionArea));
-    btnResultA.addEventListener("click", rutaFA);
-
-    pResultAReg = objeto.resultClA
-    pResultA.classList.add("winStyle", pResultAReg);
-    btnResultAReg = objeto.btnClA;
-    btnResultA.classList.add("btnResult", btnResultAReg);
-    btnResultA.innerHTML = "Resultado";
-
-    sectionAbottom.classList.add("sectionAbottom");
-    sectionAbottom.append(pResultA, btnClearA, btnResultA);
-    divArea.append(sectionAtop, sectionAmiddle, sectionAbottom);
-
-    //=================================== Perimetro ===================================
-    perimetroYAreaDiv.appendChild(divPerimetro);
-
-    divPerimetro.classList.add("containerFormules");
-
-    pTitleP.classList.add("titlesFormules");
-    pTitleP.innerHTML = objeto.titlePerimetro;
-    pformulaP.classList.add("textFormule");
-    pformulaP.innerHTML = "Calculadora";
-    sectionPtop.classList.add("sectionPtop");
-    sectionPtop.append(pTitleP, pformulaP);
-
-    divRadioP.classList.add("divRadioP");
-    inputRadioPC.setAttribute("type", "radio");
-    inputRadioPC.setAttribute("name", "radP");
-    inputRadioPC.setAttribute("id", "radPC");
-    inputLabelPC.setAttribute("for", "radPC");
-    inputLabelPC.innerHTML = "centimetros";
-    inputRadioPM.setAttribute("type", "radio");
-    inputRadioPM.setAttribute("name", "radP");
-    inputRadioPM.setAttribute("id", "radPM");
-    inputLabelPM.setAttribute("for", "radPM");
-    inputLabelPM.innerHTML = "metros";
-    divRadioP.append(inputRadioPC, inputLabelPC, inputRadioPM, inputLabelPM);
-    sectionPmiddle.classList.add("sectionPmiddle");
-    sectionPmiddle.appendChild(divRadioP);
-
-    objeto.inputPerimetro.forEach(winInput => {
-        const divWinP = document.createElement("div");
-        divWinP.classList.add("winPosition");
-        const labelPerimetro = document.createElement("label");
-        labelPerimetro.setAttribute("for", winInput.inputId);
-        labelPerimetro.innerHTML = winInput.inputLabel;
-        divWinP.appendChild(labelPerimetro);
-        const inputPerimetroWindow = document.createElement("input");
-        inputPerimetroWindow.setAttribute("type", "number");
-        inputPerimetroWindow.setAttribute("id", winInput.inputId);
-        inputPerimetroWindow.classList.add("inputStyle");
-        divWinP.appendChild(inputPerimetroWindow);
-        sectionPmiddle.appendChild(divWinP);
-    });
-
-    btnClearPReg = objeto.btn2ClP;
-    btnClearP.classList.add("btnClear", btnClearPReg);
-    btnClearP.innerHTML = "Borrar";
-
-    btnResultPReg = objeto.btnClP;
-    btnResultP.classList.add("btnResult", btnResultPReg);
-    btnResultP.innerHTML = "Resultado";
-
-    btnClearP.removeEventListener("click", rutaFPClear);
-    rutaFPClear = (eval(objeto.clearWindowP));
-    btnClearP.addEventListener("click", rutaFPClear);
-    
-    btnResultP.removeEventListener("click", rutaFP);
-    rutaFP = (eval(objeto.funcionPerimetro));
-    btnResultP.addEventListener("click", rutaFP);
-
-    pResultPReg = objeto.resultClP;
-    pResultP.classList.add("winStyle", pResultPReg);
-    btnResultPReg = objeto.btnClP;
-    btnResultP.classList.add("btnResult", btnResultPReg);
-    btnResultP.innerHTML = "Resultado";
-   
-    sectionPbottom.classList.add("sectionPbottom");
-    sectionPbottom.append(pResultP, btnClearP, btnResultP);
-    divPerimetro.append(sectionPtop, sectionPmiddle, sectionPbottom);
-
-    asignacionesWindowsRadios();
-
-    document.documentElement.scrollTop = 0;
-};
-//----Funciones para abilitar e intercambiar clase en btn resultado----------------------
-function abilitarIntercambiarA(){
-    btnResultA.disabled = false;
-    btnResultA.classList.remove("btnInactive");
-    btnResultA.classList.add("btnResult");
-};
-function abilitarIntercambiarP(){
-    btnResultP.disabled = false;
-    btnResultP.classList.remove("btnInactive");
-    btnResultP.classList.add("btnResult");
-}
 // ================================= Constantes =========================================
 // =========================== Constantes Container fig =================================
 const containerFiguras = document.querySelector(".containerFiguras");
