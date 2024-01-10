@@ -22,12 +22,8 @@ const trianguloIsoscelesObj = {
     titleAltura: "Altura Triangulo Isosceles",
     inputAltura: [
         {
-            inputLabel: "Medida lado 1",
-            inputId: "winHTriIsoSide1"
-        },
-        {
-            inputLabel: "Medida lado 2",
-            inputId: "winHTriIsoSide2"
+            inputLabel: "Medida lados iguales",
+            inputId: "winHTriIsoSideEq"
         },
         {
             inputLabel: "Medida de base",
@@ -56,7 +52,7 @@ const trianguloEscalenoObj = {
             inputId: "winHTriEscSide2"
         },
         {
-            inputLabel: "Base medida mayor",
+            inputLabel: "Medida Base",
             inputId: "winHTriEscBase"
         }
     ],
@@ -79,11 +75,11 @@ const trapecioObj = {
         },
         {
             inputLabel: "Medida b",
-            inputId: "winHTrapecioSide2"
+            inputId: "winHTrapeciobase"
         },
         {
             inputLabel: "Medida B",
-            inputId: "winHTriEscBase"
+            inputId: "winHTrapecioBase"
         }
     ],
     resultClH: "resultHTrapecio",

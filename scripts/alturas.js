@@ -46,37 +46,55 @@ function selecFnc(event){
 }
 //----Funciones de borrado, activacion y desactivacion de bentanas y radios--------------
 function borrar(){
-    // medidaH2 = null;
-    // inputRadioH2C.checked = false;
-    // inputRadioH2M.checked = false;
-    // divAltura2.innerHTML = "";
-    // sectionH2middle.innerHTML = "";
-    // pResultH2.innerHTML = "";
-    // pResultH2.classList.remove(pResultH2Reg);
-    // btnResultH2.classList.remove(btnResultH2Reg);
-
+    // ---- Limpieza de valor de medida ----
     medidaH = null;
-    inputRadioHC.checked = false;
-    inputRadioHM.checked = false;
-    divAltura.innerHTML = "";
+    // ----  ----
     sectionHmiddle.innerHTML = "";
+    // ---- Limpieza de Ventanas de mensajes y borrado de clase ----
     pResultH.innerHTML = "";
     pResultH.classList.remove(pResultHReg);
+    // ---- Borrado de clases y abilitar botones ----
     btnResultH.classList.remove(btnResultHReg);
+    btnClearH.classList.remove(btnClearHReg);
+    btnResultH.disabled = false;
+    btnResultH.classList.remove("btnInactive");
+    // ----  ----
     containerFiguras.innerHTML = "";
+    divAltura.innerHTML = "";
+    // ---- Deseleccionar radios ----
+    inputRadioHC.checked = false;
+    inputRadioHM.checked = false;
+    // ---- Abilitar radios ----
+    inputRadioHC.disabled = false;
+    inputRadioHM.disabled = false;
 }
 //--- funciones para deshabilitar ventanas y botones de Area y Perimetro-----------------
 function disableOptions(){
-    winH1.disabled = true;
-    winH2.disabled = true;
-    winH3.disabled = true;
-    btnResultH.disabled = true;
-    btnResultH.classList.remove("btnResult");
-    btnResultH.classList.add("btnInactive");
+    if(idFig == "triangulo_isosceles"){
+        winH1.disabled = true;
+        winH2.disabled = true;
+        btnResultH.disabled = true;
+        btnResultH.classList.remove("btnResult");
+        btnResultH.classList.add("btnInactive");
+    }else if(idFig == "triangulo_escaleno" || idFig == "trapecio"){
+        winH1.disabled = true;
+        winH2.disabled = true;
+        winH3.disabled = true;
+        btnResultH.disabled = true;
+        btnResultH.classList.remove("btnResult");
+        btnResultH.classList.add("btnInactive");
+    }
 }
 //--- funciones para limpiar y habilitar radios ventanas y botones ----------------------
 function clearHFig(){
-    if(idFig == "triangulo_isosceles" || idFig == "triangulo_escaleno"){
+    if(idFig == "triangulo_isosceles"){
+        winH1.disabled = false;
+        winH2.disabled = false;
+        winH1.value = "";
+        winH2.value = "";
+        winH1.classList.remove("resultColor");
+        winH2.classList.remove("resultColor");
+    }else if(idFig == "triangulo_escaleno" || idFig == "trapecio"){
         winH1.disabled = false;
         winH2.disabled = false;
         winH3.disabled = false;
@@ -107,13 +125,16 @@ function abilitarIntercambiar(){
 //----Funcion asignaciones --------------------------------------------------------------
 function asignacionesWindows(){
     if(idFig == "triangulo_isosceles"){
-        winH1 = document.querySelector("#winHTriIsoSide1");
-        winH2 = document.querySelector("#winHTriIsoSide2");
-        winH3 = document.querySelector("#winHTriIsoBase");
+        winH1 = document.querySelector("#winHTriIsoSideEq");
+        winH2 = document.querySelector("#winHTriIsoBase");
     }else if(idFig == "triangulo_escaleno"){
         winH1 = document.querySelector("#winHTriEscSide1");
         winH2 = document.querySelector("#winHTriEscSide2");
         winH3 = document.querySelector("#winHTriEscBase");
+    }else if(idFig == "trapecio"){
+        winH1 = document.querySelector("#winHTrapecioSide1");
+        winH2 = document.querySelector("#winHTrapeciobase");
+        winH3 = document.querySelector("#winHTrapecioBase");
     }
 };
 //----Funciones seleccion y vaciado medida-----------------------------------------------
@@ -135,8 +156,8 @@ function medEnableDisable(){
 function mensajeCmMt(){
     pResultH.innerHTML = "Elegir centimetros o metros";
 };
-function  mensajeLadosIguales(){
-    pResultH.innerHTML = "Lado 1 y Lado 2 deben de ser<br>iguales en Triangulo isosceles";
+function  mensajeTamanoLados(){
+    pResultH.innerHTML = "Lado b tiene que ser menor<br>que la base B en el trapecio";
 }
 function  mensajeMenorSLados(){
     pResultH.innerHTML = "La medida de la Base debe ser<br>menor a la suma de sus lados";
@@ -277,31 +298,24 @@ function renderFigura(objeto){
 function hTriangleIso(){
     const w1Is = Number(winH1.value);
     const w2Is = Number(winH2.value);
-    const w3Is = Number(winH3.value);
-    const numVerIso = w1Is + w2Is;
-    if(w1Is > 0 && w2Is > 0 && w3Is > 0){
-        if(w1Is === w2Is){
-            if(w3Is < numVerIso){
-                if(inputRadioHC.checked || inputRadioHM.checked){
-                    medSeleccion();
-                    const lado1 = w1Is;
-                    const lado2 = w2Is;
-                    const base = w3Is;
-                    const result = Math.sqrt(Math.pow(lado1,2) - Math.pow( (base/2), 2) );
-                    medEnableDisable()
-                    disableOptions();
-                    winH1.classList.add("resultColor");
-                    winH2.classList.add("resultColor");
-                    winH3.classList.add("resultColor");
-                    pResultH.innerHTML = `Altura = ${result.toFixed(2)} ${medidaH}`;
-                }else{
-                    mensajeCmMt();
-                }
+    const numVerIso = (w1Is * 2);
+    if(w1Is > 0 && w2Is > 0){
+        if(w2Is < numVerIso){
+            if(inputRadioHC.checked || inputRadioHM.checked){
+                medSeleccion();
+                const lado1 = w1Is;
+                const base = w2Is;
+                const result = Math.sqrt(Math.pow(lado1,2) - Math.pow( (base/2), 2) );
+                medEnableDisable()
+                disableOptions();
+                winH1.classList.add("resultColor");
+                winH2.classList.add("resultColor");
+                pResultH.innerHTML = `Altura = ${result.toFixed(2)} ${medidaH}`;
             }else{
-                mensajeMenorSLados();
+                mensajeCmMt();
             }
         }else{
-            mensajeLadosIguales();
+            mensajeMenorSLados();
         }
     }else{
         mensajeMayorCero();
@@ -314,36 +328,60 @@ function hTriEsc(){
     const w3Es = Number(winH3.value);
     const numVerEsc = w1Es + w2Es;
     if(w1Es > 0 && w2Es > 0 && w3Es > 0){
-        if(w3Es > w1Es && w3Es > w2Es){
-            if(w3Es < numVerEsc){
-                if(inputRadioHC.checked || inputRadioHM.checked){
-                    medSeleccion();
-                    const lado1 = w1Es;
-                    const lado2 = w2Es;
-                    const base = w3Es;
-                    const semiPerimeter = (lado1 + lado2 + base) / 2;
-                    // const desestruc = [lado1, lado2, base];
-                    // const [a,b,c] = desestruc.sort((a,b) => b - a);
-                    const process =  (2 / base) * Math.sqrt((semiPerimeter * (semiPerimeter - lado1) * (semiPerimeter - lado2) * (semiPerimeter - base)));
-                    const result =  process;
-                    medEnableDisable()
-                    disableOptions();
-                    winH1.classList.add("resultColor");
-                    winH2.classList.add("resultColor");
-                    winH3.classList.add("resultColor");
-                    pResultH.innerHTML = `Altura = ${result.toFixed(2)} ${medidaH}`;
-                }else{
-                    mensajeCmMt();
-                }
+        if(w3Es < numVerEsc){
+            if(inputRadioHC.checked || inputRadioHM.checked){
+                medSeleccion();
+                const lado1 = w1Es;
+                const lado2 = w2Es;
+                const base = w3Es;
+                const semiPerimeter = (lado1 + lado2 + base) / 2;
+                // const desestruc = [lado1, lado2, base];
+                // const [a,b,c] = desestruc.sort((a,b) => b - a);
+                const process =  (2 / base) * Math.sqrt((semiPerimeter * (semiPerimeter - lado1) * (semiPerimeter - lado2) * (semiPerimeter - base)));
+                const result =  process;
+                medEnableDisable()
+                disableOptions();
+                winH1.classList.add("resultColor");
+                winH2.classList.add("resultColor");
+                winH3.classList.add("resultColor");
+                pResultH.innerHTML = `Altura = ${result.toFixed(2)} ${medidaH}`;
             }else{
-                mensajeMenorSLados();
+                mensajeCmMt();
             }
         }else{
-            mensajeBaseMedida();
+            mensajeMenorSLados();
         }
     }else{
         mensajeMayorCero();
-       
+    }
+}
+function hTrapecio(){
+    const w1Trap = Number(winH1.value);
+    const w2Trap = Number(winH2.value);
+    const w3Trap = Number(winH3.value);
+    if(w1Trap > 0 && w2Trap > 0 && w3Trap > 0){
+        if(w2Trap < w3Trap){
+            if(inputRadioHC.checked || inputRadioHM.checked){
+                medSeleccion();
+                const lado = w1Trap;
+                const base = w2Trap;
+                const Base = w3Trap;
+                const baseParcial = (Base - base) / 2;
+                const result = Math.sqrt( Math.pow(lado,2) - Math.pow(baseParcial,2) )
+                medEnableDisable()
+                disableOptions();
+                winH1.classList.add("resultColor");
+                winH2.classList.add("resultColor");
+                winH3.classList.add("resultColor");
+                pResultH.innerHTML = `Altura = ${result.toFixed(2)} ${medidaH}`;
+            }else{
+                mensajeCmMt();
+            }
+        }else{
+            mensajeTamanoLados();
+        }
+    }else{
+        mensajeMayorCero();
     }
 }
 // ================================= Constantes =========================================
