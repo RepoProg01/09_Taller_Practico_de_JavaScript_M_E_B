@@ -66,9 +66,36 @@ const trianguloEscalenoObj = {
     funcionAltura: "hTriEsc",
     clearWindowH: "clearHFig",
 };
+const trapecioObj = {
+    id: "trapecio",
+    titleFig: "Trapecio",
+    imgFig: "../assets/trapecio_altura.png",
+
+    titleAltura: "Atura Trapecio",
+    inputAltura: [
+        {
+            inputLabel: "Medida L",
+            inputId: "winHTrapecioSide1"
+        },
+        {
+            inputLabel: "Medida b",
+            inputId: "winHTrapecioSide2"
+        },
+        {
+            inputLabel: "Medida B",
+            inputId: "winHTriEscBase"
+        }
+    ],
+    resultClH: "resultHTrapecio",
+    btnClH: "btnResultHTrapecio",
+    btn2ClH: "btnClearHTrapecio",
+    funcionAltura: "hTrapecio",
+    clearWindowH: "clearHFig",
+};
 
 AlturasArray.push(introAlturas);
 AlturasArray.push(trianguloIsoscelesObj);
 AlturasArray.push(trianguloEscalenoObj);
+AlturasArray.push(trapecioObj);
 
 
