@@ -17,7 +17,7 @@ const introEstadistica = {
     defModa: "La moda representa el valor o categoría más común dentro del conjunto de datos.",
 
     defGuiaTitulo: "Forma de uso :",
-    defGuia: "El boton <span>Estadistica</span> muestra calculadoras mediana moda y promedio.<br>El boton <span>Menu</span> regreza al menu principal."
+    defGuia: "El boton <span>Medida</span> muestra calculadoras mediana moda y promedio.<br>El boton <span>Menu</span> regreza al menu principal."
 };
 const medianaObj = {
     id: "triangulo_isosceles",

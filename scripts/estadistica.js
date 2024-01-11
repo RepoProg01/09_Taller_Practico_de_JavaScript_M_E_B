@@ -1,10 +1,10 @@
 
 const body = document.querySelector(".body");
-const estadistica = document.querySelector(".estadistica");
+const medida = document.querySelector(".medida");
 const listIndex = document.querySelector(".listIndex");
 const blurC = document.querySelector(".blurC");
 
-estadistica.addEventListener("click", figurasFnc);
+medida.addEventListener("click", figurasFnc);
 blurC.addEventListener("click", blurFnc);
 
 const seleccion = document.querySelectorAll(".seleccion");
