@@ -1,0 +1,398 @@
+:root {
+    --primario: #092547;
+    --secundario: #093973;
+    --terciario: #69A2E7;
+
+    --black: #000000;
+    --white: #ffffff;
+
+    --grey: #6895CB;
+    --blue: #105dbb;
+    --lightGrey: #e6e6e6;
+    --naranja: #ffc003;
+    --red: #bb3232;
+    --verde: #0cc14c;
+
+    --background_radial_1: radial-gradient(circle at 50% 9%, var(--blue) 15%, var(--primario) 70%, var(--secundario) 1000%);
+    --background_radial_2: radial-gradient(circle at 46.98% 67.12%, var(--blue) 0, var(--secundario) 50%, var(--primario) 100%);
+    
+    --background_linear_1: linear-gradient(var(--blue), 40%, var(--secundario), var(--blue));
+    --background_linear_2: linear-gradient(var(--primario), 40%, var(--secundario), var(--primario));
+    --background_linear_3: linear-gradient(var(--blue), 40%, var(--terciario), var(--blue));
+    --background_linear_4: linear-gradient(var(--primario), 40%, var(--blue), var(--primario));
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    background-color: var(--terciario);
+    position: relative;
+    /* padding-bottom: 60px; */
+    min-width: 360px;
+    min-height: 100vh;
+}
+.listIndex::-webkit-scrollbar,
+.body::-webkit-scrollbar {
+    width: 0px;
+}
+/* ################# nav ################# */
+.nav {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content:space-between;
+    width: 100%;
+    height: 60px;
+    background-color: var(--secundario);
+    border-bottom: 1px solid var(--verde);
+    z-index: 10;
+}
+.nav_logo {
+    width: 180px ;
+    margin-left: 10px;
+}
+.btnMenu {
+    display: flex;
+    align-items: center;
+    padding-right: 10px;
+    gap: 10px;
+}
+
+.homeLink {
+    width: 60px;
+    height: 21px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--naranja);
+}
+.homeLink:hover {
+    color: var(--white);
+} 
+
+.estadistica{
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--naranja);
+    border-radius: 8px;
+    margin: 0px;
+    cursor: pointer;
+}
+.estadistica:hover{
+    color: var(--white);
+}
+
+/* ############  contentIndex  ############ */
+.contentIndex {
+    padding-top: 61px;
+}
+
+/* ------ listIndex ------ */
+.listIndex {
+    position: fixed;
+    background: var(--background_linear_2);
+    /* background-color: var(--primario); */
+    width: 100%; 
+    height: 100%;
+    overflow-y: scroll;
+    top: -100%;
+    right: 0px;
+    transition: 600ms ease-in-out;
+    padding: 20px 0px;
+    z-index: 9;
+}
+.listIndexShow {
+    right: 0px;
+    top: 61px;
+    height: 84%;
+    transition: 600ms ease-in-out;
+}
+.seleccion {
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 10px 0px;
+    margin: 0px 30px;
+    color: var(--terciario);
+    border-bottom: 1px solid var(--secundario);
+}
+.seleccion:hover {
+    color: var(--lightGrey);
+    border-bottom: 1px solid var(--lightGrey);
+}
+.sel {
+    padding: 0px;
+    margin: 10px 30px 0px 30px;
+    border-bottom: 1px solid var(--verde);
+}
+.selMod {
+    color: var(--naranja);
+}
+.selMod:hover {
+    color: var(--white);
+}
+/* ----- titlexIndex ----- */ 
+.titlesIndex {
+    text-align: center;
+    background-color: var(--primario);
+}
+.titlesIndex p {
+    font-size: 24px;
+    color: var(--terciario);
+    padding: 10px;
+    margin: 0px;
+}
+
+/* ############# containerFig #############  */
+/* ############# containerIntro #############  */
+.containerIntro {
+    display: flex;
+    flex-direction: row;
+    min-width: 340px;
+    justify-content: center;
+    padding: 30px 10px;
+    gap: 10px;
+}
+
+.secD {
+    background: var(--background_radial_2);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sectionDtop {
+    width: 340px;
+    height: 383px;
+}
+
+.sectionDmiddle,
+.sectionDbottom {
+    width: 300px;
+    height: 343px;
+    padding: 20px;
+}
+
+.tituloIntro {
+    color: var(--naranja);
+    text-align: center;
+}
+.imgIntro {
+    width: 100%;
+    object-fit: contain;
+}
+
+.defT {
+    margin: 0px;
+    font-size: 20px;
+    color: var(--naranja);
+}
+
+.defC {
+    background-color: var(--white);
+    border-radius: 10px;
+    padding: 10px;
+    color: var(--black);
+}
+span {
+    color: var(--naranja);
+    background-color: var(--secundario);
+    padding: 3px 5px;
+    border-radius: 3px;
+    font-weight: 700;
+}
+
+/* ############# containerResponsive #############  */
+.containerResponsive {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    min-width: 340px;
+    padding: 20px 10px 30px 10px;
+}
+.formulaImg {
+    width: 340px;
+}
+.formulaImg {
+    background-image: var(--background_radial_2);
+    border-radius: 10px;
+    /* overflow: hidden; */
+    width: 340px;
+    height: 383px;
+}
+.titleFig {
+    color: var(--naranja);
+    text-align: center;
+}
+.formulaImg img {
+    width: 340px;
+}
+.perimeterArea {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.containerFormules {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--background_radial_2);
+    width: 300px;
+    height: 343px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.sectionHtop {
+    text-align: center;
+}
+
+.titlesFormules {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 0px;
+    color: var(--white);
+}
+
+.textFormule {
+    font-size: 21px;
+    color: var(--naranja);
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.divRadioH {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 8px;
+}
+.divRadioH label {
+    color: var(--white);
+    padding-right: 30px;
+}
+.winStyle {
+    background-color: var(--white);
+    border: 1px solid var(--black);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 298px;
+    height: 50px;
+    color: var(--black);
+    font-weight: 700;
+    font-size: 18px;
+}
+.btnClear,
+.btnResult {
+    width: 145px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid var(--naranja);
+    background: var(--background_linear_1);
+    color: var(--naranja);
+    font-size: 18px;
+    font-weight: 700;
+}
+.btnClear{
+    margin-right: 10px;
+}
+.btnClear:hover,
+.btnResult:hover {
+    cursor: pointer;
+    background-color: var(--terciario);
+    border: 1px solid var(--white);
+    color: var(--white);
+}
+.btnInactive {
+    width: 145px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid var(--blue);
+    background: var(--secundario);
+    color: var(--blue);
+    font-size: 18px;
+    font-weight: 700;
+}
+.winPosition {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.winPosition label {
+    color: var(--white);
+}
+.inputStyle {
+    background-color: var(--white);
+    text-align: center;
+    width: 60px;
+    height: 25px;
+    font-weight: 700;
+    margin-right: 50px;
+}
+.resultColor {
+    background-color: var(--background_linear_2);
+    color: var(--white);
+}
+/* ------ PerimeterSquare ------ */
+/* -------- AreaSquare --------- */
+.blurC {
+    position:fixed;
+    top: 61px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background-color:  rgba(0, 0, 0, 0.5);
+    transition: 600ms ease-in-out;
+}
+.noMove {
+    overflow: hidden;
+}
+.off {
+    display: none;
+    transition: 600ms ease-in-out;
+}
+.footer {
+    position: absolute;
+    left: 0px;
+    bottom:0px;
+    width: 100%;
+    height: 60px;
+    background-color: var(--secundario);
+}
+@media screen and (max-width: 1060px) {
+    .containerResponsive {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 10px 81px 10px;
+    }
+    .containerIntro {
+        flex-direction: column;
+        padding: 20px 10px 81px 10px;
+        align-items: center;
+    }
+    .perimetroYArea {
+        flex-direction: column;
+        align-items: center;
+    }
+
+}
+/* @media screen and (max-width: 720px) {
+    .perimeterArea {
+        flex-direction: column;
+    }
+} */
+
+@media screen and (min-width: 425px) {
+    .listIndex {
+        width: 300px; 
+    }
+}
