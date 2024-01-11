@@ -14,6 +14,24 @@ const introAlturas = {
     defGuiaTitulo: "Forma de uso :",
     defGuia: "Con el boton de <span>Figuras</span> seleccionas figuras geometricas, mostrara formulas y calculadoras para encontrar su altura.<br>Con el boton <span>Menu</span> regrezaras al menu principal."
 };
+const trianguloEquilateroObj = {
+    id: "triangulo_equilatero",
+    titleFig: "Triangulo Equilatero",
+    imgFig: "../assets/triangulo_equilatero_altura.png",
+
+    titleAltura: "Altura Triangulo Equilatero",
+    inputAltura: [
+        {
+            inputLabel: "Medida lado",
+            inputId: "winHTriEquiSide"
+        },
+    ],
+    resultClH: "resultHTriEqui",
+    btnClH: "btnResultHTriEqui",
+    btn2ClH: "btnClearHTriEqui",
+    funcionAltura: "hTriangleEqui",
+    clearWindowH: "clearHFig",
+};
 const trianguloIsoscelesObj = {
     id: "triangulo_isosceles",
     titleFig: "Triangulo Isosceles",
@@ -78,7 +96,7 @@ const trapecioObj = {
             inputId: "winHTrapeciobase"
         },
         {
-            inputLabel: "Medida B",
+            inputLabel: "Medida Base",
             inputId: "winHTrapecioBase"
         }
     ],
@@ -90,6 +108,7 @@ const trapecioObj = {
 };
 
 AlturasArray.push(introAlturas);
+AlturasArray.push(trianguloEquilateroObj);
 AlturasArray.push(trianguloIsoscelesObj);
 AlturasArray.push(trianguloEscalenoObj);
 AlturasArray.push(trapecioObj);

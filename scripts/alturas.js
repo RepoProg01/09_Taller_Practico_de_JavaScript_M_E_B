@@ -70,24 +70,27 @@ function borrar(){
 }
 //--- funciones para deshabilitar ventanas y botones de Area y Perimetro-----------------
 function disableOptions(){
-    if(idFig == "triangulo_isosceles"){
+    if(idFig == "triangulo_equilatero"){
+        winH1.disabled = true;
+    }else if(idFig == "triangulo_isosceles"){
         winH1.disabled = true;
         winH2.disabled = true;
-        btnResultH.disabled = true;
-        btnResultH.classList.remove("btnResult");
-        btnResultH.classList.add("btnInactive");
     }else if(idFig == "triangulo_escaleno" || idFig == "trapecio"){
         winH1.disabled = true;
         winH2.disabled = true;
         winH3.disabled = true;
-        btnResultH.disabled = true;
-        btnResultH.classList.remove("btnResult");
-        btnResultH.classList.add("btnInactive");
     }
+    btnResultH.disabled = true;
+    btnResultH.classList.remove("btnResult");
+    btnResultH.classList.add("btnInactive");
 }
 //--- funciones para limpiar y habilitar radios ventanas y botones ----------------------
 function clearHFig(){
-    if(idFig == "triangulo_isosceles"){
+    if(idFig == "triangulo_equilatero"){
+        winH1.disabled = false;
+        winH1.value = "";
+        winH1.classList.remove("resultColor");
+    }else if(idFig == "triangulo_isosceles"){
         winH1.disabled = false;
         winH2.disabled = false;
         winH1.value = "";
@@ -124,7 +127,9 @@ function abilitarIntercambiar(){
 };
 //----Funcion asignaciones --------------------------------------------------------------
 function asignacionesWindows(){
-    if(idFig == "triangulo_isosceles"){
+    if(idFig == "triangulo_equilatero"){
+        winH1 = document.querySelector("#winHTriEquiSide");
+    }else if(idFig == "triangulo_isosceles"){
         winH1 = document.querySelector("#winHTriIsoSideEq");
         winH2 = document.querySelector("#winHTriIsoBase");
     }else if(idFig == "triangulo_escaleno"){
@@ -294,6 +299,27 @@ function renderFigura(objeto){
     document.documentElement.scrollTop = 0;
 };
 // ------------------------ Alturas -----------------------------------------------------
+// ------------- altura de triangulo equilatero ------------------------------------------
+function hTriangleEqui(){
+    const w1Es = Number(winH1.value);
+    if(w1Es > 0){
+        if(inputRadioHC.checked || inputRadioHM.checked){
+            medSeleccion();
+            const lado = w1Es;
+            const semiPerimeter = (lado + lado + lado) / 2;
+            const process =  (2 / lado) * Math.sqrt((semiPerimeter * (semiPerimeter - lado) * (semiPerimeter - lado) * (semiPerimeter - lado)));
+            const result =  process;
+            medEnableDisable()
+            disableOptions();
+            winH1.classList.add("resultColor");
+            pResultH.innerHTML = `Altura = ${result.toFixed(2)} ${medidaH}`;
+        }else{
+            mensajeCmMt();
+        }
+    }else{
+        mensajeMayorCero();
+    }
+}
 // ------------- altura de triangulo isosceles ------------------------------------------
 function hTriangleIso(){
     const w1Is = Number(winH1.value);
@@ -355,6 +381,7 @@ function hTriEsc(){
         mensajeMayorCero();
     }
 }
+// ------------- altura de trapecio -------------------------------------------
 function hTrapecio(){
     const w1Trap = Number(winH1.value);
     const w2Trap = Number(winH2.value);
