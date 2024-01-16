@@ -49,98 +49,55 @@ function borrar(){
     // ---- Limpieza de valor de medida ----
     medidaH = null;
     // ----  ----
-    sectionHmiddle.innerHTML = "";
+    sectionEstmiddle.innerHTML = "";
     // ---- Limpieza de Ventanas de mensajes y borrado de clase ----
-    pResultH.innerHTML = "";
-    pResultH.classList.remove(pResultHReg);
+    pResultEstMedia.innerHTML = "";
+    pResultEstMedia.classList.remove(pResultEstMediaReg);
+
+    pResultEstMediana.innerHTML = "";
+    pResultEstMediana.classList.remove(pResultEstMedianaReg);
+
+    pResultEstModa.innerHTML = "";
+    pResultEstModa.classList.remove(pResultEstModaReg);
     // ---- Borrado de clases y abilitar botones ----
-    btnResultH.classList.remove(btnResultHReg);
-    btnClearH.classList.remove(btnClearHReg);
-    btnResultH.disabled = false;
-    btnResultH.classList.remove("btnInactive");
+    btnResultEst.classList.remove(btnResultEstReg);
+    btnClearEst.classList.remove(btnClearEstReg);
+    btnResultEst.disabled = false;
+    btnResultEst.classList.remove("btnInactive");
     // ----  ----
     containerEstadistica.innerHTML = "";
-    divAltura.innerHTML = "";
-    // ---- Deseleccionar radios ----
-    inputRadioHC.checked = false;
-    inputRadioHM.checked = false;
-    // ---- Abilitar radios ----
-    inputRadioHC.disabled = false;
-    inputRadioHM.disabled = false;
+    divCalculadora.innerHTML = "";
 }
 //--- funciones para deshabilitar ventanas y botones de Area y Perimetro-----------------
 function disableOptions(){
-    if(idFig == "triangulo_equilatero"){
+    if(idFig == "media_mediana_moda"){
         winH1.disabled = true;
-    }else if(idFig == "triangulo_isosceles"){
-        winH1.disabled = true;
-        winH2.disabled = true;
-    }else if(idFig == "triangulo_escaleno" || idFig == "trapecio"){
-        winH1.disabled = true;
-        winH2.disabled = true;
-        winH3.disabled = true;
-    }
-    btnResultH.disabled = true;
-    btnResultH.classList.remove("btnResult");
-    btnResultH.classList.add("btnInactive");
+    };
+    btnResultEst.disabled = true;
+    btnResultEst.classList.remove("btnResult");
+    btnResultEst.classList.add("btnInactive");
 }
 //--- funciones para limpiar y habilitar radios ventanas y botones ----------------------
-function clearHFig(){
-    if(idFig == "triangulo_equilatero"){
+function clearEstOpt(){
+    if(idFig == "media_mediana_moda"){
         winH1.disabled = false;
         winH1.value = "";
         winH1.classList.remove("resultColor");
-    }else if(idFig == "triangulo_isosceles"){
-        winH1.disabled = false;
-        winH2.disabled = false;
-        winH1.value = "";
-        winH2.value = "";
-        winH1.classList.remove("resultColor");
-        winH2.classList.remove("resultColor");
-    }else if(idFig == "triangulo_escaleno" || idFig == "trapecio"){
-        winH1.disabled = false;
-        winH2.disabled = false;
-        winH3.disabled = false;
-        winH1.value = "";
-        winH2.value = "";
-        winH3.value = "";  
-        winH1.classList.remove("resultColor");
-        winH2.classList.remove("resultColor");
-        winH3.classList.remove("resultColor");     
     };
-    medDisableUnchecked();
-    abilitarIntercambiar();
-    pResultH.innerHTML = ""; 
+    habilitarIntercambiar();
+    pResultEstMediaReg.innerHTML = ""; 
 };
-function medDisableUnchecked(){
-    // ---- Abilitar radios ----
-    inputRadioHC.disabled = false;
-    inputRadioHM.disabled = false;
-    // ---- Limpiar radios ----
-    inputRadioHC.checked = false;
-    inputRadioHM.checked = false;
-};
-function abilitarIntercambiar(){
-    btnResultH.disabled = false;
-    btnResultH.classList.remove("btnInactive");
-    btnResultH.classList.add("btnResult");
+
+function habilitarIntercambiar(){
+    btnResultEst.disabled = false;
+    btnResultEst.classList.remove("btnInactive");
+    btnResultEst.classList.add("btnResult");
 };
 //----Funcion asignaciones --------------------------------------------------------------
 function asignacionesWindows(){
-    if(idFig == "triangulo_equilatero"){
-        winH1 = document.querySelector("#winHTriEquiSide");
-    }else if(idFig == "triangulo_isosceles"){
-        winH1 = document.querySelector("#winHTriIsoSideEq");
-        winH2 = document.querySelector("#winHTriIsoBase");
-    }else if(idFig == "triangulo_escaleno"){
-        winH1 = document.querySelector("#winHTriEscSide1");
-        winH2 = document.querySelector("#winHTriEscSide2");
-        winH3 = document.querySelector("#winHTriEscBase");
-    }else if(idFig == "trapecio"){
-        winH1 = document.querySelector("#winHTrapecioSide1");
-        winH2 = document.querySelector("#winHTrapeciobase");
-        winH3 = document.querySelector("#winHTrapecioBase");
-    }
+    if(idFig == "media_mediana_moda"){
+        winH1 = document.querySelector("#textAreaId");
+    };
 };
 //----Funciones seleccion y vaciado medida-----------------------------------------------
 function medSeleccion() {
@@ -159,19 +116,19 @@ function medEnableDisable(){
 };
 //----Funciones mensajes ----------------------------------------------------------------
 function mensajeCmMt(){
-    pResultH.innerHTML = "Elegir centimetros o metros";
+    pResultEstMediaReg.innerHTML = "Elegir centimetros o metros";
 };
 function  mensajeTamanoLados(){
-    pResultH.innerHTML = "Lado b tiene que ser menor<br>que la base B en el trapecio";
+    pResultEstMediaReg.innerHTML = "Lado b tiene que ser menor<br>que la base B en el trapecio";
 }
 function  mensajeMenorSLados(){
-    pResultH.innerHTML = "La medida de la Base debe ser<br>menor a la suma de sus lados";
+    pResultEstMediaReg.innerHTML = "La medida de la Base debe ser<br>menor a la suma de sus lados";
 }
 function mensajeMayorCero(){
-    pResultH.innerHTML = "Lados deben de ser mayores a 0";
+    pResultEstMediaReg.innerHTML = "Lados deben de ser mayores a 0";
 }
 function mensajeBaseMedida(){
-    pResultH.innerHTML = "La medida de la Base debe ser<br>mayor a la de los lados";
+    pResultEstMediaReg.innerHTML = "La medida de la Base debe ser<br>mayor a la de los lados";
 }
 //----Funciones renderizado--------------------------------------------------------------
 function renderIntroduccion(){
@@ -191,24 +148,14 @@ function renderIntroduccion(){
     defEstadisticaTitulo.innerHTML = estadisticaArray[0].defEstadisticaTitulo;
     defEstadistica.classList.add("defEstadistica", "defC");
     defEstadistica.innerHTML = estadisticaArray[0].defEstadistica;
-    
-    defMedianaTitulo.classList.add("defMedianaTitulo", "defT");
-    defMedianaTitulo.innerHTML = estadisticaArray[0].defMedianaTitulo;
-    defMediana.classList.add("defMediana", "defC");
-    defMediana.innerHTML = estadisticaArray[0].defMediana;
 
     sectionDmiddle.classList.add("sectionDmiddle", "secD");
-    sectionDmiddle.append(defEstadisticaTitulo, defEstadistica, defMedianaTitulo, defMediana);
+    sectionDmiddle.append(defEstadisticaTitulo, defEstadistica);
 
-    defModaTitulo.classList.add("defModaTitulo", "defT");
-    defModaTitulo.innerHTML = estadisticaArray[0].defModaTitulo;
-    defModa.classList.add("defModa", "defC");
-    defModa.innerHTML = estadisticaArray[0].defModa;
-
-    defMediaTitulo.classList.add("defBaseHTitulo", "defT");
-    defMediaTitulo.innerHTML = estadisticaArray[0].defMediaTitulo;
-    defMedia.classList.add("defPerimetro", "defC");
-    defMedia.innerHTML = estadisticaArray[0].defMedia;
+    defCategoriaTitulo.classList.add("defCategoriaTitulo", "defT");
+    defCategoriaTitulo.innerHTML = estadisticaArray[0].defCategoriaTitulo;
+    defCategoria.classList.add("defModa", "defC");
+    defCategoria.innerHTML = estadisticaArray[0].defCategoria;
     
     defGuiaTitulo.classList.add("defGuiaTitulo", "defT");
     defGuiaTitulo.innerHTML = estadisticaArray[0].defGuiaTitulo;
@@ -216,7 +163,7 @@ function renderIntroduccion(){
     defGuia.innerHTML = estadisticaArray[0].defGuia;
     
     sectionDbottom.classList.add("sectionDbottom", "secD");
-    sectionDbottom.append(defModaTitulo, defModa, defMediaTitulo, defMedia, defGuiaTitulo, defGuia);
+    sectionDbottom.append(defCategoriaTitulo, defCategoria, defGuiaTitulo, defGuia);
 
     containerIntro.append(sectionDtop, sectionDmiddle, sectionDbottom);
     document.documentElement.scrollTop = 0;
@@ -228,88 +175,83 @@ function renderFigura(objeto){
     containerEstadistica.appendChild(containerResponsive);
     containerResponsive.classList.add("containerResponsive");
 
-    containerResponsive.appendChild(formulaImg);
-    formulaImg.classList.add("formulaImg");
+    containerResponsive.appendChild(instrMMMImg);
+    instrMMMImg.classList.add("instrMMMImg");
 
-    formulaImg.appendChild(titleFig);
-    titleFig.classList.add("titleFig");
-    titleFig.innerHTML = objeto.titleFig;
+    instrMMMImg.appendChild(titleMMM);
+    titleMMM.classList.add("titleMMM");
+    titleMMM.innerHTML = objeto.titleMMM;
 
-    formulaImg.appendChild(imgFigura);
-    imgFigura.setAttribute("src", objeto.imgFig);
+    instrMMMImg.appendChild(imgMMM);
+    imgMMM.setAttribute("src", objeto.imgMMM);
 
-    containerResponsive.appendChild(containerAltura);
-    containerAltura.classList.add("containerAltura");
-    containerAltura.appendChild(divAltura);
-    divAltura.classList.add("containerFormules");
+    containerResponsive.appendChild(containerEstCal);
+    containerEstCal.classList.add("containerEstCal");
+    containerEstCal.appendChild(divCalculadora);
+    divCalculadora.classList.add("containerCalculadora");
 
-    pTitleH.classList.add("titlesFormules");
-    pTitleH.innerHTML = objeto.titleAltura;
-    pformulaH.classList.add("textFormule");
-    pformulaH.innerHTML = "Calculadora";
-    sectionHtop.classList.add("sectionHtop");
-    sectionHtop.append(pTitleH, pformulaH);
+    pTitlesEstadistica.classList.add("titlesEstadistica");
+    pTitlesEstadistica.innerHTML = objeto.titleMeMeMo;
+    pEstadistica.classList.add("textEstadistica");
+    pEstadistica.innerHTML = "Calculadora";
+    sectionEsttop.classList.add("sectionEsttop");
+    sectionEsttop.append(pTitlesEstadistica, pEstadistica);
 
-    divRadioH.classList.add("divRadioH");
-    inputRadioHC.setAttribute("type", "radio");
-    inputRadioHC.setAttribute("name", "radH");
-    inputRadioHC.setAttribute("id", "radHC");
-    inputLabelHC.setAttribute("for", "radHC");
-    inputLabelHC.innerHTML = "centimetros";
-    inputRadioHM.setAttribute("type", "radio");
-    inputRadioHM.setAttribute("name", "radH");
-    inputRadioHM.setAttribute("id", "radHM");
-    inputLabelHM.setAttribute("for", "radHM");
-    inputLabelHM.innerHTML = "metros";
-    divRadioH.append(inputRadioHC, inputLabelHC, inputRadioHM, inputLabelHM);
-    sectionHmiddle.classList.add("sectionHmiddle");
-    sectionHmiddle.appendChild(divRadioH);
+    sectionEstmiddle.classList.add("sectionEstmiddle");
 
-    objeto.inputAltura.forEach(winInput => {
-        const divWin = document.createElement("div");
-        divWin.classList.add("winPosition");
+    objeto.inputMeMeMo.forEach(winInput => {
+        const divEntryWin = document.createElement("div");
+        divEntryWin.classList.add("EntryWin");
 
         const labelArea = document.createElement("label");
         labelArea.setAttribute("for", winInput.inputId);
         labelArea.innerHTML = winInput.inputLabel;
-        divWin.appendChild(labelArea);
-        const inputHeightWindow = document.createElement("input");
-        inputHeightWindow.setAttribute("type", "number");
-        inputHeightWindow.setAttribute("id", winInput.inputId);
-        inputHeightWindow.classList.add("inputStyle");
-        divWin.appendChild(inputHeightWindow);
-        sectionHmiddle.appendChild(divWin);
+
+        const textarea = document.createElement("textarea");
+        textarea.setAttribute("id", winInput.inputId);
+        textarea.classList.add(winInput.inputCl);
+        divEntryWin.append(labelArea, textarea);
+        sectionEstmiddle.append(divEntryWin);
     });
 
-    btnClearHReg = objeto.btn2ClH;
-    btnClearH.classList.add("btnClear", btnClearHReg);
-    btnClearH.innerHTML = "Borrar";
+    btnClearEstReg = objeto.btn2ClEst;
+    btnClearEst.classList.add("btnClear", btnClearEstReg);
+    btnClearEst.innerHTML = "Borrar";
 
-    btnResultHReg = objeto.btnClH;
-    btnResultH.classList.add("btnResult", btnResultHReg);
-    btnResultH.innerHTML = "Resultado";
+    btnResultEstReg = objeto.btnClEst;
+    btnResultEst.classList.add("btnResult", btnResultEstReg);
+    btnResultEst.innerHTML = "Resultado";
 
-    btnClearH.removeEventListener("click", rutaFHClear);
-    rutaFHClear = (eval(objeto.clearWindowH));
-    btnClearH.addEventListener("click", rutaFHClear);
+    btnClearEst.removeEventListener("click", rutaFEstClear);
+    rutaFEstClear = (eval(objeto.clearWindowEst));
+    btnClearEst.addEventListener("click", rutaFEstClear);
 
-    btnResultH.removeEventListener("click", rutaFH);
-    rutaFH = (eval(objeto.funcionAltura));
-    btnResultH.addEventListener("click", rutaFH);
+    btnResultEst.removeEventListener("click", rutaFEst);
+    rutaFEst = (eval(objeto.funcionEst));
+    btnResultEst.addEventListener("click", rutaFEst);
 
-    pResultHReg = objeto.resultClH
-    pResultH.classList.add("winStyle", pResultHReg);
+    pResultEstMediaReg = objeto.resultEstMedia
+    pResultEstMedia.classList.add("winStyleSmall", pResultEstMediaReg);
+
+    pResultEstMedianaReg = objeto.resultEstMediana
+    pResultEstMediana.classList.add("winStyleSmall", pResultEstMedianaReg);
+
+    pResultEstModaReg = objeto.resultEstModa
+    pResultEstModa.classList.add("winStyleSmall", pResultEstModaReg);
     
-    sectionHbottom.classList.add("sectionHbottom");
-    sectionHbottom.append(pResultH, btnClearH, btnResultH);
-    divAltura.append(sectionHtop, sectionHmiddle, sectionHbottom);
+    contSectEstBottom.classList.add("contSectEstBottom");
+    contSectEstBottom.append(pResultEstMedia, pResultEstMediana, pResultEstModa);
+
+    sectionEstbottom.classList.add("sectionEstbottom");
+    sectionEstbottom.append(contSectEstBottom, btnClearEst, btnResultEst);
+    divCalculadora.append(sectionEsttop, sectionEstmiddle, sectionEstbottom);
 
     asignacionesWindows();
     document.documentElement.scrollTop = 0;
 };
-// ------------------------ Alturas -----------------------------------------------------
-// ------------- altura de triangulo equilatero ------------------------------------------
-function hTriangleEqui(){
+// ------------------------ Operaciones -----------------------------------------------------
+// ------------- Estadistica Media Mediana Moda ------------------------------------------
+function estadisticaMMM(){
     const w1Es = Number(winH1.value);
     if(w1Es > 0){
         if(inputRadioHC.checked || inputRadioHM.checked){
@@ -321,100 +263,9 @@ function hTriangleEqui(){
             medEnableDisable()
             disableOptions();
             winH1.classList.add("resultColor");
-            pResultH.innerHTML = `Altura = ${result.toFixed(2)} ${medidaH}`;
+            pResultEstMediaReg.innerHTML = `Altura = ${result.toFixed(2)} ${medidaH}`;
         }else{
             mensajeCmMt();
-        }
-    }else{
-        mensajeMayorCero();
-    }
-}
-// ------------- altura de triangulo isosceles ------------------------------------------
-function hTriangleIso(){
-    const w1Is = Number(winH1.value);
-    const w2Is = Number(winH2.value);
-    const numVerIso = (w1Is * 2);
-    if(w1Is > 0 && w2Is > 0){
-        if(w2Is < numVerIso){
-            if(inputRadioHC.checked || inputRadioHM.checked){
-                medSeleccion();
-                const lado1 = w1Is;
-                const base = w2Is;
-                const result = Math.sqrt(Math.pow(lado1,2) - Math.pow( (base/2), 2) );
-                medEnableDisable()
-                disableOptions();
-                winH1.classList.add("resultColor");
-                winH2.classList.add("resultColor");
-                pResultH.innerHTML = `Altura = ${result.toFixed(2)} ${medidaH}`;
-            }else{
-                mensajeCmMt();
-            }
-        }else{
-            mensajeMenorSLados();
-        }
-    }else{
-        mensajeMayorCero();
-    }
-}
-// ------------- altura de triangulo escaleno -------------------------------------------
-function hTriEsc(){
-    const w1Es = Number(winH1.value);
-    const w2Es = Number(winH2.value);
-    const w3Es = Number(winH3.value);
-    const numVerEsc = w1Es + w2Es;
-    if(w1Es > 0 && w2Es > 0 && w3Es > 0){
-        if(w3Es < numVerEsc){
-            if(inputRadioHC.checked || inputRadioHM.checked){
-                medSeleccion();
-                const lado1 = w1Es;
-                const lado2 = w2Es;
-                const base = w3Es;
-                const semiPerimeter = (lado1 + lado2 + base) / 2;
-                // const desestruc = [lado1, lado2, base];
-                // const [a,b,c] = desestruc.sort((a,b) => b - a);
-                const process =  (2 / base) * Math.sqrt((semiPerimeter * (semiPerimeter - lado1) * (semiPerimeter - lado2) * (semiPerimeter - base)));
-                const result =  process;
-                medEnableDisable()
-                disableOptions();
-                winH1.classList.add("resultColor");
-                winH2.classList.add("resultColor");
-                winH3.classList.add("resultColor");
-                pResultH.innerHTML = `Altura = ${result.toFixed(2)} ${medidaH}`;
-            }else{
-                mensajeCmMt();
-            }
-        }else{
-            mensajeMenorSLados();
-        }
-    }else{
-        mensajeMayorCero();
-    }
-}
-// ------------- altura de trapecio -------------------------------------------
-function hTrapecio(){
-    const w1Trap = Number(winH1.value);
-    const w2Trap = Number(winH2.value);
-    const w3Trap = Number(winH3.value);
-    if(w1Trap > 0 && w2Trap > 0 && w3Trap > 0){
-        if(w2Trap < w3Trap){
-            if(inputRadioHC.checked || inputRadioHM.checked){
-                medSeleccion();
-                const lado = w1Trap;
-                const base = w2Trap;
-                const Base = w3Trap;
-                const baseParcial = (Base - base) / 2;
-                const result = Math.sqrt( Math.pow(lado,2) - Math.pow(baseParcial,2) )
-                medEnableDisable()
-                disableOptions();
-                winH1.classList.add("resultColor");
-                winH2.classList.add("resultColor");
-                winH3.classList.add("resultColor");
-                pResultH.innerHTML = `Altura = ${result.toFixed(2)} ${medidaH}`;
-            }else{
-                mensajeCmMt();
-            }
-        }else{
-            mensajeTamanoLados();
         }
     }else{
         mensajeMayorCero();
@@ -437,48 +288,48 @@ const defMediaTitulo = document.createElement("p");
 const defMedia = document.createElement("p");
 // --------------------------------- sectionDbottom -------------------------------------
 const sectionDbottom = document.createElement("div");
-const defMedianaTitulo = document.createElement("p");
-const defMediana = document.createElement("p");
-const defModaTitulo = document.createElement("p");
-const defModa = document.createElement("p");
+const defCategoriaTitulo = document.createElement("p");
+const defCategoria = document.createElement("p");
 const defGuiaTitulo = document.createElement("p");
 const defGuia = document.createElement("p");
 // ------------------------------ containerResponsive -----------------------------------
 const containerResponsive = document.createElement("section");
-// ---------------------------------- formulaImg ----------------------------------------
-const formulaImg = document.createElement("div");
-const titleFig = document.createElement("h2");
-const imgFigura = document.createElement("img");
-// ------------------------------ containerAltura ----------------------------------------
-const containerAltura = document.createElement("div");
-// ----------------------------------- divAltura -----------------------------------------
-const divAltura = document.createElement("div");
-// --------------------------------- sectionHtop -----------------------------------------
-const sectionHtop = document.createElement("section");
-const pTitleH = document.createElement("p");
-const pformulaH = document.createElement("p");
-// -------------------------------- sectionHmiddle ---------------------------------------
-const sectionHmiddle = document.createElement("section");
-const divRadioH = document.createElement("div");
-const inputRadioHC = document.createElement("input");
-const inputRadioHM = document.createElement("input");
-const inputLabelHC = document.createElement("label");
-const inputLabelHM = document.createElement("label");
-// -------------------------------- sectionHbottom ---------------------------------------
-const sectionHbottom = document.createElement("section");
-const pResultH = document.createElement("p");
-const btnResultH = document.createElement("button");
-const btnClearH = document.createElement("button");
+// ---------------------------------- instrMMMImg ----------------------------------------
+const instrMMMImg = document.createElement("div");
+const titleMMM = document.createElement("h2");
+const imgMMM = document.createElement("img");
+// ------------------------------ containerEstCal ----------------------------------------
+const containerEstCal = document.createElement("div");
+// ----------------------------------- divCalculadora -----------------------------------------
+const divCalculadora = document.createElement("div");
+// --------------------------------- sectionEsttop -----------------------------------------
+const sectionEsttop = document.createElement("section");
+const pTitlesEstadistica = document.createElement("p");
+const pEstadistica = document.createElement("p");
+// -------------------------------- sectionEstmiddle ---------------------------------------
+const sectionEstmiddle = document.createElement("section");
+
+// -------------------------------- sectionEstbottom ---------------------------------------
+const sectionEstbottom = document.createElement("section");
+const contSectEstBottom = document.createElement("div");
+const pResultEstMedia = document.createElement("p");
+const pResultEstMediana = document.createElement("p");
+const pResultEstModa = document.createElement("p");
+
+const btnResultEst = document.createElement("button");
+const btnClearEst = document.createElement("button");
 
 let medidaH;
 
-let btnClearHReg;
-let btnResultHReg;
+let btnClearEstReg;
+let btnResultEstReg;
 
-let pResultHReg;
+let pResultEstMediaReg;
+let pResultEstMedianaReg;
+let pResultEstModaReg;
 
-let rutaFH;
-let rutaFHClear;
+let rutaFEst;
+let rutaFEstClear;
 
 let winH1 = null;
 let winH2 = null;

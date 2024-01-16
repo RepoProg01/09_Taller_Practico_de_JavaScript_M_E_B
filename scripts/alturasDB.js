@@ -2,7 +2,7 @@ const AlturasArray = [];
 
 const introAlturas = {
     defImg: "../assets/altura_img.svg",
-    defTitulo: "Introduccion",
+    defTitulo: "introducción",
 
     defAlturaTitulo: "Que es la Altura ?",
     defAltura: "La altura de una figura geométrica es la longitud o distancia de una dimensión geométrica, vertical o dirección de la gravedad. Este término se utiliza para designar la coordenada vertical de la parte más elevada de la figura a su base.",

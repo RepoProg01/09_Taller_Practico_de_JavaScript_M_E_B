@@ -216,21 +216,21 @@ span {
     min-width: 340px;
     padding: 20px 10px 30px 10px;
 }
-.formulaImg {
+.instrMMMImg {
     width: 340px;
 }
-.formulaImg {
+.instrMMMImg {
     background-image: var(--background_radial_2);
     border-radius: 10px;
     /* overflow: hidden; */
     width: 340px;
     height: 383px;
 }
-.titleFig {
+.titleMMM {
     color: var(--naranja);
     text-align: center;
 }
-.formulaImg img {
+.instrMMMImg img {
     width: 340px;
 }
 .perimeterArea {
@@ -238,7 +238,7 @@ span {
     flex-direction: row;
     gap: 10px;
 }
-.containerFormules {
+.containerCalculadora {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -249,34 +249,24 @@ span {
     padding: 20px;
 }
 
-.sectionHtop {
+.sectionEsttop {
     text-align: center;
 }
 
-.titlesFormules {
+.titlesEstadistica {
     font-size: 20px;
     font-weight: 700;
     margin-top: 0px;
     color: var(--white);
 }
 
-.textFormule {
+.textEstadistica {
     font-size: 21px;
     color: var(--naranja);
     font-weight: 700;
     margin-bottom: 8px;
 }
 
-.divRadioH {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    margin-bottom: 8px;
-}
-.divRadioH label {
-    color: var(--white);
-    padding-right: 30px;
-}
 .winStyle {
     background-color: var(--white);
     border: 1px solid var(--black);
@@ -286,6 +276,23 @@ span {
     align-items: center;
     width: 298px;
     height: 50px;
+    color: var(--black);
+    font-weight: 700;
+    font-size: 18px;
+}
+.contSectEstBottom{
+    display: flex;
+    gap: 10px;
+}
+.winStyleSmall {
+    background-color: var(--white);
+    border: 1px solid var(--black);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 35px;
     color: var(--black);
     font-weight: 700;
     font-size: 18px;
@@ -321,22 +328,23 @@ span {
     font-size: 18px;
     font-weight: 700;
 }
-.winPosition {
+.EntryWin {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
 }
-.winPosition label {
+.EntryWin label {
     color: var(--white);
+    padding-bottom: 10px;
 }
-.inputStyle {
-    background-color: var(--white);
-    text-align: center;
-    width: 60px;
-    height: 25px;
-    font-weight: 700;
-    margin-right: 50px;
+.textAreaCl {
+    padding: 10px;
+    border-radius: 5px;
+    width: 278px;
+    height: 68px;
+    font-size: 15px;
+    font-weight: bold;
 }
 .resultColor {
     background-color: var(--background_linear_2);

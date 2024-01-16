@@ -2,44 +2,37 @@ const estadisticaArray = [];
 
 const introEstadistica = {
     defImg: "../assets/estadistica_img.svg",
-    defTitulo: "Introduccion",
+    defTitulo: "introducción",
 
-    defEstadisticaTitulo: "Estadistica Basica",
-    defEstadistica: "La estadística es una rama de las matemáticas que te permite recopilar, organizar y analizar datos,  ejemplo: obtener un resultado, comparar información, entre muchas cosas más.",
- 
-    defMediaTitulo: "Promedio o Media Aritmetica",
-    defMedia: "La media es la media aritmética de un conjunto de valores numéricos.",
+    defEstadisticaTitulo: "Que es la Estadística ?",
+    defEstadistica: "La estadística es una rama de las matemáticas que se ocupa de recopilar, organizar, analizar, interpretar, presentar y describir datos. Su objetivo principal es proporcionar herramientas y métodos para extraer conclusiones significativas a partir de conjuntos de datos, con el fin de comprender patrones, tomar decisiones informadas y realizar predicciones.<br><br>La estadística se aplica en una amplia variedad de campos, como la investigación científica, la economía, la medicina, la sociología, la ingeniería, entre otros.",
 
-    defMedianaTitulo: "Mediana",
-    defMediana: "La mediana es el valor medio de un conjunto de datos cuando los valores se ordenan de forma ascendente o descendente.",
-    
-    defModaTitulo: "Moda",
-    defModa: "La moda representa el valor o categoría más común dentro del conjunto de datos.",
+    defCategoriaTitulo: "Categorias",
+    defCategoria: "La estadística se divide en dos categorías principales :<br>- Estadística descriptiva<br>- Estadística inferencial.",
 
     defGuiaTitulo: "Forma de uso :",
-    defGuia: "El boton <span>Medida</span> muestra calculadoras.<br>El boton <span>Menu</span> lleva al menu principal."
+    defGuia: "Con el boton <span>Medida</span> mostrara calculadoras de estadística basica y ejemplos.<br>El boton <span>Menu</span>Te llevara al menu principal."
 };
-const promedioObj = {
+const mediaMedianaModaObj = {
     id: "media_mediana_moda",
-    titleFig: "Instrucciones",
-    imgFig: "../assets/calculadora_media_mediana_moda.png",
+    titleMMM: "Instrucciones",
+    imgMMM: "../assets/calculadora_media_mediana_moda.png",
 
-    titleAltura: "Media Mediana Moda",
-    inputAltura: [
+    titleMeMeMo: "Media Mediana Moda",
+    inputMeMeMo: [
         {
-            inputLabel: "Medida lados iguales",
-            inputId: "winHTriIsoSideEq"
-        },
-        {
-            inputLabel: "Medida de base",
-            inputId: "winHTriIsoBase"
+            inputLabel: "Introduce valores a comparar separados por una coma ( , )",
+            inputId: "textAreaId",
+            inputCl: "textAreaCl"
         }
     ],
-    resultClH: "resultHTriIso",
-    btnClH: "btnResultHTriIso",
-    btn2ClH: "btnClearHTriIso",
-    funcionAltura: "hTriangleIso",
-    clearWindowH: "clearHFig",
+    resultEstMedia: "resultEstMedia",
+    resultEstMediana: "resultEstMediana",
+    resultEstModa: "resultEstModa",
+    btnClEst: "btnResultEst",
+    btn2ClEst: "btnClearEst",
+    funcionEst: "estadisticaMMM",
+    clearWindowEst: "clearEstOpt",
 };
 const medianaObj = {
     id: "triangulo_escaleno",
@@ -87,7 +80,7 @@ const modaObj = {
 };
 
 estadisticaArray.push(introEstadistica);
-estadisticaArray.push(promedioObj);
+estadisticaArray.push(mediaMedianaModaObj);
 // estadisticaArray.push(modaObj);
 // estadisticaArray.push(PromedioObj);
 

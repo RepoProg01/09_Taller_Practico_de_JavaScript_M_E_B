@@ -2,7 +2,7 @@ const formulasArray = [];
 
 const intro = {
     defImg: "../assets/per_area_img.svg",
-    defTitulo: "Introduccion",
+    defTitulo: "introducción",
     defAreaTitulo: "Que es el Area ?",
     defArea: "Area es la medida bidimensional de una superficie. Es entendida como el espacio o región que cubre la figura geométrica. Para representar el área se utilizan unidades cuadradas, ejemplo, m2 o cm2.",
     defPerimetroTitulo: "Que es el Perimetro ?",

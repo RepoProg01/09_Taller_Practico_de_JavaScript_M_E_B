@@ -3,7 +3,7 @@ const introPorcentajeArray = [];
 //--------------Intro----------------
 const introPorcentaje = {
     defImg: "../assets/porcentaje_img.svg",
-    defTitulo: "Introduccion",
+    defTitulo: "introducción",
 
     defPorcentajeTitulo: "Que es porcentaje ?",
     defPorcentaje: "Es la forma de expresar un número como una fracción tiene como denominador el número 100, conocido, como tanto por ciento. ",
