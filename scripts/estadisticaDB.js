@@ -17,14 +17,14 @@ const introEstadistica = {
     defModa: "La moda representa el valor o categoría más común dentro del conjunto de datos.",
 
     defGuiaTitulo: "Forma de uso :",
-    defGuia: "El boton <span>Medida</span> muestra calculadoras mediana moda y promedio.<br>El boton <span>Menu</span> regreza al menu principal."
+    defGuia: "El boton <span>Medida</span> muestra calculadoras.<br>El boton <span>Menu</span> lleva al menu principal."
 };
-const medianaObj = {
-    id: "triangulo_isosceles",
-    titleFig: "Triangulo Isosceles",
-    imgFig: "../assets/triangulo_isosceles_altura.png",
+const promedioObj = {
+    id: "media_mediana_moda",
+    titleFig: "Instrucciones",
+    imgFig: "../assets/calculadora_media_mediana_moda.png",
 
-    titleAltura: "Altura Triangulo Isosceles",
+    titleAltura: "Media Mediana Moda",
     inputAltura: [
         {
             inputLabel: "Medida lados iguales",
@@ -41,7 +41,7 @@ const medianaObj = {
     funcionAltura: "hTriangleIso",
     clearWindowH: "clearHFig",
 };
-const modaObj = {
+const medianaObj = {
     id: "triangulo_escaleno",
     titleFig: "Triangulo Escaleno",
     imgFig: "../assets/triangulo_escaleno_altura.png",
@@ -67,7 +67,7 @@ const modaObj = {
     funcionAltura: "hTriEsc",
     clearWindowH: "clearHFig",
 };
-const PromedioObj = {
+const modaObj = {
     id: "triangulo_equilatero",
     titleFig: "Triangulo Equilatero",
     imgFig: "../assets/triangulo_equilatero_altura.png",
@@ -87,7 +87,7 @@ const PromedioObj = {
 };
 
 estadisticaArray.push(introEstadistica);
-// estadisticaArray.push(medianaObj);
+estadisticaArray.push(promedioObj);
 // estadisticaArray.push(modaObj);
 // estadisticaArray.push(PromedioObj);
 

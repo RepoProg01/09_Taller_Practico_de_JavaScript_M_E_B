@@ -176,3 +176,82 @@ console.log(formatoMexico(numero4)); // 1,234.56789
 console.log(formatoMexico(numero5)); // 123,456.789
 console.log(formatoMexico(numero6)); // 1,234,567.89
 ```
+## Regex para que un input solo reciba numeros enteros decimales y comas.
+
+```javascript
+var regex = /^[\d.,]+$/;
+if(regex.test(textA.value)){
+    // --- Obteniendo datos de ventana de entrada como un solo strig ---
+    const infoWindow = textA.value;
+    // --- Separando cada valor del string y poniendolo en un array ---
+    const arrayString = infoWindow.split(",");
+    // --- Creando un nuevo array cambiando los strings a numbers ---
+    const arrayNumber = [];
+    arrayString.forEach(element => {
+        arrayNumber.push(Number(element));
+    });
+}else{
+    textA.value = "Solo valores enteros y decimales separados por comas son permitidos";
+};
+```
+## Funcion para sumar todos los numeros dentro de un array
+```javascript
+const arrayNumber = [1,2,3,4,5];
+
+function promedio(arrayNumber){
+    const suma = arrayNumber.reduce((add,num) => add+=num);
+    const cantidad = arrayNumber.length;
+    const resPromedio = suma / cantidad;
+    winResPromedio.innerText = resPromedio.toFixed(1);
+}
+// -- 15
+```
+## Creacion de objeto "repetidos" con el numero de repeticiones de cada elemento usando reduce en una linea, en varias lineas o con un forEach
+
+```javascript
+const orden = [1,2,2,3,4,4];
+
+// -- Usando reduce en una sola linea ---
+const repetidos = orden.reduce( (a,b) => (a[b] ? a[b] +=1 : a[b] = 1, a), {});
+ 
+// {
+//  1: 1
+//  2: 2
+//  3: 1
+//  4: 2
+// }
+
+// -- Usando reduce en varias lineas ---
+const repetidos = orden.reduce((obAcum,elemArray) => {
+if(obAcum[elemArray]){
+    obAcum[elemArray] += 1;
+}else{
+    obAcum[elemArray] = 1;
+}
+return obAcum
+},{});
+
+// {
+//  1: 1
+//  2: 2
+//  3: 1
+//  4: 2
+// }
+
+// -- Usando un forEach --
+const repetidos = {};
+orden.forEach(elemento => {
+    if(repetidos[elemento]){
+        repetidos[elemento] += 1;
+    }else{
+        repetidos[elemento] = 1;
+    }
+});
+
+// {
+//  1: 1
+//  2: 2
+//  3: 1
+//  4: 2
+// }
+```
