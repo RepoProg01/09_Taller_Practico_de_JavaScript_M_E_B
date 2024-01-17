@@ -49,9 +49,12 @@ function borrar(){
     // ---- Limpieza de valor de medida ----
     medidaH = null;
     // ----  ----
-    sectionEstmiddle.innerHTML = "";
 
+    sectionEstmiddle.innerHTML = "";
     labelArea.innerHTML = "";
+    textarea.value = "";
+    textarea.disabled = false;
+    textarea.classList.remove("resultColor");
     // ---- Limpieza de Ventanas de mensajes y borrado de clase ----
     pResultEstMedia.innerHTML = "";
     pResultEstMedia.classList.remove(pResultEstMediaReg);
@@ -59,8 +62,10 @@ function borrar(){
     pResultEstMediana.innerHTML = "";
     pResultEstMediana.classList.remove(pResultEstMedianaReg);
 
-    pResultEstModa.innerHTML = "";
+    pResultEstModa.value = "";
     pResultEstModa.classList.remove(pResultEstModaReg);
+    pResultEstModa.disabled = "true";
+
     // ---- Borrado de clases y abilitar botones ----
     btnResultEst.classList.remove(btnResultEstReg);
     btnClearEst.classList.remove(btnClearEstReg);
@@ -74,6 +79,8 @@ function borrar(){
 function disableOptions(){
     if(idFig == "media_mediana_moda"){
         winEstVar.disabled = true;
+        winEstVar.classList.add("resultColor");
+        labelArea.innerHTML = "";
     };
     btnResultEst.disabled = true;
     btnResultEst.classList.remove("btnResult");
@@ -90,7 +97,7 @@ function clearEstOpt(){
     labelArea.innerHTML = "";
     pResultEstMedia.innerHTML = ""; 
     pResultEstMediana.innerHTML = ""; 
-    pResultEstModa.innerHTML = ""; 
+    pResultEstModa.value = ""; 
 };
 
 function habilitarIntercambiar(){
@@ -112,16 +119,9 @@ function medSeleccion() {
         medidaH = "m";
     };
 };
-function medEnableDisable(){
-    if(inputRadioHC.checked){
-        inputRadioHM.disabled = true;
-    }else if(inputRadioHM.checked){
-        inputRadioHC.disabled = true;
-    };
-};
 //----Funciones mensajes-----------------------------------------------------------------
 function mensajeInsertarValores(){
-    labelArea.innerHTML = "Introduce valores a comparar separados por una coma ( , )";
+    labelArea.innerHTML = "Introduce valores a comparar separados por una coma ( , ) y sin espacios";
 };
 function mensajeSoloNum(){
     labelArea.innerHTML = "Solo valores enteros y decimales separados por comas son permitidos";
@@ -240,7 +240,7 @@ function renderFigura(objeto){
     titleResultEstModa.innerHTML = "Moda";
     titleResultEstModa.classList.add("titleResults");
     pResultEstModaReg = objeto.resultEstModa
-    pResultEstModa.classList.add("winStyleSmall", pResultEstModaReg);
+    pResultEstModa.classList.add("winStyleSmallTextWin", pResultEstModaReg);
     contPResultEstModa.classList.add("contPResult");
     contPResultEstModa.append(titleResultEstModa, pResultEstModa);
 
@@ -261,7 +261,7 @@ function promedio(arrayNumber){
     const suma = arrayNumber.reduce((add,num) => add+=num);
     const cantidad = arrayNumber.length;
     const resPromedio = suma / cantidad;
-    pResultEstMedia.innerText = resPromedio.toFixed(1);
+    pResultEstMedia.innerHTML = resPromedio.toFixed(1);
 }
 function mediana(arrayNumber){
     const orden = arrayNumber.sort((a,b) => a-b);
@@ -274,7 +274,7 @@ function mediana(arrayNumber){
         const mitadI = (cantidad - 1) / 2;
         resMediana = orden[mitadI];
     }
-    pResultEstMediana.innerText = resMediana.toFixed(1);
+    pResultEstMediana.innerHTML = resMediana.toFixed(1);
 }
 function moda(arrayNumber){
     const orden = arrayNumber.sort((a,b) => a-b);
@@ -295,35 +295,36 @@ function moda(arrayNumber){
     // --- Impresion de resultado en ventana ---
     arrayFiltrado.forEach((v, i) => {
         if(i < arrayFiltrado.length - 1){
-            pResultEstModa.innerHTML += v[0] + ", ";
+            pResultEstModa.value += v[0] + ", ";
         }else{
-            pResultEstModa.innerHTML += v[0];
+            pResultEstModa.value += v[0];
         }
     })
 }
 function estadisticaMMM(){
-   // --- Expresion regular solo numeros puntos y comas son aceptados ---
-   var regex = /^[\d.,]+$/;
-   if(regex.test(textarea.value)){
-       // --- Obteniendo datos de ventana de entrada como un solo strig ---
-       const infoWindow = textarea.value;
-       // --- Separando cada valor del string y poniendolo en un array ---
-       const arrayString = infoWindow.split(",");
-       // --- Creando un nuevo array cambiando los strings a numbers ---
-       const arrayNumber = [];
-       arrayString.forEach(element => {
-           arrayNumber.push(Number(element));
-       });
-       promedio(arrayNumber);
-       mediana(arrayNumber);
-       moda(arrayNumber);
-       disableOptions();
-    //    textA.disabled = true;
-    //    backGroundOff();
-   }else{
-        mensajeSoloNum();
-        disableOptions();
-   };
+    // --- Expresion regular solo numeros puntos y comas son aceptados ---
+    if(!textarea.value == " "){
+        var regex = /^[\d.,]+$/;
+        if(regex.test(textarea.value)){
+            // --- Obteniendo datos de ventana de entrada como un solo strig ---
+            const infoWindow = textarea.value;
+            // --- Separando cada valor del string y poniendolo en un array ---
+            const arrayString = infoWindow.split(",");
+            // --- Creando un nuevo array cambiando los strings a numbers ---
+            const arrayNumber = [];
+            arrayString.forEach(element => {
+                arrayNumber.push(Number(element));
+            });
+            promedio(arrayNumber);
+            mediana(arrayNumber);
+            moda(arrayNumber);
+            disableOptions();
+        }else{
+                mensajeSoloNum();
+        };
+    }else{
+        mensajeInsertarValores();
+    }
 };
 
 // ================================= Constantes =========================================
@@ -378,7 +379,7 @@ const titleResultEstModa = document.createElement("p");
 
 const pResultEstMedia = document.createElement("p");
 const pResultEstMediana = document.createElement("p");
-const pResultEstModa = document.createElement("p");
+const pResultEstModa = document.createElement("textarea");
 
 const btnResultEst = document.createElement("button");
 const btnClearEst = document.createElement("button");

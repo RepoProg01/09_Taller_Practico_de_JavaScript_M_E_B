@@ -35,6 +35,15 @@ body {
 .body::-webkit-scrollbar {
     width: 0px;
 }
+.listIndex::-webkit-scrollbar,
+.textAreaCl::-webkit-scrollbar {
+    width: 0px;
+}
+.listIndex::-webkit-scrollbar,
+.winStyleSmallTextWin::-webkit-scrollbar {
+    width: 0px;
+}
+
 /* ################# nav ################# */
 .nav {
     position: fixed;
@@ -241,8 +250,6 @@ span {
 .containerCalculadora {
     display: flex;
     flex-direction: column;
-    /* gap: 10px; */
-    /* justify-content: space-between; */
     background: var(--background_radial_2);
     width: 300px;
     height: 343px;
@@ -272,13 +279,13 @@ span {
     gap: 5px;
     margin-bottom: 10px;
 }
-
 .contPResult{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.contPResult p{
+.contPResult p,
+.contPResult textarea{
     margin: 0px;
     padding: 5px 0px;
 }
@@ -289,9 +296,7 @@ span {
 .winStyleSmall {
     background-color: var(--white);
     border: 1px solid var(--black);
-    border-radius: 10px;
-    margin: 10px 0px 10px 0px;
-    text-align: center;
+    border-radius: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -299,13 +304,23 @@ span {
     font-weight: 700;
     font-size: 16px;
 }
-.resultEstMedia,
-.resultEstMediana {
-    width: 80px;
-    height: 40px;
+/* =================================================*/
+.winStyleSmallTextWin {
+    background-color: var(--white);
+    color: var(--black);
+    border: 1px solid var(--black);
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 16px;
+
 }
-.resultEstModa{
-    width: 120px;
+textarea{
+    resize: none;
+}
+.resultEstMedia,
+.resultEstMediana,
+.resultEstModa {
+    width: 95px;
     height: 40px;
 }
 .btnClear,
@@ -351,15 +366,19 @@ span {
     padding: 0px 10px 10px 10px ;
     width: 278px;
     height: 50px;
-    /* padding-bottom: 10px; */
+}
+.disableMode{
+    background-color: var(--blue);
+    color: var(--white);
 }
 .textAreaCl {
+    border: 1px solid var(--grey);
     padding: 10px;
     border-radius: 5px;
     width: 278px;
     height: 50px;
     font-size: 15px;
-    font-weight: bold;
+    font-weight: 700;
 }
 .resultColor {
     background-color: var(--background_linear_2);
