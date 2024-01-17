@@ -223,17 +223,29 @@ function renderFigura(objeto){
     rutaFEst = (eval(objeto.funcionEst));
     btnResultEst.addEventListener("click", rutaFEst);
 
+    titleResultEstMedia.innerHTML = "Media";
+    titleResultEstMedia.classList.add("titleResults");
     pResultEstMediaReg = objeto.resultEstMedia
     pResultEstMedia.classList.add("winStyleSmall", pResultEstMediaReg);
+    contPResultEstMedia.classList.add("contPResult");
+    contPResultEstMedia.append(titleResultEstMedia, pResultEstMedia);
 
+    titleResultEstMediana.innerHTML = "Mediana";
+    titleResultEstMediana.classList.add("titleResults");
     pResultEstMedianaReg = objeto.resultEstMediana
     pResultEstMediana.classList.add("winStyleSmall", pResultEstMedianaReg);
+    contPResultEstMediana.classList.add("contPResult");
+    contPResultEstMediana.append(titleResultEstMediana, pResultEstMediana);
 
+    titleResultEstModa.innerHTML = "Moda";
+    titleResultEstModa.classList.add("titleResults");
     pResultEstModaReg = objeto.resultEstModa
     pResultEstModa.classList.add("winStyleSmall", pResultEstModaReg);
-    
+    contPResultEstModa.classList.add("contPResult");
+    contPResultEstModa.append(titleResultEstModa, pResultEstModa);
+
     contSectEstBottom.classList.add("contSectEstBottom");
-    contSectEstBottom.append(pResultEstMedia, pResultEstMediana, pResultEstModa);
+    contSectEstBottom.append(contPResultEstMedia, contPResultEstMediana, contPResultEstModa);
 
     sectionEstbottom.classList.add("sectionEstbottom");
     sectionEstbottom.append(contSectEstBottom, btnClearEst, btnResultEst);
@@ -355,6 +367,15 @@ const sectionEstmiddle = document.createElement("section");
 // -------------------------------- sectionEstbottom ---------------------------------------
 const sectionEstbottom = document.createElement("section");
 const contSectEstBottom = document.createElement("div");
+
+const contPResultEstMedia = document.createElement("div");
+const contPResultEstMediana = document.createElement("div");
+const contPResultEstModa = document.createElement("div");
+
+const titleResultEstMedia = document.createElement("p");
+const titleResultEstMediana = document.createElement("p");
+const titleResultEstModa = document.createElement("p");
+
 const pResultEstMedia = document.createElement("p");
 const pResultEstMediana = document.createElement("p");
 const pResultEstModa = document.createElement("p");
