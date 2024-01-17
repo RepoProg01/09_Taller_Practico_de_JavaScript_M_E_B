@@ -50,6 +50,8 @@ function borrar(){
     medidaH = null;
     // ----  ----
     sectionEstmiddle.innerHTML = "";
+
+    labelArea.innerHTML = "";
     // ---- Limpieza de Ventanas de mensajes y borrado de clase ----
     pResultEstMedia.innerHTML = "";
     pResultEstMedia.classList.remove(pResultEstMediaReg);
@@ -71,7 +73,7 @@ function borrar(){
 //--- funciones para deshabilitar ventanas y botones de Area y Perimetro-----------------
 function disableOptions(){
     if(idFig == "media_mediana_moda"){
-        winH1.disabled = true;
+        winEstVar.disabled = true;
     };
     btnResultEst.disabled = true;
     btnResultEst.classList.remove("btnResult");
@@ -80,12 +82,15 @@ function disableOptions(){
 //--- funciones para limpiar y habilitar radios ventanas y botones ----------------------
 function clearEstOpt(){
     if(idFig == "media_mediana_moda"){
-        winH1.disabled = false;
-        winH1.value = "";
-        winH1.classList.remove("resultColor");
+        winEstVar.disabled = false;
+        winEstVar.value = "";
+        winEstVar.classList.remove("resultColor");
     };
     habilitarIntercambiar();
-    pResultEstMediaReg.innerHTML = ""; 
+    labelArea.innerHTML = "";
+    pResultEstMedia.innerHTML = ""; 
+    pResultEstMediana.innerHTML = ""; 
+    pResultEstModa.innerHTML = ""; 
 };
 
 function habilitarIntercambiar(){
@@ -96,7 +101,7 @@ function habilitarIntercambiar(){
 //----Funcion asignaciones --------------------------------------------------------------
 function asignacionesWindows(){
     if(idFig == "media_mediana_moda"){
-        winH1 = document.querySelector("#textAreaId");
+        winEstVar = document.querySelector("#textAreaId");
     };
 };
 //----Funciones seleccion y vaciado medida-----------------------------------------------
@@ -114,22 +119,13 @@ function medEnableDisable(){
         inputRadioHC.disabled = true;
     };
 };
-//----Funciones mensajes ----------------------------------------------------------------
-function mensajeCmMt(){
-    pResultEstMediaReg.innerHTML = "Elegir centimetros o metros";
+//----Funciones mensajes-----------------------------------------------------------------
+function mensajeInsertarValores(){
+    labelArea.innerHTML = "Introduce valores a comparar separados por una coma ( , )";
 };
-function  mensajeTamanoLados(){
-    pResultEstMediaReg.innerHTML = "Lado b tiene que ser menor<br>que la base B en el trapecio";
-}
-function  mensajeMenorSLados(){
-    pResultEstMediaReg.innerHTML = "La medida de la Base debe ser<br>menor a la suma de sus lados";
-}
-function mensajeMayorCero(){
-    pResultEstMediaReg.innerHTML = "Lados deben de ser mayores a 0";
-}
-function mensajeBaseMedida(){
-    pResultEstMediaReg.innerHTML = "La medida de la Base debe ser<br>mayor a la de los lados";
-}
+function mensajeSoloNum(){
+    labelArea.innerHTML = "Solo valores enteros y decimales separados por comas son permitidos";
+};
 //----Funciones renderizado--------------------------------------------------------------
 function renderIntroduccion(){
     borrar();
@@ -203,11 +199,8 @@ function renderFigura(objeto){
         const divEntryWin = document.createElement("div");
         divEntryWin.classList.add("EntryWin");
 
-        const labelArea = document.createElement("label");
-        labelArea.setAttribute("for", winInput.inputId);
-        labelArea.innerHTML = winInput.inputLabel;
+        labelArea.classList.add(winInput.outputMessageCl);
 
-        const textarea = document.createElement("textarea");
         textarea.setAttribute("id", winInput.inputId);
         textarea.classList.add(winInput.inputCl);
         divEntryWin.append(labelArea, textarea);
@@ -251,26 +244,76 @@ function renderFigura(objeto){
 };
 // ------------------------ Operaciones -----------------------------------------------------
 // ------------- Estadistica Media Mediana Moda ------------------------------------------
-function estadisticaMMM(){
-    const w1Es = Number(winH1.value);
-    if(w1Es > 0){
-        if(inputRadioHC.checked || inputRadioHM.checked){
-            medSeleccion();
-            const lado = w1Es;
-            const semiPerimeter = (lado + lado + lado) / 2;
-            const process =  (2 / lado) * Math.sqrt((semiPerimeter * (semiPerimeter - lado) * (semiPerimeter - lado) * (semiPerimeter - lado)));
-            const result =  process;
-            medEnableDisable()
-            disableOptions();
-            winH1.classList.add("resultColor");
-            pResultEstMediaReg.innerHTML = `Altura = ${result.toFixed(2)} ${medidaH}`;
-        }else{
-            mensajeCmMt();
-        }
-    }else{
-        mensajeMayorCero();
-    }
+// --- funciones de operaciones ---
+function promedio(arrayNumber){
+    const suma = arrayNumber.reduce((add,num) => add+=num);
+    const cantidad = arrayNumber.length;
+    const resPromedio = suma / cantidad;
+    pResultEstMedia.innerText = resPromedio.toFixed(1);
 }
+function mediana(arrayNumber){
+    const orden = arrayNumber.sort((a,b) => a-b);
+    const cantidad = arrayNumber.length;
+    let resMediana;
+    if(cantidad % 2 == 0){
+        const mitadP = cantidad / 2;
+        resMediana = (orden[mitadP - 1] + orden[mitadP]) / 2;
+    }else{
+        const mitadI = (cantidad - 1) / 2;
+        resMediana = orden[mitadI];
+    }
+    pResultEstMediana.innerText = resMediana.toFixed(1);
+}
+function moda(arrayNumber){
+    const orden = arrayNumber.sort((a,b) => a-b);
+    const repetidos = orden.reduce((a,i) => (a[i] ? a[i] +=1 : a[i] = 1, a),{})
+    // --- Orden de valores en objeto de mayor a menor a un array---
+    let arrayOrdenado = Object.entries(repetidos);
+    arrayOrdenado.sort((a, b) => b[1] - a[1]);
+    // --- Creacion de objeto "modaNumbers" con solo el numero(s) que se repite(n) mas veces ---
+    const arrayFiltrado = [];
+    let valorTemp = 0;
+    arrayOrdenado.forEach(index => {
+        if(index[1] >= valorTemp){
+            arrayFiltrado.push([index[0],index[1]])
+            valorTemp = index[1]
+        }
+    });
+    arrayFiltrado.sort((a,b)=>a[0]-b[0]);
+    // --- Impresion de resultado en ventana ---
+    arrayFiltrado.forEach((v, i) => {
+        if(i < arrayFiltrado.length - 1){
+            pResultEstModa.innerHTML += v[0] + ", ";
+        }else{
+            pResultEstModa.innerHTML += v[0];
+        }
+    })
+}
+function estadisticaMMM(){
+   // --- Expresion regular solo numeros puntos y comas son aceptados ---
+   var regex = /^[\d.,]+$/;
+   if(regex.test(textarea.value)){
+       // --- Obteniendo datos de ventana de entrada como un solo strig ---
+       const infoWindow = textarea.value;
+       // --- Separando cada valor del string y poniendolo en un array ---
+       const arrayString = infoWindow.split(",");
+       // --- Creando un nuevo array cambiando los strings a numbers ---
+       const arrayNumber = [];
+       arrayString.forEach(element => {
+           arrayNumber.push(Number(element));
+       });
+       promedio(arrayNumber);
+       mediana(arrayNumber);
+       moda(arrayNumber);
+       disableOptions();
+    //    textA.disabled = true;
+    //    backGroundOff();
+   }else{
+        mensajeSoloNum();
+        disableOptions();
+   };
+};
+
 // ================================= Constantes =========================================
 // =========================== Constantes Container fig =================================
 const containerEstadistica = document.querySelector(".containerEstadistica");
@@ -319,6 +362,9 @@ const pResultEstModa = document.createElement("p");
 const btnResultEst = document.createElement("button");
 const btnClearEst = document.createElement("button");
 
+const labelArea = document.createElement("p");
+const textarea = document.createElement("textarea");
+
 let medidaH;
 
 let btnClearEstReg;
@@ -331,9 +377,7 @@ let pResultEstModaReg;
 let rutaFEst;
 let rutaFEstClear;
 
-let winH1 = null;
-let winH2 = null;
-let winH3 = null;
+let winEstVar = null;
 // --- Variable de identificacion de figura ----------------------------------------------
 let idFig = "";
 renderIntroduccion();

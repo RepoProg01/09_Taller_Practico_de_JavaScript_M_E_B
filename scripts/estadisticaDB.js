@@ -5,13 +5,13 @@ const introEstadistica = {
     defTitulo: "introducción",
 
     defEstadisticaTitulo: "Que es la Estadística ?",
-    defEstadistica: "La estadística es una rama de las matemáticas que se ocupa de recopilar, organizar, analizar, interpretar, presentar y describir datos. Su objetivo principal es proporcionar herramientas y métodos para extraer conclusiones significativas a partir de conjuntos de datos, con el fin de comprender patrones, tomar decisiones informadas y realizar predicciones.<br><br>La estadística se aplica en una amplia variedad de campos, como la investigación científica, la economía, la medicina, la sociología, la ingeniería, entre otros.",
+    defEstadistica: "La estadística es una rama de las matemáticas que se ocupa de recopilar, organizar, analizar, interpretar, presentar y describir datos. Su objetivo principal es proporcionar herramientas y métodos para extraer conclusiones significativas a partir de conjuntos de datos, con el fin de comprender patrones, tomar decisiones informadas y realizar predicciones.<br>La estadística se aplica en variedad de campos, como la investigación científica, la economía, la medicina, entre otros.",
 
     defCategoriaTitulo: "Categorias",
     defCategoria: "La estadística se divide en dos categorías principales :<br>- Estadística descriptiva<br>- Estadística inferencial.",
 
-    defGuiaTitulo: "Forma de uso :",
-    defGuia: "Con el boton <span>Medida</span> mostrara calculadoras de estadística basica y ejemplos.<br>El boton <span>Menu</span>Te llevara al menu principal."
+    defGuiaTitulo: "Forma de uso",
+    defGuia: "Con el boton <span>Medida</span> mostrara calculadoras de estadística basica y ejemplos.<br>El boton <span>Menu</span> Te llevara al menu principal."
 };
 const mediaMedianaModaObj = {
     id: "media_mediana_moda",
@@ -21,7 +21,8 @@ const mediaMedianaModaObj = {
     titleMeMeMo: "Media Mediana Moda",
     inputMeMeMo: [
         {
-            inputLabel: "Introduce valores a comparar separados por una coma ( , )",
+            outputMessage: "Introduce valores a comparar separados por una coma ( , )",
+            outputMessageCl: "outputMessageCL",
             inputId: "textAreaId",
             inputCl: "textAreaCl"
         }

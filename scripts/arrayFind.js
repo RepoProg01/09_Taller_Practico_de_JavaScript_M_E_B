@@ -27,6 +27,8 @@ function clearWindow(){
     textA.disabled = false;
     backGroundOn();
 }
+
+
 // --- funcion de condicionales y antes de rsultado ---
 function resultWindow(){
     // --- Expresion regular solo numeros puntos y comas son aceptados ---
@@ -98,6 +100,8 @@ function moda(arrayNumber){
         }
     })
 }
+
+
 // === Variables y Constantes ===
 // --- Ventana de entrada de datos ---
 const textA = document.querySelector("#winTextA");
