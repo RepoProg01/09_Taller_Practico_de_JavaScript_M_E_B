@@ -85,6 +85,10 @@ function disableOptions(){
     btnResultEst.disabled = true;
     btnResultEst.classList.remove("btnResult");
     btnResultEst.classList.add("btnInactive");
+
+    pResultEstMedia.classList.remove("resultColor");
+    pResultEstMediana.classList.remove("resultColor");
+    pResultEstModa.classList.remove("resultColor");
 }
 //--- funciones para limpiar y habilitar radios ventanas y botones ----------------------
 function clearEstOpt(){
@@ -98,6 +102,10 @@ function clearEstOpt(){
     pResultEstMedia.innerHTML = ""; 
     pResultEstMediana.innerHTML = ""; 
     pResultEstModa.value = ""; 
+
+    pResultEstMedia.classList.add("resultColor");
+    pResultEstMediana.classList.add("resultColor");
+    pResultEstModa.classList.add("resultColor");
 };
 
 function habilitarIntercambiar(){
@@ -124,7 +132,10 @@ function mensajeInsertarValores(){
     labelArea.innerHTML = "Introduce valores a comparar separados por una coma ( , ) y sin espacios";
 };
 function mensajeSoloNum(){
-    labelArea.innerHTML = "Solo valores enteros y decimales separados por comas son permitidos";
+    labelArea.innerHTML = "Solo valores enteros decimales separados por comas y sin espacios son permitidos";
+};
+function mensajeResultadoExitoso(){
+    labelArea.innerHTML = "Calculacion con exito de Media, Mediana y Moda ";
 };
 //----Funciones renderizado--------------------------------------------------------------
 function renderIntroduccion(){
@@ -226,21 +237,21 @@ function renderFigura(objeto){
     titleResultEstMedia.innerHTML = "Media";
     titleResultEstMedia.classList.add("titleResults");
     pResultEstMediaReg = objeto.resultEstMedia
-    pResultEstMedia.classList.add("winStyleSmall", pResultEstMediaReg);
+    pResultEstMedia.classList.add("winStyleSmall", "resultColor", pResultEstMediaReg);
     contPResultEstMedia.classList.add("contPResult");
     contPResultEstMedia.append(titleResultEstMedia, pResultEstMedia);
 
     titleResultEstMediana.innerHTML = "Mediana";
     titleResultEstMediana.classList.add("titleResults");
     pResultEstMedianaReg = objeto.resultEstMediana
-    pResultEstMediana.classList.add("winStyleSmall", pResultEstMedianaReg);
+    pResultEstMediana.classList.add("winStyleSmall", "resultColor", pResultEstMedianaReg);
     contPResultEstMediana.classList.add("contPResult");
     contPResultEstMediana.append(titleResultEstMediana, pResultEstMediana);
 
     titleResultEstModa.innerHTML = "Moda";
     titleResultEstModa.classList.add("titleResults");
     pResultEstModaReg = objeto.resultEstModa
-    pResultEstModa.classList.add("winStyleSmallTextWin", pResultEstModaReg);
+    pResultEstModa.classList.add("winStyleSmall", "resultColor", pResultEstModaReg);
     contPResultEstModa.classList.add("contPResult");
     contPResultEstModa.append(titleResultEstModa, pResultEstModa);
 
@@ -319,6 +330,7 @@ function estadisticaMMM(){
             mediana(arrayNumber);
             moda(arrayNumber);
             disableOptions();
+            mensajeResultadoExitoso();
         }else{
                 mensajeSoloNum();
         };

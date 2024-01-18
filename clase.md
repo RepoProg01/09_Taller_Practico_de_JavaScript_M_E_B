@@ -255,3 +255,16 @@ orden.forEach(elemento => {
 //  4: 2
 // }
 ```
+## Para centrar el texto dentro de un textarea tanto vertical como horizontalmente en CSS, puedes usar las siguientes propiedades y valores:
+
+```css
+textarea {
+  width: 300px; /* Ajusta el ancho según tus necesidades */
+  height: 150px; /* Ajusta la altura según tus necesidades */
+  display: block;
+  margin: auto; /* Centra horizontalmente */
+  resize: none; /* Evita que el usuario redimensione el textarea */
+  text-align: center; /* Centra el texto horizontalmente */
+  line-height: 150px; /* Ajusta la altura del texto para centrarlo verticalmente */
+}
+```
