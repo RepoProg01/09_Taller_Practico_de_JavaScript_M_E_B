@@ -27,8 +27,8 @@ function blurFnc(){
 //----Funcion de seleccion en menu-------------------------------------------------------
 function selecFnc(event){
     listIndex.classList.remove("listIndexShow");
-    const figura = event.target.innerText.toLowerCase();
-
+    const target = event.target.innerText.toLowerCase();
+    const figura = target.replaceAll(" ","_");
     const figSelect = estadisticaArray.find(obj => obj.id === figura);
     if(figSelect){
         renderFigura(figSelect);
@@ -304,6 +304,7 @@ function moda(arrayNumber){
     });
     arrayFiltrado.sort((a,b)=>a[0]-b[0]);
     // --- Impresion de resultado en ventana ---
+    console.log(arrayFiltrado);
     arrayFiltrado.forEach((v, i) => {
         if(i < arrayFiltrado.length - 1){
             pResultEstModa.value += v[0] + ", ";

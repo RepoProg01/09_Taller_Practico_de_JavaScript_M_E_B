@@ -121,6 +121,7 @@ body {
     height: 84%;
     transition: 600ms ease-in-out;
 }
+/* -- Seleccion -- */
 .seleccion {
     cursor: pointer;
     font-size: 18px;
@@ -134,9 +135,21 @@ body {
     color: var(--lightGrey);
     border-bottom: 1px solid var(--lightGrey);
 }
-.sel {
+/* -- Division -- */
+.listIndexOption{
+    display: flex;
     padding: 0px;
-    margin: 10px 30px 0px 30px;
+    margin: 0px 20px 0px 20px;
+}
+.optTitle{
+    font-size: 18px;
+    color: var(--verde);
+    padding-right: 5px;
+    margin-bottom: 0px;
+}
+.optLine {
+    margin: 10px 0px 10px 0px;
+    width: 100%;
     border-bottom: 1px solid var(--verde);
 }
 .selMod {
@@ -145,7 +158,12 @@ body {
 .selMod:hover {
     color: var(--white);
 }
-/* ----- titlexIndex ----- */ 
+/* .sel {
+    padding: 0px;
+    margin: 10px 30px 0px 30px;
+    border-bottom: 1px solid var(--verde);
+} */
+/* -- contentIndex -- */ 
 .titlesIndex {
     text-align: center;
     background-color: var(--primario);
