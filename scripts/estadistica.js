@@ -64,6 +64,8 @@ function borrar(){
 
     pResultEstModa.value = "";
     pResultEstModa.classList.remove(pResultEstModaReg);
+
+    pResultEstModa.classList.remove("resultEstModaCero");
     pResultEstModa.disabled = "true";
 
     // ---- Borrado de clases y abilitar botones ----
@@ -74,10 +76,13 @@ function borrar(){
     // ----  ----
     containerEstadistica.innerHTML = "";
     divCalculadora.innerHTML = "";
+
+    pTitlesEstadistica.classList.remove("titlesEstImg");
+    pTitlesEstadistica.classList.add("titlesEstadistica");
 }
 //--- funciones para deshabilitar ventanas y botones de Area y Perimetro-----------------
 function disableOptions(){
-    if(idFig == "media_mediana_moda"){
+    if(idFig == "media_mediana"){
         winEstVar.disabled = true;
         winEstVar.classList.add("resultColor");
         labelArea.innerHTML = "";
@@ -88,11 +93,10 @@ function disableOptions(){
 
     pResultEstMedia.classList.remove("resultColor");
     pResultEstMediana.classList.remove("resultColor");
-    pResultEstModa.classList.remove("resultColor");
 }
 //--- funciones para limpiar y habilitar radios ventanas y botones ----------------------
 function clearEstOpt(){
-    if(idFig == "media_mediana_moda"){
+    if(idFig == "media_mediana"){
         winEstVar.disabled = false;
         winEstVar.value = "";
         winEstVar.classList.remove("resultColor");
@@ -101,11 +105,16 @@ function clearEstOpt(){
     labelArea.innerHTML = "";
     pResultEstMedia.innerHTML = ""; 
     pResultEstMediana.innerHTML = ""; 
-    pResultEstModa.value = ""; 
-
     pResultEstMedia.classList.add("resultColor");
     pResultEstMediana.classList.add("resultColor");
-    pResultEstModa.classList.add("resultColor");
+
+    pTitlesEstadistica.classList.remove("titlesEstImg");
+    pTitlesEstadistica.classList.add("titlesEstadistica");
+
+    // pResultEstModa.value = ""; 
+    // pResultEstModa.classList.add("resultColor");
+    // pResultEstModa.classList.remove("resultEstModaCero");
+    // pResultEstModa.classList.add("resultEstModa");
 };
 
 function habilitarIntercambiar(){
@@ -115,7 +124,7 @@ function habilitarIntercambiar(){
 };
 //----Funcion asignaciones --------------------------------------------------------------
 function asignacionesWindows(){
-    if(idFig == "media_mediana_moda"){
+    if(idFig == "media_mediana"){
         winEstVar = document.querySelector("#textAreaId");
     };
 };
@@ -135,7 +144,10 @@ function mensajeSoloNum(){
     labelArea.innerHTML = "Solo valores enteros decimales separados por comas y sin espacios son permitidos";
 };
 function mensajeResultadoExitoso(){
-    labelArea.innerHTML = "Calculacion con exito de Media, Mediana y Moda ";
+    labelArea.innerHTML = "Calculacion de Media y Mediana con exito";
+};
+function mensajeResultadoCero(){
+    labelArea.innerHTML = "Sin Repetidos";
 };
 //----Funciones renderizado--------------------------------------------------------------
 function renderIntroduccion(){
@@ -181,87 +193,100 @@ function renderFigura(objeto){
 
     containerEstadistica.appendChild(containerResponsive);
     containerResponsive.classList.add("containerResponsive");
+    // -- Top Container ---
+    containerResponsive.appendChild(instrMMImg);
+    instrMMImg.classList.add("instrMMImg");
+    instrMMImg.appendChild(titleMM);
+    titleMM.classList.add("titleMM");
+    titleMM.innerHTML = objeto.titleMM;
+    instrMMImg.appendChild(imgMM);
+    imgMM.setAttribute("src", objeto.imgMM);
 
-    containerResponsive.appendChild(instrMMMImg);
-    instrMMMImg.classList.add("instrMMMImg");
-
-    instrMMMImg.appendChild(titleMMM);
-    titleMMM.classList.add("titleMMM");
-    titleMMM.innerHTML = objeto.titleMMM;
-
-    instrMMMImg.appendChild(imgMMM);
-    imgMMM.setAttribute("src", objeto.imgMMM);
-
+    // -- Bottom Container --
     containerResponsive.appendChild(containerEstCal);
     containerEstCal.classList.add("containerEstCal");
     containerEstCal.appendChild(divCalculadora);
-    divCalculadora.classList.add("containerCalculadora");
-
     pTitlesEstadistica.classList.add("titlesEstadistica");
-    pTitlesEstadistica.innerHTML = objeto.titleMeMeMo;
-    pEstadistica.classList.add("textEstadistica");
-    pEstadistica.innerHTML = "Calculadora";
-    sectionEsttop.classList.add("sectionEsttop");
-    sectionEsttop.append(pTitlesEstadistica, pEstadistica);
+    pTitlesEstadistica.innerHTML = objeto.titleMM2;
+    if(objeto.definicion == "on"){
+        divCalculadora.classList.remove("containerImage2");
+        divCalculadora.classList.add("containerCalculadora");
+        pEstadistica.classList.add("textEstadistica");
+        pEstadistica.innerHTML = objeto.titleMMSub;
+        sectionEsttop.classList.add("sectionEsttop");
+        sectionEsttop.append(pTitlesEstadistica, pEstadistica);
+        // ----Top middle------------------------------------------------------------------------   
+        if(objeto.id == "media_mediana"){
+            sectionEstmiddle.classList.add("sectionEstmiddle");
+            objeto.inputMM.forEach(winInput => {
+                const divEntryWin = document.createElement("div");
+                divEntryWin.classList.add("EntryWin");
+                labelArea.classList.add(winInput.outputMessageCl);
+                textarea.setAttribute("id", winInput.inputId);
+                textarea.classList.add(winInput.inputCl);
+                divEntryWin.append(labelArea, textarea);
+                sectionEstmiddle.append(divEntryWin);
+            });
 
-    sectionEstmiddle.classList.add("sectionEstmiddle");
+            titleResultEstMedia.innerHTML = "Media";
+            titleResultEstMedia.classList.add("titleResults");
+            pResultEstMediaReg = objeto.resultEstMedia
+            pResultEstMedia.classList.add("winStyleSmall", "resultColor", pResultEstMediaReg);
+            contPResultEstMedia.classList.add("contPResult");
+            contPResultEstMedia.append(titleResultEstMedia, pResultEstMedia);
+        
+            titleResultEstMediana.innerHTML = "Mediana";
+            titleResultEstMediana.classList.add("titleResults");
+            pResultEstMedianaReg = objeto.resultEstMediana
+            pResultEstMediana.classList.add("winStyleSmall", "resultColor", pResultEstMedianaReg);
+            contPResultEstMediana.classList.add("contPResult");
+            contPResultEstMediana.append(titleResultEstMediana, pResultEstMediana);
+        
+            // titleResultEstModa.innerHTML = "Moda";
+            // titleResultEstModa.classList.add("titleResults");
+            // pResultEstModaReg = objeto.resultEstModa
+            // pResultEstModa.classList.add("winStyleSmall", "resultColor", pResultEstModaReg);
+            // contPResultEstModa.classList.add("contPResult");
+            // contPResultEstModa.append(titleResultEstModa, pResultEstModa);
+        
+            contSectEstBottom.classList.add("contSectEstBottom");
+            contSectEstBottom.append(contPResultEstMedia, contPResultEstMediana);
+        }
+        if(objeto.estadistica == "Moda_Cal"){
+            console.log("Dentro de Moda Calculadora");
+        };
 
-    objeto.inputMeMeMo.forEach(winInput => {
-        const divEntryWin = document.createElement("div");
-        divEntryWin.classList.add("EntryWin");
+        btnClearEstReg = objeto.btn2ClEst;
+        btnClearEst.classList.add("btnClear", btnClearEstReg);
+        btnClearEst.innerHTML = "Borrar";
+    
+        btnResultEstReg = objeto.btnClEst;
+        btnResultEst.classList.add("btnResult", btnResultEstReg);
+        btnResultEst.innerHTML = "Resultado";
+    
+        btnClearEst.removeEventListener("click", rutaFEstClear);
+        rutaFEstClear = (eval(objeto.clearWindowEst));
+        btnClearEst.addEventListener("click", rutaFEstClear);
+    
+        btnResultEst.removeEventListener("click", rutaFEst);
+        rutaFEst = (eval(objeto.funcionEst));
+        btnResultEst.addEventListener("click", rutaFEst);
+    
+        sectionEstbottom.classList.add("sectionEstbottom");
+        sectionEstbottom.append(contSectEstBottom, btnClearEst, btnResultEst);
+        divCalculadora.append(sectionEsttop, sectionEstmiddle, sectionEstbottom);
+    }
+    else if(objeto.definicion == "off"){
+        pTitlesEstadistica.classList.remove("titlesEstadistica");
+        pTitlesEstadistica.classList.add("titlesEstImg");
 
-        labelArea.classList.add(winInput.outputMessageCl);
-
-        textarea.setAttribute("id", winInput.inputId);
-        textarea.classList.add(winInput.inputCl);
-        divEntryWin.append(labelArea, textarea);
-        sectionEstmiddle.append(divEntryWin);
-    });
-
-    btnClearEstReg = objeto.btn2ClEst;
-    btnClearEst.classList.add("btnClear", btnClearEstReg);
-    btnClearEst.innerHTML = "Borrar";
-
-    btnResultEstReg = objeto.btnClEst;
-    btnResultEst.classList.add("btnResult", btnResultEstReg);
-    btnResultEst.innerHTML = "Resultado";
-
-    btnClearEst.removeEventListener("click", rutaFEstClear);
-    rutaFEstClear = (eval(objeto.clearWindowEst));
-    btnClearEst.addEventListener("click", rutaFEstClear);
-
-    btnResultEst.removeEventListener("click", rutaFEst);
-    rutaFEst = (eval(objeto.funcionEst));
-    btnResultEst.addEventListener("click", rutaFEst);
-
-    titleResultEstMedia.innerHTML = "Media";
-    titleResultEstMedia.classList.add("titleResults");
-    pResultEstMediaReg = objeto.resultEstMedia
-    pResultEstMedia.classList.add("winStyleSmall", "resultColor", pResultEstMediaReg);
-    contPResultEstMedia.classList.add("contPResult");
-    contPResultEstMedia.append(titleResultEstMedia, pResultEstMedia);
-
-    titleResultEstMediana.innerHTML = "Mediana";
-    titleResultEstMediana.classList.add("titleResults");
-    pResultEstMedianaReg = objeto.resultEstMediana
-    pResultEstMediana.classList.add("winStyleSmall", "resultColor", pResultEstMedianaReg);
-    contPResultEstMediana.classList.add("contPResult");
-    contPResultEstMediana.append(titleResultEstMediana, pResultEstMediana);
-
-    titleResultEstModa.innerHTML = "Moda";
-    titleResultEstModa.classList.add("titleResults");
-    pResultEstModaReg = objeto.resultEstModa
-    pResultEstModa.classList.add("winStyleSmall", "resultColor", pResultEstModaReg);
-    contPResultEstModa.classList.add("contPResult");
-    contPResultEstModa.append(titleResultEstModa, pResultEstModa);
-
-    contSectEstBottom.classList.add("contSectEstBottom");
-    contSectEstBottom.append(contPResultEstMedia, contPResultEstMediana, contPResultEstModa);
-
-    sectionEstbottom.classList.add("sectionEstbottom");
-    sectionEstbottom.append(contSectEstBottom, btnClearEst, btnResultEst);
-    divCalculadora.append(sectionEsttop, sectionEstmiddle, sectionEstbottom);
-
+        divCalculadora.classList.remove("containerCalculadora");
+        divCalculadora.classList.add("containerImage2");
+        const imgDefinicion = document.createElement("img");
+        imgDefinicion.classList.add("imagenDefinicion");
+        imgDefinicion.setAttribute("src", objeto.imgMM2);
+        divCalculadora.append(pTitlesEstadistica, imgDefinicion);
+    };
     asignacionesWindows();
     document.documentElement.scrollTop = 0;
 };
@@ -304,16 +329,21 @@ function moda(arrayNumber){
     });
     arrayFiltrado.sort((a,b)=>a[0]-b[0]);
     // --- Impresion de resultado en ventana ---
-    console.log(arrayFiltrado);
-    arrayFiltrado.forEach((v, i) => {
-        if(i < arrayFiltrado.length - 1){
-            pResultEstModa.value += v[0] + ", ";
-        }else{
-            pResultEstModa.value += v[0];
-        }
-    })
+    if(arrayFiltrado[0][1] == 1){
+        pResultEstModa.classList.remove("resultEstModa");
+        pResultEstModa.classList.add("resultEstModaCero");
+        pResultEstModa.value += "No Repetidos";
+    }else{
+        arrayFiltrado.forEach((v, i) => {
+            if(i < arrayFiltrado.length - 1){
+                pResultEstModa.value += v[0] + ", ";
+            }else{
+                pResultEstModa.value += v[0];
+            };
+        });
+    }
 }
-function estadisticaMMM(){
+function estMediaMediana(){
     // --- Expresion regular solo numeros puntos y comas son aceptados ---
     if(!textarea.value == " "){
         var regex = /^[\d.,]+$/;
@@ -329,7 +359,7 @@ function estadisticaMMM(){
             });
             promedio(arrayNumber);
             mediana(arrayNumber);
-            moda(arrayNumber);
+            // moda(arrayNumber);
             disableOptions();
             mensajeResultadoExitoso();
         }else{
@@ -363,10 +393,10 @@ const defGuiaTitulo = document.createElement("p");
 const defGuia = document.createElement("p");
 // ------------------------------ containerResponsive -----------------------------------
 const containerResponsive = document.createElement("section");
-// ---------------------------------- instrMMMImg ----------------------------------------
-const instrMMMImg = document.createElement("div");
-const titleMMM = document.createElement("h2");
-const imgMMM = document.createElement("img");
+// ---------------------------------- instrMMImg ----------------------------------------
+const instrMMImg = document.createElement("div");
+const titleMM = document.createElement("h2");
+const imgMM = document.createElement("img");
 // ------------------------------ containerEstCal ----------------------------------------
 const containerEstCal = document.createElement("div");
 // ----------------------------------- divCalculadora -----------------------------------------

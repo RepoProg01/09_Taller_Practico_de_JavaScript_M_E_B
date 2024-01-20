@@ -243,21 +243,22 @@ span {
     min-width: 340px;
     padding: 20px 10px 30px 10px;
 }
-.instrMMMImg {
+/* .instrMMImg {
     width: 340px;
-}
-.instrMMMImg {
+} */
+.containerImage2,
+.instrMMImg {
     background-image: var(--background_radial_2);
     border-radius: 10px;
     /* overflow: hidden; */
     width: 340px;
     height: 383px;
 }
-.titleMMM {
+.titleMM {
     color: var(--naranja);
     text-align: center;
 }
-.instrMMMImg img {
+.instrMMImg img {
     width: 340px;
 }
 .perimeterArea {
@@ -280,30 +281,42 @@ span {
 }
 
 .titlesEstadistica {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 700;
-    margin-top: 0px;
     color: var(--white);
+    text-align: center;
+    margin: 0px;
+    padding: 0px 0px 20px 0px;
+    color: var(--naranja);
+}
+.titlesEstImg {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--white);
+    text-align: center;
+    margin: 0px;
+    padding: 20px 0px 20px 0px;
+    color: var(--naranja);
 }
 
 .textEstadistica {
     font-size: 21px;
     color: var(--naranja);
     font-weight: 700;
-    margin-bottom: 8px;
+    margin: 0px 0px 10px 0px;
 }
 .contSectEstBottom{
     display: flex;
-    gap: 5px;
+    justify-content: center;
     margin-bottom: 10px;
 }
 .contPResult{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0px 10px;
 }
-.contPResult p,
-.contPResult textarea{
+.contPResult p{
     margin: 0px;
     padding: 5px 0px;
 }
@@ -318,7 +331,7 @@ span {
     color: var(--black);
     font-weight: 700;
     font-size: 16px;
-    width: 95px;
+    width: 120px;
     height: 40px;
 }
 textarea{
@@ -333,6 +346,9 @@ textarea{
 .resultEstModa {
     text-align: center;
     line-height: 40px;
+}
+.resultEstModaCero {
+    text-align: center;
 }
 .btnClear,
 .btnResult {

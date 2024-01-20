@@ -13,13 +13,16 @@ const introEstadistica = {
     defGuiaTitulo: "Forma de uso",
     defGuia: "Con el boton <span>Medida</span> mostrara calculadoras de estadística basica y ejemplos.<br>El boton <span>Menu</span> Te llevara al menu principal."
 };
-const mediaMedianaModaObj = {
-    id: "media_mediana_moda",
-    titleMMM: "Instrucciones",
-    imgMMM: "../assets/calculadora_media_mediana_moda.png",
+const mediaMedianaObj = {
+    definicion: "on",
+    estadistica: "Medida_Mediana_Cal",
+    id: "media_mediana",
+    titleMM: "Instrucciones",
+    imgMM: "../assets/calculadora_media_mediana.png",
 
-    titleMeMeMo: "Media Mediana Moda",
-    inputMeMeMo: [
+    titleMM2: "Media Mediana",
+    titleMMSub: "Calculadora",
+    inputMM: [
         {
             outputMessage: "Introduce valores a comparar separados por una coma ( , )",
             outputMessageCl: "outputMessageCL",
@@ -29,61 +32,45 @@ const mediaMedianaModaObj = {
     ],
     resultEstMedia: "resultEstMedia",
     resultEstMediana: "resultEstMediana",
-    resultEstModa: "resultEstModa",
     btnClEst: "btnResultEst",
     btn2ClEst: "btnClearEst",
-    funcionEst: "estadisticaMMM",
+    funcionEst: "estMediaMediana",
     clearWindowEst: "clearEstOpt",
 };
+const mediaObj = {
+    definicion: "off",
+    id: "media",
+    titleMM: "Media",
+    titleMM2: "Definicion",
+    imgMM: "../assets/mediaTop.png",
+    imgMM2: "../assets/mediaBottom.png",
+    titlePorcentaje: "Procedimiento"
+};
 const medianaObj = {
-    id: "triangulo_escaleno",
-    titleFig: "Triangulo Escaleno",
-    imgFig: "../assets/triangulo_escaleno_altura.png",
-
-    titleAltura: "Atura Triangulo Escaleno",
-    inputAltura: [
-        {
-            inputLabel: "Medida lado 1",
-            inputId: "winHTriEscSide1"
-        },
-        {
-            inputLabel: "Medida lado 2",
-            inputId: "winHTriEscSide2"
-        },
-        {
-            inputLabel: "Medida Base",
-            inputId: "winHTriEscBase"
-        }
-    ],
-    resultClH: "resultHTriEsc",
-    btnClH: "btnResultHTriEsc",
-    btn2ClH: "btnClearHTriEsc",
-    funcionAltura: "hTriEsc",
-    clearWindowH: "clearHFig",
+    definicion: "off",
+    id: "mediana",
+    titleMM: "Mediana",
+    titleMM2: "Definicion",
+    imgMM: "../assets/medianaTop.png",
+    imgMM2: "../assets/medianaBottom.png",
+    titlePorcentaje: "Procedimiento"
 };
 const modaObj = {
-    id: "triangulo_equilatero",
-    titleFig: "Triangulo Equilatero",
-    imgFig: "../assets/triangulo_equilatero_altura.png",
-
-    titleAltura: "Altura Triangulo Equilatero",
-    inputAltura: [
-        {
-            inputLabel: "Medida lado",
-            inputId: "winHTriEquiSide"
-        },
-    ],
-    resultClH: "resultHTriEqui",
-    btnClH: "btnResultHTriEqui",
-    btn2ClH: "btnClearHTriEqui",
-    funcionAltura: "hTriangleEqui",
-    clearWindowH: "clearHFig",
+    definicion: "off",
+    id: "moda",
+    titleMM: "Moda",
+    titleMM2: "Definicion",
+    imgMM: "../assets/modaTop.png",
+    imgMM2: "../assets/modaBottom.png",
+    titlePorcentaje: "Procedimiento"
 };
 
 estadisticaArray.push(introEstadistica);
-estadisticaArray.push(mediaMedianaModaObj);
-// estadisticaArray.push(modaObj);
-// estadisticaArray.push(PromedioObj);
+estadisticaArray.push(mediaMedianaObj);
+estadisticaArray.push(mediaObj);
+estadisticaArray.push(medianaObj);
+estadisticaArray.push(modaObj);
+
 
 
 
