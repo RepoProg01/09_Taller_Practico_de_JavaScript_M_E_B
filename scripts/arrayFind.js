@@ -117,4 +117,3 @@ btnClear.addEventListener("click", clearWindow);
 btnResult.addEventListener("click", resultWindow);
 
 clearWindow();
-

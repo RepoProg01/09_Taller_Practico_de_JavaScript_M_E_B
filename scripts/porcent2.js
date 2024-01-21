@@ -27,8 +27,8 @@ function blurFnc(){
 //----Funcion de seleccion en menu------------------------------------------------------
 function selecFnc(event){
     listIndex.classList.remove("listIndexShow");
-    const figura = event.target.innerText.toLowerCase();
-    
+    const target = event.target.innerText.toLowerCase();
+    const figura = target.replaceAll(" ","_");
     const figSelect = introPorcentajeArray.find(obj => obj.id === figura);
     if(figSelect){
         renderFigura(figSelect);

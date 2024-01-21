@@ -286,7 +286,7 @@ span {
     color: var(--white);
     text-align: center;
     margin: 0px;
-    padding: 0px 0px 20px 0px;
+    padding: 0px 0px 0px 0px;
     color: var(--naranja);
 }
 .titlesEstImg {
@@ -303,7 +303,7 @@ span {
     font-size: 21px;
     color: var(--naranja);
     font-weight: 700;
-    margin: 0px 0px 10px 0px;
+    margin: 0px 0px 5px 0px;
 }
 .contSectEstBottom{
     display: flex;
@@ -388,11 +388,17 @@ textarea{
     align-items: center;
 }
 .outputMessageCL {
-    color: var(--white);
-    margin: 0px;
-    padding: 0px 10px 10px 10px ;
-    width: 278px;
-    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--naranja);
+    margin: 0px 0px 5px 0px;
+    padding: 8px 8px 8px 8px ;
+    width: 282px;
+    height: 55px;
+    border-radius: 5px;
+    border: 1px solid var(--naranja);
 }
 .disableMode{
     background-color: var(--blue);

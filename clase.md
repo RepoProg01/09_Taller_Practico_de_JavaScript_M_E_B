@@ -179,7 +179,7 @@ console.log(formatoMexico(numero6)); // 1,234,567.89
 ## Regex para que un input solo reciba numeros enteros decimales y comas.
 
 ```javascript
-var regex = /^[\d.,]+$/;
+var regex = /^[0-9]+(?:\.[0-9]+)?(?:,[0-9]+(?:\.[0-9]+)?)*$/;
 if(regex.test(textA.value)){
     // --- Obteniendo datos de ventana de entrada como un solo strig ---
     const infoWindow = textA.value;
@@ -268,3 +268,33 @@ textarea {
   line-height: 150px; /* Ajusta la altura del texto para centrarlo verticalmente */
 }
 ```
+## Subexpresión ( ?: ) REGEX (Expresiones regulares)
+
+### La subexpresión (?: ) en las expresiones regulares es conocida como un grupo de no captura. A diferencia de los grupos de captura normales, que se crean utilizando paréntesis ( ), los grupos de no captura se crean utilizando (?: ). La principal diferencia es que los grupos de no captura no almacenan la coincidencia en una referencia de grupo para su posterior recuperación.
+
+### Aquí hay un desglose de cómo funciona:
+
+### ( ): Este es un grupo de captura regular que realiza dos funciones: coincide con la expresión dentro de los paréntesis y almacena esa coincidencia en una referencia de grupo para su posterior recuperación.
+
+### (?: ): Este es un grupo de no captura que también coincide con la expresión dentro de los paréntesis, pero a diferencia del grupo de captura regular, no almacena la coincidencia en una referencia de grupo.
+
+### Ejemplo 1 :
+
+```javascript
+// Grupo de captura normal
+const regex1 = /(\d+)-(\d+)/;
+const match1 = "123-456".match(regex1);
+console.log(match1); // Devuelve ["123-456", "123", "456"]
+
+```
+### En el primer ejemplo, el grupo de captura (\d+) coincide con uno o más dígitos y lo almacena en la referencia de grupo. El segundo grupo (\d+) también coincide con uno o más dígitos, pero no se almacena en una referencia de grupo separada.
+
+### Ejemplo 2 :
+
+```javascript
+// Grupo de no captura
+const regex2 = /(?:\d+)-(\d+)/;
+const match2 = "123-456".match(regex2);
+console.log(match2); // Devuelve ["123-456", "456"]
+```
+### En el segundo ejemplo, el grupo de no captura (?:\d+) coincide con uno o más dígitos, pero no almacena la coincidencia en una referencia de grupo. El segundo grupo (\d+) sigue almacenando la coincidencia en una referencia de grupo. Esto puede ser útil cuando no necesitas recuperar la coincidencia de un subpatrón específico, pero aún necesitas agrupar parte de la expresión regular.

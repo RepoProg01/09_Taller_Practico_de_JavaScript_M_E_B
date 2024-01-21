@@ -1,5 +1,6 @@
 const estadisticaArray = [];
 
+// -- Introduccion --
 const introEstadistica = {
     defImg: "../assets/estadistica_img.svg",
     defTitulo: "introducción",
@@ -13,10 +14,11 @@ const introEstadistica = {
     defGuiaTitulo: "Forma de uso",
     defGuia: "Con el boton <span>Medida</span> mostrara calculadoras de estadística basica y ejemplos.<br>El boton <span>Menu</span> Te llevara al menu principal."
 };
+// -- Calculadoras --
 const mediaMedianaObj = {
     definicion: "on",
     estadistica: "Medida_Mediana_Cal",
-    id: "media_mediana",
+    id: "media_y_mediana",
     titleMM: "Instrucciones",
     imgMM: "../assets/calculadora_media_mediana.png",
 
@@ -37,11 +39,36 @@ const mediaMedianaObj = {
     funcionEst: "estMediaMediana",
     clearWindowEst: "clearEstOpt",
 };
+// const moda = {
+//     definicion: "on",
+//     estadistica: "Medida_Mediana_Cal",
+//     id: "moda",
+//     titleMM: "Instrucciones",
+//     imgMM: "../assets/calculadora_media_mediana.png",
+
+//     titleMM2: "Media Mediana",
+//     titleMMSub: "Calculadora",
+//     inputMM: [
+//         {
+//             outputMessage: "Introduce valores a comparar separados por una coma ( , )",
+//             outputMessageCl: "outputMessageCL",
+//             inputId: "textAreaId",
+//             inputCl: "textAreaCl"
+//         }
+//     ],
+//     resultEstMedia: "resultEstMedia",
+//     resultEstMediana: "resultEstMediana",
+//     btnClEst: "btnResultEst",
+//     btn2ClEst: "btnClearEst",
+//     funcionEst: "estMediaMediana",
+//     clearWindowEst: "clearEstOpt",
+// };
+// -- Definiciones --
 const mediaObj = {
     definicion: "off",
     id: "media",
-    titleMM: "Media",
-    titleMM2: "Definicion",
+    titleMM: "Definicion Media",
+    titleMM2: "Procedimiento",
     imgMM: "../assets/mediaTop.png",
     imgMM2: "../assets/mediaBottom.png",
     titlePorcentaje: "Procedimiento"
@@ -49,8 +76,8 @@ const mediaObj = {
 const medianaObj = {
     definicion: "off",
     id: "mediana",
-    titleMM: "Mediana",
-    titleMM2: "Definicion",
+    titleMM: "Definicion Mediana",
+    titleMM2: "Procedimiento",
     imgMM: "../assets/medianaTop.png",
     imgMM2: "../assets/medianaBottom.png",
     titlePorcentaje: "Procedimiento"
@@ -58,8 +85,8 @@ const medianaObj = {
 const modaObj = {
     definicion: "off",
     id: "moda",
-    titleMM: "Moda",
-    titleMM2: "Definicion",
+    titleMM: "Definicion Moda",
+    titleMM2: "Procedimiento",
     imgMM: "../assets/modaTop.png",
     imgMM2: "../assets/modaBottom.png",
     titlePorcentaje: "Procedimiento"

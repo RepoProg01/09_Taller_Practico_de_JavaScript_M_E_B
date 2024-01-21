@@ -82,7 +82,7 @@ function borrar(){
 }
 //--- funciones para deshabilitar ventanas y botones de Area y Perimetro-----------------
 function disableOptions(){
-    if(idFig == "media_mediana"){
+    if(idFig == "media_y_mediana"){
         winEstVar.disabled = true;
         winEstVar.classList.add("resultColor");
         labelArea.innerHTML = "";
@@ -96,25 +96,30 @@ function disableOptions(){
 }
 //--- funciones para limpiar y habilitar radios ventanas y botones ----------------------
 function clearEstOpt(){
-    if(idFig == "media_mediana"){
+    if(idFig == "media_y_mediana"){
         winEstVar.disabled = false;
         winEstVar.value = "";
         winEstVar.classList.remove("resultColor");
+
+        habilitarIntercambiar();
+        labelArea.innerHTML = "";
+        mensajeInsertarValores();
+        pResultEstMedia.innerHTML = ""; 
+        pResultEstMediana.innerHTML = ""; 
+        pResultEstMedia.classList.add("resultColor");
+        pResultEstMediana.classList.add("resultColor");
+        pTitlesEstadistica.classList.remove("titlesEstImg");
+        pTitlesEstadistica.classList.add("titlesEstadistica");
     };
-    habilitarIntercambiar();
-    labelArea.innerHTML = "";
-    pResultEstMedia.innerHTML = ""; 
-    pResultEstMediana.innerHTML = ""; 
-    pResultEstMedia.classList.add("resultColor");
-    pResultEstMediana.classList.add("resultColor");
-
-    pTitlesEstadistica.classList.remove("titlesEstImg");
-    pTitlesEstadistica.classList.add("titlesEstadistica");
-
+    if(idFig == "est_moda"){
     // pResultEstModa.value = ""; 
     // pResultEstModa.classList.add("resultColor");
     // pResultEstModa.classList.remove("resultEstModaCero");
     // pResultEstModa.classList.add("resultEstModa");
+    }
+
+
+
 };
 
 function habilitarIntercambiar(){
@@ -124,7 +129,7 @@ function habilitarIntercambiar(){
 };
 //----Funcion asignaciones --------------------------------------------------------------
 function asignacionesWindows(){
-    if(idFig == "media_mediana"){
+    if(idFig == "media_y_mediana"){
         winEstVar = document.querySelector("#textAreaId");
     };
 };
@@ -216,7 +221,7 @@ function renderFigura(objeto){
         sectionEsttop.classList.add("sectionEsttop");
         sectionEsttop.append(pTitlesEstadistica, pEstadistica);
         // ----Top middle------------------------------------------------------------------------   
-        if(objeto.id == "media_mediana"){
+        if(objeto.id == "media_y_mediana"){
             sectionEstmiddle.classList.add("sectionEstmiddle");
             objeto.inputMM.forEach(winInput => {
                 const divEntryWin = document.createElement("div");
@@ -227,7 +232,6 @@ function renderFigura(objeto){
                 divEntryWin.append(labelArea, textarea);
                 sectionEstmiddle.append(divEntryWin);
             });
-
             titleResultEstMedia.innerHTML = "Media";
             titleResultEstMedia.classList.add("titleResults");
             pResultEstMediaReg = objeto.resultEstMedia
@@ -251,6 +255,8 @@ function renderFigura(objeto){
         
             contSectEstBottom.classList.add("contSectEstBottom");
             contSectEstBottom.append(contPResultEstMedia, contPResultEstMediana);
+            mensajeInsertarValores();
+        
         }
         if(objeto.estadistica == "Moda_Cal"){
             console.log("Dentro de Moda Calculadora");
@@ -345,8 +351,8 @@ function moda(arrayNumber){
 }
 function estMediaMediana(){
     // --- Expresion regular solo numeros puntos y comas son aceptados ---
-    if(!textarea.value == " "){
-        var regex = /^[\d.,]+$/;
+    if(!(textarea.value == "")){
+        var regex = /^[0-9]+(?:\.[0-9]+)?(?:,[0-9]+(?:\.[0-9]+)?)*$/;
         if(regex.test(textarea.value)){
             // --- Obteniendo datos de ventana de entrada como un solo strig ---
             const infoWindow = textarea.value;
@@ -369,7 +375,6 @@ function estMediaMediana(){
         mensajeInsertarValores();
     }
 };
-
 // ================================= Constantes =========================================
 // =========================== Constantes Container fig =================================
 const containerEstadistica = document.querySelector(".containerEstadistica");
