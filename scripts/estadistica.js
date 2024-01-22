@@ -242,22 +242,41 @@ function renderFigura(objeto){
             pResultEstMediana.classList.add("winStyleSmall", "resultColor", pResultEstMedianaReg);
             contPResultEstMediana.classList.add("contPResult");
             contPResultEstMediana.append(titleResultEstMediana, pResultEstMediana);
+
+            contSectEstBottom.classList.add("contSectEstBottom");
+            contSectEstBottom.append(contPResultEstMedia, contPResultEstMediana);
+            mensajeInsertarValores();
+        }
+        if(objeto.id == "moda_cal"){
+            sectionEstmiddle.classList.add("sectionEstmiddle");
+            objeto.inputMM.forEach(winInput => {
+                const divEntryWin = document.createElement("div");
+                divEntryWin.classList.add("EntryWin");
+                labelArea.classList.add(winInput.outputMessageCl);
+                textarea.setAttribute("id", winInput.inputId);
+                textarea.classList.add(winInput.inputCl);
+                divEntryWin.append(labelArea, textarea);
+                sectionEstmiddle.append(divEntryWin);
+            });
+            // titleResultEstMedia.innerHTML = "Moda";
+            // titleResultEstMedia.classList.add("titleResults");
+            // pResultEstMediaReg = objeto.resultEstMedia
+            // pResultEstMedia.classList.add("winStyleSmall", "resultColor", pResultEstMediaReg);
+            // contPResultEstMedia.classList.add("contPResult");
+            // contPResultEstMedia.append(titleResultEstMedia, pResultEstMedia);
         
-            // titleResultEstModa.innerHTML = "Moda";
-            // titleResultEstModa.classList.add("titleResults");
-            // pResultEstModaReg = objeto.resultEstModa
-            // pResultEstModa.classList.add("winStyleSmall", "resultColor", pResultEstModaReg);
-            // contPResultEstModa.classList.add("contPResult");
-            // contPResultEstModa.append(titleResultEstModa, pResultEstModa);
+            titleResultEstModa.innerHTML = "Moda";
+            titleResultEstModa.classList.add("titleResults");
+            pResultEstModaReg = objeto.resultEstModa
+            pResultEstModa.classList.add("winStyleSmall", "resultColor", pResultEstModaReg);
+            contPResultEstModa.classList.add("contPResult");
+            contPResultEstModa.append(titleResultEstModa, pResultEstModa);
         
             contSectEstBottom.classList.add("contSectEstBottom");
             contSectEstBottom.append(contPResultEstMedia, contPResultEstMediana);
             mensajeInsertarValores();
-        
         }
-        if(objeto.estadistica == "Moda_Cal"){
-            console.log("Dentro de Moda Calculadora");
-        };
+       
 
         btnClearEstReg = objeto.btn2ClEst;
         btnClearEst.classList.add("btnClear", btnClearEstReg);

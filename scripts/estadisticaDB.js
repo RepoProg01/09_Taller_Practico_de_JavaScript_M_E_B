@@ -39,30 +39,30 @@ const mediaMedianaObj = {
     funcionEst: "estMediaMediana",
     clearWindowEst: "clearEstOpt",
 };
-// const moda = {
-//     definicion: "on",
-//     estadistica: "Medida_Mediana_Cal",
-//     id: "moda",
-//     titleMM: "Instrucciones",
-//     imgMM: "../assets/calculadora_media_mediana.png",
+const modaCalObj = {
+    definicion: "on",
+    // estadistica: "Moda_Cal",
+    id: "moda_cal",
+    titleMM: "Instrucciones",
+    imgMM: "../assets/calculadora_media_mediana.png",
 
-//     titleMM2: "Media Mediana",
-//     titleMMSub: "Calculadora",
-//     inputMM: [
-//         {
-//             outputMessage: "Introduce valores a comparar separados por una coma ( , )",
-//             outputMessageCl: "outputMessageCL",
-//             inputId: "textAreaId",
-//             inputCl: "textAreaCl"
-//         }
-//     ],
-//     resultEstMedia: "resultEstMedia",
-//     resultEstMediana: "resultEstMediana",
-//     btnClEst: "btnResultEst",
-//     btn2ClEst: "btnClearEst",
-//     funcionEst: "estMediaMediana",
-//     clearWindowEst: "clearEstOpt",
-// };
+    titleMM2: "Moda",
+    titleMMSub: "Calculadora",
+    inputMM: [
+        {
+            outputMessage: "Introduce valores a comparar separados por una coma ( , )",
+            outputMessageCl: "outputMessageCL",
+            inputId: "textAreaId",
+            inputCl: "textAreaCl"
+        }
+    ],
+    resultEstModa: "resultEstMediana",
+    btnClEst: "btnResultEst",
+    btn2ClEst: "btnClearEst",
+    funcionEst: "estMediaMediana",
+    clearWindowEst: "clearEstOpt",
+};
+
 // -- Definiciones --
 const mediaObj = {
     definicion: "off",
@@ -94,6 +94,7 @@ const modaObj = {
 
 estadisticaArray.push(introEstadistica);
 estadisticaArray.push(mediaMedianaObj);
+estadisticaArray.push(modaCalObj);
 estadisticaArray.push(mediaObj);
 estadisticaArray.push(medianaObj);
 estadisticaArray.push(modaObj);
