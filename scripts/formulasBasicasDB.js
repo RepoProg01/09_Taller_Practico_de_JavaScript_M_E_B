@@ -3,22 +3,22 @@ const formulasArray = [];
 const intro = {
     defImg: "../assets/per_area_img.svg",
     defTitulo: "introducción",
-    defAreaTitulo: "Que es el Area ?",
+    defAreaTitulo: "Qué es el Area ?",
     defArea: "Area es la medida bidimensional de una superficie. Es entendida como el espacio o región que cubre la figura geométrica. Para representar el área se utilizan unidades cuadradas, ejemplo, m2 o cm2.",
-    defPerimetroTitulo: "Que es el Perimetro ?",
+    defPerimetroTitulo: "Qué es el Perímetro ?",
     defPerimetro: "Perímetro corresponde a la longitud total de los lados de una figura, a la longitud de su contorno. Para calcularlo se requieren unidades de una sola dimensión.",
     
     defNotaTitulo: "Nota :",
     defNota: "Para determinar las áreas y perímetros de figuras, las fórmulas dependerán del tipo de figura y de las medidas correspondientes a cada una",
     defGuiaTitulo: "Forma de uso :",
-    defGuia: "Con el boton de <span>Figuras</span> seleccionas figuras geometricas basicas, mostrara formulas y calculadoras para areas y perimetros.<br>Con el boton <span>Menu</span> regrezaras al menu principal."
+    defGuia: "Con el boton de <span>Figuras</span> seleccionas figuras geométricas basicas, mostrará formulas y calculadoras para áreas y perímetros.<br>Con el boton <span>Menú</span> regrezaras al menú principal."
 };
 const trianguloObj = {
-    id: "triangulo",
-    titleFig: "Triangulo",
+    id: "triángulo",
+    titleFig: "Triángulo",
     imgFig: "../assets/triangulo_equilatero.png",
 
-    titleArea: "Area del Triangulo",
+    titleArea: "Area del Triángulo",
     inputArea: [
         {
             inputLabel: "Medida base",
@@ -35,7 +35,7 @@ const trianguloObj = {
     funcionArea: "aTriangle",
     clearWindowA: "clearAFig",
 
-    titlePerimetro: "Perimetro del Triangulo",
+    titlePerimetro: "Perímetro del Triángulo",
     inputPerimetro: [
         {
             inputLabel: "Medida lado 1",
@@ -74,7 +74,7 @@ const cuadradoObj = {
     funcionArea: "aSquare",
     clearWindowA: "clearAFig",
 
-    titlePerimetro: "Perimetro del Cuadrado",
+    titlePerimetro: "Perímetro del Cuadrado",
     inputPerimetro: [
         {
             inputLabel: "Medida lado",
@@ -88,11 +88,11 @@ const cuadradoObj = {
     clearWindowP: "clearPFig"
 };
 const rectanguloObj = {
-    id: "rectangulo",
-    titleFig: "Rectangulo",
+    id: "rectángulo",
+    titleFig: "Rectángulo",
     imgFig: "../assets/rectangulo.png",
 
-    titleArea: "Area del Rectangulo",
+    titleArea: "Area del Rectángulo",
     inputArea: [
         {
             inputLabel: "Medida base",
@@ -109,7 +109,7 @@ const rectanguloObj = {
     funcionArea: "aRectangulo",
     clearWindowA: "clearAFig",
 
-    titlePerimetro: "Perimetro del Rectangulo",
+    titlePerimetro: "Perímetro del Rectángulo",
     inputPerimetro: [
         {
             inputLabel: "Medida base",
@@ -148,7 +148,7 @@ const paralelogramoObj = {
     funcionArea: "aParalelogramo",
     clearWindowA: "clearAFig",
 
-    titlePerimetro: "Perimetro del Paralelogramo",
+    titlePerimetro: "Perímetro del Paralelogramo",
     inputPerimetro: [
         {
             inputLabel: "Medida de base",
@@ -191,7 +191,7 @@ const trapecioObj = {
     funcionArea: "aTrapecio",
     clearWindowA: "clearAFig",
 
-    titlePerimetro: "Perimetro del Trapecio",
+    titlePerimetro: "Perímetro del Trapecio",
     inputPerimetro: [
         {
             inputLabel: "Medida B",
@@ -238,7 +238,7 @@ const romboObj = {
     funcionArea: "aRombo",
     clearWindowA: "clearAFig",
 
-    titlePerimetro: "Perimetro del Rombo",
+    titlePerimetro: "Perímetro del Rombo",
     inputPerimetro: [
         {
             inputLabel: "Medida L",
@@ -252,14 +252,14 @@ const romboObj = {
     clearWindowP: "clearPFig"
 };
 const pentagonoObj = {
-    id: "pentagono",
-    titleFig: "Pentagono",
+    id: "pentágono",
+    titleFig: "Pentágono",
     imgFig: "../assets/pentagono.png",
 
-    titleArea: "Area del pentagono",
+    titleArea: "Area del pentágono",
     inputArea: [
         {
-            inputLabel: "Medida perimetro",
+            inputLabel: "Medida perímetro",
             inputId: "winAPPent"
         },
         {
@@ -273,7 +273,7 @@ const pentagonoObj = {
     funcionArea: "aPentagono",
     clearWindowA: "clearAFig",
 
-    titlePerimetro: "Perimetro del Pentagono",
+    titlePerimetro: "Perímetro del Pentágono",
     inputPerimetro: [
         {
             inputLabel: "Medida lado",
@@ -287,14 +287,14 @@ const pentagonoObj = {
     clearWindowP: "clearPFig"
 };
 const hexagonoObj = {
-    id: "hexagono",
-    titleFig: "Hexagono",
+    id: "hexágono",
+    titleFig: "Hexágono",
     imgFig: "../assets/hexagono.png",
 
-    titleArea: "Area del Hexagono",
+    titleArea: "Area del Hexágono",
     inputArea: [
         {
-            inputLabel: "Medida perimetro",
+            inputLabel: "Medida perímetro",
             inputId: "winAPHex"
         },
         {
@@ -308,7 +308,7 @@ const hexagonoObj = {
     funcionArea: "aHexagono",
     clearWindowA: "clearAFig",
 
-    titlePerimetro: "Perimetro del Hexagono",
+    titlePerimetro: "Perímetro del Hexágono",
     inputPerimetro: [
         {
             inputLabel: "Medida lado",
@@ -322,11 +322,11 @@ const hexagonoObj = {
     clearWindowP: "clearPFig"
 };
 const circuloObj = {
-    id: "circulo",
-    titleFig: "Circulo",
+    id: "círculo",
+    titleFig: "Círculo",
     imgFig: "../assets/circulo.png",
 
-    titleArea: "Area del Circulo",
+    titleArea: "Area del Círculo",
     inputArea: [
         {
             inputLabel: "Medida radio",
@@ -339,7 +339,7 @@ const circuloObj = {
     funcionArea: "aCirculo",
     clearWindowA: "clearAFig",
 
-    titlePerimetro: "Circunferncia",
+    titlePerimetro: "Circunferencia",
     inputPerimetro: [
         {
             inputLabel: "Medida radio",

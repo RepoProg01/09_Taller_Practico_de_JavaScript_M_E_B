@@ -70,12 +70,12 @@ function borrar(){
 }
 //--- funciones para deshabilitar ventanas y botones de Area y Perimetro-----------------
 function disableOptions(){
-    if(idFig == "triangulo_equilatero"){
+    if(idFig == "triángulo_equilátero"){
         winH1.disabled = true;
-    }else if(idFig == "triangulo_isosceles"){
+    }else if(idFig == "triángulo_isósceles"){
         winH1.disabled = true;
         winH2.disabled = true;
-    }else if(idFig == "triangulo_escaleno" || idFig == "trapecio"){
+    }else if(idFig == "triángulo_escaleno" || idFig == "trapecio"){
         winH1.disabled = true;
         winH2.disabled = true;
         winH3.disabled = true;
@@ -86,18 +86,18 @@ function disableOptions(){
 }
 //--- funciones para limpiar y habilitar radios ventanas y botones ----------------------
 function clearHFig(){
-    if(idFig == "triangulo_equilatero"){
+    if(idFig == "triángulo_equilátero"){
         winH1.disabled = false;
         winH1.value = "";
         winH1.classList.remove("resultColor");
-    }else if(idFig == "triangulo_isosceles"){
+    }else if(idFig == "triángulo_isósceles"){
         winH1.disabled = false;
         winH2.disabled = false;
         winH1.value = "";
         winH2.value = "";
         winH1.classList.remove("resultColor");
         winH2.classList.remove("resultColor");
-    }else if(idFig == "triangulo_escaleno" || idFig == "trapecio"){
+    }else if(idFig == "triángulo_escaleno" || idFig == "trapecio"){
         winH1.disabled = false;
         winH2.disabled = false;
         winH3.disabled = false;
@@ -127,12 +127,12 @@ function abilitarIntercambiar(){
 };
 //----Funcion asignaciones --------------------------------------------------------------
 function asignacionesWindows(){
-    if(idFig == "triangulo_equilatero"){
+    if(idFig == "triángulo_equilátero"){
         winH1 = document.querySelector("#winHTriEquiSide");
-    }else if(idFig == "triangulo_isosceles"){
+    }else if(idFig == "triángulo_isósceles"){
         winH1 = document.querySelector("#winHTriIsoSideEq");
         winH2 = document.querySelector("#winHTriIsoBase");
-    }else if(idFig == "triangulo_escaleno"){
+    }else if(idFig == "triángulo_escaleno"){
         winH1 = document.querySelector("#winHTriEscSide1");
         winH2 = document.querySelector("#winHTriEscSide2");
         winH3 = document.querySelector("#winHTriEscBase");
@@ -159,7 +159,7 @@ function medEnableDisable(){
 };
 //----Funciones mensajes ----------------------------------------------------------------
 function mensajeCmMt(){
-    pResultH.innerHTML = "Elegir centimetros o metros";
+    pResultH.innerHTML = "Elegir centímetros o metros";
 };
 function  mensajeTamanoLados(){
     pResultH.innerHTML = "Lado b tiene que ser menor<br>que la base B en el trapecio";
@@ -246,7 +246,7 @@ function renderFigura(objeto){
     inputRadioHC.setAttribute("name", "radH");
     inputRadioHC.setAttribute("id", "radHC");
     inputLabelHC.setAttribute("for", "radHC");
-    inputLabelHC.innerHTML = "centimetros";
+    inputLabelHC.innerHTML = "centímetros";
     inputRadioHM.setAttribute("type", "radio");
     inputRadioHM.setAttribute("name", "radH");
     inputRadioHM.setAttribute("id", "radHM");

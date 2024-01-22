@@ -4,22 +4,22 @@ const introAlturas = {
     defImg: "../assets/altura_img.svg",
     defTitulo: "introducción",
 
-    defAlturaTitulo: "Que es la Altura ?",
+    defAlturaTitulo: "Qué es la Altura ?",
     defAltura: "La altura de una figura geométrica es la longitud o distancia de una dimensión geométrica, vertical o dirección de la gravedad. Este término se utiliza para designar la coordenada vertical de la parte más elevada de la figura a su base.",
-    defAltura2Titulo: "Que es la Base ?",
+    defAltura2Titulo: "Qué es la Base ?",
     defAltura2: "Base es un lado o cara elegido ( en algunos casos arbitrariamente) para realizar el cálculo de área o volumen.",
 
     defNotaTitulo: "Nota:",
-    defNota: "Se pueden usar diferentes formulas para obtener un resultado como: el teorema de pitagotas, la formula de heron, formula del area. etc",
+    defNota: "Se pueden usar diferentes formulas para obtener un resultado como: el teorema de pitágoras, la fórmula de herón, fórmula del área. etc",
     defGuiaTitulo: "Forma de uso :",
-    defGuia: "Con el boton de <span>Figuras</span> seleccionas figuras geometricas, mostrara formulas y calculadoras para encontrar su altura.<br>Con el boton <span>Menu</span> regrezaras al menu principal."
+    defGuia: "Con el boton de <span>Figuras</span> seleccionas figuras geométricas, mostrará formulas y calculadoras para encontrar su altura.<br>Con el boton <span>Menú</span> regresarás al menú principal."
 };
 const trianguloEquilateroObj = {
-    id: "triangulo_equilatero",
-    titleFig: "Triangulo Equilatero",
+    id: "triángulo_equilátero",
+    titleFig: "Triángulo Equilátero",
     imgFig: "../assets/triangulo_equilatero_altura.png",
 
-    titleAltura: "Altura Triangulo Equilatero",
+    titleAltura: "Altura Triángulo Equilátero",
     inputAltura: [
         {
             inputLabel: "Medida lado",
@@ -33,11 +33,11 @@ const trianguloEquilateroObj = {
     clearWindowH: "clearHFig",
 };
 const trianguloIsoscelesObj = {
-    id: "triangulo_isosceles",
-    titleFig: "Triangulo Isosceles",
+    id: "triángulo_isósceles",
+    titleFig: "Triángulo Isósceles",
     imgFig: "../assets/triangulo_isosceles_altura.png",
 
-    titleAltura: "Altura Triangulo Isosceles",
+    titleAltura: "Altura Triángulo Isósceles",
     inputAltura: [
         {
             inputLabel: "Medida lados iguales",
@@ -55,11 +55,11 @@ const trianguloIsoscelesObj = {
     clearWindowH: "clearHFig",
 };
 const trianguloEscalenoObj = {
-    id: "triangulo_escaleno",
-    titleFig: "Triangulo Escaleno",
+    id: "triángulo_escaleno",
+    titleFig: "Triángulo Escaleno",
     imgFig: "../assets/triangulo_escaleno_altura.png",
 
-    titleAltura: "Atura Triangulo Escaleno",
+    titleAltura: "Atura Triángulo Escaleno",
     inputAltura: [
         {
             inputLabel: "Medida lado 1",

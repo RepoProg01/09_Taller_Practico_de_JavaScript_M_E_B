@@ -686,10 +686,10 @@ function renderFigura(objeto){
     document.documentElement.scrollTop = 0;
 };
 function mensajeDI(){
-    pResultPC.innerHTML = "Elegir su relacion directa (D)<br>o inversa (I) respecto a (X)";
+    pResultPC.innerHTML = "Elegir su relación directa (D)<br>o inversa (I) respecto a (X)";
 };
 function mensajeIncognita(){
-    pResultPC.innerHTML = "Se permite solo una incognita<br>(X) con su relacion (D) (I)";
+    pResultPC.innerHTML = "Se permite solo una incógnita<br>(X) con su relación (D) (I)";
 };
 //----Funciones Logica de calculadoras--------------------------------------------------
 function pcSDI(){
@@ -702,7 +702,7 @@ function pcSDI(){
     }else if(winA.value > 0 && winB.value > 0 && winW.value > 0 && winY.value == ""){
             inc_Simple();
     }else{
-        pResultPC.innerHTML = "Introduce 3 valores conocidos<br>y deja vacia la incognita.";
+        pResultPC.innerHTML = "Introduce 3 valores conocidos<br>y deja vacia la incógnita.";
     };
 };
 function pcCDIM(){
@@ -746,7 +746,7 @@ function pcCDIM(){
             mensajeDI();
         };
     }else{
-        pResultPC.innerHTML = "Introduce 5 valores conocidos<br>y deja vacia la incognita";
+        pResultPC.innerHTML = "Introduce 5 valores conocidos<br>y deja vacia la incógnita";
     };
 };
 function pcDescuento(){

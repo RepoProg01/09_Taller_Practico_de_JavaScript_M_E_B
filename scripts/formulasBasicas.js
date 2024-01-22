@@ -101,7 +101,7 @@ function disablePOptions(){
 }
 //--- funciones para limpiar y habilitar radios ventanas y botones ----------------------
 function clearAFig(){
-    if(idFig == "triangulo" || idFig == "rectangulo" || idFig == "paralelogramo" || idFig == "rombo" || idFig == "pentagono" || idFig == "hexagono"){
+    if(idFig == "triángulo" || idFig == "rectángulo" || idFig == "paralelogramo" || idFig == "rombo" || idFig == "pentágono" || idFig == "hexágono"){
         winAW1.disabled = false;
         winAW2.disabled = false;
         winAW1.value = "";
@@ -122,7 +122,7 @@ function clearAFig(){
         winAW1.classList.remove("resultColor");
         winAW2.classList.remove("resultColor");
         winAW3.classList.remove("resultColor");
-    }else if(idFig == "circulo"){
+    }else if(idFig == "círculo"){
         winAW1.disabled = false;
         winAW1.value = "";
         winAW1.classList.remove("resultColor");
@@ -132,7 +132,7 @@ function clearAFig(){
     pResultA.innerHTML = ""; 
 };
 function clearPFig(){
-    if(idFig == "triangulo" ){
+    if(idFig == "triángulo" ){
         winPW1.disabled = false;
         winPW2.disabled = false;
         winPW3.disabled = false;
@@ -142,11 +142,11 @@ function clearPFig(){
         winPW1.classList.remove("resultColor");
         winPW2.classList.remove("resultColor");
         winPW3.classList.remove("resultColor");
-    }else if(idFig == "cuadrado" || idFig == "pentagono" || idFig == "hexagono" || idFig == "circulo" || idFig == "rombo"){
+    }else if(idFig == "cuadrado" || idFig == "pentágono" || idFig == "hexágono" || idFig == "círculo" || idFig == "rombo"){
         winPW1.disabled = false;
         winPW1.value = "";
         winPW1.classList.remove("resultColor");
-    }else if(idFig == "rectangulo" || idFig == "paralelogramo"){
+    }else if(idFig == "rectángulo" || idFig == "paralelogramo"){
         winPW1.disabled = false;
         winPW2.disabled = false;
         winPW1.value = "";
@@ -199,7 +199,7 @@ function abilitarIntercambiarP(){
 }
 //----Funcion asignaciones y renderizado-------------------------------------------------
 function asignacionesWindowsRadios(){
-    if(idFig == "triangulo"){
+    if(idFig == "triángulo"){
         winAW1 = document.querySelector("#winTriBaseA");
         winAW2 = document.querySelector("#winTriHeight");
 
@@ -210,7 +210,7 @@ function asignacionesWindowsRadios(){
         winAW1 = document.querySelector("#winSqrArea");
 
         winPW1 = document.querySelector("#winSqrPerimeter");
-    }else if(idFig == "rectangulo"){
+    }else if(idFig == "rectángulo"){
         winAW1 = document.querySelector("#winRecABase");
         winAW2 = document.querySelector("#winRecAAltura");
 
@@ -236,17 +236,17 @@ function asignacionesWindowsRadios(){
         winAW2 = document.querySelector("#winD2A");
 
         winPW1 = document.querySelector("#winPRomL1");
-    }else if(idFig == "pentagono"){
+    }else if(idFig == "pentágono"){
         winAW1 = document.querySelector("#winAPPent");
         winAW2 = document.querySelector("#winAApotPent");
 
         winPW1 = document.querySelector("#winPPenL");
-    }else if(idFig == "hexagono"){
+    }else if(idFig == "hexágono"){
         winAW1 = document.querySelector("#winAPHex");
         winAW2 = document.querySelector("#winAApotHex");
 
         winPW1 = document.querySelector("#winPHexL");
-    }else if(idFig == "circulo"){
+    }else if(idFig == "círculo"){
         winAW1 = document.querySelector("#winCircArea");
 
         winPW1 = document.querySelector("#winCircunferencia");
@@ -352,7 +352,7 @@ function renderFigura(objeto){
     inputRadioAC.setAttribute("name", "radA");
     inputRadioAC.setAttribute("id", "radAC");
     inputLabelAC.setAttribute("for", "radAC");
-    inputLabelAC.innerHTML = "centimetros";
+    inputLabelAC.innerHTML = "centímetros";
     inputRadioAM.setAttribute("type", "radio");
     inputRadioAM.setAttribute("name", "radA");
     inputRadioAM.setAttribute("id", "radAM");
@@ -421,7 +421,7 @@ function renderFigura(objeto){
     inputRadioPC.setAttribute("name", "radP");
     inputRadioPC.setAttribute("id", "radPC");
     inputLabelPC.setAttribute("for", "radPC");
-    inputLabelPC.innerHTML = "centimetros";
+    inputLabelPC.innerHTML = "centímetros";
     inputRadioPM.setAttribute("type", "radio");
     inputRadioPM.setAttribute("name", "radP");
     inputRadioPM.setAttribute("id", "radPM");
@@ -488,7 +488,7 @@ function aTriangle(){
             winAW2.classList.add("resultColor");
             pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
         }else{
-            pResultA.innerHTML = "Elegir centimetros o metros";
+            pResultA.innerHTML = "Elegir centímetros o metros";
         }
     }else{
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
@@ -508,9 +508,9 @@ function pTriangle(){
             winPW1.classList.add("resultColor");
             winPW2.classList.add("resultColor");
             winPW3.classList.add("resultColor");
-            pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} ${medidaP}`;
+            pResultP.innerHTML = `Perímetro = ${result.toFixed(2)} ${medidaP}`;
         }else{
-            pResultP.innerHTML = "Elegir centimetros o metros";
+            pResultP.innerHTML = "Elegir centímetros o metros";
         }
     }else{
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
@@ -529,7 +529,7 @@ function aSquare(){
             winAW1.classList.add("resultColor");
             pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
         }else{
-            pResultA.innerHTML = "Elegir centimetros o metros";
+            pResultA.innerHTML = "Elegir centímetros o metros";
         }
     }else{
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
@@ -545,9 +545,9 @@ function pSquare(){
             medEnableDisableP();
             disablePOptions();
             winPW1.classList.add("resultColor");
-            pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} ${medidaP}`;
+            pResultP.innerHTML = `Perímetro = ${result.toFixed(2)} ${medidaP}`;
         }else{
-            pResultP.innerHTML = "Elegir centimetros o metros";
+            pResultP.innerHTML = "Elegir centímetros o metros";
         }
     }else{
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
@@ -568,7 +568,7 @@ function aRectangulo(){
             winAW2.classList.add("resultColor");
             pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
         }else{
-            pResultA.innerHTML = "Elegir centimetros o metros";
+            pResultA.innerHTML = "Elegir centímetros o metros";
         }
     }else{
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
@@ -586,9 +586,9 @@ function pRectangulo(){
             disablePOptions();
             winPW1.classList.add("resultColor");
             winPW2.classList.add("resultColor");
-            pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} ${medidaP}`;
+            pResultP.innerHTML = `Perímetro = ${result.toFixed(2)} ${medidaP}`;
         }else{
-            pResultP.innerHTML = "Elegir centimetros o metros";
+            pResultP.innerHTML = "Elegir centímetros o metros";
         }
     }else{
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
@@ -609,7 +609,7 @@ function aParalelogramo(){
             winAW2.classList.add("resultColor");
             pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
         }else{
-            pResultA.innerHTML = "Elegir centimetros o metros";
+            pResultA.innerHTML = "Elegir centímetros o metros";
         }
     }else{
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
@@ -627,9 +627,9 @@ function pParalelogramo(){
             disablePOptions();
             winPW1.classList.add("resultColor");
             winPW2.classList.add("resultColor");
-            pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} ${medidaP}`;
+            pResultP.innerHTML = `Perímetro = ${result.toFixed(2)} ${medidaP}`;
         }else{
-            pResultP.innerHTML = "Elegir centimetros o metros";
+            pResultP.innerHTML = "Elegir centímetros o metros";
         }
     }else{
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
@@ -652,7 +652,7 @@ function aTrapecio(){
             winAW3.classList.add("resultColor");
             pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
         }else{
-            pResultA.innerHTML = "Elegir centimetros o metros";
+            pResultA.innerHTML = "Elegir centímetros o metros";
         }
     }else{
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
@@ -674,9 +674,9 @@ function pTrapecio(){
             winPW2.classList.add("resultColor");
             winPW3.classList.add("resultColor");
             winPW4.classList.add("resultColor");
-            pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} ${medidaP}`;
+            pResultP.innerHTML = `Perímetro = ${result.toFixed(2)} ${medidaP}`;
         }else{
-            pResultP.innerHTML = "Elegir centimetros o metros";
+            pResultP.innerHTML = "Elegir centímetros o metros";
         }
     }else{
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
@@ -697,7 +697,7 @@ function aRombo(){
             winAW2.classList.add("resultColor");
             pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
         }else{
-            pResultA.innerHTML = "Elegir centimetros o metros";
+            pResultA.innerHTML = "Elegir centímetros o metros";
         }
     }else{
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
@@ -713,9 +713,9 @@ function pRombo(){
             medEnableDisableP();
             disablePOptions();
             winPW1.classList.add("resultColor");
-            pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} ${medidaP}`;
+            pResultP.innerHTML = `Perímetro = ${result.toFixed(2)} ${medidaP}`;
         }else{
-            pResultP.innerHTML = "Elegir centimetros o metros";
+            pResultP.innerHTML = "Elegir centímetros o metros";
         }
     }else{
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
@@ -736,7 +736,7 @@ function aPentagono(){
             winAW2.classList.add("resultColor");
             pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
         }else{
-            pResultA.innerHTML = "Elegir centimetros o metros";
+            pResultA.innerHTML = "Elegir centímetros o metros";
         }
     }else{
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
@@ -752,9 +752,9 @@ function pPentagono(){
             medEnableDisableP();
             disablePOptions();
             winPW1.classList.add("resultColor");
-            pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} ${medidaP}`;
+            pResultP.innerHTML = `Perímetro = ${result.toFixed(2)} ${medidaP}`;
         }else{
-            pResultP.innerHTML = "Elegir centimetros o metros";
+            pResultP.innerHTML = "Elegir centímetros o metros";
         }
     }else{
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
@@ -775,7 +775,7 @@ function aHexagono(){
             winAW2.classList.add("resultColor");
             pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
         }else{
-            pResultA.innerHTML = "Elegir centimetros o metros";
+            pResultA.innerHTML = "Elegir centímetros o metros";
         }
     }else{
         pResultA.innerHTML = "Lados deben de ser mayores a 0";
@@ -791,9 +791,9 @@ function pHexagono(){
             medEnableDisableP();
             disablePOptions();
             winPW1.classList.add("resultColor");
-            pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} ${medidaP}`;
+            pResultP.innerHTML = `Perímetro = ${result.toFixed(2)} ${medidaP}`;
         }else{
-            pResultP.innerHTML = "Elegir centimetros o metros";
+            pResultP.innerHTML = "Elegir centímetros o metros";
         }
     }else{
         pResultP.innerHTML = "Lados deben de ser mayores a 0";
@@ -813,7 +813,7 @@ function aCirculo(){
             winAW1.classList.add("resultColor");
             pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
         }else{
-            pResultA.innerHTML = "Elegir centimetros o metros";
+            pResultA.innerHTML = "Elegir centímetros o metros";
         }
     }else{
         pResultA.innerHTML = "Radio debe de ser mayor a 0";
@@ -830,9 +830,9 @@ function circunferencia(){
             medEnableDisableP();
             disablePOptions();
             winPW1.classList.add("resultColor");
-            pResultP.innerHTML = `Perimetro = ${result.toFixed(2)} ${medidaP}`;
+            pResultP.innerHTML = `Perímetro = ${result.toFixed(2)} ${medidaP}`;
         }else{
-            pResultP.innerHTML = "Elegir centimetros o metros";
+            pResultP.innerHTML = "Elegir centímetros o metros";
         }
     }else{
         pResultP.innerHTML = "Radio debe ser mayor a 0";

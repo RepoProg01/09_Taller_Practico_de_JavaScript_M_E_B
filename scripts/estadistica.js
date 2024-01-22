@@ -117,9 +117,6 @@ function clearEstOpt(){
     // pResultEstModa.classList.remove("resultEstModaCero");
     // pResultEstModa.classList.add("resultEstModa");
     }
-
-
-
 };
 
 function habilitarIntercambiar(){
@@ -149,7 +146,7 @@ function mensajeSoloNum(){
     labelArea.innerHTML = "Solo valores enteros decimales separados por comas y sin espacios son permitidos";
 };
 function mensajeResultadoExitoso(){
-    labelArea.innerHTML = "Calculacion de Media y Mediana con exito";
+    labelArea.innerHTML = "Calculación de Media y Mediana con éxito";
 };
 function mensajeResultadoCero(){
     labelArea.innerHTML = "Sin Repetidos";

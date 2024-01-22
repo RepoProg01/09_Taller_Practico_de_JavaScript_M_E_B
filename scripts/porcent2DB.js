@@ -5,7 +5,7 @@ const introPorcentaje = {
     defImg: "../assets/porcentaje_img.svg",
     defTitulo: "introducción",
 
-    defPorcentajeTitulo: "Que es porcentaje ?",
+    defPorcentajeTitulo: "Qué es porcentaje ?",
     defPorcentaje: "Es la forma de expresar un número como una fracción tiene como denominador el número 100, conocido, como tanto por ciento. ",
     defPorcentaje2Titulo: "Regla de tres",
     defPorcentaje2: "La regla de tres es una forma de resolver problemas de proporcionalidad entre tres valores conocidos y una incógnita. En ella se establece una relación de linealidad, proporcionalidad, entre los valores involucrados.",
@@ -13,7 +13,7 @@ const introPorcentaje = {
     defNotaTitulo: "Directa o Inversa",
     defNota: "La relación de proporcionalidad puede ser directa o inversa. Será directa cuando a un mayor valor de A habrá un mayor valor de B, y será inversa cuando a un mayor valor de A corresponda un menor valor de B.",
     defGuiaTitulo: "Forma de uso :",
-    defGuia: "Con el boton de <span>Mas..</span> mostrara calculadoras y ejemplos de diferentes casos de la regla de tres,<br>Con el boton <span>Menu</span> regrezaras al menu principal."
+    defGuia: "Con el boton de <span>Más..</span> mostrará calculadoras y ejemplos de diferentes casos de la regla de tres,<br>Con el boton <span>Menú</span> regresarás al menú principal."
 };
 
 //-----------Calculadoras------------
