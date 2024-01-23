@@ -42,7 +42,7 @@ const modaCalObj = {
     definicion: "on",
     id: "moda_cal",
     titleMM: "Instrucciones",
-    imgMM: "../assets/calculadora_media_mediana.png",
+    imgMM: "../assets/calculadora_moda.png",
 
     titleMM2: "Moda",
     titleMMSub: "Calculadora",
