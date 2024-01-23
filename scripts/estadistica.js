@@ -149,7 +149,7 @@ function mensajeSoloNum(){
     labelArea.innerHTML = "Solo valores enteros decimales separados por comas y sin espacios son permitidos";
 };
 function mensajeSoloCarac(){
-    labelArea.innerHTML = "El orden debe ser caracter separado por comas y sin espacios";
+    labelArea.innerHTML = "El orden debe ser elememto o caracter separado por comas y sin espacios";
 };
 function mensajeSinDuplicados(){
     labelArea.innerHTML = "No existe Moda ya que no se encontraron Duplicados";
@@ -357,6 +357,7 @@ function moda(arrayNumber){
     // --- Impresion de resultado en ventana ---
     if(arrayFiltrado.length == 0){
         mensajeSinDuplicados();
+        taResultEstModa.value = "Ningun elemento se repitío";
     }else{
         arrayFiltrado.forEach((res, iter) => {
             if(iter < arrayFiltrado.length -1){
