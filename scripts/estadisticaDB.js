@@ -17,7 +17,7 @@ const introEstadistica = {
 // -- Calculadoras --
 const mediaMedianaObj = {
     definicion: "on",
-    estadistica: "Media_Mediana_Cal",
+    // estadistica: "Media_Mediana_Cal",
     id: "media_y_mediana",
     titleMM: "Instrucciones",
     imgMM: "../assets/calculadora_media_mediana.png",
@@ -26,8 +26,7 @@ const mediaMedianaObj = {
     titleMMSub: "Calculadora",
     inputMM: [
         {
-            outputMessage: "Introduce valores a comparar separados por una coma ( , )",
-            outputMessageCl: "outputMessageCL",
+            outputMessage: "outputMessage",
             inputId: "textAreaId",
             inputCl: "textAreaCl"
         }
@@ -41,7 +40,6 @@ const mediaMedianaObj = {
 };
 const modaCalObj = {
     definicion: "on",
-    // estadistica: "Moda_Cal",
     id: "moda_cal",
     titleMM: "Instrucciones",
     imgMM: "../assets/calculadora_media_mediana.png",
@@ -50,16 +48,15 @@ const modaCalObj = {
     titleMMSub: "Calculadora",
     inputMM: [
         {
-            outputMessage: "Introduce valores a comparar separados por una coma ( , )",
-            outputMessageCl: "outputMessageCL",
+            outputMessage: "outputMessage",
             inputId: "textAreaId",
             inputCl: "textAreaCl"
         }
     ],
-    resultEstModa: "resultEstMediana",
+    resultEstModa: "resultEstModa",
     btnClEst: "btnResultEst",
     btn2ClEst: "btnClearEst",
-    funcionEst: "estMediaMediana",
+    funcionEst: "estModa",
     clearWindowEst: "clearEstOpt",
 };
 
