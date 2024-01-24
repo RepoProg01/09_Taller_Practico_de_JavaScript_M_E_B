@@ -60,7 +60,6 @@ body {
     padding-right: 10px;
     gap: 10px;
 }
-
 .homeLink {
     width: 60px;
     height: 21px;
@@ -74,7 +73,6 @@ body {
 .homeLink:hover {
     color: var(--white);
 } 
-
 .nCaso{
     font-size: 18px;
     font-weight: 700;
@@ -86,12 +84,10 @@ body {
 .nCaso:hover{
     color: var(--white);
 }
-
 /* ############  contentIndex  ############ */
 .contentIndex {
     padding-top: 61px;
 }
-
 /* ------ listIndex ------ */
 .listIndex {
     position: fixed;
@@ -158,7 +154,6 @@ body {
     padding: 10px;
     margin: 0px;
 }
-
 /* ############# containerFig #############  */
 /* ############# containerIntro #############  */
 .containerIntro {
@@ -169,26 +164,22 @@ body {
     padding: 30px 10px;
     gap: 10px;
 }
-
 .secD {
     background: var(--background_radial_2);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
 }
-
 .sectionDtop {
     width: 340px;
     height: 383px;
 }
-
 .sectionDmiddle,
 .sectionDbottom {
     width: 300px;
     height: 343px;
     padding: 20px;
 }
-
 .tituloIntro {
     color: var(--naranja);
     text-align: center;
@@ -197,13 +188,11 @@ body {
     width: 100%;
     object-fit: contain;
 }
-
 .defT {
     margin: 0px;
     font-size: 20px;
     color: var(--naranja);
 }
-
 .defC {
     background-color: var(--white);
     border-radius: 10px;
@@ -217,7 +206,6 @@ span {
     border-radius: 3px;
     font-weight: 700;
 }
-
 /* ############# containerResponsive #############  */
 .containerResponsive {
     display: flex;
@@ -227,7 +215,6 @@ span {
     min-width: 340px;
     padding: 20px 10px 30px 10px;
 }
-
 .simpleDirectaImg,
 .containerImage2 {
     background-image: var(--background_radial_2);
@@ -258,7 +245,6 @@ span {
     border-radius: 10px;
     padding: 20px;
 }
-
 .sectionPCtop {
     text-align: center;
 }
@@ -270,7 +256,6 @@ span {
     display: flex;
     justify-content: center;
 }
-
 .sectionPCmiddleS {
     display: grid;
     gap: 5px;
@@ -289,21 +274,19 @@ span {
     gap: 20px;
     justify-content: center;
 }
-
-
-
 .containerWindows {
     display: flex;
     flex-direction: column;
     gap: 10px;
     width: 270px;
     padding: 15px;
-    background-color: var(--blue);
+    /* background-color: var(--blue); */
     border-radius: 10px;
+    border: 1px solid var(--naranja);
 }
 .pcRow {
     display: flex;
-    justify-content:end;
+    justify-content:space-between;
     align-items: center;
     gap: 5px;
 }
@@ -327,11 +310,8 @@ span {
 }
 .greenBG {
     color: var(--white);
-    background-color: var(--blue);
+    background-color: var(--background_linear_1);
 }
-
-
-
 .titlesFormules {
     font-size: 24px;
     font-weight: 700;
@@ -341,7 +321,6 @@ span {
     padding: 20px 0px 10px 0px;
     color: var(--naranja);
 }
-
 .textFormule {
     font-size: 20px;
     color: var(--naranja);
@@ -349,7 +328,6 @@ span {
     /* margin-bottom: 8px; */
     margin: 0px;
 }
-
 .divRadioPC {
     display: flex;
     gap: 10px;
@@ -367,7 +345,6 @@ span {
     gap: 3px;
     margin: 0px 10px 10px 22px;
 }
-
 .rowSty{
     display: flex;
     flex-direction: column;
@@ -377,7 +354,6 @@ span {
     color: var(--white);
     margin-bottom: 3px;
 }
-
 .winStyle {
     background-color: var(--white);
     border: 1px solid black;
@@ -392,7 +368,6 @@ span {
     font-weight: 700;
     font-size: 18px;
 }
-
 .btnClear,
 .btnResult {
     width: 145px;
@@ -504,7 +479,6 @@ span {
         flex-direction: column;
         align-items: center;
     }
-
 }
 /* @media screen and (max-width: 720px) {
     .perimeterArea {
