@@ -10,9 +10,9 @@ const introAlturas = {
     defAltura2: "Base es un lado o cara elegido ( en algunos casos arbitrariamente) para realizar el cálculo de área o volumen.",
 
     defNotaTitulo: "Nota:",
-    defNota: "Se pueden usar diferentes formulas para obtener un resultado como: el teorema de pitágoras, la fórmula de herón, fórmula del área. etc",
+    defNota: "Se pueden usar diferentes fórmulas para obtener un resultado como: el teorema de pitágoras, la fórmula de herón, fórmula del área. etc",
     defGuiaTitulo: "Forma de uso :",
-    defGuia: "Con el boton de <span>Figuras</span> seleccionas figuras geométricas, mostrará formulas y calculadoras para encontrar su altura.<br>Con el boton <span>Menú</span> regresarás al menú principal."
+    defGuia: "Con el botón de <span>Figuras</span> seleccionas figuras geométricas, mostrará fórmulas y calculadoras para encontrar su altura.<br>Con el botón <span>Menú</span> regresarás al menú principal."
 };
 const trianguloEquilateroObj = {
     id: "triángulo_equilátero",

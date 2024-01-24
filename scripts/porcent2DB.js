@@ -13,14 +13,14 @@ const introPorcentaje = {
     defNotaTitulo: "Directa o Inversa",
     defNota: "La relación de proporcionalidad puede ser directa o inversa. Será directa cuando a un mayor valor de A habrá un mayor valor de B, y será inversa cuando a un mayor valor de A corresponda un menor valor de B.",
     defGuiaTitulo: "Forma de uso :",
-    defGuia: "Con el boton de <span>Más..</span> mostrará calculadoras y ejemplos de diferentes casos de la regla de tres,<br>Con el boton <span>Menú</span> regresarás al menú principal."
+    defGuia: "Con el botón de <span>Más..</span> mostrará calculadoras y ejemplos de diferentes casos de la regla de tres,<br>Con el botón <span>Menú</span> regresarás al menú principal."
 };
 
 //-----------Calculadoras------------
 const RD3SDICalculadoraObj = {
     definicion: "on",
     radios: "Simple",
-    id: "simple",
+    id: "regla_de_3_simple",
     titleFig: "Instrucciones",
     imgFig: "../assets/calculadora_simple.png",
     secMid: "sectionPCmiddleS",
@@ -54,7 +54,7 @@ const RD3SDICalculadoraObj = {
 const RD3CDIMCalculadoraObj = {
     definicion: "on",
     radios: "Compuesta",
-    id: "compuesta",
+    id: "regla_de_3_compuesta",
     titleFig: "Instrucciones",
     imgFig: "../assets/calculadora_compuesta.png",
     secMid: "sectionPCmiddleC",
@@ -137,7 +137,7 @@ const RD3CDIMCalculadoraObj = {
 const RD3SDescCalculadoraObj = {
     definicion: "on",
     radios: "Descuento",
-    id: "descuento",
+    id: "calcular_descuento",
     titleFig: "Instrucciones",
     imgFig: "../assets/calculadora_descuento.png",
     secMid: "sectionPCmiddleDesc",
@@ -165,7 +165,7 @@ const RD3SDescCalculadoraObj = {
 //--------------Ejemplos--------------
 const RD3SimpleDirectaObj = {
     definicion: "off",
-    id: "simple_directa",
+    id: "regla_de_3_simple_directa",
     titleFig: "Simple directa",
     imgFig: "../assets/simple_directa_top.png",
     imgFig2: "../assets/simple_directa_bottom.png",
@@ -173,7 +173,7 @@ const RD3SimpleDirectaObj = {
 };
 const RD3SimpleInversaObj = {
     definicion: "off",
-    id: "simple_inversa",
+    id: "regla_de_3_simple_inversa",
     titleFig: "Simple inversa",
     imgFig: "../assets/simple_inversa_top.png",
     imgFig2: "../assets/simple_inversa_bottom.png",
@@ -181,7 +181,7 @@ const RD3SimpleInversaObj = {
 };
 const RD3CompuestaDirectaObj = {
     definicion: "off",
-    id: "compuesta_directa",
+    id: "regla_de_3_compuesta_directa",
     titleFig: "Compuesta directa",
     imgFig: "../assets/compuesta_directa_top.png",
     imgFig2: "../assets/compuesta_directa_bottom.png",
@@ -189,7 +189,7 @@ const RD3CompuestaDirectaObj = {
 };
 const RD3CompuestaInversaObj = {
     definicion: "off",
-    id: "compuesta_inversa",
+    id: "regla_de_3_compuesta_inversa",
     titleFig: "Compuesta inversa",
     imgFig: "../assets/compuesta_inversa_top.png",
     imgFig2: "../assets/compuesta_inversa_bottom.png",
@@ -197,7 +197,7 @@ const RD3CompuestaInversaObj = {
 };
 const RD3CompuestaMixtaObj = {
     definicion: "off",
-    id: "compuesta_mixta",
+    id: "regla_de_3_compuesta_mixta",
     titleFig: "Compuesta mixta",
     imgFig: "../assets/compuesta_mixta_top.png",
     imgFig2: "../assets/compuesta_mixta_bottom.png",
