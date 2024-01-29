@@ -27,7 +27,6 @@ body {
     box-sizing: border-box;
     background-color: var(--terciario);
     position: relative;
-    /* padding-bottom: 60px; */
     min-width: 360px;
     min-height: 100vh;
 }
@@ -219,7 +218,6 @@ span {
 .containerImage2 {
     background-image: var(--background_radial_2);
     border-radius: 10px;
-    /* overflow: hidden; */
     width: 340px;
     height: 383px;
 }
@@ -230,11 +228,11 @@ span {
 .simpleDirectaImg img {
     width: 340px;
 }
-.perimeterArea {
+/* .perimeterArea {
     display: flex;
     flex-direction: row;
     gap: 10px;
-}
+} */
 .containerFormules {
     display: flex;
     flex-direction: column;
@@ -248,10 +246,6 @@ span {
 .sectionPCtop {
     text-align: center;
 }
-/* .sectionPCmiddleTopC {
-    display: flex;
-    justify-content: center;
-} */
 .sectionPCmiddleTop {
     display: flex;
     justify-content: center;
@@ -274,13 +268,30 @@ span {
     gap: 20px;
     justify-content: center;
 }
+.mesDivDisc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid var(--blue);
+    border-radius: 10px;
+    padding: 10px;
+    width: 278px; 
+    height: 30px;
+    margin: 5px 0px 0px 0px;
+    background-color: var(--white);
+}
+.messageDiscount{
+    margin: 0px;
+    font-weight: 700;
+    font-size: 18px; 
+}
 .containerWindows {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     width: 270px;
-    padding: 15px;
-    /* background-color: var(--blue); */
+    padding: 5px 15px;
     border-radius: 10px;
     border: 1px solid var(--naranja);
 }
@@ -298,19 +309,23 @@ span {
     font-size: 16px;
     font-weight: bold;
     text-align: center;
-    width: 50px;
+    width: 60px;
     height: 25px;
 }
 .desWindows {
     font-size: 16px;
     font-weight: bold;
     text-align: center;
-    width: 110px;
+    width: 120px;
     height: 25px;
 }
 .greenBG {
     color: var(--white);
     background-color: var(--background_linear_1);
+}
+.whiteBG {
+    color: var(--black);
+    background-color: var(--white);
 }
 .titlesFormules {
     font-size: 24px;
@@ -318,14 +333,16 @@ span {
     margin: 0px;
     color: var(--white);
     text-align: center;
-    padding: 20px 0px 10px 0px;
+    padding: 0px 0px 0px 0px;
     color: var(--naranja);
+}
+.titleImg {
+    padding: 20px 20px;
 }
 .textFormule {
     font-size: 20px;
     color: var(--naranja);
     font-weight: 700;
-    /* margin-bottom: 8px; */
     margin: 0px;
 }
 .divRadioPC {
@@ -361,6 +378,7 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     padding: 10px;
     width: 278px; 
     height: 30px;
@@ -433,7 +451,6 @@ span {
     width: 60px;
     height: 25px;
     font-weight: 700;
-    /* margin-right: 50px; */
 }
 .resultColor {
     background-color: var(--naranja);
@@ -480,12 +497,6 @@ span {
         align-items: center;
     }
 }
-/* @media screen and (max-width: 720px) {
-    .perimeterArea {
-        flex-direction: column;
-    }
-} */
-
 @media screen and (min-width: 425px) {
     .listIndex {
         width: 300px; 

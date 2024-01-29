@@ -32,18 +32,10 @@ function selecFnc(event){
     const figSelect = introPorcentajeArray.find(obj => obj.id === figura);
     if(figSelect){
         renderFigura(figSelect);
-       
     }else{
         renderIntroduccion();
     };
     blurFnc();
-
-    // listIndex.classList.remove("listIndexShow");
-    // const figura = event.target.innerText.toLowerCase();
-    // const cid = document.getElementById(figura);
-    // const topOffset = cid.offsetTop - 70;
-    // window.scroll(0, topOffset);
-    // blurFnc();
 };
 //----Funciones de borrado, activacion y desactivacion de bentanas y radios-------------
 function borrar(){
@@ -52,14 +44,20 @@ function borrar(){
     sectionPCmiddleTop.innerHTML = "";
     sectionPCmiddle.innerHTML = "";
     sectionPCbottom.innerHTML = "";
+
     pResultPC.innerHTML = "";
     pResultPC.classList.remove(pResultPCReg);
-    btnResultPC.classList.remove(btnResultPCReg);
+
+    mesParr.innerHTML = "";
+    mesParr.classList.remove(pMesParrReg)
+    btnResultPC.classList.remove(btnResultPCReg, "btnInactive");
+    btnResultPC.disabled = false;
+
     btnClearPC.classList.remove(btnClearPCReg);
     containerFiguras.innerHTML = "";
     divPorcentaje.innerHTML = "";
-    btnResultPC.disabled = false;
-    btnResultPC.classList.remove("btnInactive");
+
+    pTitlePC.classList.remove("titleImg");
 };
 function disableWindow(){
     if(incognitaSC == "S"){
@@ -77,6 +75,14 @@ function disableWindow(){
     }else if(incognitaSC == "D"){
         porcDescWindow.disabled = true;
         precListWindow.disabled = true;
+        descCantWindow.disabled = true;
+        totalPagWindow.disabled = true;
+        porcDescWindow.classList.add("greenBG");
+        precListWindow.classList.add("greenBG");
+        descCantWindow.classList.remove("greenBG");
+        totalPagWindow.classList.remove("greenBG");
+        descCantWindow.classList.add("whiteBG");
+        totalPagWindow.classList.add("whiteBG");
     };
 };
 function enableWindow(){
@@ -95,6 +101,8 @@ function enableWindow(){
     }else if(incognitaSC == "D"){
         porcDescWindow.disabled = false;
         precListWindow.disabled = false;
+        descCantWindow.disabled = true;
+        totalPagWindow.disabled = true;
     }
 };
 function clearInputsWindows(){
@@ -119,7 +127,6 @@ function clearInputsWindows(){
 };
 function clearColor(){
     if(incognitaSC == "S"){
-        console.log("color");
         winA.classList.remove("resultColor");
         winB.classList.remove("resultColor");
         winW.classList.remove("resultColor");
@@ -131,6 +138,13 @@ function clearColor(){
         winW.classList.remove("resultColor");
         winY.classList.remove("resultColor");
         winZ.classList.remove("resultColor");
+    }else if(incognitaSC == "D"){
+        porcDescWindow.classList.remove("greenBG");
+        precListWindow.classList.remove("greenBG");
+        descCantWindow.classList.remove("whiteBG");
+        totalPagWindow.classList.remove("whiteBG");
+        descCantWindow.classList.add("greenBG");
+        totalPagWindow.classList.add("greenBG");
     };
 };
 function clearRadios(){
@@ -183,6 +197,8 @@ function clearSCD(){
     enableWindow();
     enableButtonResultado();
     pResultPC.innerHTML = ""; 
+    mesParr.innerHTML = "";
+    pTitlePC.classList.remove("titleImg");
 };
 //----Funcion asignaciones y renderizado-------------------------------------------------
 function asignacionesWindowsRadios(){
@@ -234,12 +250,14 @@ function topContainer(objeto){
     imgSD.setAttribute("src", objeto.imgFig);
 };
 function bottomContainer(objeto){
-//----Top--------------------------------------------------------------------------------   
+    //----Top--------------------------------------------------------------------------------   
+    /// --- seccionPCtop titulo ---
     containerResponsive.appendChild(containerPorcentaje);
     containerPorcentaje.classList.add("containerPorcentaje");
     containerPorcentaje.appendChild(divPorcentaje);
     pTitlePC.classList.add("titlesFormules");
     pTitlePC.innerHTML = objeto.titlePorcentaje;
+    // --- seccionPCto subtitulo ---
     if(objeto.definicion == "on"){
         divPorcentaje.classList.remove("containerImage2");
         divPorcentaje.classList.add("containerFormules");
@@ -248,34 +266,33 @@ function bottomContainer(objeto){
         sectionPCtop.classList.add("sectionPCtop");
         sectionPCtop.append(pTitlePC, pformulaPC);
         // ----Top middle------------------------------------------------------------------------   
-        // sectionPCmiddleTop.innerHTML = "";
         if(objeto.radios == "Simple"){
+            // --- divs en sectionPcmiddleTop --
             sectionPCmiddleTop.classList.add("sectionPCmiddleTop");
-
             const divRadioPC = document.createElement("div");
             divRadioPC.classList.add("divRadioPC");
-
+            // --- radio directa ---
             const inputRadioPCD = document.createElement("input");
             inputRadioPCD.setAttribute("type", "radio");
             inputRadioPCD.setAttribute("name", "radPCDI");
             inputRadioPCD.setAttribute("id", "radPCD");
-
+            // --- label radio dierecta ---
             const inputLabelPCD = document.createElement("label");
             inputLabelPCD.setAttribute("for", "radPCD");
             inputLabelPCD.innerHTML = "Directa";
-
+            // --- radio inversa ---
             const inputRadioPCI = document.createElement("input");
             inputRadioPCI.setAttribute("type", "radio");
             inputRadioPCI.setAttribute("name", "radPCDI");
             inputRadioPCI.setAttribute("id", "radPCI");
-
+            // --- label radio inversa ---
             const inputLabelPCI = document.createElement("label");
             inputLabelPCI.setAttribute("for", "radPCI");
             inputLabelPCI.innerHTML = "Inversa";
-
+            // --- Adicion de radios y labels ---
             divRadioPC.append(inputRadioPCD, inputLabelPCD,  inputRadioPCI, inputLabelPCI);
             sectionPCmiddleTop.appendChild(divRadioPC);
-
+            // --- asignacion en variables de orientacion ---
             loadVar = "SDI";
             incognitaSC = "S";
         }
@@ -321,15 +338,55 @@ function bottomContainer(objeto){
                 divCont.append(divRadioX, divRadioD, divRadioI);
                 sectionPCmiddleTop.append(divCont);
             });
+            // --- asignacion en variables de orientacion ---
             loadVar = "CDIM";
             incognitaSC = "C";
         }
         if(objeto.radios == "Descuento"){
+            sectionPCmiddleTop.classList.add("sectionPCmiddleTop");
+            
+            const divMesCont = document.createElement("div");
+            divMesCont.classList.add(objeto.mesCont);
+
+            pMesParrReg = objeto.mesParr;
+            mesParr.classList.add(pMesParrReg);
+
+            divMesCont.append(mesParr);
+
+            // Agregar a la seccion media
+            sectionPCmiddleTop.append(divMesCont);
             loadVar = "DESC";
             incognitaSC = "D";
         };
         //----BottomMiddle-----------------------------------------------------------------------
+        if(loadVar == "SDI" || loadVar == "CDIM"){
+            // --- impresion de ventanas simple o compuesta -----
+            sectionPCmiddle.classList.remove(classSimpCompDesc);
+            classSimpCompDesc = objeto.secMid;
+            sectionPCmiddle.classList.add(classSimpCompDesc);   
 
+            objeto.inputPorcentaje.forEach(winInput => {
+                const divWin = document.createElement("div");
+                divWin.classList.add(objeto.winPos);
+                const labelArea = document.createElement("label");
+                labelArea.setAttribute("for", winInput.inputId);
+                labelArea.innerHTML = winInput.inputLabel;
+                divWin.appendChild(labelArea);
+                const inputHeightWindow = document.createElement("input");
+                inputHeightWindow.setAttribute("type", "number");
+                inputHeightWindow.setAttribute("id", winInput.inputId);
+                inputHeightWindow.classList.add("inputStyle");
+                divWin.appendChild(inputHeightWindow);
+                sectionPCmiddle.appendChild(divWin);
+            });
+            // --- impresion de secciones ---
+            divPorcentaje.append(sectionPCtop, sectionPCmiddleTop, sectionPCmiddle);
+            //----Bottom------------------------------------------------------------------------------    
+            //--- impresion de ventana resultado secctionPCbottom ---
+            pResultPCReg = objeto.resultClPC
+            pResultPC.classList.add("winStyle", pResultPCReg);
+            sectionPCbottom.append(pResultPC);
+        };
         if(loadVar == "DESC"){
             // Seccion PCsubMid
             const sectionPCsubMid = document.createElement("div");
@@ -337,7 +394,6 @@ function bottomContainer(objeto){
             // Contenedor en PCsubMid
             const containerWindows = document.createElement("div");
             containerWindows.classList.add("containerWindows");
-
             // div porcentaje de descuento
             const pdd = document.createElement("div");
             pdd.classList.add("pcRow");
@@ -393,33 +449,9 @@ function bottomContainer(objeto){
             containerWindows.append(pdd, pdl, dec, tap);
 
             sectionPCsubMid.append(containerWindows);
-            divPorcentaje.append(sectionPCtop, sectionPCsubMid);
+            divPorcentaje.append(sectionPCtop, sectionPCmiddleTop, sectionPCsubMid);
         }
-        else{
-            sectionPCmiddle.classList.remove(classSimpCompDesc);
-            classSimpCompDesc = objeto.secMid;
-            sectionPCmiddle.classList.add(classSimpCompDesc);   
-
-            objeto.inputPorcentaje.forEach(winInput => {
-                const divWin = document.createElement("div");
-                divWin.classList.add(objeto.winPos);
-                const labelArea = document.createElement("label");
-                labelArea.setAttribute("for", winInput.inputId);
-                labelArea.innerHTML = winInput.inputLabel;
-                divWin.appendChild(labelArea);
-                const inputHeightWindow = document.createElement("input");
-                inputHeightWindow.setAttribute("type", "number");
-                inputHeightWindow.setAttribute("id", winInput.inputId);
-                inputHeightWindow.classList.add("inputStyle");
-                divWin.appendChild(inputHeightWindow);
-                sectionPCmiddle.appendChild(divWin);
-                divPorcentaje.append(sectionPCtop, sectionPCmiddleTop, sectionPCmiddle);
-            });
-            //----Bottom------------------------------------------------------------------------------    
-            pResultPCReg = objeto.resultClPC
-            pResultPC.classList.add("winStyle", pResultPCReg);
-            sectionPCbottom.append(pResultPC);
-        };
+        //--- impresion de botones  secctionPCbottom ---
         btnClearPCReg = objeto.btn2ClPC;
         btnClearPC.classList.add("btnClear", btnClearPCReg);
         btnClearPC.innerHTML = "Borrar";
@@ -441,6 +473,8 @@ function bottomContainer(objeto){
         divPorcentaje.append(sectionPCbottom);
     }
     else if(objeto.definicion == "off"){
+        pTitlePC.classList.add("titleImg");
+
         divPorcentaje.classList.remove("containerFormules");
         divPorcentaje.classList.add("containerImage2");
         const imgDefinicion = document.createElement("img");
@@ -462,7 +496,6 @@ function inc_Simple(){
             winA.classList.add("resultColor");
             winA.value = result.toFixed(2);
         }else if(winB.value == ""){
-            console.log("B");
             if(SD.checked){
                 result = Number((winY.value * winA.value) / winW.value);
             }else if(SI.checked){
@@ -471,7 +504,6 @@ function inc_Simple(){
             winB.classList.add("resultColor");
             winB.value = result.toFixed(2);
         }else if(winW.value == ""){
-            console.log("W");
             if(SD.checked){
                 result = Number((winA.value * winY.value) / winB.value);
             }else if(SI.checked){
@@ -685,6 +717,7 @@ function renderFigura(objeto){
     asignacionesWindowsRadios()    
     document.documentElement.scrollTop = 0;
 };
+// ---Mensajes---
 function mensajeDI(){
     pResultPC.innerHTML = "Elegir su relación directa (D)<br>o inversa (I) respecto a (X)";
 };
@@ -694,15 +727,15 @@ function mensajeIncognita(){
 //----Funciones Logica de calculadoras--------------------------------------------------
 function pcSDI(){
     if(winA.value == "" && winB.value > 0 && winW.value > 0 && (winY.value > 0 )){
-            inc_Simple();
+        inc_Simple();
     }else if(winA.value > 0 && winB.value == "" && winW.value > 0 && winY.value > 0){
-            inc_Simple();
+        inc_Simple();
     }else if(winA.value > 0 && winB.value > 0 && winW.value == "" && winY.value > 0){
-            inc_Simple();
+        inc_Simple();
     }else if(winA.value > 0 && winB.value > 0 && winW.value > 0 && winY.value == ""){
-            inc_Simple();
+        inc_Simple();
     }else{
-        pResultPC.innerHTML = "Introduce 3 valores conocidos<br>y deja vacia la incógnita.";
+        pResultPC.innerHTML = "Introduce 3 valores mayores<br> a 0 y deja vacia la incógnita.";
     };
 };
 function pcCDIM(){
@@ -746,20 +779,25 @@ function pcCDIM(){
             mensajeDI();
         };
     }else{
-        pResultPC.innerHTML = "Introduce 5 valores conocidos<br>y deja vacia la incógnita";
+        pResultPC.innerHTML = "Introduce 5 valores mayores<br> a 0 y deja vacia la incógnita.";
     };
 };
 function pcDescuento(){
-    if(porcDescWindow.value > 0 && precListWindow.value > 0){
-        const resultDescuento = precListWindow.value * porcDescWindow.value / 100;
-        const totalApagar = precListWindow.value - resultDescuento;
-        descCantWindow.value = resultDescuento.toFixed(2);
-        totalPagWindow.value = totalApagar.toFixed(2);
-        disableWindow();
-        disableButtonResultado();
+    if(!(porcDescWindow.value === "") && !(precListWindow.value === "")){
+        if(porcDescWindow.value > 0 && precListWindow.value > 0){
+            const resultDescuento = precListWindow.value * porcDescWindow.value / 100;
+            const totalApagar = precListWindow.value - resultDescuento;
+            descCantWindow.value = resultDescuento.toFixed(2);
+            totalPagWindow.value = totalApagar.toFixed(2);
+            disableWindow();
+            disableButtonResultado();
+            mesParr.innerHTML = "Descuento con éxito";
+        }else{
+            mesParr.innerHTML = "Valores deben ser mayores a 0";
+        };
     }else{
-        console.log("Porcentaje y precio requeridos");
-    };
+        mesParr.innerHTML = "Porcentaje y precio requeridos";
+    }
 };
 // ================================= Constantes ========================================
 // =========================== Constantes Container fig ================================
@@ -801,9 +839,14 @@ const sectionPCmiddleTop = document.createElement("section");
 const sectionPCmiddle = document.createElement("section");
 //----sectionHbottom -------------------------------------------------------------------
 const sectionPCbottom = document.createElement("section");
+//--- Ventana de resultado---------------
 const pResultPC = document.createElement("p");
+//---Boton resultado----------------------
 const btnResultPC = document.createElement("button");
+// boton limpiar-----------------------
 const btnClearPC = document.createElement("button");
+// --- ventana mensajes descuento ---
+const mesParr = document.createElement("p");
 // ====================================== variables ====================================
 // -------------------------------------------------
 let porcDescWindow; 
@@ -817,7 +860,7 @@ let winC = null;
 let winW = null;
 let winY = null;
 let winZ = null;
-//----
+//----Selector de SDI CDIM DESC----
 let loadVar = null;
 //----Magnitudes------------------------------------------------------------------------
 let magnitud1 = null;
@@ -842,6 +885,7 @@ let SI = null;
 let btnResultPCReg;
 let btnClearPCReg;
 let pResultPCReg;
+let pMesParrReg;
 // ---- Variables de redireccion para funciones de areas y perimetros ------------------
 let rutaFPC;
 let rutaFClear;
@@ -851,3 +895,4 @@ let incognitaSC;
 let result;
 //----Inicio----------------------------------------------------------------------------
 renderIntroduccion();
+

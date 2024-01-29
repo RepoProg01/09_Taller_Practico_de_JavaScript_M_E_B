@@ -15,7 +15,6 @@ const introPorcentaje = {
     defGuiaTitulo: "Forma de uso :",
     defGuia: "Con el botón de <span>Más..</span> mostrará calculadoras y ejemplos de diferentes casos de la regla de tres,<br>Con el botón <span>Menú</span> regresarás al menú principal."
 };
-
 //-----------Calculadoras------------
 const RD3SDICalculadoraObj = {
     definicion: "on",
@@ -142,6 +141,8 @@ const RD3SDescCalculadoraObj = {
     imgFig: "../assets/calculadora_descuento.png",
     secMid: "sectionPCmiddleDesc",
     winPos: "winPosDesc",
+    mesCont : "mesDivDisc",
+    mesParr: "messageDiscount",
 
     titlePorcentaje: "Calculadora Descuento",
     formulaPorcentaje: "Inserta porcentaje y precio",
@@ -161,7 +162,6 @@ const RD3SDescCalculadoraObj = {
     funcionPorcentaje: "pcDescuento",
     clearWindow: "clearSCD"
 };
-
 //--------------Ejemplos--------------
 const RD3SimpleDirectaObj = {
     definicion: "off",

@@ -49,7 +49,6 @@ function borrar(){
     // ---- Limpieza de valor de medida ----
     medidaH = null;
     // ----  ----
-
     sectionEstmiddle.innerHTML = "";
     labelArea.innerHTML = "";
     textarea.value = "";
@@ -77,8 +76,7 @@ function borrar(){
     containerEstadistica.innerHTML = "";
     divCalculadora.innerHTML = "";
 
-    pTitlesEstadistica.classList.remove("titlesEstImg");
-    pTitlesEstadistica.classList.add("titlesEstadistica");
+    pTitlesEstadistica.classList.remove("titleImg");
 }
 //--- funciones para deshabilitar ventanas y botones de Area y Perimetro-----------------
 function disableOptions(){
@@ -114,8 +112,7 @@ function clearEstOpt(){
         pResultEstMediana.classList.add("resultColor");
         taResultEstModa.classList.add("resultColor");
 
-        pTitlesEstadistica.classList.remove("titlesEstImg");
-        pTitlesEstadistica.classList.add("titlesEstadistica");
+        pTitlesEstadistica.classList.remove("titleImg");
     };
 };
 
@@ -303,8 +300,7 @@ function renderFigura(objeto){
         divCalculadora.append(sectionEsttop, sectionEstmiddle, sectionEstbottom);
     }
     else if(objeto.definicion == "off"){
-        pTitlesEstadistica.classList.remove("titlesEstadistica");
-        pTitlesEstadistica.classList.add("titlesEstImg");
+        pTitlesEstadistica.classList.add("titleImg");
 
         divCalculadora.classList.remove("containerCalculadora");
         divCalculadora.classList.add("containerImage2");
@@ -369,6 +365,7 @@ function moda(arrayNumber){
         mensajeResultadoExitosoModa();
     }
 };
+//--- ---
 function estMediaMediana(){
     // --- Expresion regular solo numeros puntos y comas son aceptados ---
     if(!(textarea.value == "")){
@@ -385,7 +382,6 @@ function estMediaMediana(){
             });
             promedio(arrayNumber);
             mediana(arrayNumber);
-            // moda(arrayNumber);
             disableOptions();
             mensajeResultadoExitoso();
         }else{
@@ -412,30 +408,6 @@ function estModa(){
     }else{
         mensajeInsertarValores();
     }
-
-
-    // --- Expresion regular solo numeros puntos y comas son aceptados ---
-    // if(!(textarea.value == "")){
-    //     var regex = /^[0-9]+(?:\.[0-9]+)?(?:,[0-9]+(?:\.[0-9]+)?)*$/;
-    //     if(regex.test(textarea.value)){
-    //         // --- Obteniendo datos de ventana de entrada como un solo strig ---
-    //         const infoWindow = textarea.value;
-    //         // --- Separando cada valor del string y poniendolo en un array ---
-    //         const arrayString = infoWindow.split(",");
-    //         // --- Creando un nuevo array cambiando los strings a numbers ---
-    //         const arrayNumber = [];
-    //         arrayString.forEach(element => {
-    //             arrayNumber.push(Number(element));
-    //         });
-    //         moda(arrayNumber);
-    //         disableOptions();
-    //         mensajeResultadoExitoso();
-    //     }else{
-    //             mensajeSoloNum();
-    //     };
-    // }else{
-    //     mensajeInsertarValores();
-    // }
 };
 // ================================= Constantes =========================================
 // =========================== Constantes Container fig =================================
