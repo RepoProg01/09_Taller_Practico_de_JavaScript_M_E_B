@@ -203,6 +203,14 @@ const RD3CompuestaMixtaObj = {
     imgFig2: "../assets/compuesta_mixta_bottom.png",
     titlePorcentaje: "Procedimiento"
 };
+const RD3DescuentoObj = {
+    definicion: "off",
+    id: "descuento",
+    titleFig: "Descuento",
+    imgFig: "../assets/descuento_top.png",
+    imgFig2: "../assets/descuento_bottom.png",
+    titlePorcentaje: "Procedimiento"
+};
 //-----------Agregar al array---------
 introPorcentajeArray.push(introPorcentaje);
 introPorcentajeArray.push(RD3SDICalculadoraObj);
@@ -213,4 +221,5 @@ introPorcentajeArray.push(RD3SimpleInversaObj);
 introPorcentajeArray.push(RD3CompuestaDirectaObj);
 introPorcentajeArray.push(RD3CompuestaInversaObj);
 introPorcentajeArray.push(RD3CompuestaMixtaObj);
+// introPorcentajeArray.push(RD3DescuentoObj);
 

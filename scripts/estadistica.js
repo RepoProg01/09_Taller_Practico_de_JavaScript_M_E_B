@@ -157,6 +157,14 @@ function mensajeResultadoExitoso(){
 function mensajeResultadoExitosoModa(){
     labelArea.innerHTML = "Calculación de Moda con éxito";
 };
+//----Funcion formato-------------------------------------------------
+const formato = (number) => {
+    const exp = /(\d)(?=(\d{3})+(?!\d))/g;
+    const rep = '$1,';
+    let arr = number.toString().split('.');
+    arr[0] = arr[0].replace(exp,rep);
+    return arr[1] ? arr.join('.'): arr[0];
+};
 //----Funciones renderizado--------------------------------------------------------------
 function renderIntroduccion(){
     borrar();
@@ -319,7 +327,7 @@ function promedio(arrayNumber){
     const suma = arrayNumber.reduce((add,num) => add+=num);
     const cantidad = arrayNumber.length;
     const resPromedio = suma / cantidad;
-    pResultEstMedia.innerHTML = resPromedio.toFixed(1);
+    pResultEstMedia.innerHTML = formato(resPromedio.toFixed(2));
 }
 function mediana(arrayNumber){
     const orden = arrayNumber.sort((a,b) => a-b);
@@ -332,7 +340,7 @@ function mediana(arrayNumber){
         const mitadI = (cantidad - 1) / 2;
         resMediana = orden[mitadI];
     }
-    pResultEstMediana.innerHTML = resMediana.toFixed(1);
+    pResultEstMediana.innerHTML = formato(resMediana.toFixed(2));
 }
 function moda(arrayNumber){
     // --- Creando un objeto con los elementos y cuantas veces se repiten cada uno ---

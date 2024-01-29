@@ -157,6 +157,14 @@ function medEnableDisable(){
         inputRadioHC.disabled = true;
     };
 };
+//----Funcion formato ----------------------------------------------------------------
+const formato = (number) => {
+    const exp = /(\d)(?=(\d{3})+(?!\d))/g;
+    const rep = '$1,';
+    let arr = number.toString().split('.');
+    arr[0] = arr[0].replace(exp,rep);
+    return arr[1] ? arr.join('.'): arr[0];
+  }
 //----Funciones mensajes ----------------------------------------------------------------
 function mensajeCmMt(){
     pResultH.innerHTML = "Elegir centímetros o metros";
@@ -312,7 +320,7 @@ function hTriangleEqui(){
             medEnableDisable()
             disableOptions();
             winH1.classList.add("resultColor");
-            pResultH.innerHTML = `Altura = ${result.toFixed(2)} ${medidaH}`;
+            pResultH.innerHTML = `Altura = ${formato(result.toFixed(2))} ${medidaH}`;
         }else{
             mensajeCmMt();
         }
@@ -336,7 +344,7 @@ function hTriangleIso(){
                 disableOptions();
                 winH1.classList.add("resultColor");
                 winH2.classList.add("resultColor");
-                pResultH.innerHTML = `Altura = ${result.toFixed(2)} ${medidaH}`;
+                pResultH.innerHTML = `Altura = ${formato(result.toFixed(2))} ${medidaH}`;
             }else{
                 mensajeCmMt();
             }
@@ -370,7 +378,7 @@ function hTriEsc(){
                 winH1.classList.add("resultColor");
                 winH2.classList.add("resultColor");
                 winH3.classList.add("resultColor");
-                pResultH.innerHTML = `Altura = ${result.toFixed(2)} ${medidaH}`;
+                pResultH.innerHTML = `Altura = ${formato(result.toFixed(2))} ${medidaH}`;
             }else{
                 mensajeCmMt();
             }
@@ -400,7 +408,7 @@ function hTrapecio(){
                 winH1.classList.add("resultColor");
                 winH2.classList.add("resultColor");
                 winH3.classList.add("resultColor");
-                pResultH.innerHTML = `Altura = ${result.toFixed(2)} ${medidaH}`;
+                pResultH.innerHTML = `Altura = ${formato(result.toFixed(2))} ${medidaH}`;
             }else{
                 mensajeCmMt();
             }

@@ -279,6 +279,14 @@ function medEnableDisableP(){
         inputRadioPC.disabled = true;
     };
 };
+//----Funcione Formato--------------------------------------------------------------
+const formato = (number) => {
+    const exp = /(\d)(?=(\d{3})+(?!\d))/g;
+    const rep = '$1,';
+    let arr = number.toString().split('.');
+    arr[0] = arr[0].replace(exp,rep);
+    return arr[1] ? arr.join('.'): arr[0];
+  }
 //----Funciones renderizado--------------------------------------------------------------
 function renderIntroduccion(){
     borrar();
@@ -486,7 +494,7 @@ function aTriangle(){
             disableAOptions(); 
             winAW1.classList.add("resultColor");
             winAW2.classList.add("resultColor");
-            pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
+            pResultA.innerHTML = `Área = ${formato(result.toFixed(2))} ${medidaA}`;
         }else{
             pResultA.innerHTML = "Elegir centímetros o metros";
         }
@@ -508,7 +516,7 @@ function pTriangle(){
             winPW1.classList.add("resultColor");
             winPW2.classList.add("resultColor");
             winPW3.classList.add("resultColor");
-            pResultP.innerHTML = `Perímetro = ${result.toFixed(2)} ${medidaP}`;
+            pResultP.innerHTML = `Perímetro = ${formato(result.toFixed(2))} ${medidaP}`;
         }else{
             pResultP.innerHTML = "Elegir centímetros o metros";
         }
@@ -527,7 +535,7 @@ function aSquare(){
             medEnableDisableA();
             disableAOptions(); 
             winAW1.classList.add("resultColor");
-            pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
+            pResultA.innerHTML = `Área = ${formato(result.toFixed(2))} ${medidaA}`;
         }else{
             pResultA.innerHTML = "Elegir centímetros o metros";
         }
@@ -545,7 +553,7 @@ function pSquare(){
             medEnableDisableP();
             disablePOptions();
             winPW1.classList.add("resultColor");
-            pResultP.innerHTML = `Perímetro = ${result.toFixed(2)} ${medidaP}`;
+            pResultP.innerHTML = `Perímetro = ${formato(result.toFixed(2))} ${medidaP}`;
         }else{
             pResultP.innerHTML = "Elegir centímetros o metros";
         }
@@ -566,7 +574,7 @@ function aRectangulo(){
             disableAOptions(); 
             winAW1.classList.add("resultColor");
             winAW2.classList.add("resultColor");
-            pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
+            pResultA.innerHTML = `Área = ${formato(result.toFixed(2))} ${medidaA}`;
         }else{
             pResultA.innerHTML = "Elegir centímetros o metros";
         }
@@ -586,7 +594,7 @@ function pRectangulo(){
             disablePOptions();
             winPW1.classList.add("resultColor");
             winPW2.classList.add("resultColor");
-            pResultP.innerHTML = `Perímetro = ${result.toFixed(2)} ${medidaP}`;
+            pResultP.innerHTML = `Perímetro = ${formato(result.toFixed(2))} ${medidaP}`;
         }else{
             pResultP.innerHTML = "Elegir centímetros o metros";
         }
@@ -607,7 +615,7 @@ function aParalelogramo(){
             disableAOptions(); 
             winAW1.classList.add("resultColor");
             winAW2.classList.add("resultColor");
-            pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
+            pResultA.innerHTML = `Área = ${formato(result.toFixed(2))} ${medidaA}`;
         }else{
             pResultA.innerHTML = "Elegir centímetros o metros";
         }
@@ -627,7 +635,7 @@ function pParalelogramo(){
             disablePOptions();
             winPW1.classList.add("resultColor");
             winPW2.classList.add("resultColor");
-            pResultP.innerHTML = `Perímetro = ${result.toFixed(2)} ${medidaP}`;
+            pResultP.innerHTML = `Perímetro = ${formato(result.toFixed(2))} ${medidaP}`;
         }else{
             pResultP.innerHTML = "Elegir centímetros o metros";
         }
@@ -650,7 +658,7 @@ function aTrapecio(){
             winAW1.classList.add("resultColor");
             winAW2.classList.add("resultColor");
             winAW3.classList.add("resultColor");
-            pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
+            pResultA.innerHTML = `Área = ${formato(result.toFixed(2))} ${medidaA}`;
         }else{
             pResultA.innerHTML = "Elegir centímetros o metros";
         }
@@ -674,7 +682,7 @@ function pTrapecio(){
             winPW2.classList.add("resultColor");
             winPW3.classList.add("resultColor");
             winPW4.classList.add("resultColor");
-            pResultP.innerHTML = `Perímetro = ${result.toFixed(2)} ${medidaP}`;
+            pResultP.innerHTML = `Perímetro = ${formato(result.toFixed(2))} ${medidaP}`;
         }else{
             pResultP.innerHTML = "Elegir centímetros o metros";
         }
@@ -695,7 +703,7 @@ function aRombo(){
             disableAOptions(); 
             winAW1.classList.add("resultColor");
             winAW2.classList.add("resultColor");
-            pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
+            pResultA.innerHTML = `Área = ${formato(result.toFixed(2))} ${medidaA}`;
         }else{
             pResultA.innerHTML = "Elegir centímetros o metros";
         }
@@ -713,7 +721,7 @@ function pRombo(){
             medEnableDisableP();
             disablePOptions();
             winPW1.classList.add("resultColor");
-            pResultP.innerHTML = `Perímetro = ${result.toFixed(2)} ${medidaP}`;
+            pResultP.innerHTML = `Perímetro = ${formato(result.toFixed(2))} ${medidaP}`;
         }else{
             pResultP.innerHTML = "Elegir centímetros o metros";
         }
@@ -734,7 +742,7 @@ function aPentagono(){
             disableAOptions(); 
             winAW1.classList.add("resultColor");
             winAW2.classList.add("resultColor");
-            pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
+            pResultA.innerHTML = `Área = ${formato(result.toFixed(2))} ${medidaA}`;
         }else{
             pResultA.innerHTML = "Elegir centímetros o metros";
         }
@@ -752,7 +760,7 @@ function pPentagono(){
             medEnableDisableP();
             disablePOptions();
             winPW1.classList.add("resultColor");
-            pResultP.innerHTML = `Perímetro = ${result.toFixed(2)} ${medidaP}`;
+            pResultP.innerHTML = `Perímetro = ${formato(result.toFixed(2))} ${medidaP}`;
         }else{
             pResultP.innerHTML = "Elegir centímetros o metros";
         }
@@ -773,7 +781,7 @@ function aHexagono(){
             disableAOptions(); 
             winAW1.classList.add("resultColor");
             winAW2.classList.add("resultColor");
-            pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
+            pResultA.innerHTML = `Área = ${formato(result.toFixed(2))} ${medidaA}`;
         }else{
             pResultA.innerHTML = "Elegir centímetros o metros";
         }
@@ -791,7 +799,7 @@ function pHexagono(){
             medEnableDisableP();
             disablePOptions();
             winPW1.classList.add("resultColor");
-            pResultP.innerHTML = `Perímetro = ${result.toFixed(2)} ${medidaP}`;
+            pResultP.innerHTML = `Perímetro = ${formato(result.toFixed(2))} ${medidaP}`;
         }else{
             pResultP.innerHTML = "Elegir centímetros o metros";
         }
@@ -811,7 +819,7 @@ function aCirculo(){
             medEnableDisableA();
             disableAOptions(); 
             winAW1.classList.add("resultColor");
-            pResultA.innerHTML = `Area = ${result.toFixed(2)} ${medidaA}`;
+            pResultA.innerHTML = `Área = ${formato(result.toFixed(2))} ${medidaA}`;
         }else{
             pResultA.innerHTML = "Elegir centímetros o metros";
         }
@@ -830,7 +838,7 @@ function circunferencia(){
             medEnableDisableP();
             disablePOptions();
             winPW1.classList.add("resultColor");
-            pResultP.innerHTML = `Perímetro = ${result.toFixed(2)} ${medidaP}`;
+            pResultP.innerHTML = `Perímetro = ${formato(result.toFixed(2))} ${medidaP}`;
         }else{
             pResultP.innerHTML = "Elegir centímetros o metros";
         }
