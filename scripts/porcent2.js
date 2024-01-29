@@ -199,7 +199,15 @@ function clearSCD(){
     pResultPC.innerHTML = ""; 
     mesParr.innerHTML = "";
     pTitlePC.classList.remove("titleImg");
+    precListWindow.setAttribute("type", "number");
 };
+const formato = (number) => {
+    const exp = /(\d)(?=(\d{3})+(?!\d))/g;
+    const rep = '$1,';
+    let arr = number.toString().split('.');
+    arr[0] = arr[0].replace(exp,rep);
+    return arr[1] ? arr.join('.'): arr[0];
+  }
 //----Funcion asignaciones y renderizado-------------------------------------------------
 function asignacionesWindowsRadios(){
     if(loadVar == "SDI"){
@@ -525,7 +533,8 @@ function inc_Simple(){
         }else if(SI.checked){
             SD.disabled = true;
         };
-        pResultPC.innerHTML = `Resultado = ${result.toFixed(2)}`;
+        
+        pResultPC.innerHTML = `Resultado = ${formato(result.toFixed(2))}`;
         disableWindow();
         disableButtonResultado(); 
     }else{
@@ -557,14 +566,14 @@ function incognitaAW (){
     };
     if(winA.value == ""){
         resultR3C = winW.value * magnitud1 / magnitud2;
-        pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
+        pResultPC.innerHTML = `Resultado ${formato(resultR3C.toFixed(2))}`;
         winA.value = resultR3C.toFixed(2);
         winA.classList.add("resultColor");
         disableWindow();
         disableButtonResultado();
     }else if(winW.value == ""){
         resultR3C = winA.value * magnitud2 / magnitud1;
-        pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
+        pResultPC.innerHTML = `Resultado ${formato(resultR3C.toFixed(2))}`;
         winW.value = resultR3C.toFixed(2);
         winW.classList.add("resultColor");
         disableWindow();
@@ -595,14 +604,14 @@ function incognitaBY(){
     };
     if(winB.value == ""){
         resultR3C = winY.value * magnitud1 / magnitud2;
-        pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
+        pResultPC.innerHTML = `Resultado ${formato(resultR3C.toFixed(2))}`;
         winB.value = resultR3C.toFixed(2);
         winB.classList.add("resultColor");
         disableWindow();
         disableButtonResultado();
     }else if(winY.value == ""){
         resultR3C = winB.value * magnitud2 / magnitud1;
-        pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
+        pResultPC.innerHTML = `Resultado ${formato(resultR3C.toFixed(2))}`;
         winY.value = resultR3C.toFixed(2);
         winY.classList.add("resultColor");
         disableWindow();
@@ -633,14 +642,14 @@ function incognitaCZ(){
     };
     if(winC.value == ""){
         resultR3C = winZ.value * magnitud1 / magnitud2;
-        pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
+        pResultPC.innerHTML = `Resultado ${formato(resultR3C.toFixed(2))}`;
         winC.value = resultR3C.toFixed(2);
         winC.classList.add("resultColor");
         disableWindow();
         disableButtonResultado();
     }else if(winZ.value == ""){
         resultR3C = winC.value * magnitud2 / magnitud1;
-        pResultPC.innerHTML = `Resultado ${resultR3C.toFixed(2)}`;
+        pResultPC.innerHTML = `Resultado ${formato(resultR3C.toFixed(2))}`;
         winZ.value = resultR3C.toFixed(2);
         winZ.classList.add("resultColor");
         disableWindow();
@@ -785,10 +794,13 @@ function pcCDIM(){
 function pcDescuento(){
     if(!(porcDescWindow.value === "") && !(precListWindow.value === "")){
         if(porcDescWindow.value > 0 && precListWindow.value > 0){
+            const precList = Number(precListWindow.value);
             const resultDescuento = precListWindow.value * porcDescWindow.value / 100;
             const totalApagar = precListWindow.value - resultDescuento;
-            descCantWindow.value = resultDescuento.toFixed(2);
-            totalPagWindow.value = totalApagar.toFixed(2);
+            precListWindow.removeAttribute("type", "number");
+            precListWindow.value = formato(precList.toFixed(2));
+            descCantWindow.value = formato(resultDescuento.toFixed(2));
+            totalPagWindow.value = formato(totalApagar.toFixed(2));
             disableWindow();
             disableButtonResultado();
             mesParr.innerHTML = "Descuento con éxito";
