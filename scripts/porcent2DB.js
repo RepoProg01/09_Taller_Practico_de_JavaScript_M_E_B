@@ -23,8 +23,8 @@ const RD3SDICalculadoraObj = {
     titleFig: "Instrucciones",
     imgFig: "../assets/calculadora_simple.png",
     secMid: "sectionPCmiddleS",
-    titlePorcentaje: "Calculadora Simple",
-    formulaPorcentaje: "Inserta los 3 datos conocidos",
+    titlePorcentaje: "Regla de tres Simple",
+    formulaPorcentaje: "Calculadora",
     winPos: "winPosDirInv",
     inputPorcentaje: [
         {
@@ -57,8 +57,8 @@ const RD3CDIMCalculadoraObj = {
     titleFig: "Instrucciones",
     imgFig: "../assets/calculadora_compuesta.png",
     secMid: "sectionPCmiddleC",
-    titlePorcentaje: "Calculadora Compuesta",
-    formulaPorcentaje: "Inserta los 5 datos conocidos",
+    titlePorcentaje: "Regla de tres Compuesta",
+    formulaPorcentaje: "Calculadora",
     winPos: "winPosDirInv",
     lista: [
         {
@@ -144,8 +144,8 @@ const RD3SDescCalculadoraObj = {
     mesCont : "mesDivDisc",
     mesParr: "messageDiscount",
 
-    titlePorcentaje: "Calculadora Descuento",
-    formulaPorcentaje: "Inserta porcentaje y precio",
+    titlePorcentaje: "Porcentaje y Descuento",
+    formulaPorcentaje: "Calculadora",
     inputPorcentaje: [
         {
             inputLabel: "Precio ",
@@ -221,5 +221,5 @@ introPorcentajeArray.push(RD3SimpleInversaObj);
 introPorcentajeArray.push(RD3CompuestaDirectaObj);
 introPorcentajeArray.push(RD3CompuestaInversaObj);
 introPorcentajeArray.push(RD3CompuestaMixtaObj);
-// introPorcentajeArray.push(RD3DescuentoObj);
+introPorcentajeArray.push(RD3DescuentoObj);
 
