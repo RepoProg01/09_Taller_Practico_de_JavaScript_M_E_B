@@ -107,14 +107,14 @@ function mesValA(){
     if(mensArea == "s"){
         return "Valor debe de ser mayor a 0";
     }else if(mensArea == "p"){
-        return "Valores deben de ser mayores a 0";
+        return "Valores deben de ser<br>mayores a 0";
     }
 };
 function mesValP(){
     if(mensPerimetro == "s"){
         return "Valor debe de ser mayor a 0";
     }else if(mensPerimetro == "p"){
-        return "Valores deben de ser mayores a 0";
+        return "Valores deben de ser<br>mayores a 0";
     }
 };
 //--- mensajes introducir valores -------------------------------------------------------

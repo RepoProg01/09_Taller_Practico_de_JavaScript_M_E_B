@@ -173,7 +173,7 @@ function mesValH(){
     if(mensAltura == "s"){
         return "Valor debe de ser mayor a 0";
     }else if(mensAltura == "p"){
-        return "Valores deben de ser mayores a 0";
+        return "Valores deben de ser<br>mayores a 0";
     }
 };
 //--- mensajes introducir valores -------------------------------------------------------
