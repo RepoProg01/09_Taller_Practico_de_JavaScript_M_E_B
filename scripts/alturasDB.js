@@ -16,6 +16,7 @@ const introAlturas = {
 };
 const trianguloEquilateroObj = {
     id: "triángulo_equilátero",
+    mh: "s",
     titleFig: "Triángulo Equilátero",
     imgFig: "../assets/triangulo_equilatero_altura.png",
 
@@ -34,6 +35,7 @@ const trianguloEquilateroObj = {
 };
 const trianguloIsoscelesObj = {
     id: "triángulo_isósceles",
+    mh: "p",
     titleFig: "Triángulo Isósceles",
     imgFig: "../assets/triangulo_isosceles_altura.png",
 
@@ -56,6 +58,7 @@ const trianguloIsoscelesObj = {
 };
 const trianguloEscalenoObj = {
     id: "triángulo_escaleno",
+    mh: "p",
     titleFig: "Triángulo Escaleno",
     imgFig: "../assets/triangulo_escaleno_altura.png",
 
@@ -82,6 +85,7 @@ const trianguloEscalenoObj = {
 };
 const trapecioObj = {
     id: "trapecio",
+    mh: "p",
     titleFig: "Trapecio",
     imgFig: "../assets/trapecio_altura.png",
 

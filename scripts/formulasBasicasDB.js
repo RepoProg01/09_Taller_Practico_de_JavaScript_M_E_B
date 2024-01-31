@@ -15,6 +15,8 @@ const intro = {
 };
 const trianguloObj = {
     id: "triángulo",
+    ma: "p",
+    mp: "p",
     titleFig: "Triángulo",
     imgFig: "../assets/triangulo_equilatero.png",
 
@@ -58,6 +60,8 @@ const trianguloObj = {
 };
 const cuadradoObj = {
     id: "cuadrado",
+    ma: "s",
+    mp: "s",
     titleFig: "Cuadrado",
     imgFig: "../assets/cuadrado.png",
 
@@ -89,6 +93,8 @@ const cuadradoObj = {
 };
 const rectanguloObj = {
     id: "rectángulo",
+    ma: "p",
+    mp: "p",
     titleFig: "Rectángulo",
     imgFig: "../assets/rectangulo.png",
 
@@ -128,6 +134,8 @@ const rectanguloObj = {
 };
 const paralelogramoObj = {
     id: "paralelogramo",
+    ma: "p",
+    mp: "p",
     titleFig: "Paralelogramo",
     imgFig: "../assets/paralelogramo.png",
 
@@ -167,6 +175,8 @@ const paralelogramoObj = {
 };
 const trapecioObj = {
     id: "trapecio",
+    ma: "p",
+    mp: "p",
     titleFig: "Trapecio",
     imgFig: "../assets/trapecio.png",
 
@@ -218,6 +228,8 @@ const trapecioObj = {
 };
 const romboObj = {
     id: "rombo",
+    ma: "p",
+    mp: "s",
     titleFig: "Rombo",
     imgFig: "../assets/rombo.png",
 
@@ -253,6 +265,8 @@ const romboObj = {
 };
 const pentagonoObj = {
     id: "pentágono",
+    ma: "p",
+    mp: "s",
     titleFig: "Pentágono",
     imgFig: "../assets/pentagono.png",
 
@@ -288,6 +302,8 @@ const pentagonoObj = {
 };
 const hexagonoObj = {
     id: "hexágono",
+    ma: "p",
+    mp: "s",
     titleFig: "Hexágono",
     imgFig: "../assets/hexagono.png",
 
@@ -323,6 +339,8 @@ const hexagonoObj = {
 };
 const circuloObj = {
     id: "círculo",
+    ma: "s",
+    mp: "s",
     titleFig: "Círculo",
     imgFig: "../assets/circulo.png",
 
@@ -352,7 +370,6 @@ const circuloObj = {
     funcionPerimetro: "circunferencia",
     clearWindowP: "clearPFig"
 };
-
 formulasArray.push(intro);
 formulasArray.push(trianguloObj);
 formulasArray.push(cuadradoObj);

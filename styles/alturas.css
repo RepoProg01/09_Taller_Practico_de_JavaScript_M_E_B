@@ -60,7 +60,6 @@ body {
     padding-right: 10px;
     gap: 10px;
 }
-
 .homeLink {
     width: 60px;
     height: 21px;
@@ -74,7 +73,6 @@ body {
 .homeLink:hover {
     color: var(--white);
 } 
-
 .figuras{
     font-size: 18px;
     font-weight: 700;
@@ -86,12 +84,10 @@ body {
 .figuras:hover{
     color: var(--white);
 }
-
 /* ############  contentIndex  ############ */
 .contentIndex {
     padding-top: 61px;
 }
-
 /* ------ listIndex ------ */
 .listIndex {
     position: fixed;
@@ -159,7 +155,6 @@ body {
     padding: 10px;
     margin: 0px;
 }
-
 /* ############# containerFig #############  */
 /* ############# containerIntro #############  */
 .containerIntro {
@@ -170,26 +165,22 @@ body {
     padding: 30px 10px;
     gap: 10px;
 }
-
 .secD {
     background: var(--background_radial_2);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
 }
-
 .sectionDtop {
     width: 340px;
     height: 383px;
 }
-
 .sectionDmiddle,
 .sectionDbottom {
     width: 300px;
     height: 343px;
     padding: 20px;
 }
-
 .tituloIntro {
     color: var(--naranja);
     text-align: center;
@@ -198,13 +189,11 @@ body {
     width: 100%;
     object-fit: contain;
 }
-
 .defT {
     margin: 0px;
     font-size: 20px;
     color: var(--naranja);
 }
-
 .defC {
     background-color: var(--white);
     border-radius: 10px;
@@ -218,7 +207,6 @@ span {
     border-radius: 3px;
     font-weight: 700;
 }
-
 /* ############# containerResponsive #############  */
 .containerResponsive {
     display: flex;
@@ -260,25 +248,21 @@ span {
     border-radius: 10px;
     padding: 20px;
 }
-
 .sectionHtop {
     text-align: center;
 }
-
 .titlesFormules {
     font-size: 20px;
     font-weight: 700;
     margin-top: 0px;
     color: var(--white);
 }
-
 .textFormule {
     font-size: 21px;
     color: var(--naranja);
     font-weight: 700;
     margin-bottom: 8px;
 }
-
 .divRadioH {
     display: flex;
     gap: 10px;

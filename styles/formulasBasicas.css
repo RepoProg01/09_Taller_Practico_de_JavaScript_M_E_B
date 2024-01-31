@@ -34,7 +34,6 @@ body {
 .body::-webkit-scrollbar {
     display: none;
 }
-
 /* ################# nav ################# */
 .nav {
     position: fixed;
@@ -60,7 +59,6 @@ body {
     padding-right: 10px;
     gap: 10px;
 }
-
 .homeLink {
     width: 60px;
     height: 21px;
@@ -74,7 +72,6 @@ body {
 .homeLink:hover {
     color: var(--white);
 } 
-
 .figuras{
     font-size: 18px;
     font-weight: 700;
@@ -86,13 +83,11 @@ body {
 .figuras:hover{
     color: var(--white);
 }
-
 /* ############  contentIndex  ############ */
 .contentIndex {
     padding-top: 61px;
 }
-
-/* ------ listIndex ------ */
+/* --------------- listIndex -------------- */
 .listIndex {
     position: fixed;
     background: var(--background_linear_2);
@@ -129,7 +124,7 @@ body {
     margin: 10px 30px 0px 30px;
     border-bottom: 1px solid var(--verde);
 }
-/* -- Division -- */
+/* ----------------- Division ------------- */
 .listIndexOption{
     display: flex;
     padding: 0px;
@@ -152,7 +147,7 @@ body {
 .selMod:hover {
     color: var(--white);
 }
-/* ----- titlexIndex ----- */ 
+/* --------------- titlexIndex ------------ */ 
 .titlesIndex {
     text-align: center;
     background-color: var(--primario);
@@ -163,9 +158,8 @@ body {
     padding: 10px;
     margin: 0px;
 }
-
-/* ############# containerFig #############  */
-/* ############# containerIntro #############  */
+/* ############# containerFig ############  */
+/* ############ containerIntro ###########  */
 .containerIntro {
     background-color: var(--terciario);
     display: flex;
@@ -175,26 +169,22 @@ body {
     padding: 30px 10px;
     gap: 10px;
 }
-
 .secD {
     background: var(--background_radial_2);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
 }
-
 .sectionDtop {
     width: 340px;
     height: 383px;
 }
-
 .sectionDmiddle,
 .sectionDbottom {
     width: 300px;
     height: 343px;
     padding: 20px;
 }
-
 .tituloIntro {
     color: var(--naranja);
     text-align: center;
@@ -203,13 +193,11 @@ body {
     width: 100%;
     object-fit: contain;
 }
-
 .defT {
     margin: 0px;
     font-size: 20px;
     color: var(--naranja);
 }
-
 .defC {
     background-color: var(--white);
     border-radius: 10px;
@@ -222,8 +210,7 @@ span {
     padding: 3px 3px;
     border-radius: 3px;
 }
-
-/* ############# containerResponsive #############  */
+/* ######### containerResponsive #########  */
 .containerResponsive {
     background-color: var(--terciario);
     display: flex;
@@ -262,19 +249,16 @@ span {
     border-radius: 10px;
     padding: 20px;
 }
-
 .sectionAtop,
 .sectionPtop {
     text-align: center;
 }
-
 .titlesFormules {
     font-size: 20px;
     font-weight: 700;
     margin-top: 0px;
     color: var(--white);
 }
-
 .textFormule {
     font-size: 21px;
     color: var(--naranja);
@@ -306,7 +290,6 @@ span {
     font-weight: 700;
     font-size: 18px;
 }
-
 .btnClear,
 .btnResult {
     width: 145px;
@@ -359,8 +342,8 @@ span {
     background-color: var(--background_linear_2);
     color: var(--white);
 }
-/* ------ PerimeterSquare ------ */
-/* -------- AreaSquare --------- */
+/* ------------- PerimeterSquare ------------ */
+/* ---------------- AreaSquare -------------- */
 .blurC {
     position:fixed;
     top: 61px;
@@ -377,7 +360,7 @@ span {
     display: none;
     transition: 600ms ease-in-out;
 }
-/* ################# footer ################## */
+/* ################# footer ################# */
 .footer {
     position: absolute;
     left: 0px;
@@ -403,7 +386,6 @@ span {
     }
 
 }
-
 @media screen and (min-width: 425px) {
     .listIndex {
         width: 300px; 

@@ -189,15 +189,25 @@ function enableButtonResultado(){
     btnResultPC.classList.remove("btnInactive");
     btnResultPC.classList.add("btnResult");
 };
+function mensDefault(){
+    pResultPC.innerHTML = "";
+    mesParr.innerHTML = "";
+    if(incognitaSC == "S"){
+        simpleValores();
+    }else if(incognitaSC == "C"){
+        compuestaValores();
+    }else if(incognitaSC == "D"){
+        descuentoValores();
+    }
+};
 function clearSCD(){
     clearRadios();
     enableRadios();
     clearColor();
     clearInputsWindows();
     enableWindow();
+    mensDefault();
     enableButtonResultado();
-    pResultPC.innerHTML = ""; 
-    mesParr.innerHTML = "";
     pTitlePC.classList.remove("titleImg");
     precListWindow.setAttribute("type", "number");
 };
@@ -304,6 +314,7 @@ function bottomContainer(objeto){
             // --- asignacion en variables de orientacion ---
             loadVar = "SDI";
             incognitaSC = "S";
+            mensDefault();
         }
         if(objeto.radios == "Compuesta"){
             sectionPCmiddleTop.classList.add("sectionPCmiddleTop");
@@ -350,6 +361,7 @@ function bottomContainer(objeto){
             // --- asignacion en variables de orientacion ---
             loadVar = "CDIM";
             incognitaSC = "C";
+            mensDefault();
         }
         if(objeto.radios == "Descuento"){
             sectionPCmiddleTop.classList.add("sectionPCmiddleTop");
@@ -366,6 +378,7 @@ function bottomContainer(objeto){
             sectionPCmiddleTop.append(divMesCont);
             loadVar = "DESC";
             incognitaSC = "D";
+            mensDefault();
         };
         //----BottomMiddle-----------------------------------------------------------------------
         if(loadVar == "SDI" || loadVar == "CDIM"){
@@ -424,7 +437,7 @@ function bottomContainer(objeto){
             precListLablel.setAttribute("for", "pcPDL");
             precListLablel.innerHTML = "Precio de lista $"; 
 
-            precListWindow = document.createElement("input");
+            // precListWindow = document.createElement("input");
             precListWindow.classList.add("desWindows");
             precListWindow.setAttribute("type", "number");
             precListWindow.setAttribute("id", "pcPDL");
@@ -728,11 +741,22 @@ function renderFigura(objeto){
     document.documentElement.scrollTop = 0;
 };
 // ---Mensajes---
+// --- simple --
+function simpleValores(){
+    pResultPC.innerHTML = "Introduce 3 valores mayores<br> a 0 y deja vacia la incógnita.";
+};
+// --- compuesta ---
+function compuestaValores(){
+    pResultPC.innerHTML = "Introduce 5 valores mayores<br> a 0 y deja vacia la incógnita.";
+};
 function mensajeDI(){
     pResultPC.innerHTML = "Elegir su relación directa (D)<br>o inversa (I) respecto a (X)";
 };
 function mensajeIncognita(){
     pResultPC.innerHTML = "Se permite solo una incógnita<br>(X) con su relación (D) (I)";
+};
+function descuentoValores(){
+    mesParr.innerHTML = "Introduce porcentaje y <br>precio de lista ";
 };
 //----Funciones Logica de calculadoras--------------------------------------------------
 function pcSDI(){
@@ -745,7 +769,7 @@ function pcSDI(){
     }else if(winA.value > 0 && winB.value > 0 && winW.value > 0 && winY.value == ""){
         inc_Simple();
     }else{
-        pResultPC.innerHTML = "Introduce 3 valores mayores<br> a 0 y deja vacia la incógnita.";
+        pResultPC.innerHTML = "Solo 3 valores mayores a 0 con <br>una incógnita son permitidos.";
     };
 };
 function pcCDIM(){
@@ -789,7 +813,7 @@ function pcCDIM(){
             mensajeDI();
         };
     }else{
-        pResultPC.innerHTML = "Introduce 5 valores mayores<br> a 0 y deja vacia la incógnita.";
+        pResultPC.innerHTML = "Solo 5 valores mayores a 0 con <br>una incógnita son permitidos.";
     };
 };
 function pcDescuento(){
@@ -864,6 +888,7 @@ const mesParr = document.createElement("p");
 // -------------------------------------------------
 let porcDescWindow; 
 let precListWindow;
+precListWindow = document.createElement("input");
 let descCantWindow;
 let totalPagWindow;
 //----inputs windows -------------------------------------------------------------------

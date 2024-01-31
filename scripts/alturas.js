@@ -11,7 +11,6 @@ const seleccion = document.querySelectorAll(".seleccion");
 seleccion.forEach(element => {
     element.addEventListener("click", selecFnc);
 });
-
 function figurasFnc(){
     listIndex.scrollTop = 0;
     listIndex.classList.toggle("listIndexShow");
@@ -47,7 +46,7 @@ function selecFnc(event){
 //----Funciones de borrado, activacion y desactivacion de bentanas y radios--------------
 function borrar(){
     // ---- Limpieza de valor de medida ----
-    medidaH = null;
+    mensAltura = "";
     // ----  ----
     sectionHmiddle.innerHTML = "";
     // ---- Limpieza de Ventanas de mensajes y borrado de clase ----
@@ -110,7 +109,7 @@ function clearHFig(){
     };
     medDisableUnchecked();
     abilitarIntercambiar();
-    pResultH.innerHTML = ""; 
+    pResultH.innerHTML = itrValH(); 
 };
 function medDisableUnchecked(){
     // ---- Abilitar radios ----
@@ -145,9 +144,9 @@ function asignacionesWindows(){
 //----Funciones seleccion y vaciado medida-----------------------------------------------
 function medSeleccion() {
     if(inputRadioHC.checked) {
-        medidaH = "cm";
+        return "cm";
     }else if(inputRadioHM.checked) {
-        medidaH = "m";
+        return "m";
     };
 };
 function medEnableDisable(){
@@ -166,21 +165,25 @@ const formato = (number) => {
     return arr[1] ? arr.join('.'): arr[0];
   }
 //----Funciones mensajes ----------------------------------------------------------------
-function mensajeCmMt(){
-    pResultH.innerHTML = "Elegir centímetros o metros";
+function mesCmM(){
+    return "Elegir centímetros o metros";
 };
-function  mensajeTamanoLados(){
-    pResultH.innerHTML = "Lado b tiene que ser menor<br>que la base B en el trapecio";
-}
-function  mensajeMenorSLados(){
-    pResultH.innerHTML = "La medida de la Base debe ser<br>menor a la suma de sus lados";
-}
-function mensajeMayorCero(){
-    pResultH.innerHTML = "Lados deben de ser mayores a 0";
-}
-function mensajeBaseMedida(){
-    pResultH.innerHTML = "La medida de la Base debe ser<br>mayor a la de los lados";
-}
+// --- mensajes valores mayor que 0 -----------------------------------------------------
+function mesValH(){
+    if(mensAltura == "s"){
+        return "Valor debe de ser mayor a 0";
+    }else if(mensAltura == "p"){
+        return "Valores deben de ser mayores a 0";
+    }
+};
+//--- mensajes introducir valores -------------------------------------------------------
+function itrValH(){
+    if(mensAltura == "s"){
+        return "Intruducir valor requerido";
+    }else if(mensAltura == "p"){
+        return "Intruducir valores requeridos";
+    }
+};
 //----Funciones renderizado--------------------------------------------------------------
 function renderIntroduccion(){
     borrar();
@@ -223,6 +226,7 @@ function renderIntroduccion(){
 function renderFigura(objeto){
     borrar();
     idFig = objeto.id;
+    mensAltura = objeto.mh;
 
     containerFiguras.appendChild(containerResponsive);
     containerResponsive.classList.add("containerResponsive");
@@ -298,7 +302,8 @@ function renderFigura(objeto){
 
     pResultHReg = objeto.resultClH
     pResultH.classList.add("winStyle", pResultHReg);
-    
+    pResultH.innerHTML = itrValH();
+
     sectionHbottom.classList.add("sectionHbottom");
     sectionHbottom.append(pResultH, btnClearH, btnResultH);
     divAltura.append(sectionHtop, sectionHmiddle, sectionHbottom);
@@ -312,7 +317,6 @@ function hTriangleEqui(){
     const w1Es = Number(winH1.value);
     if(w1Es > 0){
         if(inputRadioHC.checked || inputRadioHM.checked){
-            medSeleccion();
             const lado = w1Es;
             const semiPerimeter = (lado + lado + lado) / 2;
             const process =  (2 / lado) * Math.sqrt((semiPerimeter * (semiPerimeter - lado) * (semiPerimeter - lado) * (semiPerimeter - lado)));
@@ -320,12 +324,12 @@ function hTriangleEqui(){
             medEnableDisable()
             disableOptions();
             winH1.classList.add("resultColor");
-            pResultH.innerHTML = `Altura = ${formato(result.toFixed(2))} ${medidaH}`;
+            pResultH.innerHTML = `Altura = ${formato(result.toFixed(2))} ${medSeleccion()}`;
         }else{
-            mensajeCmMt();
+            pResultH.innerHTML = mesCmM();
         }
     }else{
-        mensajeMayorCero();
+        pResultH.innerHTML = mesValH();
     }
 }
 // ------------- altura de triangulo isosceles ------------------------------------------
@@ -336,7 +340,6 @@ function hTriangleIso(){
     if(w1Is > 0 && w2Is > 0){
         if(w2Is < numVerIso){
             if(inputRadioHC.checked || inputRadioHM.checked){
-                medSeleccion();
                 const lado1 = w1Is;
                 const base = w2Is;
                 const result = Math.sqrt(Math.pow(lado1,2) - Math.pow( (base/2), 2) );
@@ -344,15 +347,15 @@ function hTriangleIso(){
                 disableOptions();
                 winH1.classList.add("resultColor");
                 winH2.classList.add("resultColor");
-                pResultH.innerHTML = `Altura = ${formato(result.toFixed(2))} ${medidaH}`;
+                pResultH.innerHTML = `Altura = ${formato(result.toFixed(2))} ${medSeleccion()}`;
             }else{
-                mensajeCmMt();
+                pResultH.innerHTML = mesCmM();
             }
         }else{
-            mensajeMenorSLados();
+            pResultH.innerHTML = "La medida de la Base debe ser<br>menor a la suma de sus lados";
         }
     }else{
-        mensajeMayorCero();
+        pResultH.innerHTML = mesValH();
     }
 }
 // ------------- altura de triangulo escaleno -------------------------------------------
@@ -364,7 +367,6 @@ function hTriEsc(){
     if(w1Es > 0 && w2Es > 0 && w3Es > 0){
         if(w3Es < numVerEsc){
             if(inputRadioHC.checked || inputRadioHM.checked){
-                medSeleccion();
                 const lado1 = w1Es;
                 const lado2 = w2Es;
                 const base = w3Es;
@@ -378,15 +380,15 @@ function hTriEsc(){
                 winH1.classList.add("resultColor");
                 winH2.classList.add("resultColor");
                 winH3.classList.add("resultColor");
-                pResultH.innerHTML = `Altura = ${formato(result.toFixed(2))} ${medidaH}`;
+                pResultH.innerHTML = `Altura = ${formato(result.toFixed(2))} ${medSeleccion()}`;
             }else{
-                mensajeCmMt();
+                pResultH.innerHTML = mesCmM();
             }
         }else{
-            mensajeMenorSLados();
+            pResultH.innerHTML = "La medida de la Base debe ser<br>menor a la suma de sus lados";
         }
     }else{
-        mensajeMayorCero();
+        pResultH.innerHTML = mesValH();
     }
 }
 // ------------- altura de trapecio -------------------------------------------
@@ -397,7 +399,6 @@ function hTrapecio(){
     if(w1Trap > 0 && w2Trap > 0 && w3Trap > 0){
         if(w2Trap < w3Trap){
             if(inputRadioHC.checked || inputRadioHM.checked){
-                medSeleccion();
                 const lado = w1Trap;
                 const base = w2Trap;
                 const Base = w3Trap;
@@ -408,15 +409,15 @@ function hTrapecio(){
                 winH1.classList.add("resultColor");
                 winH2.classList.add("resultColor");
                 winH3.classList.add("resultColor");
-                pResultH.innerHTML = `Altura = ${formato(result.toFixed(2))} ${medidaH}`;
+                pResultH.innerHTML = `Altura = ${formato(result.toFixed(2))} ${medSeleccion()}`;
             }else{
-                mensajeCmMt();
+                pResultH.innerHTML = mesCmM();
             }
         }else{
-            mensajeTamanoLados();
+            pResultH.innerHTML = "Lado b tiene que ser menor<br>que la base B en el trapecio";
         }
     }else{
-        mensajeMayorCero();
+        pResultH.innerHTML = mesValH();
     }
 }
 // ================================= Constantes =========================================
@@ -467,12 +468,11 @@ const pResultH = document.createElement("p");
 const btnResultH = document.createElement("button");
 const btnClearH = document.createElement("button");
 
-let medidaH;
-
 let btnClearHReg;
 let btnResultHReg;
-
 let pResultHReg;
+// ---- Variable mensajes --------------------------------------------------------------
+let mensAltura;
 
 let rutaFH;
 let rutaFHClear;
