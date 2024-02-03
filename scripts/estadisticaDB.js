@@ -22,7 +22,7 @@ const mediaMedianaObj = {
     titleMM: "Instrucciones",
     imgMM: "../assets/calculadora_media_mediana.png",
 
-    titleMM2: "Media Mediana",
+    titleMM2: "Media y Mediana",
     titleMMSub: "Calculadora",
     inputMM: [
         {
@@ -59,6 +59,51 @@ const modaCalObj = {
     funcionEst: "estModa",
     clearWindowEst: "clearEstOpt",
 };
+const rangoCalObj = {
+    definicion: "on",
+    id: "rango_cal",
+    titleMM: "Instrucciones",
+    imgMM: "../assets/calculadora_rango.png",
+
+    titleMM2: "Rango",
+    titleMMSub: "Calculadora",
+    inputMM: [
+        {
+            outputMessage: "outputMessage",
+            inputId: "textAreaId",
+            inputCl: "textAreaCl"
+        }
+    ],
+    resultEstTam: "resultEstTam",
+    resultEstMax: "resultEstMax",
+    resultEstMin: "resultEstMin",
+    resultEstRango: "resultEstRango",
+    btnClEst: "btnResultEst",
+    btn2ClEst: "btnClearEst",
+    funcionEst: "estRango",
+    clearWindowEst: "clearEstOpt",
+};
+const desviacionMediaCalObj = {
+    definicion: "on",
+    id: "desviación_media_cal",
+    titleMM: "Instrucciones",
+    imgMM: "../assets/calculadora_desviacion_media.png",
+
+    titleMM2: "Desviación Media",
+    titleMMSub: "Calculadora",
+    inputMM: [
+        {
+            outputMessage: "outputMessage",
+            inputId: "textAreaId",
+            inputCl: "textAreaCl"
+        }
+    ],
+    resultEstModa: "resultEstModa",
+    btnClEst: "btnResultEst",
+    btn2ClEst: "btnClearEst",
+    funcionEst: "estDesviacionMedia",
+    clearWindowEst: "clearEstOpt",
+};
 
 // -- Definiciones --
 const mediaObj = {
@@ -88,13 +133,36 @@ const modaObj = {
     imgMM2: "../assets/modaBottom.png",
     titlePorcentaje: "Procedimiento"
 };
+const rangoObj = {
+    definicion: "off",
+    id: "rango",
+    titleMM: "Definición Rango",
+    titleMM2: "Procedimiento",
+    imgMM: "../assets/rangoTop.png",
+    imgMM2: "../assets/rangoBottom.png",
+    titlePorcentaje: "Procedimiento"
+};
+const desviacionmediaObj = {
+    definicion: "off",
+    id: "desviación_media",
+    titleMM: "Definición Desviación Media",
+    titleMM2: "Procedimiento",
+    imgMM: "../assets/desviacionMediaTop.png",
+    imgMM2: "../assets/desviacionMediaBottom.png",
+    titlePorcentaje: "Procedimiento"
+};
 
 estadisticaArray.push(introEstadistica);
 estadisticaArray.push(mediaMedianaObj);
 estadisticaArray.push(modaCalObj);
+estadisticaArray.push(rangoCalObj);
+estadisticaArray.push(desviacionMediaCalObj);
+
 estadisticaArray.push(mediaObj);
 estadisticaArray.push(medianaObj);
 estadisticaArray.push(modaObj);
+estadisticaArray.push(rangoObj);
+estadisticaArray.push(desviacionmediaObj);
 
 
 

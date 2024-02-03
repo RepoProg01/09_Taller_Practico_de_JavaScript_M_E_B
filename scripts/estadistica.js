@@ -67,6 +67,16 @@ function borrar(){
     taResultEstModa.classList.remove("resultEstModaCero");
     taResultEstModa.disabled = "true";
     contSectEstBottom.innerHTML = "";
+    
+    pResultEstTam.innerHTML = "";
+    pResultEstTam.classList.remove(pResultEstTamReg);
+    pResultEstMax.innerHTML = "";
+    pResultEstMax.classList.remove(pResultEstMaxReg);
+    pResultEstMin.innerHTML = "";
+    pResultEstMin.classList.remove(pResultEstMinReg);
+    pResultEstRango.innerHTML = "";
+    pResultEstRango.classList.remove(pResultEstRangoReg);
+
     // ---- Borrado de clases y abilitar botones ----
     btnResultEst.classList.remove(btnResultEstReg);
     btnClearEst.classList.remove(btnClearEstReg);
@@ -80,40 +90,52 @@ function borrar(){
 }
 //--- funciones para deshabilitar ventanas y botones de Area y Perimetro-----------------
 function disableOptions(){
+    winEstVar.disabled = true;
+    winEstVar.classList.add("resultColor");
     if(idFig == "media_y_mediana" || idFig == "moda_cal"){
-        winEstVar.disabled = true;
-        winEstVar.classList.add("resultColor");
-        // labelArea.innerHTML = "";
+        pResultEstMedia.classList.remove("resultColor");
+        pResultEstMediana.classList.remove("resultColor");
+        taResultEstModa.classList.remove("resultColor");
+    }else if(idFig == "rango_cal"){
+        pResultEstTam.classList.remove("resultColor");
+        pResultEstMax.classList.remove("resultColor");
+        pResultEstMin.classList.remove("resultColor");
+        pResultEstRango.classList.remove("resultColor");
     };
     btnResultEst.disabled = true;
     btnResultEst.classList.remove("btnResult");
     btnResultEst.classList.add("btnInactive");
-
-    pResultEstMedia.classList.remove("resultColor");
-    pResultEstMediana.classList.remove("resultColor");
-    taResultEstModa.classList.remove("resultColor");
-
 }
 //--- funciones para limpiar y habilitar radios ventanas y botones ----------------------
 function clearEstOpt(){
-    if(idFig == "media_y_mediana" || idFig == "moda_cal" ){
-        winEstVar.disabled = false;
-        winEstVar.value = "";
-        winEstVar.classList.remove("resultColor");
+    winEstVar.disabled = false;
+    winEstVar.value = "";
+    winEstVar.classList.remove("resultColor");
+    habilitarIntercambiar();
+    labelArea.innerHTML = "";
 
-        habilitarIntercambiar();
-        labelArea.innerHTML = "";
+    if(idFig == "media_y_mediana" || idFig == "moda_cal"){
         mensajeInsertarValores();
         pResultEstMedia.innerHTML = ""; 
         pResultEstMediana.innerHTML = ""; 
         taResultEstModa.value = ""; 
-
         pResultEstMedia.classList.add("resultColor");
         pResultEstMediana.classList.add("resultColor");
         taResultEstModa.classList.add("resultColor");
+    }
+    else if(idFig == "rango_cal"){
+        mensajeInsertarValoresA();
+        pResultEstTam.innerHTML = "";
+        pResultEstMax.innerHTML = "";
+        pResultEstMin.innerHTML = "";
+        pResultEstRango.innerHTML = ""; 
+        pResultEstTam.classList.add("resultColor");
+        pResultEstMax.classList.add("resultColor");
+        pResultEstMin.classList.add("resultColor");
+        pResultEstRango.classList.add("resultColor");
+    }
+    pTitlesEstadistica.classList.remove("titleImg");
 
-        pTitlesEstadistica.classList.remove("titleImg");
-    };
 };
 
 function habilitarIntercambiar(){
@@ -128,6 +150,9 @@ function asignacionesWindows(){
     }
     else if(idFig == "moda_cal"){
         winEstVar = document.querySelector("#textAreaId");
+    }
+    else if(idFig == "rango_cal"){
+        winEstVar = document.querySelector("#textAreaId");
     };
 };
 //----Funciones seleccion y vaciado medida-----------------------------------------------
@@ -139,6 +164,9 @@ function medSeleccion() {
     };
 };
 //----Funciones mensajes-----------------------------------------------------------------
+function mensajeInsertarValoresA(){
+    labelArea.innerHTML = "Introduce cantidades separadas por una coma ( , ) y sin espacios";
+};
 function mensajeInsertarValores(){
     labelArea.innerHTML = "Introduce valores a comparar separados por una coma ( , ) y sin espacios";
 };
@@ -153,6 +181,9 @@ function mensajeSinDuplicados(){
 };
 function mensajeResultadoExitoso(){
     labelArea.innerHTML = "Calculación de Media y Mediana con éxito";
+};
+function mensajeResultadoExitosoA(){
+    labelArea.innerHTML = "Calculación de Rango con éxito";
 };
 function mensajeResultadoExitosoModa(){
     labelArea.innerHTML = "Calculación de Moda con éxito";
@@ -261,7 +292,7 @@ function renderFigura(objeto){
             contSectEstBottom.classList.add("contSectEstBottom");
             contSectEstBottom.append(contPResultEstMedia, contPResultEstMediana);
             mensajeInsertarValores();
-        }
+        };
         // ----Top middle------------------------------------------------------------------------   
         if(objeto.id == "moda_cal"){
             sectionEstmiddle.classList.add("sectionEstmiddle");
@@ -284,9 +315,84 @@ function renderFigura(objeto){
             contSectEstBottom.classList.add("contSectEstBottom");
             contSectEstBottom.append(contPResultEstModa);
             mensajeInsertarValores();
-        }
-       
+        };
+        // ----Top middle------------------------------------------------------------------------   
+        if(objeto.id == "rango_cal"){
+            sectionEstmiddle.classList.add("sectionEstmiddle");
+            objeto.inputMM.forEach(winInput => {
+                const divEntryWin = document.createElement("div");
+                divEntryWin.classList.add("EntryWin");
+                labelArea.classList.add(winInput.outputMessage);
+                textarea.setAttribute("id", winInput.inputId);
+                textarea.classList.add(winInput.inputCl);
+                divEntryWin.append(labelArea, textarea);
+                sectionEstmiddle.append(divEntryWin);
+            });
+            titleResultEstTam.innerHTML = "Tamaño";
+            titleResultEstTam.classList.add("titleResults");
+            pResultEstTamReg = objeto.resultEstTam;
+            pResultEstTam.classList.add("winStyle", "resultColor", pResultEstTamReg);
+            contPResultEstTam.classList.add("contPResultA");
+            contPResultEstTam.append(titleResultEstTam, pResultEstTam);
+        
+            titleResultEstMax.innerHTML = "Máxima";
+            titleResultEstMax.classList.add("titleResults");
+            pResultEstMaxReg = objeto.resultEstMax;
+            pResultEstMax.classList.add("winStyle", "resultColor", pResultEstMaxReg);
+            contPResultEstMax.classList.add("contPResultA");
+            contPResultEstMax.append(titleResultEstMax, pResultEstMax);
+        
+            titleResultEstMin.innerHTML = "Mínima";
+            titleResultEstMin.classList.add("titleResults");
+            pResultEstMinReg = objeto.resultEstMin;
+            pResultEstMin.classList.add("winStyle", "resultColor", pResultEstMinReg);
+            contPResultEstMin.classList.add("contPResultA");
+            contPResultEstMin.append(titleResultEstMin, pResultEstMin);
 
+            titleResultEstRango.innerHTML = "Rango";
+            titleResultEstRango.classList.add("titleResults");
+            pResultEstRangoReg = objeto.resultEstRango;
+            pResultEstRango.classList.add("winStyle", "resultColor", pResultEstRangoReg);
+            contPResultEstRango.classList.add("contPResult");
+            contPResultEstRango.append(titleResultEstRango, pResultEstRango);
+
+            contSectEstBottomA.classList.add("contSectEstBottomA");
+            contSectEstBottomA.append(contPResultEstTam, contPResultEstMax, contPResultEstMin)
+            
+            contSectEstBottom.classList.add("contSectEstBottom");
+            contSectEstBottom.append(contSectEstBottomA, contPResultEstRango);
+            mensajeInsertarValoresA();
+        };
+        // ----Top middle------------------------------------------------------------------------   
+        if(objeto.id == "desviación_media_cal"){
+            sectionEstmiddle.classList.add("sectionEstmiddle");
+            objeto.inputMM.forEach(winInput => {
+                const divEntryWin = document.createElement("div");
+                divEntryWin.classList.add("EntryWin");
+                labelArea.classList.add(winInput.outputMessage);
+                textarea.setAttribute("id", winInput.inputId);
+                textarea.classList.add(winInput.inputCl);
+                divEntryWin.append(labelArea, textarea);
+                sectionEstmiddle.append(divEntryWin);
+            });
+            titleResultEstMedia.innerHTML = "Media";
+            titleResultEstMedia.classList.add("titleResults");
+            pResultEstMediaReg = objeto.resultEstMedia
+            pResultEstMedia.classList.add("winStyle", "resultColor", pResultEstMediaReg);
+            contPResultEstMedia.classList.add("contPResult");
+            contPResultEstMedia.append(titleResultEstMedia, pResultEstMedia);
+        
+            titleResultEstMediana.innerHTML = "Mediana";
+            titleResultEstMediana.classList.add("titleResults");
+            pResultEstMedianaReg = objeto.resultEstMediana
+            pResultEstMediana.classList.add("winStyle", "resultColor", pResultEstMedianaReg);
+            contPResultEstMediana.classList.add("contPResult");
+            contPResultEstMediana.append(titleResultEstMediana, pResultEstMediana);
+
+            contSectEstBottom.classList.add("contSectEstBottom");
+            contSectEstBottom.append(contPResultEstMedia, contPResultEstMediana);
+            mensajeInsertarValores();
+        };
         btnClearEstReg = objeto.btn2ClEst;
         btnClearEst.classList.add("btnClear", btnClearEstReg);
         btnClearEst.innerHTML = "Borrar";
@@ -373,6 +479,17 @@ function moda(arrayNumber){
         mensajeResultadoExitosoModa();
     }
 };
+function rango(arrayNumber){
+    arrayNumber.sort((a,b) => b - a);
+    const tam = arrayNumber.length;
+    const max = Number(arrayNumber[0]);
+    const min = Number(arrayNumber[(tam - 1)]);
+    const resRango = max - min
+    pResultEstTam.innerHTML = tam;
+    pResultEstMax.innerHTML = max;
+    pResultEstMin.innerHTML = min;
+    pResultEstRango.innerHTML = resRango;
+}
 //--- ---
 function estMediaMediana(){
     // --- Expresion regular solo numeros puntos y comas son aceptados ---
@@ -400,6 +517,43 @@ function estMediaMediana(){
     }
 };
 function estModa(){
+    if(!(textarea.value == "")){
+        // --- Expresion regular solo numeros puntos y comas son aceptados ---
+        var regex = /^[^,\s]+(?:,[^,\s]+)*$/;
+        if(regex.test(textarea.value)){
+            // --- Obteniendo datos de ventana de entrada como un solo strig ---
+            const infoWinModa = textarea.value;
+            // --- Separando cada valor del string y poniendolo en un array ---
+            const arrayString = infoWinModa.split(",");
+            moda(arrayString);
+            disableOptions();
+        }else{
+            mensajeSoloCarac();
+        };
+    }else{
+        mensajeInsertarValores();
+    }
+};
+function estRango(){
+    if(!(textarea.value == "")){
+        // --- Expresion regular solo numeros puntos y comas son aceptados ---
+        var regex = /^[0-9]+(?:\.[0-9]+)?(?:,[0-9]+(?:\.[0-9]+)?)*$/;
+        if(regex.test(textarea.value)){
+            // --- Obteniendo datos de ventana de entrada como un solo strig ---
+            const infoWinModa = textarea.value;
+            // --- Separando cada valor del string y poniendolo en un array ---
+            const arrayString = infoWinModa.split(",");
+            rango(arrayString);
+            disableOptions();
+            mensajeResultadoExitosoA();
+        }else{
+            mensajeSoloNum();
+        };
+    }else{
+        mensajeInsertarValoresA();
+    }
+};
+function estDesviacionMedia(){
     if(!(textarea.value == "")){
         // --- Expresion regular solo numeros puntos y comas son aceptados ---
         var regex = /^[^,\s]+(?:,[^,\s]+)*$/;
@@ -458,18 +612,37 @@ const sectionEstmiddle = document.createElement("section");
 // -------------------------------- sectionEstbottom ---------------------------------------
 const sectionEstbottom = document.createElement("section");
 const contSectEstBottom = document.createElement("div");
+const contSectEstBottomA = document.createElement("div");
 
 const contPResultEstMedia = document.createElement("div");
 const contPResultEstMediana = document.createElement("div");
 const contPResultEstModa = document.createElement("div");
+const contPResultEstTam = document.createElement("div");
+const contPResultEstMax = document.createElement("div");
+const contPResultEstMin = document.createElement("div");
+const contPResultEstRango = document.createElement("div");
 
 const titleResultEstMedia = document.createElement("p");
 const titleResultEstMediana = document.createElement("p");
 const titleResultEstModa = document.createElement("p");
 
+const titleResultEstTam = document.createElement("p");
+const titleResultEstMax = document.createElement("p");
+const titleResultEstMin = document.createElement("p");
+
+const titleResultEstRango = document.createElement("p");
+const titleResultEstDesviacionMedia = document.createElement("p");
+
 const pResultEstMedia = document.createElement("p");
 const pResultEstMediana = document.createElement("p");
 const taResultEstModa = document.createElement("textarea");
+
+const pResultEstTam = document.createElement("p");
+const pResultEstMax = document.createElement("p");
+const pResultEstMin = document.createElement("p");
+const pResultEstRango = document.createElement("p");
+const pResultEstDesviacionMedia = document.createElement("p");
+
 
 const btnResultEst = document.createElement("button");
 const btnClearEst = document.createElement("button");
@@ -484,6 +657,11 @@ let btnResultEstReg;
 
 let pResultEstMediaReg;
 let pResultEstMedianaReg;
+let pResultEstRangoReg;
+let pResultEstMinReg;
+let pResultEstMaxReg;
+let pResultEstTamReg;
+
 let taResultEstModaReg;
 
 let rutaFEst;

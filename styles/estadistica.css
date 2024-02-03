@@ -302,7 +302,13 @@ span {
 .contSectEstBottom{
     display: flex;
     justify-content: center;
-    margin-bottom: 10px;
+    margin: 10px 0px;
+}
+.contSectEstBottomA{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
 }
 .contPResult{
     display: flex;
@@ -310,9 +316,16 @@ span {
     align-items: center;
     margin: 0px 10px;
 }
+.contPResultA{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* margin: 5px 5px; */
+}
+.contPResultA p,
 .contPResult p{
     margin: 0px;
-    padding: 5px 0px;
+    padding: 5px 5px;
 }
 .titleResults{
     font-size: 18px;
@@ -326,9 +339,25 @@ span {
     font-weight: 700;
     font-size: 16px;
 }
+.resultEstTam,
+.resultEstMax,
+.resultEstMin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 20px;
+}
+.resultEstRango{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 40px;
+}
 .resultEstMedia,
 .resultEstMediana {
-    width: 140px;
+    width: 125px;
     height: 40px;
 }
 .resultEstModa {
@@ -397,10 +426,11 @@ textarea{
     margin: 0px 0px 5px 0px;
     padding: 8px 8px 8px 8px ;
     width: 282px;
-    height: 55px;
+    height: 25px;
     border-radius: 5px;
     border: 1px solid var(--naranja);
 }
+
 .disableMode{
     background-color: var(--blue);
     color: var(--white);
