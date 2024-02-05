@@ -566,7 +566,7 @@ function estRango(){
 function estDesviacionMedia(){
     if(!(textarea.value == "")){
         // --- Expresion regular solo numeros puntos y comas son aceptados ---
-        var regex = /^[^,\s]+(?:,[^,\s]+)*$/;
+        var regex = /^[0-9]+(?:\.[0-9]+)?(?:,[0-9]+(?:\.[0-9]+)?)*$/;
         if(regex.test(textarea.value)){
             // --- Obteniendo datos de ventana de entrada como un solo strig ---
             const infoWinModa = textarea.value;
