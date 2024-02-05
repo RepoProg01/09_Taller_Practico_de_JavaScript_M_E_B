@@ -298,3 +298,16 @@ const match2 = "123-456".match(regex2);
 console.log(match2); // Devuelve ["123-456", "456"]
 ```
 ### En el segundo ejemplo, el grupo de no captura (?:\d+) coincide con uno o más dígitos, pero no almacena la coincidencia en una referencia de grupo. El segundo grupo (\d+) sigue almacenando la coincidencia en una referencia de grupo. Esto puede ser útil cuando no necesitas recuperar la coincidencia de un subpatrón específico, pero aún necesitas agrupar parte de la expresión regular.
+
+## Función Math.abs(...)
+
+### La función abs pertenece a la clase Math de JavaScript. Recibe como parámetro un número y devuelve ese mismo número en valor absoluto.
+
+```javascript
+// Valor absoluto del número -45
+var absoluto1 = Math.abs(-45)
+// absoluto1 vale 45
+// Valor absoluto del número 100
+var absoluto2 = Math.abs(100);
+// absoluto2 vale 100
+```

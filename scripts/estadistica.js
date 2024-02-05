@@ -160,10 +160,10 @@ function asignacionesWindows(){
 };
 //----Funciones mensajes-----------------------------------------------------------------
 function mensajeInsertarValores(){
-    labelArea.innerHTML = "Introduce valores numéricos separados<br>por una coma ( , ) y sin espacios";
+    labelArea.innerHTML = "Introduce números separados<br>por una coma ( , ) y sin espacios";
 };
 function mensajeSoloNum(){
-    labelArea.innerHTML = "Solo valores numéricos separados por<br>comas y sin espacios son permitidos";
+    labelArea.innerHTML = "Solo números separados por<br>comas y sin espacios son permitidos";
 };
 function mensajeInsertarValoresM(){
     labelArea.innerHTML = "Introduce caracteres separados<br>por una coma ( , ) y sin espacios";
@@ -600,8 +600,6 @@ const defImg = document.createElement("img");
 const sectionDmiddle = document.createElement("div");
 const defEstadisticaTitulo = document.createElement("p");
 const defEstadistica = document.createElement("p");
-const defMediaTitulo = document.createElement("p");
-const defMedia = document.createElement("p");
 // --------------------------------- sectionDbottom -------------------------------------
 const sectionDbottom = document.createElement("div");
 const defCategoriaTitulo = document.createElement("p");

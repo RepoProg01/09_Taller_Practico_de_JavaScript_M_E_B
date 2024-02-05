@@ -1,5 +1,4 @@
 const estadisticaArray = [];
-
 // -- Introduccion --
 const introEstadistica = {
     defImg: "../assets/estadistica_img.svg",
@@ -119,7 +118,6 @@ const desviacionMediaCalObj = {
     funcionEst: "estDesviacionMedia",
     clearWindowEst: "clearEstOpt",
 };
-
 // -- Definiciones --
 const mediaObj = {
     definicion: "off",
@@ -166,13 +164,13 @@ const desviacionmediaObj = {
     imgMM2: "../assets/desviacionMediaBottom.png",
     titlePorcentaje: "Procedimiento"
 };
-
+// --- Calculadoras ---
 estadisticaArray.push(introEstadistica);
 estadisticaArray.push(mediaMedianaObj);
 estadisticaArray.push(modaCalObj);
 estadisticaArray.push(rangoCalObj);
 estadisticaArray.push(desviacionMediaCalObj);
-
+// --- Definiciones ---
 estadisticaArray.push(mediaObj);
 estadisticaArray.push(medianaObj);
 estadisticaArray.push(modaObj);
