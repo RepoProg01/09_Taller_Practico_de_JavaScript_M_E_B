@@ -46,37 +46,15 @@ function selecFnc(event){
 }
 //----Funciones de borrado, activacion y desactivacion de bentanas y radios--------------
 function borrar(){
-    // ---- Limpieza de valor de medida ----
-    medidaH = null;
-    // ----  ----
+    // ---- Limpieza de valor de sectionEstmiddle ----
     sectionEstmiddle.innerHTML = "";
     labelArea.innerHTML = "";
     textarea.value = "";
     textarea.disabled = false;
     textarea.classList.remove("resultColor");
-    // ---- Limpieza de Ventanas de mensajes y borrado de clase ----
-    pResultEstMedia.innerHTML = "";
-    pResultEstMedia.classList.remove(pResultEstMediaReg);
 
-    pResultEstMediana.innerHTML = "";
-    pResultEstMediana.classList.remove(pResultEstMedianaReg);
-
-    taResultEstModa.value = "";
-    taResultEstModa.classList.remove(taResultEstModaReg);
-
-    taResultEstModa.classList.remove("resultEstModaCero");
-    taResultEstModa.disabled = "true";
     contSectEstBottom.innerHTML = "";
-    
-    pResultEstTam.innerHTML = "";
-    pResultEstTam.classList.remove(pResultEstTamReg);
-    pResultEstMax.innerHTML = "";
-    pResultEstMax.classList.remove(pResultEstMaxReg);
-    pResultEstMin.innerHTML = "";
-    pResultEstMin.classList.remove(pResultEstMinReg);
-    pResultEstRango.innerHTML = "";
-    pResultEstRango.classList.remove(pResultEstRangoReg);
-
+    EstBottomA.innerHTML = "";
     // ---- Borrado de clases y abilitar botones ----
     btnResultEst.classList.remove(btnResultEstReg);
     btnClearEst.classList.remove(btnClearEstReg);
@@ -85,22 +63,27 @@ function borrar(){
     // ----  ----
     containerEstadistica.innerHTML = "";
     divCalculadora.innerHTML = "";
-
+    //---- ----
     pTitlesEstadistica.classList.remove("titleImg");
 }
 //--- funciones para deshabilitar ventanas y botones de Area y Perimetro-----------------
 function disableOptions(){
     winEstVar.disabled = true;
     winEstVar.classList.add("resultColor");
-    if(idFig == "media_y_mediana" || idFig == "moda_cal"){
+    if(idFig == "media_y_mediana"){
         pResultEstMedia.classList.remove("resultColor");
         pResultEstMediana.classList.remove("resultColor");
+    }else if(idFig == "moda_cal"){
         taResultEstModa.classList.remove("resultColor");
     }else if(idFig == "rango_cal"){
         pResultEstTam.classList.remove("resultColor");
         pResultEstMax.classList.remove("resultColor");
         pResultEstMin.classList.remove("resultColor");
         pResultEstRango.classList.remove("resultColor");
+    }else if(idFig == "desviación_media_cal"){
+        pResultEstTamDM.classList.remove("resultColor");
+        pResultEstMedDM.classList.remove("resultColor");
+        pResultEstDM.classList.remove("resultColor");
     };
     btnResultEst.disabled = true;
     btnResultEst.classList.remove("btnResult");
@@ -114,17 +97,20 @@ function clearEstOpt(){
     habilitarIntercambiar();
     labelArea.innerHTML = "";
 
-    if(idFig == "media_y_mediana" || idFig == "moda_cal"){
+    if(idFig == "media_y_mediana"){
         mensajeInsertarValores();
         pResultEstMedia.innerHTML = ""; 
         pResultEstMediana.innerHTML = ""; 
-        taResultEstModa.value = ""; 
         pResultEstMedia.classList.add("resultColor");
         pResultEstMediana.classList.add("resultColor");
+    }
+    else if(idFig == "moda_cal"){
+        mensajeInsertarValoresM();
+        taResultEstModa.value = ""; 
         taResultEstModa.classList.add("resultColor");
     }
     else if(idFig == "rango_cal"){
-        mensajeInsertarValoresA();
+        mensajeInsertarValores();
         pResultEstTam.innerHTML = "";
         pResultEstMax.innerHTML = "";
         pResultEstMin.innerHTML = "";
@@ -134,10 +120,17 @@ function clearEstOpt(){
         pResultEstMin.classList.add("resultColor");
         pResultEstRango.classList.add("resultColor");
     }
+    else if(idFig == "desviación_media_cal"){
+        mensajeInsertarValores();
+        pResultEstTamDM.innerHTML = "";
+        pResultEstMedDM.innerHTML = "";
+        pResultEstDM.innerHTML = "";
+        pResultEstTamDM.classList.add("resultColor");
+        pResultEstMedDM.classList.add("resultColor");
+        pResultEstDM.classList.add("resultColor");
+    }
     pTitlesEstadistica.classList.remove("titleImg");
-
 };
-
 function habilitarIntercambiar(){
     btnResultEst.disabled = false;
     btnResultEst.classList.remove("btnInactive");
@@ -145,48 +138,53 @@ function habilitarIntercambiar(){
 };
 //----Funcion asignaciones --------------------------------------------------------------
 function asignacionesWindows(){
+    winEstVar = document.querySelector("#textAreaId");
     if(idFig == "media_y_mediana"){
-        winEstVar = document.querySelector("#textAreaId");
+        pResultEstMedia = document.querySelector(".resultEstMedia");
+        pResultEstMediana = document.querySelector(".resultEstMediana");
     }
     else if(idFig == "moda_cal"){
-        winEstVar = document.querySelector("#textAreaId");
+        taResultEstModa = document.querySelector(".resultEstModa");
     }
     else if(idFig == "rango_cal"){
-        winEstVar = document.querySelector("#textAreaId");
-    };
-};
-//----Funciones seleccion y vaciado medida-----------------------------------------------
-function medSeleccion() {
-    if(inputRadioHC.checked) {
-        medidaH = "cm";
-    }else if(inputRadioHM.checked) {
-        medidaH = "m";
+        pResultEstTam = document.querySelector(".resultEstTam");
+        pResultEstMax = document.querySelector(".resultEstMax");
+        pResultEstMin = document.querySelector(".resultEstMin");
+        pResultEstRango = document.querySelector(".resultEstRango");
+    }
+    else if(idFig == "desviación_media_cal"){
+        pResultEstTamDM = document.querySelector(".resultEstTamDM");
+        pResultEstMedDM = document.querySelector(".resultEstMedDM");
+        pResultEstDM = document.querySelector(".resultEstDM");
     };
 };
 //----Funciones mensajes-----------------------------------------------------------------
-function mensajeInsertarValoresA(){
-    labelArea.innerHTML = "Introduce cantidades separadas por una coma ( , ) y sin espacios";
-};
 function mensajeInsertarValores(){
-    labelArea.innerHTML = "Introduce valores a comparar separados por una coma ( , ) y sin espacios";
+    labelArea.innerHTML = "Introduce valores numéricos separados<br>por una coma ( , ) y sin espacios";
 };
 function mensajeSoloNum(){
-    labelArea.innerHTML = "Solo valores enteros decimales separados por comas y sin espacios son permitidos";
+    labelArea.innerHTML = "Solo valores numéricos separados por<br>comas y sin espacios son permitidos";
+};
+function mensajeInsertarValoresM(){
+    labelArea.innerHTML = "Introduce caracteres separados<br>por una coma ( , ) y sin espacios";
 };
 function mensajeSoloCarac(){
-    labelArea.innerHTML = "El orden debe ser elememto o caracter separado por comas y sin espacios";
+    labelArea.innerHTML = "El orden debe ser caracter separado<br>por una coma y sin espacios";
 };
 function mensajeSinDuplicados(){
-    labelArea.innerHTML = "No existe Moda ya que no se encontraron Duplicados";
+    labelArea.innerHTML = "No existe Moda ya que no se<br>encontraron Duplicados";
 };
-function mensajeResultadoExitoso(){
-    labelArea.innerHTML = "Calculación de Media y Mediana con éxito";
+function mensajeResultadoExitosoMM(){
+    labelArea.innerHTML = "Calculación de Media y Mediana<br>con éxito";
 };
-function mensajeResultadoExitosoA(){
-    labelArea.innerHTML = "Calculación de Rango con éxito";
+function mensajeResultadoExitosoRango(){
+    labelArea.innerHTML = "Calculación de Rango<br>con éxito";
+};
+function mensajeResultadoExitosoDm(){
+    labelArea.innerHTML = "Calculación de Desviacion Media<br>con éxito";
 };
 function mensajeResultadoExitosoModa(){
-    labelArea.innerHTML = "Calculación de Moda con éxito";
+    labelArea.innerHTML = "Calculación de Moda<br>con éxito";
 };
 //----Funcion formato-------------------------------------------------
 const formato = (number) => {
@@ -248,7 +246,6 @@ function renderFigura(objeto){
     titleMM.innerHTML = objeto.titleMM;
     instrMMImg.appendChild(imgMM);
     imgMM.setAttribute("src", objeto.imgMM);
-
     // -- Bottom Container --
     containerResponsive.appendChild(containerEstCal);
     containerEstCal.classList.add("containerEstCal");
@@ -264,133 +261,103 @@ function renderFigura(objeto){
         sectionEsttop.classList.add("sectionEsttop");
         sectionEsttop.append(pTitlesEstadistica, pEstadistica);
         // ----Top middle------------------------------------------------------------------------   
-        if(objeto.id == "media_y_mediana"){
-            sectionEstmiddle.classList.add("sectionEstmiddle");
-            objeto.inputMM.forEach(winInput => {
-                const divEntryWin = document.createElement("div");
-                divEntryWin.classList.add("EntryWin");
-                labelArea.classList.add(winInput.outputMessage);
-                textarea.setAttribute("id", winInput.inputId);
-                textarea.classList.add(winInput.inputCl);
-                divEntryWin.append(labelArea, textarea);
-                sectionEstmiddle.append(divEntryWin);
-            });
-            titleResultEstMedia.innerHTML = "Media";
-            titleResultEstMedia.classList.add("titleResults");
-            pResultEstMediaReg = objeto.resultEstMedia
-            pResultEstMedia.classList.add("winStyle", "resultColor", pResultEstMediaReg);
-            contPResultEstMedia.classList.add("contPResult");
-            contPResultEstMedia.append(titleResultEstMedia, pResultEstMedia);
-        
-            titleResultEstMediana.innerHTML = "Mediana";
-            titleResultEstMediana.classList.add("titleResults");
-            pResultEstMedianaReg = objeto.resultEstMediana
-            pResultEstMediana.classList.add("winStyle", "resultColor", pResultEstMedianaReg);
-            contPResultEstMediana.classList.add("contPResult");
-            contPResultEstMediana.append(titleResultEstMediana, pResultEstMediana);
+        sectionEstmiddle.classList.add("sectionEstmiddle");
+        divEntryWin.classList.add("EntryWin");
+        labelArea.classList.add("outputMessage");
+        textarea.setAttribute("id", "textAreaId");
+        textarea.classList.add("textAreaCl");
+        divEntryWin.append(labelArea, textarea);
+        sectionEstmiddle.append(divEntryWin);
 
-            contSectEstBottom.classList.add("contSectEstBottom");
-            contSectEstBottom.append(contPResultEstMedia, contPResultEstMediana);
+        contSectEstBottom.classList.add("contSectEstBottom");
+         
+        if(objeto.id == "media_y_mediana"){
+            objeto.windowMM.forEach(winExit =>{
+                const titlePMM = document.createElement("p");
+                titlePMM.innerHTML = winExit.titleW;
+                titlePMM.classList.add("titleResults");
+                const pResultReg = winExit.resultEst;
+                const pResultMM = document.createElement("p");
+                pResultMM.classList.add("winStyle", "resultColor", pResultReg);
+                const containerMM = document.createElement("div");
+                containerMM.classList.add("contPResult");
+                containerMM.append(titlePMM, pResultMM);
+                contSectEstBottom.append(containerMM);
+            });
             mensajeInsertarValores();
         };
         // ----Top middle------------------------------------------------------------------------   
         if(objeto.id == "moda_cal"){
-            sectionEstmiddle.classList.add("sectionEstmiddle");
-            objeto.inputMM.forEach(winInput => {
-                const divEntryWin = document.createElement("div");
-                divEntryWin.classList.add("EntryWin");
-                labelArea.classList.add(winInput.outputMessage);
-                textarea.setAttribute("id", winInput.inputId);
-                textarea.classList.add(winInput.inputCl);
-                divEntryWin.append(labelArea, textarea);
-                sectionEstmiddle.append(divEntryWin);
+            objeto.windowMod.forEach(winExit =>{
+                const titlePMod = document.createElement("p");
+                titlePMod.innerHTML = winExit.titleW;
+                titlePMod.classList.add("titleResults");
+                const pResultReg = winExit.resultEst;
+                const taResultMod = document.createElement("textarea");
+                taResultMod.classList.add("winStyle", "resultColor", pResultReg);
+                const containerMod = document.createElement("div");
+                containerMod.classList.add("contPResult");
+                containerMod.append(titlePMod, taResultMod);
+                contSectEstBottom.append(containerMod);
             });
-            titleResultEstModa.innerHTML = "Moda";
-            titleResultEstModa.classList.add("titleResults");
-            taResultEstModaReg = objeto.resultEstModa
-            taResultEstModa.classList.add("winStyle", "resultColor", taResultEstModaReg);
-            contPResultEstModa.classList.add("contPResult");
-            contPResultEstModa.append(titleResultEstModa, taResultEstModa);
-        
-            contSectEstBottom.classList.add("contSectEstBottom");
-            contSectEstBottom.append(contPResultEstModa);
-            mensajeInsertarValores();
+            mensajeInsertarValoresM();
         };
         // ----Top middle------------------------------------------------------------------------   
         if(objeto.id == "rango_cal"){
-            sectionEstmiddle.classList.add("sectionEstmiddle");
-            objeto.inputMM.forEach(winInput => {
-                const divEntryWin = document.createElement("div");
-                divEntryWin.classList.add("EntryWin");
-                labelArea.classList.add(winInput.outputMessage);
-                textarea.setAttribute("id", winInput.inputId);
-                textarea.classList.add(winInput.inputCl);
-                divEntryWin.append(labelArea, textarea);
-                sectionEstmiddle.append(divEntryWin);
+            EstBottomA.classList.add("EstBottomA");
+            objeto.windowI.forEach(winExit =>{
+                const titlePR = document.createElement("p");
+                titlePR.innerHTML = winExit.titleW;
+                titlePR.classList.add("titleResults");
+                const pResultReg = winExit.resultEst;
+                const pResultR = document.createElement("p");
+                pResultR.classList.add("winStyle", "resultColor", pResultReg);
+                const containerR = document.createElement("div");
+                containerR.classList.add("contPResultA");
+                containerR.append(titlePR, pResultR);
+                EstBottomA.append(containerR);
             });
-            titleResultEstTam.innerHTML = "Tamaño";
-            titleResultEstTam.classList.add("titleResults");
-            pResultEstTamReg = objeto.resultEstTam;
-            pResultEstTam.classList.add("winStyle", "resultColor", pResultEstTamReg);
-            contPResultEstTam.classList.add("contPResultA");
-            contPResultEstTam.append(titleResultEstTam, pResultEstTam);
-        
-            titleResultEstMax.innerHTML = "Máxima";
-            titleResultEstMax.classList.add("titleResults");
-            pResultEstMaxReg = objeto.resultEstMax;
-            pResultEstMax.classList.add("winStyle", "resultColor", pResultEstMaxReg);
-            contPResultEstMax.classList.add("contPResultA");
-            contPResultEstMax.append(titleResultEstMax, pResultEstMax);
-        
-            titleResultEstMin.innerHTML = "Mínima";
-            titleResultEstMin.classList.add("titleResults");
-            pResultEstMinReg = objeto.resultEstMin;
-            pResultEstMin.classList.add("winStyle", "resultColor", pResultEstMinReg);
-            contPResultEstMin.classList.add("contPResultA");
-            contPResultEstMin.append(titleResultEstMin, pResultEstMin);
-
-            titleResultEstRango.innerHTML = "Rango";
-            titleResultEstRango.classList.add("titleResults");
-            pResultEstRangoReg = objeto.resultEstRango;
-            pResultEstRango.classList.add("winStyle", "resultColor", pResultEstRangoReg);
-            contPResultEstRango.classList.add("contPResult");
-            contPResultEstRango.append(titleResultEstRango, pResultEstRango);
-
-            contSectEstBottomA.classList.add("contSectEstBottomA");
-            contSectEstBottomA.append(contPResultEstTam, contPResultEstMax, contPResultEstMin)
-            
-            contSectEstBottom.classList.add("contSectEstBottom");
-            contSectEstBottom.append(contSectEstBottomA, contPResultEstRango);
-            mensajeInsertarValoresA();
+            objeto.windowR.forEach(winExit =>{
+                const titlePR = document.createElement("p");
+                titlePR.innerHTML = winExit.titleW;
+                titlePR.classList.add("titleResults");
+                const pResultReg = winExit.resultEst;
+                const pResultR = document.createElement("p");
+                pResultR.classList.add("winStyle", "resultColor", pResultReg);
+                const containerR = document.createElement("div");
+                containerR.classList.add("contPResult");
+                containerR.append(titlePR, pResultR);
+                contSectEstBottom.append(EstBottomA, containerR);
+            });
+                 mensajeInsertarValores();
         };
         // ----Top middle------------------------------------------------------------------------   
         if(objeto.id == "desviación_media_cal"){
-            sectionEstmiddle.classList.add("sectionEstmiddle");
-            objeto.inputMM.forEach(winInput => {
-                const divEntryWin = document.createElement("div");
-                divEntryWin.classList.add("EntryWin");
-                labelArea.classList.add(winInput.outputMessage);
-                textarea.setAttribute("id", winInput.inputId);
-                textarea.classList.add(winInput.inputCl);
-                divEntryWin.append(labelArea, textarea);
-                sectionEstmiddle.append(divEntryWin);
+            EstBottomA.classList.add("EstBottomA");
+            objeto.windowI.forEach(winExit =>{
+                const titlePDM = document.createElement("p");
+                titlePDM.innerHTML = winExit.titleW;
+                titlePDM.classList.add("titleResults");
+                const pResultReg = winExit.resultEst;
+                const pResultDM = document.createElement("p");
+                pResultDM.classList.add("winStyle", "resultColor", pResultReg);
+                const containerDM = document.createElement("div");
+                containerDM.classList.add("contPResultA");
+                containerDM.append(titlePDM, pResultDM);
+                EstBottomA.append(containerDM);
             });
-            titleResultEstMedia.innerHTML = "Media";
-            titleResultEstMedia.classList.add("titleResults");
-            pResultEstMediaReg = objeto.resultEstMedia
-            pResultEstMedia.classList.add("winStyle", "resultColor", pResultEstMediaReg);
-            contPResultEstMedia.classList.add("contPResult");
-            contPResultEstMedia.append(titleResultEstMedia, pResultEstMedia);
-        
-            titleResultEstMediana.innerHTML = "Mediana";
-            titleResultEstMediana.classList.add("titleResults");
-            pResultEstMedianaReg = objeto.resultEstMediana
-            pResultEstMediana.classList.add("winStyle", "resultColor", pResultEstMedianaReg);
-            contPResultEstMediana.classList.add("contPResult");
-            contPResultEstMediana.append(titleResultEstMediana, pResultEstMediana);
-
-            contSectEstBottom.classList.add("contSectEstBottom");
-            contSectEstBottom.append(contPResultEstMedia, contPResultEstMediana);
+            objeto.windowR.forEach(winExit =>{
+                const titlePDM = document.createElement("p");
+                titlePDM.innerHTML = winExit.titleW;
+                titlePDM.classList.add("titleResults");
+                const pResultReg = winExit.resultEst;
+                const pResultDM = document.createElement("p");
+                pResultDM.classList.add("winStyle", "resultColor", pResultReg);
+                const containerDM = document.createElement("div");
+                containerDM.classList.add("contPResult");
+                containerDM.append(titlePDM, pResultDM);
+                contSectEstBottom.append(EstBottomA, containerDM);
+            });
             mensajeInsertarValores();
         };
         btnClearEstReg = objeto.btn2ClEst;
@@ -428,16 +395,25 @@ function renderFigura(objeto){
 };
 // ------------------------ Operaciones -----------------------------------------------------
 // ------------- Estadistica Media Mediana Moda ------------------------------------------
-// --- funciones de operaciones ---
+// --- funciones de operaciones logicas ---
 function promedio(arrayNumber){
-    const suma = arrayNumber.reduce((add,num) => add+=num);
-    const cantidad = arrayNumber.length;
+    // --- Creando un nuevo array cambiando los strings a numbers ---
+    const arrayNum = [];
+    arrayNumber.forEach(element => {
+        arrayNum.push(Number(element));
+    });
+    const suma = arrayNum.reduce((add,num) => add+=num);
+    const cantidad = arrayNum.length;
     const resPromedio = suma / cantidad;
-    pResultEstMedia.innerHTML = formato(resPromedio.toFixed(2));
+    return formato(resPromedio.toFixed(2));
 }
 function mediana(arrayNumber){
-    const orden = arrayNumber.sort((a,b) => a-b);
-    const cantidad = arrayNumber.length;
+    const arrayNum = [];
+    arrayNumber.forEach(element => {
+        arrayNum.push(Number(element));
+    });
+    const orden = arrayNum.sort((a,b) => a-b);
+    const cantidad = arrayNum.length;
     let resMediana;
     if(cantidad % 2 == 0){
         const mitadP = cantidad / 2;
@@ -446,7 +422,8 @@ function mediana(arrayNumber){
         const mitadI = (cantidad - 1) / 2;
         resMediana = orden[mitadI];
     }
-    pResultEstMediana.innerHTML = formato(resMediana.toFixed(2));
+    // pResultEstMediana.innerHTML = formato(resMediana.toFixed(2));
+    return formato(resMediana.toFixed(2));
 }
 function moda(arrayNumber){
     // --- Creando un objeto con los elementos y cuantas veces se repiten cada uno ---
@@ -464,33 +441,49 @@ function moda(arrayNumber){
            vt = (rep[1]-1);
         } 
     });
-    // --- Impresion de resultado en ventana ---
-    if(arrayFiltrado.length == 0){
-        mensajeSinDuplicados();
-        taResultEstModa.value = "Ningun elemento se repitío";
-    }else{
-        arrayFiltrado.forEach((res, iter) => {
-            if(iter < arrayFiltrado.length -1){
-                taResultEstModa.value += res[0] + ", ";
-            }else{
-                taResultEstModa.value += res[0];
-            }
-        })
-        mensajeResultadoExitosoModa();
-    }
+    return arrayFiltrado;
 };
 function rango(arrayNumber){
-    arrayNumber.sort((a,b) => b - a);
-    const tam = arrayNumber.length;
-    const max = Number(arrayNumber[0]);
-    const min = Number(arrayNumber[(tam - 1)]);
-    const resRango = max - min
-    pResultEstTam.innerHTML = tam;
-    pResultEstMax.innerHTML = max;
-    pResultEstMin.innerHTML = min;
-    pResultEstRango.innerHTML = resRango;
+    const arrayNum = [];
+    arrayNumber.forEach(element => {
+        arrayNum.push(Number(element));
+    });
+    arrayNum.sort((a,b) => b - a);
+    const tam = arrayNum.length;
+    const max = arrayNum[0];
+    const min = arrayNum[(tam - 1)];
+    const resRango = max - min;
+
+    return {
+        "tamano": tam,
+        "maxima": max,
+        "minima": min,
+        "resultRango": resRango
+    };
 }
-//--- ---
+function desviacionMedia(arrayNumber){
+    const arrayNum = [];
+    arrayNumber.forEach(element => {
+        arrayNum.push(Number(element));
+    });
+    const tam = arrayNum.length;
+    const media = promedio(arrayNumber);
+    // --- ---
+    const arrayAbs = [];
+    arrayNum.forEach(element => {
+        arrayAbs.push(Number(Math.abs(element - media).toFixed(2)));
+    })
+    // --- ---
+    const addAbs = arrayAbs.reduce((a,b) => a += b);
+    const resDM = (addAbs/tam).toFixed(2);
+
+    return {
+        "tamano": tam,
+        "media": media,
+        "resDM": resDM
+    }
+}
+//--- funciones calculadoras ---
 function estMediaMediana(){
     // --- Expresion regular solo numeros puntos y comas son aceptados ---
     if(!(textarea.value == "")){
@@ -500,15 +493,10 @@ function estMediaMediana(){
             const infoWindow = textarea.value;
             // --- Separando cada valor del string y poniendolo en un array ---
             const arrayString = infoWindow.split(",");
-            // --- Creando un nuevo array cambiando los strings a numbers ---
-            const arrayNumber = [];
-            arrayString.forEach(element => {
-                arrayNumber.push(Number(element));
-            });
-            promedio(arrayNumber);
-            mediana(arrayNumber);
+            pResultEstMedia.innerHTML = promedio(arrayString);
+            pResultEstMediana.innerHTML = mediana(arrayString);
             disableOptions();
-            mensajeResultadoExitoso();
+            mensajeResultadoExitosoMM();
         }else{
                 mensajeSoloNum();
         };
@@ -525,13 +513,28 @@ function estModa(){
             const infoWinModa = textarea.value;
             // --- Separando cada valor del string y poniendolo en un array ---
             const arrayString = infoWinModa.split(",");
-            moda(arrayString);
+            // --- Variable con array filtrado despues de la funcion moda ----
+            const arrayFiltro = moda(arrayString);
+            // --- impresion ---
+            if(arrayFiltro.length == 0){
+                mensajeSinDuplicados();
+                taResultEstModa.value = "Ningun elemento se repitío";
+            }else{
+                arrayFiltro.forEach((res, iter) => {
+                    if(iter < arrayFiltro.length -1){
+                        taResultEstModa.value += res[0] + ", ";
+                    }else{
+                        taResultEstModa.value += res[0];
+                    }
+                })
+                mensajeResultadoExitosoModa();
+            }
             disableOptions();
         }else{
             mensajeSoloCarac();
         };
     }else{
-        mensajeInsertarValores();
+        mensajeInsertarValoresM();
     }
 };
 function estRango(){
@@ -543,14 +546,21 @@ function estRango(){
             const infoWinModa = textarea.value;
             // --- Separando cada valor del string y poniendolo en un array ---
             const arrayString = infoWinModa.split(",");
-            rango(arrayString);
+            // --- variable con info en objeto ---
+            const objRango = rango(arrayString);
+            // --- impresion --- 
+            pResultEstTam.innerHTML = objRango["tamano"];
+            pResultEstMax.innerHTML = objRango["maxima"];
+            pResultEstMin.innerHTML = objRango["minima"];
+            pResultEstRango.innerHTML = objRango["resultRango"];
+
             disableOptions();
-            mensajeResultadoExitosoA();
+            mensajeResultadoExitosoRango();
         }else{
             mensajeSoloNum();
         };
     }else{
-        mensajeInsertarValoresA();
+        mensajeInsertarValores();
     }
 };
 function estDesviacionMedia(){
@@ -562,10 +572,16 @@ function estDesviacionMedia(){
             const infoWinModa = textarea.value;
             // --- Separando cada valor del string y poniendolo en un array ---
             const arrayString = infoWinModa.split(",");
-            moda(arrayString);
+            // --- variable con info en objeto ---
+            const desMedObj = desviacionMedia(arrayString);
+            // --- impresion ---
+            pResultEstTamDM.innerHTML = desMedObj["tamano"];
+            pResultEstMedDM.innerHTML = desMedObj["media"];
+            pResultEstDM.innerHTML = desMedObj["resDM"];
             disableOptions();
+            mensajeResultadoExitosoDm();
         }else{
-            mensajeSoloCarac();
+            mensajeSoloNum();
         };
     }else{
         mensajeInsertarValores();
@@ -608,11 +624,12 @@ const pTitlesEstadistica = document.createElement("p");
 const pEstadistica = document.createElement("p");
 // -------------------------------- sectionEstmiddle ---------------------------------------
 const sectionEstmiddle = document.createElement("section");
+const divEntryWin = document.createElement("div");
 
 // -------------------------------- sectionEstbottom ---------------------------------------
 const sectionEstbottom = document.createElement("section");
 const contSectEstBottom = document.createElement("div");
-const contSectEstBottomA = document.createElement("div");
+const EstBottomA = document.createElement("div");
 
 const contPResultEstMedia = document.createElement("div");
 const contPResultEstMediana = document.createElement("div");
@@ -633,16 +650,7 @@ const titleResultEstMin = document.createElement("p");
 const titleResultEstRango = document.createElement("p");
 const titleResultEstDesviacionMedia = document.createElement("p");
 
-const pResultEstMedia = document.createElement("p");
-const pResultEstMediana = document.createElement("p");
-const taResultEstModa = document.createElement("textarea");
-
-const pResultEstTam = document.createElement("p");
-const pResultEstMax = document.createElement("p");
-const pResultEstMin = document.createElement("p");
-const pResultEstRango = document.createElement("p");
 const pResultEstDesviacionMedia = document.createElement("p");
-
 
 const btnResultEst = document.createElement("button");
 const btnClearEst = document.createElement("button");
@@ -650,24 +658,28 @@ const btnClearEst = document.createElement("button");
 const labelArea = document.createElement("p");
 const textarea = document.createElement("textarea");
 
-let medidaH;
-
 let btnClearEstReg;
 let btnResultEstReg;
 
-let pResultEstMediaReg;
-let pResultEstMedianaReg;
-let pResultEstRangoReg;
-let pResultEstMinReg;
-let pResultEstMaxReg;
-let pResultEstTamReg;
-
-let taResultEstModaReg;
-
 let rutaFEst;
 let rutaFEstClear;
-
+// --- ---
 let winEstVar = null;
+
+let pResultEstMedia = null;
+let pResultEstMediana = null;
+
+let taResultEstModa = null;
+
+let pResultEstTam = null;
+let pResultEstMax = null;
+let pResultEstMin = null;
+let pResultEstRango = null;
+
+let pResultEstTamDM = null;
+let pResultEstMedDM = null;
+let pResultEstDM = null;
+
 // --- Variable de identificacion de figura ----------------------------------------------
 let idFig = "";
 renderIntroduccion();

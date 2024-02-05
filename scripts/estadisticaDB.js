@@ -17,22 +17,22 @@ const introEstadistica = {
 // -- Calculadoras --
 const mediaMedianaObj = {
     definicion: "on",
-    // estadistica: "Media_Mediana_Cal",
     id: "media_y_mediana",
     titleMM: "Instrucciones",
     imgMM: "../assets/calculadora_media_mediana.png",
 
     titleMM2: "Media y Mediana",
     titleMMSub: "Calculadora",
-    inputMM: [
+    windowMM: [
         {
-            outputMessage: "outputMessage",
-            inputId: "textAreaId",
-            inputCl: "textAreaCl"
+            titleW: "Media",
+            resultEst: "resultEstMedia",
+        },
+        {
+            titleW: "Mediana",
+            resultEst: "resultEstMediana",
         }
     ],
-    resultEstMedia: "resultEstMedia",
-    resultEstMediana: "resultEstMediana",
     btnClEst: "btnResultEst",
     btn2ClEst: "btnClearEst",
     funcionEst: "estMediaMediana",
@@ -46,14 +46,12 @@ const modaCalObj = {
 
     titleMM2: "Moda",
     titleMMSub: "Calculadora",
-    inputMM: [
+    windowMod: [
         {
-            outputMessage: "outputMessage",
-            inputId: "textAreaId",
-            inputCl: "textAreaCl"
+            titleW: "Moda",
+            resultEst: "resultEstModa",
         }
     ],
-    resultEstModa: "resultEstModa",
     btnClEst: "btnResultEst",
     btn2ClEst: "btnClearEst",
     funcionEst: "estModa",
@@ -67,17 +65,26 @@ const rangoCalObj = {
 
     titleMM2: "Rango",
     titleMMSub: "Calculadora",
-    inputMM: [
+    windowI: [
         {
-            outputMessage: "outputMessage",
-            inputId: "textAreaId",
-            inputCl: "textAreaCl"
+            titleW: "Tamaño",
+            resultEst: "resultEstTam",
+        },
+        {
+            titleW: "Máximo",
+            resultEst: "resultEstMax",
+        },
+        {
+            titleW: "Mínimo",
+            resultEst: "resultEstMin",
         }
     ],
-    resultEstTam: "resultEstTam",
-    resultEstMax: "resultEstMax",
-    resultEstMin: "resultEstMin",
-    resultEstRango: "resultEstRango",
+    windowR: [
+        {
+            titleW: "Rango",
+            resultEst: "resultEstRango",
+        }
+    ],
     btnClEst: "btnResultEst",
     btn2ClEst: "btnClearEst",
     funcionEst: "estRango",
@@ -91,14 +98,22 @@ const desviacionMediaCalObj = {
 
     titleMM2: "Desviación Media",
     titleMMSub: "Calculadora",
-    inputMM: [
+    windowI: [
         {
-            outputMessage: "outputMessage",
-            inputId: "textAreaId",
-            inputCl: "textAreaCl"
+            titleW: "Tamaño",
+            resultEst: "resultEstTamDM",
+        },
+        {
+            titleW: "Media",
+            resultEst: "resultEstMedDM",
         }
     ],
-    resultEstModa: "resultEstModa",
+    windowR: [
+        {
+            titleW: "Desviación Media",
+            resultEst: "resultEstDM",
+        }
+    ],
     btnClEst: "btnResultEst",
     btn2ClEst: "btnClearEst",
     funcionEst: "estDesviacionMedia",
