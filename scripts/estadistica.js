@@ -397,24 +397,25 @@ function renderFigura(objeto){
 // ------------------------ Operaciones -----------------------------------------------------
 // ------------- Estadistica Media Mediana Moda ------------------------------------------
 // --- funciones de operaciones logicas ---
-function promedio(arrayNumber){
+function promedio(arrayString){
     // --- Creando un nuevo array cambiando los strings a numbers ---
     const arrayNum = [];
-    arrayNumber.forEach(element => {
+    arrayString.forEach(element => {
         arrayNum.push(Number(element));
     });
     const suma = arrayNum.reduce((add,num) => add+=num);
     const cantidad = arrayNum.length;
     const resPromedio = suma / cantidad;
-    return formato(resPromedio.toFixed(2));
+    return resPromedio;
 }
-function mediana(arrayNumber){
+function mediana(arrayString){
     const arrayNum = [];
-    arrayNumber.forEach(element => {
+    arrayString.forEach(element => {
         arrayNum.push(Number(element));
     });
     const orden = arrayNum.sort((a,b) => a-b);
     const cantidad = arrayNum.length;
+
     let resMediana;
     if(cantidad % 2 == 0){
         const mitadP = cantidad / 2;
@@ -423,12 +424,11 @@ function mediana(arrayNumber){
         const mitadI = (cantidad - 1) / 2;
         resMediana = orden[mitadI];
     }
-    // pResultEstMediana.innerHTML = formato(resMediana.toFixed(2));
-    return formato(resMediana.toFixed(2));
+    return resMediana;
 }
-function moda(arrayNumber){
+function moda(arrayString){
     // --- Creando un objeto con los elementos y cuantas veces se repiten cada uno ---
-    const objDuplicados = arrayNumber.reduce((a,i) => (a[i] ? a[i] += 1 : a[i] = 1, a),{});
+    const objDuplicados = arrayString.reduce((a,i) => (a[i] ? a[i] += 1 : a[i] = 1, a),{});
     // --- Comvirtiendo el objeto a un array de arrays ---
     const objArray = Object.entries(objDuplicados);
     // --- Ordenando de mayor a menor el array de arrays respecto a el numero de repeticiones ---
@@ -444,9 +444,9 @@ function moda(arrayNumber){
     });
     return arrayFiltrado;
 };
-function rango(arrayNumber){
+function rango(arrayString){
     const arrayNum = [];
-    arrayNumber.forEach(element => {
+    arrayString.forEach(element => {
         arrayNum.push(Number(element));
     });
     arrayNum.sort((a,b) => b - a);
@@ -454,7 +454,6 @@ function rango(arrayNumber){
     const max = arrayNum[0];
     const min = arrayNum[(tam - 1)];
     const resRango = max - min;
-
     return {
         "tamano": tam,
         "maxima": max,
@@ -462,22 +461,22 @@ function rango(arrayNumber){
         "resultRango": resRango
     };
 }
-function desviacionMedia(arrayNumber){
+function desviacionMedia(arrayString){
     const arrayNum = [];
-    arrayNumber.forEach(element => {
+    arrayString.forEach(element => {
         arrayNum.push(Number(element));
     });
     const tam = arrayNum.length;
-    const media = promedio(arrayNumber);
+    const media = promedio(arrayString);
     // --- ---
     const arrayAbs = [];
     arrayNum.forEach(element => {
-        arrayAbs.push(Number(Math.abs(element - media).toFixed(2)));
+        const numAbs = Math.abs(element - media);
+        arrayAbs.push(Number(numAbs));
     })
     // --- ---
     const addAbs = arrayAbs.reduce((a,b) => a += b);
-    const resDM = (addAbs/tam).toFixed(2);
-
+    const resDM = addAbs/tam;
     return {
         "tamano": tam,
         "media": media,
@@ -494,8 +493,12 @@ function estMediaMediana(){
             const infoWindow = textarea.value;
             // --- Separando cada valor del string y poniendolo en un array ---
             const arrayString = infoWindow.split(",");
-            pResultEstMedia.innerHTML = promedio(arrayString);
-            pResultEstMediana.innerHTML = mediana(arrayString);
+            // --- resultados ---
+            const resPro = promedio(arrayString);
+            const resMed = mediana(arrayString);
+            // --- impresion ---
+            pResultEstMedia.innerHTML = formato(resPro.toFixed(2));
+            pResultEstMediana.innerHTML = formato(resMed.toFixed(2));
             disableOptions();
             mensajeResultadoExitosoMM();
         }else{
@@ -549,11 +552,16 @@ function estRango(){
             const arrayString = infoWinModa.split(",");
             // --- variable con info en objeto ---
             const objRango = rango(arrayString);
+            // --- resultados ---
+            const tam = objRango["tamano"];
+            const max = objRango["maxima"];
+            const min = objRango["minima"];
+            const resRng = objRango["resultRango"];
             // --- impresion --- 
-            pResultEstTam.innerHTML = objRango["tamano"];
-            pResultEstMax.innerHTML = objRango["maxima"];
-            pResultEstMin.innerHTML = objRango["minima"];
-            pResultEstRango.innerHTML = objRango["resultRango"];
+            pResultEstTam.innerHTML = formato(tam);
+            pResultEstMax.innerHTML = formato(max.toFixed(2));
+            pResultEstMin.innerHTML = formato(min.toFixed(2));
+            pResultEstRango.innerHTML = formato(resRng.toFixed(2));
 
             disableOptions();
             mensajeResultadoExitosoRango();
@@ -575,10 +583,14 @@ function estDesviacionMedia(){
             const arrayString = infoWinModa.split(",");
             // --- variable con info en objeto ---
             const desMedObj = desviacionMedia(arrayString);
+            // --- resultados ---
+            const tam = desMedObj["tamano"];
+            const med = desMedObj["media"];
+            const resDM = desMedObj["resDM"];
             // --- impresion ---
-            pResultEstTamDM.innerHTML = desMedObj["tamano"];
-            pResultEstMedDM.innerHTML = desMedObj["media"];
-            pResultEstDM.innerHTML = desMedObj["resDM"];
+            pResultEstTamDM.innerHTML = formato(tam);
+            pResultEstMedDM.innerHTML = formato(med.toFixed(2));
+            pResultEstDM.innerHTML = formato(resDM.toFixed(2));
             disableOptions();
             mensajeResultadoExitosoDm();
         }else{

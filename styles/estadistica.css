@@ -274,7 +274,7 @@ span {
 .EstBottomA{
     display: flex;
     flex-direction: column;
-    justify-content:space-around;
+    justify-content:center;
     gap: 8px;
 }
 .contPResult{
@@ -312,7 +312,7 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 70px;
+    width: 90px;
     height: 20px;
 }
 .resultEstTamDM,
@@ -320,7 +320,7 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 70px;
+    width: 100px;
     height: 20px;
 }
 .resultEstDM,
@@ -328,7 +328,7 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 120px;
+    width: 100px;
     height: 40px;
 }
 .resultEstMedia,
