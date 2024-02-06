@@ -54,8 +54,10 @@ function borrar(){
     // ---- Limpieza de Ventanas de mensajes y borrado de clase ----
     pResultA.innerHTML = "";
     pResultA.classList.remove(pResultAReg);
+    pResultA.classList.remove("bgChange");
     pResultP.innerHTML = "";
     pResultP.classList.remove(pResultPReg);
+    pResultP.classList.remove("bgChange");
     // ---- Borrado de clases y abilitar botones ----
     btnResultA.classList.remove(btnResultAReg);
     btnResultP.classList.remove(btnResultPReg);
@@ -134,6 +136,7 @@ function itrValP(){
 };
 //--- funciones para limpiar y habilitar radios ventanas y botones ----------------------
 function clearAFig(){
+    pResultA.classList.remove("bgChange");
     if(idFig == "triángulo" || idFig == "rectángulo" || idFig == "paralelogramo" || idFig == "rombo" || idFig == "pentágono" || idFig == "hexágono"){
         winAW1.disabled = false;
         winAW2.disabled = false;
@@ -165,6 +168,7 @@ function clearAFig(){
     pResultA.innerHTML = itrValA();
 };
 function clearPFig(){
+    pResultP.classList.remove("bgChange");
     if(idFig == "triángulo" ){
         winPW1.disabled = false;
         winPW2.disabled = false;
@@ -533,6 +537,7 @@ function aTriangle(){
             disableAOptions();
             winAW1.classList.add("resultColor");
             winAW2.classList.add("resultColor");
+            pResultA.classList.add("bgChange");
             pResultA.innerHTML = `Área = ${formato(result.toFixed(2))} ${medSelA()}`;
         }else{
             pResultA.innerHTML = mesCmM();
@@ -554,6 +559,7 @@ function pTriangle(){
             winPW1.classList.add("resultColor");
             winPW2.classList.add("resultColor");
             winPW3.classList.add("resultColor");
+            pResultP.classList.add("bgChange");
             pResultP.innerHTML = `Perímetro = ${formato(result.toFixed(2))} ${medSelP()}`;
         }else{
             pResultP.innerHTML = mesCmM();
@@ -572,6 +578,7 @@ function aSquare(){
             medEnableDisableA();
             disableAOptions();
             winAW1.classList.add("resultColor");
+            pResultA.classList.add("bgChange");
             pResultA.innerHTML = `Área = ${formato(result.toFixed(2))} ${medSelA()}`;
         }else{
             pResultA.innerHTML = mesCmM();
@@ -589,6 +596,7 @@ function pSquare(){
             medEnableDisableP();
             disablePOptions();
             winPW1.classList.add("resultColor");
+            pResultP.classList.add("bgChange");
             pResultP.innerHTML = `Perímetro = ${formato(result.toFixed(2))} ${medSelP()}`;
         }else{
             pResultP.innerHTML = mesCmM();
@@ -609,6 +617,7 @@ function aRectangulo(){
             disableAOptions();
             winAW1.classList.add("resultColor");
             winAW2.classList.add("resultColor");
+            pResultA.classList.add("bgChange");
             pResultA.innerHTML = `Área = ${formato(result.toFixed(2))} ${medSelA()}`;
         }else{
             pResultA.innerHTML = mesCmM();
@@ -628,6 +637,7 @@ function pRectangulo(){
             disablePOptions();
             winPW1.classList.add("resultColor");
             winPW2.classList.add("resultColor");
+            pResultP.classList.add("bgChange");
             pResultP.innerHTML = `Perímetro = ${formato(result.toFixed(2))} ${medSelP()}`;
         }else{
             pResultP.innerHTML = mesCmM();
@@ -648,6 +658,7 @@ function aParalelogramo(){
             disableAOptions();
             winAW1.classList.add("resultColor");
             winAW2.classList.add("resultColor");
+            pResultA.classList.add("bgChange");
             pResultA.innerHTML = `Área = ${formato(result.toFixed(2))} ${medSelA()}`;
         }else{
             pResultA.innerHTML = mesCmM();
@@ -667,6 +678,7 @@ function pParalelogramo(){
             disablePOptions();
             winPW1.classList.add("resultColor");
             winPW2.classList.add("resultColor");
+            pResultP.classList.add("bgChange");
             pResultP.innerHTML = `Perímetro = ${formato(result.toFixed(2))} ${medSelP()}`;
         }else{
             pResultP.innerHTML = mesCmM();
@@ -689,6 +701,7 @@ function aTrapecio(){
             winAW1.classList.add("resultColor");
             winAW2.classList.add("resultColor");
             winAW3.classList.add("resultColor");
+            pResultA.classList.add("bgChange");
             pResultA.innerHTML = `Área = ${formato(result.toFixed(2))} ${medSelA()}`;
         }else{
             pResultA.innerHTML = mesCmM();
@@ -712,6 +725,7 @@ function pTrapecio(){
             winPW2.classList.add("resultColor");
             winPW3.classList.add("resultColor");
             winPW4.classList.add("resultColor");
+            pResultP.classList.add("bgChange");
             pResultP.innerHTML = `Perímetro = ${formato(result.toFixed(2))} ${medSelP()}`;
         }else{
             pResultP.innerHTML = mesCmM();
@@ -733,6 +747,7 @@ function aRombo(){
             disableAOptions();
             winAW1.classList.add("resultColor");
             winAW2.classList.add("resultColor");
+            pResultA.classList.add("bgChange");
             pResultA.innerHTML = `Área = ${formato(result.toFixed(2))} ${medSelA()}`;
         }else{
             pResultA.innerHTML = mesCmM();
@@ -750,6 +765,7 @@ function pRombo(){
             medEnableDisableP();
             disablePOptions();
             winPW1.classList.add("resultColor");
+            pResultP.classList.add("bgChange");
             pResultP.innerHTML = `Perímetro = ${formato(result.toFixed(2))} ${medSelP()}`;
         }else{
             pResultP.innerHTML = mesCmM();
@@ -770,6 +786,7 @@ function aPentagono(){
             disableAOptions();
             winAW1.classList.add("resultColor");
             winAW2.classList.add("resultColor");
+            pResultA.classList.add("bgChange");
             pResultA.innerHTML = `Área = ${formato(result.toFixed(2))} ${medSelA()}`;
         }else{
             pResultA.innerHTML = mesCmM();
@@ -787,6 +804,7 @@ function pPentagono(){
             medEnableDisableP();
             disablePOptions();
             winPW1.classList.add("resultColor");
+            pResultP.classList.add("bgChange");
             pResultP.innerHTML = `Perímetro = ${formato(result.toFixed(2))} ${medSelP()}`;
         }else{
             pResultP.innerHTML = mesCmM();
@@ -807,6 +825,7 @@ function aHexagono(){
             disableAOptions();
             winAW1.classList.add("resultColor");
             winAW2.classList.add("resultColor");
+            pResultA.classList.add("bgChange");
             pResultA.innerHTML = `Área = ${formato(result.toFixed(2))} ${medSelA()}`;
         }else{
             pResultA.innerHTML = mesCmM();
@@ -824,6 +843,7 @@ function pHexagono(){
             medEnableDisableP();
             disablePOptions();
             winPW1.classList.add("resultColor");
+            pResultP.classList.add("bgChange");
             pResultP.innerHTML = `Perímetro = ${formato(result.toFixed(2))} ${medSelP()}`;
         }else{
             pResultP.innerHTML = mesCmM();
@@ -843,6 +863,7 @@ function aCirculo(){
             medEnableDisableA();
             disableAOptions();
             winAW1.classList.add("resultColor");
+            pResultA.classList.add("bgChange");
             pResultA.innerHTML = `Área = ${formato(result.toFixed(2))} ${medSelA()}`;
         }else{
             pResultA.innerHTML = mesCmM();
@@ -861,6 +882,7 @@ function circunferencia(){
             medEnableDisableP();
             disablePOptions();
             winPW1.classList.add("resultColor");
+            pResultP.classList.add("bgChange");
             pResultP.innerHTML = `Perímetro = ${formato(result.toFixed(2))} ${medSelP()}`;
         }else{
             pResultP.innerHTML = mesCmM();

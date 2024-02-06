@@ -6,6 +6,7 @@
     --black: #000000;
     --white: #ffffff;
 
+    --darkGrey: #4f5052;
     --grey: #6895CB;
     --blue: #105dbb;
     --lightGrey: #e6e6e6;
@@ -268,20 +269,33 @@ span {
     gap: 20px;
     justify-content: center;
 }
-.mesDivDisc{
+/* .mesDivDisc{
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    border: 1px solid var(--blue);
+    border: 1px solid var(--naranja);
     border-radius: 10px;
     padding: 10px;
     width: 278px; 
     height: 30px;
     margin: 5px 0px 0px 0px;
-    background-color: var(--white);
-}
+    background-color: var(--darkGrey);
+    color: var(--naranja);
+} */
 .messageDiscount{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid var(--naranja);
+    border-radius: 10px;
+    padding: 10px;
+    width: 278px; 
+    height: 30px;
+    margin: 5px 0px 0px 0px;
+    background-color: var(--darkGrey);
+    color: var(--naranja);
     margin: 0px;
     font-weight: 700;
     font-size: 18px; 
@@ -372,8 +386,8 @@ span {
     margin-bottom: 3px;
 }
 .winStyle {
-    background-color: var(--white);
-    border: 1px solid black;
+    background-color: var(--darkGrey);
+    border: 1px solid var(--naranja);
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -382,9 +396,13 @@ span {
     padding: 10px;
     width: 278px; 
     height: 30px;
-    color: var(--black);
+    color: var(--naranja);
     font-weight: 700;
     font-size: 18px;
+}
+.bgChange{
+    background-color: var(--lightGrey);
+    color: var(--black);
 }
 .btnClear,
 .btnResult {

@@ -141,7 +141,7 @@ const RD3SDescCalculadoraObj = {
     imgFig: "../assets/calculadora_descuento.png",
     secMid: "sectionPCmiddleDesc",
     winPos: "winPosDesc",
-    mesCont : "mesDivDisc",
+    // mesCont : "mesDivDisc",
     mesParr: "messageDiscount",
 
     titlePorcentaje: "Porcentaje y Descuento",

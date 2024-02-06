@@ -47,9 +47,10 @@ function borrar(){
 
     pResultPC.innerHTML = "";
     pResultPC.classList.remove(pResultPCReg);
+    pResultPC.classList.remove("bgChange");
 
     mesParr.innerHTML = "";
-    mesParr.classList.remove(pMesParrReg)
+    mesParr.classList.remove(pMesParrReg);
     btnResultPC.classList.remove(btnResultPCReg, "btnInactive");
     btnResultPC.disabled = false;
 
@@ -120,12 +121,14 @@ function clearInputsWindows(){
         winZ.value = "";
     }else if(incognitaSC == "D"){
         porcDescWindow.value = "";
+        precListWindow.setAttribute("type", "number");
         precListWindow.value = "";
         descCantWindow.value = "";
         totalPagWindow.value = "";
     };
 };
 function clearColor(){
+    pResultPC.classList.remove("bgChange");
     if(incognitaSC == "S"){
         winA.classList.remove("resultColor");
         winB.classList.remove("resultColor");
@@ -209,7 +212,6 @@ function clearSCD(){
     mensDefault();
     enableButtonResultado();
     pTitlePC.classList.remove("titleImg");
-    precListWindow.setAttribute("type", "number");
 };
 //----Funcion formato-------------------------------------------------
 const formato = (number) => {
@@ -365,17 +367,10 @@ function bottomContainer(objeto){
         }
         if(objeto.radios == "Descuento"){
             sectionPCmiddleTop.classList.add("sectionPCmiddleTop");
-            
-            const divMesCont = document.createElement("div");
-            divMesCont.classList.add(objeto.mesCont);
-
             pMesParrReg = objeto.mesParr;
             mesParr.classList.add(pMesParrReg);
-
-            divMesCont.append(mesParr);
-
             // Agregar a la seccion media
-            sectionPCmiddleTop.append(divMesCont);
+            sectionPCmiddleTop.append(mesParr);
             loadVar = "DESC";
             incognitaSC = "D";
             mensDefault();
@@ -437,7 +432,7 @@ function bottomContainer(objeto){
             precListLablel.setAttribute("for", "pcPDL");
             precListLablel.innerHTML = "Precio de lista $"; 
 
-            // precListWindow = document.createElement("input");
+            precListWindow = document.createElement("input");
             precListWindow.classList.add("desWindows");
             precListWindow.setAttribute("type", "number");
             precListWindow.setAttribute("id", "pcPDL");
@@ -548,6 +543,7 @@ function inc_Simple(){
             SD.disabled = true;
         };
         
+        pResultPC.classList.add("bgChange");
         pResultPC.innerHTML = `Resultado = ${formato(result.toFixed(2))}`;
         disableWindow();
         disableButtonResultado(); 
@@ -580,6 +576,7 @@ function incognitaAW (){
     };
     if(winA.value == ""){
         resultR3C = winW.value * magnitud1 / magnitud2;
+        pResultPC.classList.add("bgChange");
         pResultPC.innerHTML = `Resultado ${formato(resultR3C.toFixed(2))}`;
         winA.value = resultR3C.toFixed(2);
         winA.classList.add("resultColor");
@@ -587,6 +584,7 @@ function incognitaAW (){
         disableButtonResultado();
     }else if(winW.value == ""){
         resultR3C = winA.value * magnitud2 / magnitud1;
+        pResultPC.classList.add("bgChange");
         pResultPC.innerHTML = `Resultado ${formato(resultR3C.toFixed(2))}`;
         winW.value = resultR3C.toFixed(2);
         winW.classList.add("resultColor");
@@ -618,6 +616,7 @@ function incognitaBY(){
     };
     if(winB.value == ""){
         resultR3C = winY.value * magnitud1 / magnitud2;
+        pResultPC.classList.add("bgChange");
         pResultPC.innerHTML = `Resultado ${formato(resultR3C.toFixed(2))}`;
         winB.value = resultR3C.toFixed(2);
         winB.classList.add("resultColor");
@@ -625,6 +624,7 @@ function incognitaBY(){
         disableButtonResultado();
     }else if(winY.value == ""){
         resultR3C = winB.value * magnitud2 / magnitud1;
+        pResultPC.classList.add("bgChange");
         pResultPC.innerHTML = `Resultado ${formato(resultR3C.toFixed(2))}`;
         winY.value = resultR3C.toFixed(2);
         winY.classList.add("resultColor");
@@ -656,6 +656,7 @@ function incognitaCZ(){
     };
     if(winC.value == ""){
         resultR3C = winZ.value * magnitud1 / magnitud2;
+        pResultPC.classList.add("bgChange");
         pResultPC.innerHTML = `Resultado ${formato(resultR3C.toFixed(2))}`;
         winC.value = resultR3C.toFixed(2);
         winC.classList.add("resultColor");
@@ -663,6 +664,7 @@ function incognitaCZ(){
         disableButtonResultado();
     }else if(winZ.value == ""){
         resultR3C = winC.value * magnitud2 / magnitud1;
+        pResultPC.classList.add("bgChange");
         pResultPC.innerHTML = `Resultado ${formato(resultR3C.toFixed(2))}`;
         winZ.value = resultR3C.toFixed(2);
         winZ.classList.add("resultColor");
@@ -888,7 +890,6 @@ const mesParr = document.createElement("p");
 // -------------------------------------------------
 let porcDescWindow; 
 let precListWindow;
-precListWindow = document.createElement("input");
 let descCantWindow;
 let totalPagWindow;
 //----inputs windows -------------------------------------------------------------------

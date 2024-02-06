@@ -6,6 +6,7 @@
     --black: #000000;
     --white: #ffffff;
 
+    --darkGrey: #4f5052;
     --grey: #6895CB;
     --blue: #105dbb;
     --lightGrey: #e6e6e6;
@@ -278,8 +279,8 @@ span {
     padding-right: 30px;
 }
 .winStyle {
-    background-color: var(--white);
-    border: 1px solid var(--black);
+    background-color: var(--darkGrey);
+    border: 1px solid var(--naranja);
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -287,9 +288,13 @@ span {
     text-align: center;
     width: 298px;
     height: 50px;
-    color: var(--black);
+    color: var(--naranja);
     font-weight: 700;
     font-size: 18px;
+}
+.bgChange{
+    background-color: var(--lightGrey);
+    color: var(--black);
 }
 .btnClear,
 .btnResult {

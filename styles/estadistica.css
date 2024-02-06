@@ -6,6 +6,7 @@
     --black: #000000;
     --white: #ffffff;
 
+    --darkGrey: #4f5052;
     --grey: #6895CB;
     --blue: #105dbb;
     --lightGrey: #e6e6e6;
@@ -398,16 +399,15 @@ textarea{
     justify-content: center;
     align-items: center;
     text-align: center;
-    /* color: var(--naranja); */
-    background-color: var(--lightGrey);
+    color: var(--naranja);
+    background-color: var(--darkGrey);
     font-weight: bold;
     margin: 0px 0px 5px 0px;
     padding: 8px 8px 8px 8px ;
     width: 282px;
     height: 25px;
     border-radius: 5px;
-    /* border: 1px solid var(--naranja); */
-    border: 1px solid var(--grey);
+    border: 1px solid var(--naranja);
 }
 .disableMode{
     background-color: var(--blue);

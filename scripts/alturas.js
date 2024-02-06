@@ -52,6 +52,7 @@ function borrar(){
     // ---- Limpieza de Ventanas de mensajes y borrado de clase ----
     pResultH.innerHTML = "";
     pResultH.classList.remove(pResultHReg);
+    pResultH.classList.remove("bgChange");
     // ---- Borrado de clases y abilitar botones ----
     btnResultH.classList.remove(btnResultHReg);
     btnClearH.classList.remove(btnClearHReg);
@@ -85,6 +86,7 @@ function disableOptions(){
 }
 //--- funciones para limpiar y habilitar radios ventanas y botones ----------------------
 function clearHFig(){
+    pResultH.classList.remove("bgChange");
     if(idFig == "triángulo_equilátero"){
         winH1.disabled = false;
         winH1.value = "";
@@ -324,6 +326,7 @@ function hTriangleEqui(){
             medEnableDisable()
             disableOptions();
             winH1.classList.add("resultColor");
+            pResultH.classList.add("bgChange");
             pResultH.innerHTML = `Altura = ${formato(result.toFixed(2))} ${medSeleccion()}`;
         }else{
             pResultH.innerHTML = mesCmM();
@@ -347,6 +350,7 @@ function hTriangleIso(){
                 disableOptions();
                 winH1.classList.add("resultColor");
                 winH2.classList.add("resultColor");
+                pResultH.classList.add("bgChange");
                 pResultH.innerHTML = `Altura = ${formato(result.toFixed(2))} ${medSeleccion()}`;
             }else{
                 pResultH.innerHTML = mesCmM();
@@ -380,6 +384,7 @@ function hTriEsc(){
                 winH1.classList.add("resultColor");
                 winH2.classList.add("resultColor");
                 winH3.classList.add("resultColor");
+                pResultH.classList.add("bgChange");
                 pResultH.innerHTML = `Altura = ${formato(result.toFixed(2))} ${medSeleccion()}`;
             }else{
                 pResultH.innerHTML = mesCmM();
@@ -409,6 +414,7 @@ function hTrapecio(){
                 winH1.classList.add("resultColor");
                 winH2.classList.add("resultColor");
                 winH3.classList.add("resultColor");
+                pResultH.classList.add("bgChange");
                 pResultH.innerHTML = `Altura = ${formato(result.toFixed(2))} ${medSeleccion()}`;
             }else{
                 pResultH.innerHTML = mesCmM();
