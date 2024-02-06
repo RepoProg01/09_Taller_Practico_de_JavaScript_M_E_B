@@ -145,6 +145,7 @@ function asignacionesWindows(){
     }
     else if(idFig == "moda_cal"){
         taResultEstModa = document.querySelector(".resultEstModa");
+        taResultEstModa.disabled = true;
     }
     else if(idFig == "rango_cal"){
         pResultEstTam = document.querySelector(".resultEstTam");
@@ -163,13 +164,13 @@ function mensajeInsertarValores(){
     labelArea.innerHTML = "Introduce números separados<br>por una coma ( , ) y sin espacios";
 };
 function mensajeSoloNum(){
-    labelArea.innerHTML = "Solo números separados por<br>comas y sin espacios son permitidos";
+    labelArea.innerHTML = "Solo números separados por<br>comas sin espacios son permitidos";
 };
 function mensajeInsertarValoresM(){
     labelArea.innerHTML = "Introduce caracteres separados<br>por una coma ( , ) y sin espacios";
 };
 function mensajeSoloCarac(){
-    labelArea.innerHTML = "El orden debe ser caracter separado<br>por una coma y sin espacios";
+    labelArea.innerHTML = "Orden debe ser caracter separado<br>por una coma y sin espacios";
 };
 function mensajeSinDuplicados(){
     labelArea.innerHTML = "No existe Moda ya que no se<br>encontraron Duplicados";
@@ -181,7 +182,7 @@ function mensajeResultadoExitosoRango(){
     labelArea.innerHTML = "Calculación de Rango<br>con éxito";
 };
 function mensajeResultadoExitosoDm(){
-    labelArea.innerHTML = "Calculación de Desviacion Media<br>con éxito";
+    labelArea.innerHTML = "Calculación de Desviación Media<br>con éxito";
 };
 function mensajeResultadoExitosoModa(){
     labelArea.innerHTML = "Calculación de Moda<br>con éxito";
