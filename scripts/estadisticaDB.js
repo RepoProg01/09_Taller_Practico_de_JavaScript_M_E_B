@@ -158,7 +158,7 @@ const rangoObj = {
 const desviacionmediaObj = {
     definicion: "off",
     id: "desviación_media",
-    titleMM: "Definición Desviación Media",
+    titleMM: "Def. Desviación Media",
     titleMM2: "Procedimiento",
     imgMM: "../assets/desviacionMediaTop.png",
     imgMM2: "../assets/desviacionMediaBottom.png",
