@@ -109,7 +109,7 @@ const desviacionMediaCalObj = {
     ],
     windowR: [
         {
-            titleW: "Desviación Media",
+            titleW: "Desv. Media",
             resultEst: "resultEstDM",
         }
     ],

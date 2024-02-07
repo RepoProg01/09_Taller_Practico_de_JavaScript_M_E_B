@@ -6,7 +6,7 @@
     --black: #000000;
     --white: #ffffff;
 
-    --darkGrey: #4f5052;
+    --darkGrey: #6e6e6e;
     --grey: #6895CB;
     --blue: #105dbb;
     --lightGrey: #e6e6e6;
@@ -295,6 +295,7 @@ span {
 .bgChange{
     background-color: var(--lightGrey);
     color: var(--black);
+    border: 1px solid var(--blue);
 }
 .btnClear,
 .btnResult {
