@@ -4,11 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analisis Salarial</title>
+    <link rel="stylesheet" href="../styles/analisis.css">
 </head>
 <body>
-    <h1>Análisis Salarial</h1>
+    <section class="containerAnalisis">
+        <h1>Análisis Salarial</h1>
+        <div class="divWind">
+            <div class="busqNom">
+                <label for="nombreId">Nombre</label>
+                <input type="text" id="nombreId" class="nombreCl">
+            </div>
+            <div class="containerBtns">
+                <button class="btnC btnAtrib">BORRAR</button>
+                <button class="btn btnAtrib">BUSCAR</button>
+            </div>
+        </div>
+       
+        <div class="info">
+            <div class="info_win">
+                <h2>ID</h2>
+                <p class="identificacionCl"></p>
+            </div>
+            <div class="info_win">
+                <h2>Media Salario</h2>
+                <p class="medSalCl"></p>
+            </div>
+            <div class="info_win">
+                <h2>Media incremento %</h2>
+                <p class="medIncPCl"></p>
+            </div>  
+            <div class="info_win">
+                <h2>Salario actual</h2>
+                <p class="salActCl"></p>
+            </div> 
+            <div class="info_win">
+                <h2>Proyección Sueldo</h2>
+                <p class="proySueld"></p>
+            </div> 
+        </div>
+
+        <div class="mens">
+            <p class="mensaje"></p>
+        </div>
+
+    </section>
 
     <script src="../scripts/salarios.js"></script>
+    <script src="../scripts/operaciones.js"></script>
     <script src="../scripts/analisis.js"></script>
 </body>
 </html>

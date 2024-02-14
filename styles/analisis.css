@@ -1,0 +1,124 @@
+body{
+    background-color: rgb(55, 96, 243);
+}
+.containerAnalisis{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.containerAnalisis h1{
+    color: white;
+}
+.busqNom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 280px;
+    height: 30px;
+    padding: 5px;
+}
+.divWind{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 310px;
+    height: 90px;
+    background-color: rgb(207, 207, 207);
+}
+.nombreCl{
+    width: 100px;
+    height: 10px;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+}
+.containerBtns{
+    display: flex;
+    width: 320px;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+/* ------------------------------ */
+.info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 320px;
+    height: 210px;
+    gap: 20px;
+    margin-top: 10px;
+    background-color: rgb(207, 207, 207);
+    padding: 5px;
+    border-radius: 10px;
+}
+.info_win{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 280px;
+    height: 20px;
+}
+.info_win h2{
+    font-size: 17px;
+}
+.info_win p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    width: 100px;
+    height: 10px;
+    background-color: white;
+    font-size: 17px;
+    padding: 10px;
+}
+.mens{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    width: 310px;
+    height: 100px;
+    background-color: rgb(207, 207, 207);
+    margin-top: 10px;
+}
+.mensaje{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 280px;
+    height: 50px;
+    background-color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px;
+}
+.btn,
+.btnC{
+    background-color: rgb(109, 155, 246);
+    font-weight: bold;
+    width: 100px;
+    height: 30px;
+    border: 0px;
+    padding: 8px;
+    border-radius:8px;
+}
+.btnAtrib{
+    cursor: pointer;
+}
+.btnAtrib:hover{
+    background-color: rgb(55, 96, 243);
+    color: white;
+}
