@@ -18,7 +18,7 @@ const regla503020Obj = {
     definicion: "on",
     id: "regla_503020_cal",
     titleHerr: "Instrucciones",
-    imgHerr: "../assets/503020_Top.png",
+    imgHerr: "../assets/503020_cal.png",
 
     titleHerr2: "Regla 503020",
     titleHerrSub: "Calculadora",
@@ -27,21 +27,21 @@ const regla503020Obj = {
     windowHerr: [
         {
             titleW: "Necesidades Basicas",
-            resultEst: "resultHerrNecBas",
+            resultHerr: "resultHerrNecBas",
         },
         {
             titleW: "Gastos Personales",
-            resultEst: "resultHerrGasPer",
+            resultHerr: "resultHerrGasPer",
         },
         {
             titleW: "Ahorro o Inversión",
-            resultEst: "resultHerrAhoInv",
+            resultHerr: "resultHerrAhoInv",
         }
     ],
-    btnClEst: "btnResultEst",
-    btn2ClEst: "btnClearEst",
+    btnClHerr: "btnResultHerr",
+    btn2ClHerr: "btnClearHerr",
     funcionHerr: "herr503020",
-    clearWindowEst: "clearEstOpt",
+    clearWindowHerr: "clearHerrOpt",
 };
 const capDeEndeudObj = {
     definicion: "on",
@@ -85,7 +85,7 @@ const capDeEndeudDefObj = {
 herramientasArray.push(introHerramientas);
 // --- Calculadoras ---
 herramientasArray.push(regla503020Obj);
-herramientasArray.push(capDeEndeudObj);
+// herramientasArray.push(capDeEndeudObj);
 // --- Definiciones ---
 herramientasArray.push(regla503020DefObj);
 herramientasArray.push(capDeEndeudDefObj);

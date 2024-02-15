@@ -81,7 +81,7 @@ body {
     margin: 0px;
     cursor: pointer;
 }
-.estadistica:hover{
+.medida:hover{
     color: var(--white);
 }
 /* ############  contentIndex  ############ */
@@ -221,7 +221,6 @@ span {
 .instrHerrImg {
     background-image: var(--background_radial_2);
     border-radius: 10px;
-    /* overflow: hidden; */
     width: 340px;
     height: 383px;
 }
@@ -232,11 +231,6 @@ span {
 .instrHerrImg img {
     width: 340px;
 }
-.perimeterArea {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-}
 .containerCalculadora {
     display: flex;
     flex-direction: column;
@@ -245,9 +239,6 @@ span {
     height: 343px;
     border-radius: 10px;
     padding: 20px;
-}
-.sectionEsttop {
-    text-align: center;
 }
 .ptitlesHerramienta {
     font-size: 24px;
@@ -275,12 +266,6 @@ span {
     gap: 10px;
     margin: 10px 0px;
 }
-/* .EstBottomA{
-    display: flex;
-    flex-direction: column;
-    justify-content:space-between;
-    gap: 3px;
-} */
 .contPResult{
     display: flex;
     justify-content: space-between;
@@ -288,33 +273,21 @@ span {
     margin: 0px;
     gap: 5px;
 }
-/* .contPResultA{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-} */
-
 .contPResult p{
     margin: 0px;
 }
-
 .titleResults{
     font-size: 18px;
     color: var(--white);
     padding: 0px 5px;
 }
-/* .titleResultsSN{
-    font-size: 18px;
-    color: var(--white);
-    padding: 0px 5px;
-} */
-
 .resultHerrSuelNet,
 .winStyle {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 120px;
+    text-align: center;
+    width: 100px;
     height: 20px;
     padding: 5px;
     background-color: var(--white);
@@ -324,57 +297,6 @@ span {
     font-weight: 700;
     font-size: 16px;
 }
-/* .resultHerrSuelNet,
-.resultHerrAhoInv,
-.resultHerrGasPer,
-.resultHerrNecBas{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-    height: 20px;
-    padding: 5px;
-} */
-/* .resultEstTamDM,
-.resultEstMedDM{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 20px;
-}
-.resultEstDM,
-.resultEstRango{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 40px;
-} */
-/* .resultHerrNecBas {
-    width: 125px;
-    height: 30px;
-} */
-/* .resultHerrNecBas {
-    width: 294px;
-    height: 25px;
-} */
-/* textarea{
-    resize: none;
-} */
-/* .resultEstMedia,
-.resultEstMediana {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.resultEstModa {
-    text-align: center;
-    line-height: 40px;
-} */
-/* .resultEstModaCero {
-    text-align: center;
-} */
 .btnClear,
 .btnResult {
     width: 145px;
@@ -427,19 +349,6 @@ span {
     border-radius: 5px;
     border: 1px solid var(--naranja);
 }
-.disableMode{
-    background-color: var(--blue);
-    color: var(--white);
-}
-/* .textAreaCl {
-    border: 1px solid var(--grey);
-    padding: 10px;
-    border-radius: 5px;
-    width: 278px;
-    height: 50px;
-    font-size: 15px;
-    font-weight: 700;
-} */
 .resultColor {
     background-color: var(--background_linear_2);
     color: var(--white);

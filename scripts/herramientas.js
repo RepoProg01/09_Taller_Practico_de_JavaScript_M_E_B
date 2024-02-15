@@ -42,12 +42,10 @@ function borrar(){
     // ---- Limpieza de valor de sectionHerramiddle ----
     sectionHerramiddle.innerHTML = "";
     labelArea.innerHTML = "";
-    // textarea.value = "";
-    // textarea.disabled = false;
-    // textarea.classList.remove("resultColor");
-
+    pResultSuelNet.value = "";
+    pResultSuelNet.disabled = false;
+    pResultSuelNet.classList.remove("resultColor");
     contSectHerrBottom.innerHTML = "";
-    herrBottomA.innerHTML = "";
     // ---- Borrado de clases y abilitar botones ----
     btnResultHerr.classList.remove(btnResultHerrReg);
     btnClearHerr.classList.remove(btnClearHerrReg);
@@ -61,67 +59,38 @@ function borrar(){
 }
 //--- funciones para deshabilitar ventanas y botones de Area y Perimetro-----------------
 function disableOptions(){
-    winEstVar.disabled = true;
-    winEstVar.classList.add("resultColor");
-    if(varId == "media_y_mediana"){
-        pResultEstMedia.classList.remove("resultColor");
-        pResultEstMediana.classList.remove("resultColor");
+    if(varId == "regla_503020_cal"){
+        pResultSuelNet.disabled = true;
+        pResultSuelNet.classList.add("resultColor");
+        winNesBas.classList.remove("resultColor");
+        winGasPer.classList.remove("resultColor");
+        winAhoInv.classList.remove("resultColor");
     }else if(varId == "moda_cal"){
-        taResultEstModa.classList.remove("resultColor");
-    }else if(varId == "rango_cal"){
-        pResultEstTam.classList.remove("resultColor");
-        pResultEstMax.classList.remove("resultColor");
-        pResultEstMin.classList.remove("resultColor");
-        pResultEstRango.classList.remove("resultColor");
-    }else if(varId == "desviación_media_cal"){
-        pResultEstTamDM.classList.remove("resultColor");
-        pResultEstMedDM.classList.remove("resultColor");
-        pResultEstDM.classList.remove("resultColor");
+        
     };
     btnResultHerr.disabled = true;
     btnResultHerr.classList.remove("btnResult");
     btnResultHerr.classList.add("btnInactive");
 }
 //--- funciones para limpiar y habilitar radios ventanas y botones ----------------------
-function clearEstOpt(){
-    winEstVar.disabled = false;
-    winEstVar.value = "";
-    winEstVar.classList.remove("resultColor");
+function clearHerrOpt(){
     habilitarIntercambiar();
     labelArea.innerHTML = "";
-
-    if(varId == "media_y_mediana"){
+    if(varId == "regla_503020_cal"){
         mensajeInsertarValores();
-        pResultEstMedia.innerHTML = ""; 
-        pResultEstMediana.innerHTML = ""; 
-        pResultEstMedia.classList.add("resultColor");
-        pResultEstMediana.classList.add("resultColor");
+        pResultSuelNet.disabled = false;
+        pResultSuelNet.value = "";
+        pResultSuelNet.classList.remove("resultColor");
+        winNesBas.innerHTML = ""; 
+        winGasPer.innerHTML = ""; 
+        winAhoInv.innerHTML = ""; 
+        winNesBas.classList.add("resultColor");
+        winGasPer.classList.add("resultColor");
+        winAhoInv.classList.add("resultColor");
     }
     else if(varId == "moda_cal"){
-        mensajeInsertarValoresM();
-        taResultEstModa.value = ""; 
-        taResultEstModa.classList.add("resultColor");
-    }
-    else if(varId == "rango_cal"){
-        mensajeInsertarValores();
-        pResultEstTam.innerHTML = "";
-        pResultEstMax.innerHTML = "";
-        pResultEstMin.innerHTML = "";
-        pResultEstRango.innerHTML = ""; 
-        pResultEstTam.classList.add("resultColor");
-        pResultEstMax.classList.add("resultColor");
-        pResultEstMin.classList.add("resultColor");
-        pResultEstRango.classList.add("resultColor");
-    }
-    else if(varId == "desviación_media_cal"){
-        mensajeInsertarValores();
-        pResultEstTamDM.innerHTML = "";
-        pResultEstMedDM.innerHTML = "";
-        pResultEstDM.innerHTML = "";
-        pResultEstTamDM.classList.add("resultColor");
-        pResultEstMedDM.classList.add("resultColor");
-        pResultEstDM.classList.add("resultColor");
-    }
+
+    };
     pTitlesHerramienta.classList.remove("titleImg");
 };
 function habilitarIntercambiar(){
@@ -131,25 +100,13 @@ function habilitarIntercambiar(){
 };
 //----Funcion asignaciones --------------------------------------------------------------
 function asignacionesWindows(){
-    winEstVar = document.querySelector("#textAreaId");
-    if(varId == "media_y_mediana"){
-        pResultEstMedia = document.querySelector(".resultEstMedia");
-        pResultEstMediana = document.querySelector(".resultEstMediana");
+    if(varId == "regla_503020_cal"){
+        winNesBas = document.querySelector(".resultHerrNecBas");
+        winGasPer = document.querySelector(".resultHerrGasPer");
+        winAhoInv = document.querySelector(".resultHerrAhoInv");
     }
     else if(varId == "moda_cal"){
-        taResultEstModa = document.querySelector(".resultEstModa");
-        taResultEstModa.disabled = true;
-    }
-    else if(varId == "rango_cal"){
-        pResultEstTam = document.querySelector(".resultEstTam");
-        pResultEstMax = document.querySelector(".resultEstMax");
-        pResultEstMin = document.querySelector(".resultEstMin");
-        pResultEstRango = document.querySelector(".resultEstRango");
-    }
-    else if(varId == "desviación_media_cal"){
-        pResultEstTamDM = document.querySelector(".resultEstTamDM");
-        pResultEstMedDM = document.querySelector(".resultEstMedDM");
-        pResultEstDM = document.querySelector(".resultEstDM");
+
     };
 };
 //----Funciones mensajes-----------------------------------------------------------------
@@ -172,7 +129,7 @@ function mensajeResultadoExitosoMM(){
     labelArea.innerHTML = "Calculación de Media y Mediana<br>con éxito";
 };
 function mensajeResultadoExitosoRango(){
-    labelArea.innerHTML = "Calculación de Rango<br>con éxito";
+    labelArea.innerHTML = "Calculación de Regla 503020<br>con éxito";
 };
 function mensajeResultadoExitosoDm(){
     labelArea.innerHTML = "Calculación de Desviación Media<br>con éxito";
@@ -262,30 +219,24 @@ function renderFigura(objeto){
          
         if(objeto.id == "regla_503020_cal"){
 
-            const titleSuelNet = document.createElement("label");
             titleSuelNet.innerHTML = objeto.titleLabSN;
             titleSuelNet.setAttribute("for", "suelNet");
             titleSuelNet.classList.add("titleResults");
 
-            // const pResultSuelNetReg = objeto.resultSN;
-            const pResultSuelNet = document.createElement("input");
-
             pResultSuelNet.setAttribute("type", "number");
             pResultSuelNet.setAttribute("id", "suelNet");
             pResultSuelNet.classList.add(objeto.resultSN);
-
 
             const containerRes1 = document.createElement("div");
             containerRes1.classList.add("contPResult");
             containerRes1.append(titleSuelNet, pResultSuelNet);
             contSectHerrBottom.append(containerRes1);
 
-
             objeto.windowHerr.forEach(winExit =>{
                 const titleNecBas = document.createElement("p");
                 titleNecBas.innerHTML = winExit.titleW;
                 titleNecBas.classList.add("titleResults");
-                const pResultReg = winExit.resultEst;
+                const pResultReg = winExit.resultHerr;
                 const pResultHerr = document.createElement("p");
                 pResultHerr.classList.add("winStyle", "resultColor", pResultReg);
                 const containerRes = document.createElement("div");
@@ -311,21 +262,21 @@ function renderFigura(objeto){
             });
             mensajeInsertarValoresM();
         };
-        btnClearHerrReg = objeto.btn2ClEst;
+        btnClearHerrReg = objeto.btn2ClHerr;
         btnClearHerr.classList.add("btnClear", btnClearHerrReg);
         btnClearHerr.innerHTML = "Borrar";
     
-        btnResultHerrReg = objeto.btnClEst;
+        btnResultHerrReg = objeto.btnClHerr;
         btnResultHerr.classList.add("btnResult", btnResultHerrReg);
         btnResultHerr.innerHTML = "Resultado";
     
-        btnClearHerr.removeEventListener("click", rutaFEstClear);
-        rutaFEstClear = (eval(objeto.clearWindowEst));
-        btnClearHerr.addEventListener("click", rutaFEstClear);
+        btnClearHerr.removeEventListener("click", rutaFHerrClear);
+        rutaFHerrClear = (eval(objeto.clearWindowHerr));
+        btnClearHerr.addEventListener("click", rutaFHerrClear);
     
-        btnResultHerr.removeEventListener("click", rutaFEst);
-        rutaFEst = (eval(objeto.funcionHerr));
-        btnResultHerr.addEventListener("click", rutaFEst);
+        btnResultHerr.removeEventListener("click", rutaFHerr);
+        rutaFHerr = (eval(objeto.funcionHerr));
+        btnResultHerr.addEventListener("click", rutaFHerr);
     
         sectionEstbottom.classList.add("sectionEstbottom");
         sectionEstbottom.append(contSectHerrBottom, btnClearHerr, btnResultHerr);
@@ -344,149 +295,50 @@ function renderFigura(objeto){
     document.documentElement.scrollTop = 0;
 };
 // ------------------------ Operaciones -----------------------------------------------------
-// ------------- Estadistica Media Mediana Moda ------------------------------------------
-// --- funciones de operaciones logicas ---
-// function promedio(arrayString){
-//     // --- Creando un nuevo array cambiando los strings a numbers ---
-//     const arrayNum = [];
-//     arrayString.forEach(element => {
-//         arrayNum.push(Number(element));
-//     });
-//     const suma = arrayNum.reduce((add,num) => add+=num);
-//     const cantidad = arrayNum.length;
-//     const resPromedio = suma / cantidad;
-//     return resPromedio;
-// }
-// function mediana(arrayString){
-//     const arrayNum = [];
-//     arrayString.forEach(element => {
-//         arrayNum.push(Number(element));
-//     });
-//     const orden = arrayNum.sort((a,b) => a-b);
-//     const cantidad = arrayNum.length;
-
-//     let resMediana;
-//     if(cantidad % 2 == 0){
-//         const mitadP = cantidad / 2;
-//         resMediana = (orden[mitadP - 1] + orden[mitadP]) / 2;
-//     }else{
-//         const mitadI = (cantidad - 1) / 2;
-//         resMediana = orden[mitadI];
-//     }
-//     return resMediana;
-// }
-// function moda(arrayString){
-//     // --- Creando un objeto con los elementos y cuantas veces se repiten cada uno ---
-//     const objDuplicados = arrayString.reduce((a,i) => (a[i] ? a[i] += 1 : a[i] = 1, a),{});
-//     // --- Comvirtiendo el objeto a un array de arrays ---
-//     const objArray = Object.entries(objDuplicados);
-//     // --- Ordenando de mayor a menor el array de arrays respecto a el numero de repeticiones ---
-//     objArray.sort((a,b) => b[1]-a[1]);
-//     // --- creando un nuevo array de arrays con solo el o los que tienen el valor mas alto ---
-//     const arrayFiltrado = [];
-//     let vt = 1;
-//     objArray.forEach(rep => {
-//         if(rep[1] > vt){
-//            arrayFiltrado.push([rep[0],rep[1]]);
-//            vt = (rep[1]-1);
-//         } 
-//     });
-//     return arrayFiltrado;
-// };
-// function rango(arrayString){
-//     const arrayNum = [];
-//     arrayString.forEach(element => {
-//         arrayNum.push(Number(element));
-//     });
-//     arrayNum.sort((a,b) => b - a);
-//     const tam = arrayNum.length;
-//     const max = arrayNum[0];
-//     const min = arrayNum[(tam - 1)];
-//     const resRango = max - min;
-//     return {
-//         "tamano": tam,
-//         "maxima": max,
-//         "minima": min,
-//         "resultRango": resRango
-//     };
-// }
-// function desviacionMedia(arrayString){
-//     const arrayNum = [];
-//     arrayString.forEach(element => {
-//         arrayNum.push(Number(element));
-//     });
-//     const tam = arrayNum.length;
-//     const media = promedio(arrayString);
-//     // --- ---
-//     const arrayAbs = [];
-//     arrayNum.forEach(element => {
-//         const numAbs = Math.abs(element - media);
-//         arrayAbs.push(Number(numAbs));
-//     })
-//     // --- ---
-//     const addAbs = arrayAbs.reduce((a,b) => a += b);
-//     const resDM = addAbs/tam;
-//     return {
-//         "tamano": tam,
-//         "media": media,
-//         "resDM": resDM
-//     }
-// }
 //--- funciones calculadoras ---
 function herr503020(){
-    if(!(textarea.value == "")){
+    if(!(pResultSuelNet.value == "")){
         // --- Expresion regular solo numeros puntos y comas son aceptados ---
         var regex = /^[0-9]+(?:\.[0-9]+)?(?:,[0-9]+(?:\.[0-9]+)?)*$/;
-        if(regex.test(textarea.value)){
-            // --- Obteniendo datos de ventana de entrada como un solo strig ---
-            const infoWinModa = textarea.value;
-            // --- Separando cada valor del string y poniendolo en un array ---
-            const arrayString = infoWinModa.split(",");
-            // --- variable con info en objeto ---
-            const objRango = rango(arrayString);
+        if(regex.test(pResultSuelNet.value)){
+            // --- Obteniendo datos de ventana de entrada  ---
+            const infoWinSN = Number(pResultSuelNet.value);
             // --- resultados ---
-            const tam = objRango["tamano"];
-            const max = objRango["maxima"];
-            const min = objRango["minima"];
-            const resRng = objRango["resultRango"];
+            const necBas = infoWinSN * 50 / 100;
+            const gasPer = infoWinSN * 30 / 100;
+            const ahoInv = infoWinSN * 20 / 100;
             // --- impresion --- 
-            pResultEstTam.innerHTML = formato(tam);
-            pResultEstMax.innerHTML = formato(max.toFixed(2));
-            pResultEstMin.innerHTML = formato(min.toFixed(2));
-            pResultEstRango.innerHTML = formato(resRng.toFixed(2));
-
+            winNesBas.innerHTML = `$  ${formato(necBas.toFixed(2))}`;
+            winGasPer.innerHTML = `$  ${formato(gasPer.toFixed(2))}`;
+            winAhoInv.innerHTML = `$  ${formato(ahoInv.toFixed(2))}`;
             disableOptions();
             mensajeResultadoExitosoRango();
         }else{
-            mensajeSoloNum();
+             mensajeSoloNum();
         };
     }else{
         mensajeInsertarValores();
     }
 };
 function herrCapEnd(){
-    if(!(textarea.value == "")){
+    if(!(pResultSuelNet.value == "")){
         // --- Expresion regular solo numeros puntos y comas son aceptados ---
         var regex = /^[0-9]+(?:\.[0-9]+)?(?:,[0-9]+(?:\.[0-9]+)?)*$/;
-        if(regex.test(textarea.value)){
-            // --- Obteniendo datos de ventana de entrada como un solo strig ---
-            const infoWinModa = textarea.value;
-            // --- Separando cada valor del string y poniendolo en un array ---
-            const arrayString = infoWinModa.split(",");
-            // --- variable con info en objeto ---
-            const desMedObj = desviacionMedia(arrayString);
+        if(regex.test(pResultSuelNet.value)){
+            // --- Obteniendo datos de ventana de entrada  ---
+            const infoWinSN = Number(pResultSuelNet.value);
             // --- resultados ---
-            const tam = desMedObj["tamano"];
-            const med = desMedObj["media"];
-            const resDM = desMedObj["resDM"];
-            // --- impresion ---
-            pResultEstTamDM.innerHTML = formato(tam);
-            pResultEstMedDM.innerHTML = formato(med.toFixed(2));
-            pResultEstDM.innerHTML = formato(resDM.toFixed(2));
+            const necBas = infoWinSN * 50 / 100;
+            const gasPer = infoWinSN * 30 / 100;
+            const ahoInv = infoWinSN * 20 / 100;
+            // --- impresion --- 
+            winNesBas.innerHTML = `$  ${formato(necBas.toFixed(2))}`;
+            winGasPer.innerHTML = `$  ${formato(gasPer.toFixed(2))}`;
+            winAhoInv.innerHTML = `$  ${formato(ahoInv.toFixed(2))}`;
             disableOptions();
-            mensajeResultadoExitosoDm();
+            mensajeResultadoExitosoRango();
         }else{
-            mensajeSoloNum();
+             mensajeSoloNum();
         };
     }else{
         mensajeInsertarValores();
@@ -528,60 +380,26 @@ const pHerramienta = document.createElement("p");
 // -------------------------------- sectionHerramiddle ---------------------------------------
 const sectionHerramiddle = document.createElement("section");
 const divEntryWin = document.createElement("div");
-
 // -------------------------------- sectionEstbottom ---------------------------------------
 const sectionEstbottom = document.createElement("section");
 const contSectHerrBottom = document.createElement("div");
-const herrBottomA = document.createElement("div");
-
-const contPResultEstMedia = document.createElement("div");
-const contPResultEstMediana = document.createElement("div");
-const contPResultEstModa = document.createElement("div");
-const contPResultEstTam = document.createElement("div");
-const contPResultEstMax = document.createElement("div");
-const contPResultEstMin = document.createElement("div");
-const contPResultEstRango = document.createElement("div");
-const titleResultEstMedia = document.createElement("p");
-const titleResultEstMediana = document.createElement("p");
-const titleResultEstModa = document.createElement("p");
-
-const titleResultEstTam = document.createElement("p");
-const titleResultEstMax = document.createElement("p");
-const titleResultEstMin = document.createElement("p");
-
-const titleResultEstRango = document.createElement("p");
-const titleResultEstDesviacionMedia = document.createElement("p");
-
-const pResultEstDesviacionMedia = document.createElement("p");
-
 const btnResultHerr = document.createElement("button");
 const btnClearHerr = document.createElement("button");
-
 const labelArea = document.createElement("p");
 const textarea = document.createElement("textarea");
+// --- ---
+const titleSuelNet = document.createElement("label");
+const pResultSuelNet = document.createElement("input");
 
+let winNesBas;
+let winGasPer;
+let winAhoInv;
+// --- ---
 let btnClearHerrReg;
 let btnResultHerrReg;
 
-let rutaFEst;
-let rutaFEstClear;
-// --- ---
-let winEstVar = null;
-
-let pResultEstMedia = null;
-let pResultEstMediana = null;
-
-let taResultEstModa = null;
-
-let pResultEstTam = null;
-let pResultEstMax = null;
-let pResultEstMin = null;
-let pResultEstRango = null;
-
-let pResultEstTamDM = null;
-let pResultEstMedDM = null;
-let pResultEstDM = null;
-
+let rutaFHerr;
+let rutaFHerrClear;
 // --- Variable de identificacion de figura ----------------------------------------------
 let varId = "";
 renderIntroduccion();
