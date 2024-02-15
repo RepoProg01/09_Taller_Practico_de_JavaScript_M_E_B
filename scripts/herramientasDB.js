@@ -45,22 +45,26 @@ const regla503020Obj = {
 };
 const capDeEndeudObj = {
     definicion: "on",
-    id: "moda_cal",
-    titleMM: "Instrucciones",
-    imgMM: "../assets/calculadora_moda.png",
+    id: "cap_endeudamiento_cal",
+    titleHerr: "Instrucciones",
+    imgHerr: "../assets/endeudamiento_cal.png",
 
-    titleMM2: "Moda",
-    titleMMSub: "Calculadora",
-    windowMod: [
+    titleHerr2: "Capacidad Endeudamiento",
+    titleHerrSub: "Calculadora",
+    titleLabIT: "Ingresos Totales",
+    resultIT: "resultHerrIngTot",
+    titleLabGF: "Gastos Fijos",
+    resultGF: "resultHerrGasFij",
+    windowHerr: [
         {
-            titleW: "Moda",
-            resultEst: "resultEstModa",
+            titleW: "Cap Endeudamiento",
+            resultHerr: "resultHerrCapEnd",
         }
     ],
-    btnClEst: "btnResultEst",
-    btn2ClEst: "btnClearEst",
-    funcionEst: "estModa",
-    clearWindowEst: "clearEstOpt",
+    btnClHerr: "btnResultHerr",
+    btn2ClHerr: "btnClearHerr",
+    funcionHerr: "herr503020",
+    clearWindowHerr: "clearHerrOpt",
 };
 // -- Definiciones --
 const regla503020DefObj = {
@@ -74,7 +78,7 @@ const regla503020DefObj = {
 };
 const capDeEndeudDefObj = {
     definicion: "off",
-    id: "capacidad_endeudamiento",
+    id: "cap_endeudamiento",
     titleHerr: "Capacidad Endeudamiento",
     titleHerr2: "Procedimiento",
     imgHerr: "../assets/endeudamiento_top.png",
@@ -85,7 +89,7 @@ const capDeEndeudDefObj = {
 herramientasArray.push(introHerramientas);
 // --- Calculadoras ---
 herramientasArray.push(regla503020Obj);
-// herramientasArray.push(capDeEndeudObj);
+herramientasArray.push(capDeEndeudObj);
 // --- Definiciones ---
 herramientasArray.push(regla503020DefObj);
 herramientasArray.push(capDeEndeudDefObj);

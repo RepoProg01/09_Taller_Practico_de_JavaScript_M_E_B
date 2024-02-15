@@ -184,6 +184,7 @@ function renderIntroduccion(){
 function renderFigura(objeto){
     borrar();
     varId = objeto.id;
+    console.log( varId);
 
     containerHerramienta.appendChild(containerResponsive);
     containerResponsive.classList.add("containerResponsive");
@@ -218,15 +219,12 @@ function renderFigura(objeto){
         contSectHerrBottom.classList.add("contSectHerrBottom");
          
         if(objeto.id == "regla_503020_cal"){
-
             titleSuelNet.innerHTML = objeto.titleLabSN;
             titleSuelNet.setAttribute("for", "suelNet");
             titleSuelNet.classList.add("titleResults");
-
             pResultSuelNet.setAttribute("type", "number");
             pResultSuelNet.setAttribute("id", "suelNet");
             pResultSuelNet.classList.add(objeto.resultSN);
-
             const containerRes1 = document.createElement("div");
             containerRes1.classList.add("contPResult");
             containerRes1.append(titleSuelNet, pResultSuelNet);
@@ -247,20 +245,42 @@ function renderFigura(objeto){
             mensajeInsertarValores();
         };
         // ----Top middle------------------------------------------------------------------------   
-        if(objeto.id == "moda_cal"){
-            objeto.windowMod.forEach(winExit =>{
-                const titlePMod = document.createElement("p");
-                titlePMod.innerHTML = winExit.titleW;
-                titlePMod.classList.add("titleResults");
-                const pResultReg = winExit.resultEst;
-                // const taResultMod = document.createElement("textarea");
-                taResultMod.classList.add("winStyle", "resultColor", pResultReg);
-                const containerMod = document.createElement("div");
-                containerMod.classList.add("contPResult");
-                containerMod.append(titlePMod, taResultMod);
-                contSectHerrBottom.append(containerMod);
+        if(objeto.id == "cap_endeudamiento_cal"){
+            titleIngTot.innerHTML = objeto.titleLabIT;
+            titleIngTot.setAttribute("for", "ingrTot");
+            titleIngTot.classList.add("titleResults");
+            pResultIngTot.setAttribute("type", "number");
+            pResultIngTot.setAttribute("id", "ingrTot");
+            pResultIngTot.classList.add(objeto.resultIT, "winStyle");
+
+            titleGasFij.innerHTML = objeto.titleLabGF;
+            titleGasFij.setAttribute("for", "gasFij");
+            titleGasFij.classList.add("titleResults");
+            pResultGasFij.setAttribute("type", "number");
+            pResultGasFij.setAttribute("id", "gasFij");
+            pResultGasFij.classList.add(objeto.resultGF, "winStyle");
+
+            const containerRes1 = document.createElement("div");
+            const containerRes2 = document.createElement("div");
+            containerRes1.classList.add("contPResult");
+            containerRes2.classList.add("contPResult");
+            containerRes1.append(titleIngTot, pResultIngTot);
+            containerRes2.append(titleGasFij, pResultGasFij);
+            contSectHerrBottom.append(containerRes1, containerRes2);
+
+            objeto.windowHerr.forEach(winExit =>{
+                const titleCapEnd = document.createElement("p");
+                titleCapEnd.innerHTML = winExit.titleW;
+                titleCapEnd.classList.add("titleResults");
+                const pResultReg = winExit.resultHerr;
+                const pResultHerr = document.createElement("p");
+                pResultHerr.classList.add("winStyle", "resultColor", pResultReg);
+                const containerRes = document.createElement("div");
+                containerRes.classList.add("contPResult");
+                containerRes.append(titleCapEnd, pResultHerr);
+                contSectHerrBottom.append(containerRes);
             });
-            mensajeInsertarValoresM();
+            mensajeInsertarValores();
         };
         btnClearHerrReg = objeto.btn2ClHerr;
         btnClearHerr.classList.add("btnClear", btnClearHerrReg);
@@ -390,14 +410,21 @@ const textarea = document.createElement("textarea");
 // --- ---
 const titleSuelNet = document.createElement("label");
 const pResultSuelNet = document.createElement("input");
-
 let winNesBas;
 let winGasPer;
 let winAhoInv;
 // --- ---
+const titleIngTot = document.createElement("label");
+const pResultIngTot = document.createElement("input");
+
+const titleGasFij = document.createElement("label");
+const pResultGasFij = document.createElement("input");
+
+let winCapEnd;
+// --- ---
 let btnClearHerrReg;
 let btnResultHerrReg;
-
+// --- ---
 let rutaFHerr;
 let rutaFHerrClear;
 // --- Variable de identificacion de figura ----------------------------------------------
