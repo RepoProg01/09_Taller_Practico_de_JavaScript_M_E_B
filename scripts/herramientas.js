@@ -309,9 +309,9 @@ function renderFigura(objeto){
         rutaFHerr = (eval(objeto.funcionHerr));
         btnResultHerr.addEventListener("click", rutaFHerr);
     
-        sectionEstbottom.classList.add("sectionEstbottom");
-        sectionEstbottom.append(contSectHerrBottom, btnClearHerr, btnResultHerr);
-        divCalculadora.append(sectionHerrtop, sectionHerramiddle, sectionEstbottom);
+        sectionHerrbottom.classList.add("sectionHerrbottom");
+        sectionHerrbottom.append(contSectHerrBottom, btnClearHerr, btnResultHerr);
+        divCalculadora.append(sectionHerrtop, sectionHerramiddle, sectionHerrbottom);
     }
     else if(objeto.definicion == "off"){
         pTitlesHerramienta.classList.add("titleImg");
@@ -403,8 +403,8 @@ const pHerramienta = document.createElement("p");
 // -------------------------------- sectionHerramiddle ---------------------------------------
 const sectionHerramiddle = document.createElement("section");
 const divEntryWin = document.createElement("div");
-// -------------------------------- sectionEstbottom ---------------------------------------
-const sectionEstbottom = document.createElement("section");
+// -------------------------------- sectionHerrbottom ---------------------------------------
+const sectionHerrbottom = document.createElement("section");
 const contSectHerrBottom = document.createElement("div");
 const btnResultHerr = document.createElement("button");
 const btnClearHerr = document.createElement("button");

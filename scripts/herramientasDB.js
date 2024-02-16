@@ -26,7 +26,7 @@ const regla503020Obj = {
     resultSN: "resultHerrSuelNet",
     windowHerr: [
         {
-            titleW: "Necesidades Basicas $",
+            titleW: "Neces. Basicas $",
             resultHerr: "resultHerrNecBas",
         },
         {
@@ -34,7 +34,7 @@ const regla503020Obj = {
             resultHerr: "resultHerrGasPer",
         },
         {
-            titleW: "Ahorro o Inversión $",
+            titleW: "Ahorro Inversión $",
             resultHerr: "resultHerrAhoInv",
         }
     ],
@@ -51,13 +51,13 @@ const capDeEndeudObj = {
 
     titleHerr2: "Endeudamiento",
     titleHerrSub: "Calculadora",
-    titleLabIT: "Ingresos Totales",
+    titleLabIT: "Ingresos Totales $",
     resultIT: "resultHerrIngTot",
-    titleLabGF: "Gastos Fijos",
+    titleLabGF: "Gastos Fijos $",
     resultGF: "resultHerrGasFij",
     windowHerr: [
         {
-            titleW: "Endeudamiento",
+            titleW: "Endeudamiento $",
             resultHerr: "resultHerrCapEnd",
         }
     ],
