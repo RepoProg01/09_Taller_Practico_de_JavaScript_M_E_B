@@ -26,7 +26,7 @@ const regla503020Obj = {
     resultSN: "resultHerrSuelNet",
     windowHerr: [
         {
-            titleW: "Neces. Basicas $",
+            titleW: "Necesidades Bas. $",
             resultHerr: "resultHerrNecBas",
         },
         {
