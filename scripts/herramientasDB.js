@@ -16,25 +16,25 @@ const introHerramientas = {
 // -- Calculadoras --
 const regla503020Obj = {
     definicion: "on",
-    id: "regla_503020_cal",
+    id: "regla_50-30-20_cal",
     titleHerr: "Instrucciones",
     imgHerr: "../assets/503020_cal.png",
 
-    titleHerr2: "Regla 503020",
+    titleHerr2: "Regla 50-30-20",
     titleHerrSub: "Calculadora",
-    titleLabSN: "Sueldo Neto",
+    titleLabSN: "Sueldo Neto $",
     resultSN: "resultHerrSuelNet",
     windowHerr: [
         {
-            titleW: "Necesidades Basicas",
+            titleW: "Necesidades Basicas $",
             resultHerr: "resultHerrNecBas",
         },
         {
-            titleW: "Gastos Personales",
+            titleW: "Gastos Personales $",
             resultHerr: "resultHerrGasPer",
         },
         {
-            titleW: "Ahorro o Inversión",
+            titleW: "Ahorro o Inversión $",
             resultHerr: "resultHerrAhoInv",
         }
     ],
@@ -45,11 +45,11 @@ const regla503020Obj = {
 };
 const capDeEndeudObj = {
     definicion: "on",
-    id: "cap_endeudamiento_cal",
+    id: "endeudamiento_cal",
     titleHerr: "Instrucciones",
     imgHerr: "../assets/endeudamiento_cal.png",
 
-    titleHerr2: "Capacidad Endeudamiento",
+    titleHerr2: "Endeudamiento",
     titleHerrSub: "Calculadora",
     titleLabIT: "Ingresos Totales",
     resultIT: "resultHerrIngTot",
@@ -57,19 +57,19 @@ const capDeEndeudObj = {
     resultGF: "resultHerrGasFij",
     windowHerr: [
         {
-            titleW: "Cap Endeudamiento",
+            titleW: "Endeudamiento",
             resultHerr: "resultHerrCapEnd",
         }
     ],
     btnClHerr: "btnResultHerr",
     btn2ClHerr: "btnClearHerr",
-    funcionHerr: "herr503020",
+    funcionHerr: "herrCapEnd",
     clearWindowHerr: "clearHerrOpt",
 };
 // -- Definiciones --
 const regla503020DefObj = {
     definicion: "off",
-    id: "regla_503020",
+    id: "regla_50-30-20",
     titleHerr: "Definición 503020",
     titleHerr2: "Procedimiento",
     imgHerr: "../assets/503020_Top.png",
@@ -78,8 +78,8 @@ const regla503020DefObj = {
 };
 const capDeEndeudDefObj = {
     definicion: "off",
-    id: "cap_endeudamiento",
-    titleHerr: "Capacidad Endeudamiento",
+    id: "endeudamiento",
+    titleHerr: "Endeudamiento",
     titleHerr2: "Procedimiento",
     imgHerr: "../assets/endeudamiento_top.png",
     imgMM2: "../assets/endeudamiento_bottom.png",

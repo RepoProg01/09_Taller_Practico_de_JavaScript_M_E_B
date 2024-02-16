@@ -42,9 +42,18 @@ function borrar(){
     // ---- Limpieza de valor de sectionHerramiddle ----
     sectionHerramiddle.innerHTML = "";
     labelArea.innerHTML = "";
+    // --- ---
     pResultSuelNet.value = "";
     pResultSuelNet.disabled = false;
     pResultSuelNet.classList.remove("resultColor");
+    // --- ---
+    pResultIngTot.value = "";
+    pResultIngTot.disabled = false;
+    pResultIngTot.classList.remove("resultColor");
+    pResultGasFij.value = "";
+    pResultGasFij.disabled = false;
+    pResultGasFij.classList.remove("resultColor");
+    // --- ---
     contSectHerrBottom.innerHTML = "";
     // ---- Borrado de clases y abilitar botones ----
     btnResultHerr.classList.remove(btnResultHerrReg);
@@ -59,14 +68,18 @@ function borrar(){
 }
 //--- funciones para deshabilitar ventanas y botones de Area y Perimetro-----------------
 function disableOptions(){
-    if(varId == "regla_503020_cal"){
+    if(varId == "regla_50-30-20_cal"){
         pResultSuelNet.disabled = true;
         pResultSuelNet.classList.add("resultColor");
         winNesBas.classList.remove("resultColor");
         winGasPer.classList.remove("resultColor");
         winAhoInv.classList.remove("resultColor");
-    }else if(varId == "moda_cal"){
-        
+    }else if(varId == "endeudamiento_cal"){
+        pResultIngTot.disabled = true;
+        pResultIngTot.classList.add("resultColor");
+        pResultGasFij.disabled = true;
+        pResultGasFij.classList.add("resultColor");
+        winCapEnd.classList.remove("resultColor");
     };
     btnResultHerr.disabled = true;
     btnResultHerr.classList.remove("btnResult");
@@ -76,8 +89,9 @@ function disableOptions(){
 function clearHerrOpt(){
     habilitarIntercambiar();
     labelArea.innerHTML = "";
-    if(varId == "regla_503020_cal"){
+    if(varId == "regla_50-30-20_cal"){
         mensajeInsertarValores();
+        pResultSuelNet.setAttribute("type", "number");
         pResultSuelNet.disabled = false;
         pResultSuelNet.value = "";
         pResultSuelNet.classList.remove("resultColor");
@@ -88,8 +102,18 @@ function clearHerrOpt(){
         winGasPer.classList.add("resultColor");
         winAhoInv.classList.add("resultColor");
     }
-    else if(varId == "moda_cal"){
-
+    else if(varId == "endeudamiento_cal"){
+        mensajeInsertarValoresCE();
+        pResultIngTot.setAttribute("type", "number");
+        pResultIngTot.disabled = false;
+        pResultIngTot.value = "";
+        pResultIngTot.classList.remove("resultColor");
+        pResultGasFij.setAttribute("type", "number");
+        pResultGasFij.disabled = false;
+        pResultGasFij.value = "";
+        pResultGasFij.classList.remove("resultColor");
+        winCapEnd.innerHTML = ""; 
+        winCapEnd.classList.add("resultColor");
     };
     pTitlesHerramienta.classList.remove("titleImg");
 };
@@ -100,42 +124,31 @@ function habilitarIntercambiar(){
 };
 //----Funcion asignaciones --------------------------------------------------------------
 function asignacionesWindows(){
-    if(varId == "regla_503020_cal"){
+    if(varId == "regla_50-30-20_cal"){
         winNesBas = document.querySelector(".resultHerrNecBas");
         winGasPer = document.querySelector(".resultHerrGasPer");
         winAhoInv = document.querySelector(".resultHerrAhoInv");
     }
-    else if(varId == "moda_cal"){
-
+    else if(varId == "endeudamiento_cal"){
+        winCapEnd = document.querySelector(".resultHerrCapEnd");
     };
 };
 //----Funciones mensajes-----------------------------------------------------------------
 function mensajeInsertarValores(){
     labelArea.innerHTML = "Introduce Sueldo Neto<br>para aplicar la regla";
 };
+function mensajeResultadoExitosoRegla(){
+    labelArea.innerHTML = "Calculación de Regla 50-30-20<br>con éxito";
+};
 function mensajeSoloNum(){
-    labelArea.innerHTML = "Solo números separados por<br>comas sin espacios son permitidos";
+    labelArea.innerHTML = "Solo números mayores<br>a 0 son permitidos";
 };
-function mensajeInsertarValoresM(){
-    labelArea.innerHTML = "Introduce caracteres separados<br>por una coma ( , ) y sin espacios";
+// --- ---
+function mensajeInsertarValoresCE(){
+    labelArea.innerHTML = "Introduce Ingresos Totales para<br>la Capacidad de Endeudamiento";
 };
-function mensajeSoloCarac(){
-    labelArea.innerHTML = "Orden debe ser caracter separado<br>por una coma y sin espacios";
-};
-function mensajeSinDuplicados(){
-    labelArea.innerHTML = "No existe Moda ya que no se<br>encontraron Duplicados";
-};
-function mensajeResultadoExitosoMM(){
-    labelArea.innerHTML = "Calculación de Media y Mediana<br>con éxito";
-};
-function mensajeResultadoExitosoRango(){
-    labelArea.innerHTML = "Calculación de Regla 503020<br>con éxito";
-};
-function mensajeResultadoExitosoDm(){
-    labelArea.innerHTML = "Calculación de Desviación Media<br>con éxito";
-};
-function mensajeResultadoExitosoModa(){
-    labelArea.innerHTML = "Calculación de Moda<br>con éxito";
+function mensajeResultadoExitosoCE(){
+    labelArea.innerHTML = "Calculación de Capacidad de<br>Endeudamiento con éxito";
 };
 //----Funcion formato-------------------------------------------------
 const formato = (number) => {
@@ -184,8 +197,6 @@ function renderIntroduccion(){
 function renderFigura(objeto){
     borrar();
     varId = objeto.id;
-    console.log( varId);
-
     containerHerramienta.appendChild(containerResponsive);
     containerResponsive.classList.add("containerResponsive");
     // -- Top Container ---
@@ -218,7 +229,7 @@ function renderFigura(objeto){
         sectionHerramiddle.append(divEntryWin);
         contSectHerrBottom.classList.add("contSectHerrBottom");
          
-        if(objeto.id == "regla_503020_cal"){
+        if(objeto.id == "regla_50-30-20_cal"){
             titleSuelNet.innerHTML = objeto.titleLabSN;
             titleSuelNet.setAttribute("for", "suelNet");
             titleSuelNet.classList.add("titleResults");
@@ -245,7 +256,7 @@ function renderFigura(objeto){
             mensajeInsertarValores();
         };
         // ----Top middle------------------------------------------------------------------------   
-        if(objeto.id == "cap_endeudamiento_cal"){
+        if(objeto.id == "endeudamiento_cal"){
             titleIngTot.innerHTML = objeto.titleLabIT;
             titleIngTot.setAttribute("for", "ingrTot");
             titleIngTot.classList.add("titleResults");
@@ -280,7 +291,7 @@ function renderFigura(objeto){
                 containerRes.append(titleCapEnd, pResultHerr);
                 contSectHerrBottom.append(containerRes);
             });
-            mensajeInsertarValores();
+            mensajeInsertarValoresCE();
         };
         btnClearHerrReg = objeto.btn2ClHerr;
         btnClearHerr.classList.add("btnClear", btnClearHerrReg);
@@ -317,52 +328,44 @@ function renderFigura(objeto){
 // ------------------------ Operaciones -----------------------------------------------------
 //--- funciones calculadoras ---
 function herr503020(){
-    if(!(pResultSuelNet.value == "")){
-        // --- Expresion regular solo numeros puntos y comas son aceptados ---
-        var regex = /^[0-9]+(?:\.[0-9]+)?(?:,[0-9]+(?:\.[0-9]+)?)*$/;
-        if(regex.test(pResultSuelNet.value)){
-            // --- Obteniendo datos de ventana de entrada  ---
-            const infoWinSN = Number(pResultSuelNet.value);
-            // --- resultados ---
-            const necBas = infoWinSN * 50 / 100;
-            const gasPer = infoWinSN * 30 / 100;
-            const ahoInv = infoWinSN * 20 / 100;
-            // --- impresion --- 
-            winNesBas.innerHTML = `$  ${formato(necBas.toFixed(2))}`;
-            winGasPer.innerHTML = `$  ${formato(gasPer.toFixed(2))}`;
-            winAhoInv.innerHTML = `$  ${formato(ahoInv.toFixed(2))}`;
-            disableOptions();
-            mensajeResultadoExitosoRango();
-        }else{
-             mensajeSoloNum();
-        };
+    if(pResultSuelNet.value > 0){
+        // --- Obteniendo datos de ventana de entrada  ---
+        const infoWinSN = Number(pResultSuelNet.value);
+        // --- resultados ---
+        const necBas = infoWinSN * 50 / 100;
+        const gasPer = infoWinSN * 30 / 100;
+        const ahoInv = infoWinSN * 20 / 100;
+        // --- impresion --- 
+        pResultSuelNet.removeAttribute("type", "number");
+        pResultSuelNet.value = formato(infoWinSN.toFixed(2));
+        winNesBas.innerHTML = formato(necBas.toFixed(2));
+        winGasPer.innerHTML = formato(gasPer.toFixed(2));
+        winAhoInv.innerHTML = formato(ahoInv.toFixed(2));
+        disableOptions();
+        mensajeResultadoExitosoRegla();
     }else{
-        mensajeInsertarValores();
-    }
+            mensajeSoloNum();
+    };
 };
 function herrCapEnd(){
-    if(!(pResultSuelNet.value == "")){
-        // --- Expresion regular solo numeros puntos y comas son aceptados ---
-        var regex = /^[0-9]+(?:\.[0-9]+)?(?:,[0-9]+(?:\.[0-9]+)?)*$/;
-        if(regex.test(pResultSuelNet.value)){
-            // --- Obteniendo datos de ventana de entrada  ---
-            const infoWinSN = Number(pResultSuelNet.value);
-            // --- resultados ---
-            const necBas = infoWinSN * 50 / 100;
-            const gasPer = infoWinSN * 30 / 100;
-            const ahoInv = infoWinSN * 20 / 100;
-            // --- impresion --- 
-            winNesBas.innerHTML = `$  ${formato(necBas.toFixed(2))}`;
-            winGasPer.innerHTML = `$  ${formato(gasPer.toFixed(2))}`;
-            winAhoInv.innerHTML = `$  ${formato(ahoInv.toFixed(2))}`;
-            disableOptions();
-            mensajeResultadoExitosoRango();
-        }else{
-             mensajeSoloNum();
-        };
+    if(pResultIngTot.value > 0 && pResultGasFij.value > 0){
+        // --- Obteniendo datos de ventana de entrada  ---
+        const infoWinIT = Number(pResultIngTot.value);
+        const infoWinGF = Number(pResultGasFij.value);
+        // --- resultados ---
+        const opRest = infoWinIT - infoWinGF;
+        const opMult = opRest * 0.35;
+        // --- impresion --- 
+        pResultIngTot.removeAttribute("type", "number");
+        pResultIngTot.value = formato(infoWinIT.toFixed(2));
+        pResultGasFij.removeAttribute("type", "number");
+        pResultGasFij.value = formato(infoWinGF.toFixed(2));
+        winCapEnd.innerHTML = formato(opMult.toFixed(2));
+        disableOptions();
+        mensajeResultadoExitosoCE();
     }else{
-        mensajeInsertarValores();
-    }
+            mensajeSoloNum();
+    };
 };
 // ================================= Constantes =========================================
 // =========================== Constantes Container fig =================================
@@ -407,19 +410,17 @@ const btnResultHerr = document.createElement("button");
 const btnClearHerr = document.createElement("button");
 const labelArea = document.createElement("p");
 const textarea = document.createElement("textarea");
-// --- ---
+// --- regla 50-30-20 ---
 const titleSuelNet = document.createElement("label");
 const pResultSuelNet = document.createElement("input");
 let winNesBas;
 let winGasPer;
 let winAhoInv;
-// --- ---
+// --- capacidad de endeudamiento ---
 const titleIngTot = document.createElement("label");
 const pResultIngTot = document.createElement("input");
-
 const titleGasFij = document.createElement("label");
 const pResultGasFij = document.createElement("input");
-
 let winCapEnd;
 // --- ---
 let btnClearHerrReg;
